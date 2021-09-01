@@ -1,0 +1,69 @@
+{
+	"groups": [
+		{
+			"keys": "loadingbg_jpg,loadprogress_png,loadprogressbg_png,black_png,waitloading_png,cardBackSheet_json,9w_png,di_png",
+			"name": "preload"
+		},
+		{
+			"keys": "roombg_jpg",
+			"name": "room"
+		},
+		{
+			"keys": "gamebg_jpg",
+			"name": "game"
+		}
+	],
+	"resources": [
+		{
+			"url": "assets/room/roombg.jpg",
+			"type": "image",
+			"name": "roombg_jpg"
+		},
+		{
+			"url": "assets/game/gamebg.jpg",
+			"type": "image",
+			"name": "gamebg_jpg"
+		},
+		{
+			"name": "loadingbg_jpg",
+			"type": "image",
+			"url": "assets/loading/loadingbg.jpg"
+		},
+		{
+			"name": "loadprogress_png",
+			"type": "image",
+			"url": "assets/loading/loadprogress.png"
+		},
+		{
+			"name": "loadprogressbg_png",
+			"type": "image",
+			"url": "assets/loading/loadprogressbg.png"
+		},
+		{
+			"name": "black_png",
+			"type": "image",
+			"url": "assets/loading/black.png"
+		},
+		{
+			"name": "waitloading_png",
+			"type": "image",
+			"url": "assets/loading/waitloading.png"
+		},
+		{
+			"name": "cardBackSheet_json",
+			"type": "sheet",
+			"url": "assets/game/cardBackSheet.json",
+			"subkeys": "card_act_UA3,card_act_UA4,card_hand_D,card_hand_L,card_hand_U,card_hu_D,card_hu_L,card_hu_U,card_pool_D11,card_pool_D12,card_pool_D13,card_pool_D21,card_pool_D22,card_pool_D23,card_pool_D31,card_pool_D32,card_pool_D33,card_pool_L1,card_pool_L2,card_pool_L3,card_pool_U11,card_pool_U12,card_pool_U13,card_pool_U21,card_pool_U22,card_pool_U23,card_pool_U31,card_pool_U32,card_pool_U33,card_act_D1,card_act_D2,card_act_D3,card_act_D4,card_act_DA1,card_act_DA2,card_act_DA3,card_act_DA4,card_act_L,card_act_LA,card_act_U1,card_act_U2,card_act_U3,card_act_U4,card_act_UA1,card_act_UA2"
+		},
+		{
+			"name": "9w_png",
+			"type": "image",
+			"url": "assets/game/9w.png"
+		},
+		{
+			"name": "di_png",
+			"type": "image",
+			"url": "assets/game/di.png"
+		}
+	]
+}

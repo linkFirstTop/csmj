@@ -1,0 +1,12 @@
+{
+	"skins": {
+		"RoomUI": "resource/eui_skins/room/RoomUI.exml",
+		"GameUI": "resource/eui_skins/game/GameUI.exml"
+	},
+	"autoGenerateExmlsList": true,
+	"exmls": [
+		"resource/eui_skins/game/GameUI.exml",
+		"resource/eui_skins/room/RoomUI.exml"
+	],
+	"path": "resource/default.thm.json"
+}

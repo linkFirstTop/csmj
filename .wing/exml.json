@@ -1,0 +1,12 @@
+{
+    "17b52e58b21": {
+        "path": "room\\RoomUI.ts",
+        "class": "RoomUI",
+        "parentPath": ""
+    },
+    "17b53470599": {
+        "path": "game\\GameUI.ts",
+        "class": "GameUI",
+        "parentPath": ""
+    }
+}

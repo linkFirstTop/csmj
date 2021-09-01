@@ -1,0 +1,42 @@
+﻿package message ;
+//----------------------------------------------------------------------
+// 消息号起始
+//----------------------------------------------------------------------
+
+//心跳请求
+//#define VGID_HEART_BEAT				VGID_CLIENT + 0x0000		//心跳消息
+message VGHeartBeatReq
+{
+	 optional int64 time = 1;
+}
+
+//心跳应答
+message VGHeartBeatAck
+{
+	 optional int64 time = 1;
+}
+
+//登录请求
+//#define VGID_ROOM_LOGIN				VGID_CLIENT + 0x0001		//订阅
+message VGLoginReq
+{
+	optional  string ticket	 			= 1;	// 用户token
+	optional  int32 game_type	 		= 2;	// 游戏ID
+}
+
+//登录应答
+message VGLoginAck
+{
+	optional int32  result   			= 1;	// 0：成功 ，其他：错误码
+}
+
+// 广播通知
+//#define VGID_NOTIFYMSG				VGID_CLIENT + 0x0002		//广播通知
+message NotifyMsgNtc
+{
+	optional int32  msg_type 	 = 1;   // 通知类型 1.特殊2.推荐3.同类
+	optional int32	game_type 	 = 2;	// 通知的游戏ID
+	optional string	title 	 	 = 3;	// 消息标题
+	optional string	content 	 = 4;   // 消息内容
+	optional string	createTime 	 = 5;	// 创建时间
+}
