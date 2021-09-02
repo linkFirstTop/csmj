@@ -1,0 +1,14 @@
+{"file":"resultSheet.png","frames":{
+"gameResult_continue_png":{"x":0,"y":286,"w":238,"h":102,"offX":0,"offY":0,"sourceW":238,"sourceH":102},
+"gameResult_icon_east_png":{"x":474,"y":325,"w":36,"h":48,"offX":0,"offY":0,"sourceW":36,"sourceH":48},
+"gameResult_icon_north_png":{"x":427,"y":325,"w":45,"h":41,"offX":0,"offY":0,"sourceW":45,"sourceH":41},
+"gameResult_icon_south_png":{"x":427,"y":368,"w":40,"h":45,"offX":0,"offY":0,"sourceW":40,"sourceH":45},
+"gameResult_icon_west_png":{"x":469,"y":375,"w":40,"h":39,"offX":0,"offY":0,"sourceW":40,"sourceH":39},
+"heText_png":{"x":241,"y":0,"w":234,"h":123,"offX":0,"offY":0,"sourceW":234,"sourceH":123},
+"loseClose_png":{"x":397,"y":225,"w":96,"h":98,"offX":0,"offY":0,"sourceW":96,"sourceH":98},
+"loseText_png":{"x":0,"y":0,"w":239,"h":122,"offX":0,"offY":0,"sourceW":239,"sourceH":122},
+"resultHead0_png":{"x":236,"y":125,"w":159,"h":159,"offX":0,"offY":0,"sourceW":159,"sourceH":159},
+"resultHead1_png":{"x":240,"y":286,"w":131,"h":130,"offX":0,"offY":0,"sourceW":131,"sourceH":130},
+"winClose_png":{"x":397,"y":125,"w":96,"h":98,"offX":0,"offY":0,"sourceW":96,"sourceH":98},
+"winText_png":{"x":0,"y":124,"w":234,"h":122,"offX":0,"offY":0,"sourceW":234,"sourceH":122},
+"zhuangText_png":{"x":373,"y":325,"w":52,"h":57,"offX":0,"offY":0,"sourceW":52,"sourceH":57}}}

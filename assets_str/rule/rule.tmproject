@@ -1,0 +1,28 @@
+{
+    "options": {
+        "layoutGap": 1,
+        "extend": 0,
+        "layoutMath": "3",
+        "sizeMode": "free",
+        "useExtension": 1
+    },
+    "files": [
+        "./sggb.png",
+        "./sgdcx2.png",
+        "./sgdcx1.png",
+        "./ruleTop.png",
+        "./ruleButtonUp.png",
+        "./ruleButtonDown.png",
+        "./ruleButton.png",
+        "./pxsf2.png",
+        "./pxsf1.png",
+        "./pxdx2.png",
+        "./pxdx1.png",
+        "./pfgz2.png",
+        "./pfgz1.png",
+        "./jbgz2.png",
+        "./jbgz1.png"
+    ],
+    "projectName": "rule",
+    "version": 5
+}

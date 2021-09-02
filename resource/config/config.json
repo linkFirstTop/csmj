@@ -1,0 +1,5 @@
+{
+    "api":"clientapi/API",
+    "recordAPI":"/report/reportapi/api/gamerecord.jsp",
+    "cheakGame":"/clientapi/API/ResetUser"
+}

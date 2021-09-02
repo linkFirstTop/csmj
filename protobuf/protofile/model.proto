@@ -1,0 +1,301 @@
+package proto;
+
+option java_outer_classname = "ModelProto";
+
+
+message Server {
+	required int32 type   = 1;
+	optional string ip     = 2;
+	optional int32 port   = 3;
+	optional string domain = 4;
+}
+
+message KVPair {
+	optional int64 key  = 1;
+	optional int64 lVal = 2;
+	optional string sVal = 3;
+}
+
+message Countdown {
+  required int32 playCard      = 1;//打牌考虑时间 单位：秒
+  required int32 guanpai          = 2;//吃碰杠胡考虑时间 单位：秒
+}
+
+message Room {
+	required int32 id        = 1;//ID
+	required int64 mapId     = 2;//映射ID
+	required string name      = 3;//名称
+	optional string icon      = 4;//图标
+	optional int32 type      = 5;//类型 0:非必出 1:必出
+	optional int32 level     = 6;//等级
+	optional int64 baseScore = 7;//底分
+	repeated int64 limit     = 8;//下标0:最小准入限制 1:最大准入限制 2:最小踢出 3:最大踢出
+	optional string describes = 9;//描述信息
+	repeated Server servers  = 10;//服务器信息
+	optional int64 taifen    = 11;//台分
+}
+
+
+message User {
+	required int64 userId   = 1;//用户ID
+	required string nickName = 2;//昵称
+	optional string avatar   = 3;//头像
+	optional int64 goldCoin = 4;//金币
+	optional int32 status   = 5;//0:正常 1:断线
+}
+
+
+message Chair {
+	required int32 seatNo    = 1;//座位号
+	optional User user       = 2;//用户信息 无值:空位
+	optional int32 status    = 3;//座位状态 0:未准备 1:准备 2:托管
+}
+
+message ReconnectPlayerInfo{
+    required int32 seatNo   = 1;//座位号
+    repeated CardInfo cards     = 2;//手牌 0:背牌 其他:牌值
+    repeated CardInfo discard   = 3;//打出的牌
+    optional int32 position  = 4;//风位 东南西北 0123
+    repeated CardInfo huapai    = 5;//花牌
+    repeated CardsGroup patterns = 6;//摆牌区 打出去的吃碰杠
+    optional CardInfo lastCard  = 7;    //最后摸到的那张牌
+    optional int32 ting     = 8;// 1 听
+}
+
+message MahjongPattern {
+    required int32 type = 1;    // 牌型 1 顺子 2 刻子 3 补杠 4 暗杠 5 明杠
+    repeated CardInfo cards = 2;   //
+}
+
+message Table {
+	required string tableId    	 = 1;//牌桌ID
+	required int32 roomId		 = 2;//房间ID
+	required int32 roomLevel  	 = 3;//房间等级
+	optional int32 type          = 4;//类型 0:非必出 1:必出
+	optional string tableName  	 = 5;//牌桌名称
+	required string roundId 			 = 6;//牌局ID
+	required int64 baseScore     = 7;//底分
+	required int32 gamePhase  	 = 8;//牌桌阶段 0:等待玩家 1:准备 2:发牌 3:发牌动画 4:游戏 5:结算
+	repeated Chair chairs		 = 9;//椅子信息
+	required Countdown countdown = 10;//倒计时配置
+}
+
+
+////////////////////////////////////////////////////
+// 游戏流程记录
+////////////////////////////////////////////////////
+message Player {
+	required int32 seatNo 	 		= 1;//座位号
+	required int64 userId 	 		= 2;//用户ID
+	required int32 userType  		= 3;//用户类型 0:机器人 1:玩家
+	required string userName  		= 4;//用户名
+	optional string nickName  		= 5;//昵称
+	optional string avatar    		= 6;//头像信息
+	optional string channel  		= 7;//渠道信息
+	optional string proxy     		= 8;//代理信息
+	optional string group        = 9;//分组信息
+	optional string userIp		 		= 10;//用户IP
+	repeated int32 handCards 	 	= 11;//手牌
+	repeated int32 surplusCards = 12;//未打出手牌
+	optional int32 bombCount    = 13;//结算炸弹数
+	required int64 initChips 		= 14;//初始筹码数
+	optional int64 winChips  		= 15;//净输赢值：负数：输 正数：赢
+	optional int64 endChips  		= 16;//结束筹码
+}
+
+message Action {
+  required int32 type   	 = 1;//类型: 0:发手牌 1:出牌
+  optional int32 seatNo 	 = 2;//座位号
+  repeated int32 data   	 = 3;//动作数据
+	optional int64 timestamp = 4;//动作时间戳
+}
+
+message GameVCR {
+	required int32 roomId  	  = 1;//房间ID
+	required int32 roomLevel  = 2;//房间等级
+	optional int32 type       = 3;//类型 0:非必出 1:必出
+	required string tableId 	  = 4;//牌桌ID
+	required string roundId 	  = 5;//牌局ID
+	required int64 beginTime  = 6;//开始时间
+	required int64 endTime    = 7;//结束时间
+	required int32 dealer     = 8;//庄家位
+	optional int64 baseScore  = 9;//底注
+	repeated Player players   = 10;//游戏玩家信息
+	repeated Action actions   = 11;//游戏流程信息
+}
+
+//手牌对象
+message CardInfo
+{
+	//牌的信息用0x的十六进制表示，其中第一个数字表示牌类型，第二个数字表示排序号，第三个数字用来区别四张一样的牌
+	//具体牌信息：
+	//万牌              条牌              饼牌
+	//0x001 -- 1万  0x101 -- 1条  0x201 -- 1饼
+	//0x011 -- 2万  0x111 -- 2条  0x211 -- 2饼
+	//0x021 -- 3万  0x121 -- 3条  0x221 -- 3饼
+	//0x031 -- 4万  0x131 -- 4条  0x231 -- 4饼
+	//0x041 -- 5万  0x141 -- 5条  0x241 -- 5饼
+	//0x051 -- 6万  0x151 -- 6条  0x251 -- 6饼
+	//0x061 -- 7万  0x161 -- 7条  0x261 -- 7饼
+	//0x071 -- 8万  0x171 -- 8条  0x271 -- 8饼
+	//0x081 -- 9万  0x181 -- 9条  0x281 -- 9饼
+	//风牌：
+	//  0x301 -- 东风  0x311 -- 南风  0x321 -- 西风  0x331 -- 北风
+	//刻牌：
+	//  0x401 -- 红中  0x411 -- 绿发  0x421 -- 白板
+	//花牌：
+	//  0x501 -- 梅
+	//  0x511 -- 兰
+	//  0x521 -- 竹
+	//  0x531 -- 菊
+	//  0x601 -- 春
+	//  0x611 -- 夏
+	//  0x621 -- 秋
+	//  0x631 -- 冬
+	//牌背0x0
+	required int32 CardID = 1;
+	optional int32 Sit = 2;
+	//其他...
+}
+
+message HandCards {
+    required int32 seat = 1;    //座位号
+    repeated CardInfo cards = 2;//手牌
+	optional CardInfo huCard = 3;//胡的那张牌
+}
+
+//牌组类型（一组牌+类型  例如123万+吃  说明这一组是吃的牌  如果是单张出牌1万 则数组中只有1万+正常打牌）
+message CardsGroup
+{
+	required int32 Sit = 1;//操作者的座位号
+	required int32 Type = 2;//类型
+	repeated CardInfo Cards = 3;//牌组  如果是出牌则数组中只有一张牌
+
+//********************考虑是否拆分
+	//如果是吃、碰、杠、胡则以下值需要读取或者写入
+	optional CardInfo ObtainCard  = 4;//需要吃碰杠胡的那一张牌
+	optional int32 ObtainCardSit  = 5;//被吃碰杠胡的那个人的座位号
+	//其他.......
+}
+
+//番种和番数
+message MahjongFanNumType
+{
+	required int32 FanNum = 1;//番种MahjongFanName
+	required int32 FanType = 2;//番数
+	repeated CardInfo Cards = 3;//牌组 对应番种的牌型数据
+	//其他.......
+}
+
+//听牌索引
+message TingCard
+{
+	required int32 FanType		 = 1;						//番型
+	required int32 CardIndex	 = 2;						//牌AI索引川麻0-27
+}
+
+// 听牌信息
+message MahjongCallInfo
+{
+	required int32			 ObtainCardIndex	 = 1;		// 要打的那张牌AI索引川麻0-27
+	repeated TingCard		 CallCards			 = 2;		// 听的牌
+}
+
+//结算页面的大致信息
+message PlayerResultInfo
+{
+	required string				username		    = 1;	//用户名
+	optional int32				seat			    = 2;	//座位号
+	optional int32				fantype				= 3;	//主番番种
+	optional int32				wintype				= 4;	//0 没胡  1胡了  2自摸
+	optional int32				max_fan				= 5;	//最大番数
+	optional int32				gameCoin		    = 6;	//输赢后的金币总值
+	optional int32				Coin			    = 7;	//当前输赢金币
+	optional int32				feeCoin			    = 8;	//玩家抽水的金币
+	repeated ScoreDescDetail	result_list_detail	= 9;	//详细结算列表
+	repeated CardsGroup			handCards		    = 10;	//玩家手牌数组
+}
+
+//详情
+message ScoreDescDetail
+{
+	optional int32 type		   = 1;			//得分类型	1刮风 2下雨 3自摸 4胡  5花猪  6大叫 7呼叫转移 8补杠 9退税
+	optional int32 fannum	   = 2;			//番数值
+	optional int32 score	   = 3;			//具体得分
+	optional int32 obtainsit   = 4;			//目标座位
+	optional int32 selfseat    = 5;			//自己座位
+	repeated int32 score_change= 6;			//这一次得分中四家的分数变化
+	repeated int32 fan_zhong   = 7;			//如果是胡牌的话 这里面有番种
+	repeated int32 fan_num	   = 8;			//如果是胡牌的话  这里面是和番种对应的番数
+	optional int32 huCardID	   = 9;			//胡的牌的ID号
+}
+
+//玩家基本信息
+message PlayerInfo
+{
+	optional string UserName = 1;//玩家名称
+	optional string UsershowName = 2;	// 玩家显示名
+	optional string UserImage = 3;//玩家头像
+	optional int32 UserSit = 4;//玩家座位    0东 1南 2西 3北
+	optional int32 Integral = 5;//玩家积分
+	optional int64 Coin = 6;//玩家豆子/金币等货币
+	optional Rank NowLevel = 7;//玩家等级/段位
+	optional Rank HisLevel = 8;	//历史玩家等级/段位
+	optional int32 Stage = 9; // 当前阶段 1.常规赛，2.晋级赛，3.定级赛
+	optional int32 Ranking = 10;	// 排名
+	optional int32 WinIntegral = 11; // 胜利分
+	optional int32 TotalNum = 12;//总盘数
+	optional int32 ReadyNum = 13;//听牌数
+	optional int32 HuNum = 14;//和牌
+	optional int32 GunNum = 15;//点炮
+	optional int32 ZimoNum = 16;//自摸
+	optional int32 Sex = 17;//性别   0女  1男
+	optional bool  IsMember = 18;//是否会员
+	optional Rank HistoryMaxLevel = 19;   // 历史最高等级（目前表示的是上赛季最终的等级）
+	optional int32 Average_Rank = 20;      //平均名次
+	optional int32 Openingrate = 21;     //副露率(副露率+门清=100%)
+	optional int32 Round2_rank1=22;      //2圈的1位率
+	optional int32 Round2_rank2=23;      //2圈的2位率
+	optional int32 Round2_rank3=24;      //2圈的3位率
+	optional int32 Round2_rank4=25;      //2圈的4位率
+	optional int32 Round4_rank1=26;      //4圈的1位率
+	optional int32 Round4_rank2=27;      //4圈的2位率
+	optional int32 Round4_rank3=28;      //4圈的3位率
+	optional int32 Round4_rank4=29;      //4圈的4位率
+	optional int32  SocietyContributionValue=30;    //公会贡献值
+	optional int32  SocietyPracticeType =31;        //公会练习赛模式（1圈，2圈，4圈）
+	optional int32  SocietyPracticeFirstCount=32;   //公会练习赛1圈的总参赛场次
+	optional int32  SocietyPracticeSecondCount=33;  //公会练习赛2圈的总参赛场次
+	optional int32  SocietyPracticeFourCount=34;    //公会练习赛4圈的总参赛场次
+//	optional int32  societyname=35;                 //公会名字
+//	optional int32  tableid=36;                     //开始游戏后玩家所在的桌号
+}
+
+//段位
+message Rank
+{
+	required int32 duan = 1;//段位
+	required int32 xing = 2;//星位
+}
+
+message Seat {
+	required int32 seatNo     = 1; //座位号
+	required int64 userId     = 2; //用户ID
+	optional int32 type       = 3; //账号类型: 0:机器人 1:真人
+	optional int32 state      = 4; //0:正常 1:小黑屋 2:异常
+	optional string userName   = 5;
+	optional string channel		= 6;
+	optional string proxy			= 7;
+	optional string group      = 8;
+	optional string nickName   = 9;
+	optional string avatar     = 10;
+	required int64 chips      = 11; //开始前余额
+	optional int32 style      = 12; //风格
+	optional int32 ability    = 13; //能力
+	repeated int32 attributes = 14; //
+
+	optional int64 money = 15;//输赢额
+	optional int64 curChips = 16;//当前余额
+	optional bool kickOut = 17;//是否踢出
+	optional int64 serviceMoney = 18;   //服务费
+}

@@ -116,14 +116,12 @@ module GameConfig {
 
 	//当前游戏宽度
 	export function curWidth():number{ 
-		let w:number = egret.MainContext.instance.stage.stageWidth == 0 ? 1920 : egret.MainContext.instance.stage.stageWidth;
-		return w;
+		return egret.MainContext.instance.stage.stageWidth;
 	}
 
 	//当前游戏宽度
 	export function curHeight():number{ 
-		let h:number = egret.MainContext.instance.stage.stageHeight == 0 ? 1080 : egret.MainContext.instance.stage.stageHeight;
-		return h;
+		return egret.MainContext.instance.stage.stageHeight;
 	}
 
 	//是横屏还是竖屏

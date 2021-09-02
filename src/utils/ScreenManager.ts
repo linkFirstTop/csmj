@@ -18,6 +18,9 @@ class ScreenManager {
 		var browserType:string = "";
 		if (ua.indexOf("AppleWebKit") > -1) {
 			browserType = "Sarfari";
+			/*if (screen.width > 375) {
+				browserType = "PlusSafari";
+			}*/
 		}
 		if (ua.indexOf("MQQBrowser") > -1) {
 			browserType = "IOSQQBrowser";
@@ -50,7 +53,7 @@ class ScreenManager {
 		}
 		return browserType;
 	} 
-	private changeSize():void{
+	private windowResizeHandler(evt: any): void {
 		if (window.innerHeight > window.innerWidth) {
 			ScreenManager._baseUI.scaleY = 1;
 			window.scrollTo(0,0);
@@ -65,34 +68,6 @@ class ScreenManager {
 			else {
 				ScreenManager._baseUI.scaleY = window.innerHeight/document.documentElement.clientHeight;
 				window.scrollTo(0,0);
-			}
-		}
-	}
-	private windowResizeHandler(evt: any): void {
-		if(window.parent == window){//独立页面
-			this.changeSize();
-		}else{//嵌入
-			if(egret.getOption("showHall") == ""){//其他渠道嵌入(跨域，不能调用window.parent)
-				this.changeSize();
-			}else{//大厅打开 同一个域名，可以用
-				if (window.parent.innerHeight > window.parent.innerWidth) {
-					ScreenManager._baseUI.scaleX = ScreenManager._baseUI.scaleY = 1;
-					ScreenManager._baseUI.x = 0;
-					window.scrollTo(0,0);
-					return;
-				}else {
-					if (window.parent.innerHeight >= window.parent.document.documentElement.clientHeight) {
-						ScreenManager._baseUI.scaleX = ScreenManager._baseUI.scaleY = 1;
-						ScreenManager._baseUI.x = 0;
-						window.scrollTo(0,0);
-						return;
-					}else {
-						let scale:number = Number((window.parent.innerHeight/window.parent.document.documentElement.clientHeight).toFixed(2));
-						ScreenManager._baseUI.scaleX = ScreenManager._baseUI.scaleY = scale;
-						ScreenManager._baseUI.x = (GameConfig.curWidth()-GameConfig.curWidth()*scale)/2;
-						window.scrollTo(0,0);
-					}
-				}
 			}
 		}
 	}

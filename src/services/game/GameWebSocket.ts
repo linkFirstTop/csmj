@@ -7,7 +7,6 @@ module game {
 		private isConnected: boolean = false;//是否已经连接
 		private interval:number;				//心跳延迟
 		private intervalConnect:number;			//重连服务器延迟
-		private strRoomIP:string = "";
 		public static instance(): game.GameWebSocket{
 			if(game.GameWebSocket.ins != null) {
 				
@@ -43,16 +42,15 @@ module game {
 		}
 		public connectSocket():void{
 			if(!this.isConnected){
-				Global.log("链接游戏服务");
-				this.strRoomIP = Global.arrSocket[Global.nCurrentSocket];
-				this.webSocket.connectByUrl(this.strRoomIP+"/gametype"+Global.gameID+"/game");
+				Global.gameIP = Global.arrSocket[Global.nCurrentSocket];
+				this.webSocket.connectByUrl(Global.gameIP+"/gametype"+Global.gameID+"/game");
 			}
 		}
 		public onSocketOpen(): void {
 			this.isConnected = true;
 			Global.log("game connect socket success");
 			this.startHeart();
-			//this.gameSender.ReqEnterGameFun();
+			this.gameSender.ReqEnterGameFun();
 		}
 		
 		//发送消息

@@ -1,0 +1,26 @@
+{
+    "options": {
+        "useExtension": 1,
+        "layoutGap": 1,
+        "extend": 0,
+        "layoutMath": "3",
+        "sizeMode": "free"
+    },
+    "files": [
+        "./zhuangText.png",
+        "./winText.png",
+        "./winClose.png",
+        "./resultHead1.png",
+        "./resultHead0.png",
+        "./loseText.png",
+        "./loseClose.png",
+        "./heText.png",
+        "./gameResult_icon_west.png",
+        "./gameResult_icon_south.png",
+        "./gameResult_icon_north.png",
+        "./gameResult_icon_east.png",
+        "./gameResult_continue.png"
+    ],
+    "version": 5,
+    "projectName": "resultSheet"
+}

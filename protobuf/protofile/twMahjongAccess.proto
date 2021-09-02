@@ -1,0 +1,173 @@
+package proto;
+import "model.proto";
+option java_outer_classname="TwMahjongAccessProto";
+
+
+
+message RoomStatus {
+	required int32 id 				 = 1;//房间ID
+	required int32 playerCount = 2;//当前人数
+}
+
+
+////////////////////////////////////////////////////
+// 登录消息 MessageId.ACCESS.LOGIN
+////////////////////////////////////////////////////
+message ReqLogin {
+	optional int32 certType  = 1;//证书类型
+	optional string cert      = 2;//证书
+	optional string nickName  = 3;//昵称
+	optional string avatar    = 4;//头像
+	optional int32 channelId = 5;//渠道号 0:正常渠道 1:CQ9
+	repeated KVPair kvList   = 6;//属性
+}
+
+message AckLogin {
+	required int32 result   	 = 1;//结果 0:正常 其他：错误码
+	optional int64 userId   	 = 2;//用户ID
+	optional string userName    = 3;//用户名
+	optional string nickName 	 = 4;//昵称
+	optional string avatar   	 = 5;//头像 
+	optional int64 goldCoin 	 = 6;//金币
+	optional int64 diamond  	 = 7;//钻石
+	optional int32 roomId			 = 8;//当前所在房间ID(断线续玩)
+	optional string tableId     = 9;//当前所在牌桌ID(断线续玩)
+	repeated KVPair properties = 10;//属性
+}
+
+
+////////////////////////////////////////////////////
+// 查询玩家金币 MessageId.ACCESS.QUERY_COIN
+////////////////////////////////////////////////////
+message ReqQueryCoin {
+	required int64 userId = 1;//用户ID
+}
+
+message AckQueryCoin {
+	required int32 result   = 1;
+	required int64 userId   = 2;//用户ID
+	optional int64 goldCoin = 3;//金币
+}
+
+
+////////////////////////////////////////////////////
+// 获取房间列表 MessageId.ACCESS.ROOM_LIST
+////////////////////////////////////////////////////
+message ReqRoomList {
+	required int64 userId = 1;//用户ID
+}
+
+message AckRoomList {
+	required int64 userId  		 = 1;//用户ID
+	repeated Room roomList 		 = 2;//房间列表
+	repeated RoomStatus status = 3;//房间状态
+}
+
+
+////////////////////////////////////////////////////
+// 获取房间状态 MessageId.ACCESS.ROOM_STATUS
+////////////////////////////////////////////////////
+message ReqRoomStatus {
+	required int64 userId = 1;//用户ID
+}
+
+message AckRoomStatus {
+	required int64 userId			 = 1;//用户ID
+	repeated RoomStatus status = 2;//房间状态
+}
+
+
+////////////////////////////////////////////////////
+// 获取账号状态 MessageId.ACCESS.ACCOUNT_AVAILABLE
+////////////////////////////////////////////////////
+message ReqAccountAvailable
+{
+	required int64 userId = 1;//用户ID
+}
+
+message AckAccountAvailable
+{
+	required int32 result    = 1;//0:成功 其他:错误码
+	required int64 userId    = 2;
+	optional int32 available = 3;//0:允许进入 1:不允许进去
+	optional int64 goldCoin  = 4;//当前金币数
+}
+
+
+////////////////////////////////////////////////////
+// 进入房间消息 MessageId.ROOM.ENTER_ROOM
+////////////////////////////////////////////////////
+message ReqEnterRoom {
+	required int64 userId   = 1;//用户ID
+	required int32 roomId   = 2;//房间ID
+	required int64 mapId    = 3;//房间映射ID
+	optional string tableId  = 4;//牌桌ID
+	optional int64 goldCoin = 5;//当前金币数
+	optional int32 type     = 6;//类型 0:首次进入 其他:roomid
+}
+
+message AckEnterRoom {
+	required int32 result  		= 1;//结果 0:正常 其他:错误码
+	required int64 userId  		= 2;//用户ID
+	required int32 roomId  		= 3;//房间ID
+	optional string tableId 		= 4;//牌桌ID
+	optional int64 tableMapId = 5;//牌桌映射ID
+	optional Server server    = 6;//游戏服务器信息
+	optional int32 type       = 7;//类型 0:首次进入 其他:roomid
+	optional int64 goldCoin   = 8;//玩家当前金币数
+}
+
+
+////////////////////////////////////////////////////
+// 退出房间消息 MessageId.ROOM.LEAVE_ROOM
+////////////////////////////////////////////////////
+message ReqLeaveRoom {
+	required int64 userId  = 1;//用户ID
+	required int32 roomId  = 2;//房间ID
+	required int64 mapId   = 3;//房间映射ID
+	optional string tableId = 4;//牌桌ID
+}
+
+message AckLeaveRoom {
+	required int32 result = 1;//结果 0:正常 其他:错误码
+	required int64 userId = 2;//用户ID
+	required int32 roomId = 3;//房间ID
+}
+
+
+////////////////////////////////////////////////////
+// 通知进桌消息 MessageId.ROOM.NOT_ENTERTABLE
+////////////////////////////////////////////////////
+message NotEnterTable {
+	required int32 roomId     = 1;//房间ID
+	required string tableId    = 2;//牌桌ID
+	required int64 tableMapId = 3;//牌桌映射ID
+}
+
+
+////////////////////////////////////////////////////
+// 获取行牌记录
+////////////////////////////////////////////////////
+message ResultRecord {
+	required int32 seatNo       = 1;
+	required string nickName     = 2;
+	optional int64 winChips     = 3;
+	optional int32 surplusCards = 4;
+	optional int32 bombCount    = 5;
+	optional int32 allOff       = 6;//全关状态 0:非 1:是
+}
+
+message ReqPlayingRecord {
+	required int64 userId  		= 1;//用户ID
+	required string roundId 		= 2;//牌局ID
+	optional string orderId 		= 3;//注单号
+	required int64 createTime = 4;//创建时间 单位：秒
+}
+
+message AckPlayingRecord {
+	required int32 result    			= 1;
+	required int64 userId    			= 2;//用户ID
+	required string roundId   			= 3;//牌局ID
+	optional int32 baseScore 			= 4;//底分
+	repeated ResultRecord records = 5;//
+}

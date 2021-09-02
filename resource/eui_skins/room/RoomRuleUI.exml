@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="RoomRuleUISkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" xmlns:ns1="*" >
+	<w:Config id="17139abb745" ></w:Config>
+	<e:Rect id="bgRect" width="100%" height="100%" fillColor="0x000000" alpha="0.5" />
+	<e:Group id="gContent" horizontalCenter="0" verticalCenter="0">
+		<e:Image source="rulebg_png" width="1635" height="973"/>
+		<ns1:BaseButton id="closeButton" icon="button_close_png" y="13" right="25" width="105" height="105"/>
+		<e:Image x="440" y="240.04" source="ruleTop_png" scale9Grid="4,4,28,28" width="1081"/>
+		<e:TabBar  x="484" y="192" id="tabBar">
+			<e:layout>
+				<e:HorizontalLayout gap="0"/>
+			</e:layout>
+			<e:itemRendererSkinName>
+				<e:Skin states="up,down" height="83" width="250">
+					<e:Image source.down="ruleButton_png" source.up=""/>
+					<e:Image horizontalCenter="0"  verticalCenter="-3" source.up="{data.up}" source.down="{data.down}" />
+				</e:Skin>
+			</e:itemRendererSkinName>
+			<e:ArrayCollection>
+				<e:Array>
+					<e:Object down="jbgz1_png" up="jbgz2_png"/>
+					
+					<e:Object down="pxdx1_png" up="pxdx2_png"/>
+					<e:Object down="pfgz1_png" up="pfgz2_png"/>
+					
+				</e:Array>
+			</e:ArrayCollection>
+		</e:TabBar>
+		
+		<e:Scroller id="scroller" x="433" y="298" height="530" width="1177">
+			<e:ViewStack  id="viewStack" selectedIndex="{tabBar.selectedIndex}">
+				
+				<e:Group name="g1">
+					<e:Image source="rule1_png"/>
+				</e:Group>
+				<e:Group name="g2">
+					<e:Image source="rule2_png"/>
+					
+				</e:Group>
+				<e:Group name="g3">
+					<e:Image source="rule3_png"/>
+					
+				</e:Group>
+			
+			
+				
+			</e:ViewStack>
+		</e:Scroller>
+		<e:Group x="47" y="192">
+			<e:Image source="ruleButtonUp_png" />
+			<e:Image source="sgdcx1_png" x="47" y="27"/>
+		</e:Group>
+	</e:Group>
+	
+</e:Skin>

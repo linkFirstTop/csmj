@@ -2,7 +2,6 @@ module comm {
 	export class Alert extends eui.Component implements eui.UIComponent{
 		public constructor() {
 			super();
-			this.skinName = "resource/eui_skins/Alert.exml";
 		}
 
 		protected partAdded(partName:string,instance:any):void

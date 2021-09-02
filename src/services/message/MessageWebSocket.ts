@@ -7,7 +7,7 @@ class MessageWebSocket {
 	private interval:number;				//心跳延迟
 	private intervalConnect:number;			//重连服务器延迟
 	private nCount:number = 0;
-	private strRoomIP:string = "";
+
 	public static instance(): MessageWebSocket{
         if(MessageWebSocket.ins != null) {
             
@@ -30,7 +30,7 @@ class MessageWebSocket {
 	}
 	public connectServer():void
     {
-        if (this.isConnected) {
+        if (this.isConnected||Global.istest) {
 			return;
 		}
         if (this.webSocket == null) {
@@ -45,8 +45,8 @@ class MessageWebSocket {
     }
 	public connectSocket():void{
 		if(!this.isConnected){
-			this.strRoomIP = Global.arrSocket[Global.nCurrentSocket];
-			this.webSocket.connectByUrl(this.strRoomIP+"/notify");
+			Global.roomIP = Global.arrSocket[Global.nCurrentSocket];
+			this.webSocket.connectByUrl(Global.roomIP+"/message");
 		}
 	}
     public onSocketOpen(): void {

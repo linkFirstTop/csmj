@@ -1,18 +1,18 @@
 module sound {
-	export class SoundManager extends BaseClass{
-		public static CLEAR_TIME:number = 3 * 60 * 1000;
-		private effect:SoundEffects;
-		private bg:SoundBg;
-		private effectOn:boolean;
-		private bgOn:boolean;
-		private currBg:string;
-		private bgVolume:number;
-		private effectVolume:number;
+	export class SoundManager extends BaseClass {
+		public static CLEAR_TIME: number = 3 * 60 * 1000;
+		private effect: SoundEffects;
+		private bg: SoundBg;
+		private effectOn: boolean;
+		private bgOn: boolean;
+		private currBg: string;
+		private bgVolume: number;
+		private effectVolume: number;
 
-		public isBgPlaying:boolean = false;
-		
+		public isBgPlaying: boolean = false;
+
 		public constructor() {
-           		super();
+			super();
 			this.bgOn = true;
 			this.effectOn = true;
 
@@ -30,7 +30,7 @@ module sound {
 		 * 播放音效
 		 * @param effectName
 		 */
-		public playEffect(effectName:string):void {
+		public playEffect(effectName: string): void {
 			if (!this.effectOn)
 				return;
 			this.effect.play(effectName);
@@ -40,7 +40,7 @@ module sound {
 		 * 播放背景音乐
 		 * @param key
 		 */
-		public playBg(bgName:string):void {
+		public playBg(bgName: string): void {
 			this.currBg = bgName;
 			if (!this.bgOn)
 				return;
@@ -51,7 +51,7 @@ module sound {
 		/**
 		 * 停止背景音乐
 		 */
-		public stopBg():void {
+		public stopBg(): void {
 			this.isBgPlaying = false;
 			this.bg.stop();
 		}
@@ -60,7 +60,7 @@ module sound {
 		 * 设置音效是否开启
 		 * @param $isOn
 		 */
-		public setEffectOn($isOn:boolean):void {
+		public setEffectOn($isOn: boolean): void {
 			this.effectOn = $isOn;
 		}
 
@@ -68,7 +68,7 @@ module sound {
 		 * 设置背景音乐是否开启
 		 * @param $isOn
 		 */
-		public setBgOn($isOn:boolean):void {
+		public setBgOn($isOn: boolean): void {
 			this.bgOn = $isOn;
 			if (!this.bgOn) {
 				this.stopBg();
@@ -78,7 +78,7 @@ module sound {
 				}
 			}
 		}
-		public getBgOn():boolean{
+		public getBgOn(): boolean {
 			return this.bgOn;
 		}
 
@@ -86,7 +86,7 @@ module sound {
 		 * 设置背景音乐音量
 		 * @param volume
 		 */
-		public setBgVolume(volume:number):void {
+		public setBgVolume(volume: number): void {
 			volume = Math.min(volume, 1);
 			volume = Math.max(volume, 0);
 			this.bgVolume = volume;
@@ -97,7 +97,7 @@ module sound {
 		 * 获取背景音乐音量
 		 * @returns {number}
 		 */
-		public getBgVolume():number {
+		public getBgVolume(): number {
 			return this.bgVolume;
 		}
 
@@ -105,7 +105,7 @@ module sound {
 		 * 设置音效音量
 		 * @param volume
 		 */
-		public setEffectVolume(volume:number):void {
+		public setEffectVolume(volume: number): void {
 			volume = Math.min(volume, 1);
 			volume = Math.max(volume, 0);
 			this.effectVolume = volume;
@@ -116,7 +116,7 @@ module sound {
 		 * 获取音效音量
 		 * @returns {number}
 		 */
-		public getEffectVolume():number {
+		public getEffectVolume(): number {
 			return this.effectVolume;
 		}
 

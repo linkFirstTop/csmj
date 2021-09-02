@@ -1,0 +1,266 @@
+package proto;
+import "model.proto";
+option java_outer_classname="TwMahjongGameProto";
+
+////////////////////////////////////////////////////
+// 进入牌桌/坐下消息
+////////////////////////////////////////////////////
+message ReqEnterTable {
+	required int64 userId     = 1;//用户ID
+	required string tableId 		= 2;//牌桌ID
+	required int64 tableMapId = 3;//牌桌映射ID
+	optional int64 goldCoin   = 4;//当前金币数
+	optional int32 seatNo     = 5[default=-1	];//位置号 无值：随机入座
+	extensions 100 to 200;
+}
+
+message AckEnterTable {
+  required int32 result  = 1;//结果 0:正常 其他:错误码
+  required int64 userId  = 2;//用户ID
+  required string tableId = 3;//牌桌ID
+  optional int32 seatNo  = 4[default=-1];//当前玩家位置号
+  optional Table table   = 5;//牌桌信息
+  optional int32 stage   = 6; //当前阶段 1 准备 2 补花 3 游戏 4 结算
+  optional int32 remainingSeconds = 7; //剩余时间 秒
+    optional ReconnectionInfo info = 8; //断线重连信息
+    optional Countdown countdown = 9;   //倒计时
+    optional string roundId = 10;    //牌局号
+  extensions 100 to 200;
+}
+
+message ReconnectionInfo {
+    repeated ReconnectPlayerInfo players = 1;   //玩家断线重连信息
+    optional int32 currentActionSeat = 2;       //当前执行操作的座位号
+    optional NotUserOperation operations = 3;   //玩家可执行操作
+    optional int32 banker = 4;                  //庄家座位号
+    optional int32 trust = 5;                   //托管状态 1 托管
+}
+
+////////////////////////////////////////////////////
+// 离开牌桌消息 MessageId.GAME.LEAVE_TABLE
+////////////////////////////////////////////////////
+message ReqLeaveTable {
+	required int64 userId     = 1;//用户ID
+	required string tableId 		= 2;//牌桌ID
+	required int64 tableMapId = 3;//牌桌映射ID
+	required string roundId      = 4;//牌局号
+	extensions 100 to 200;
+}
+
+message AckLeaveTable {
+	required int32 result  = 1;//结果 0:正常 其他:错误码
+	required int64 userId  = 2;//用户ID
+	required string tableId = 3;//牌桌ID
+	extensions 100 to 200;
+}
+
+
+////////////////////////////////////////////////////
+// 准备消息  MessageId.GAME.READY
+////////////////////////////////////////////////////
+message ReqReady {
+	required string tableId 	 	= 1;//牌桌ID
+	required int64 tableMapId = 2;//牌桌映射ID
+	required int32 seatNo  		= 3;//座位号
+	required int64 userId  		= 4;//玩家ID
+	required int32 status  		= 5;//0:取消准备 1：准备
+	required string roundId      = 6;//牌局号
+	extensions 100 to 200;
+}
+
+message AckReady {
+	required int32 result  = 1;
+	required int32 seatNo  = 2;
+	required int64 userId  = 3;//用户ID
+	required string tableId = 4;//牌桌ID
+	required int32 status  = 5;//0:取消准备 1：准备
+	extensions 100 to 200;
+}
+
+////////////////////////////////////////////////////
+// 椅子状态变化  MessageId.GAME.NOT_CHAIR
+////////////////////////////////////////////////////
+message NotChairStatus {
+	required string tableId = 1;//牌桌ID
+	required int32 type    = 2;//类型 1:入座 2:退座 3:准备 4:托管 5:解除托管 6:断线
+	optional Chair chair   = 3;//座位信息
+}
+
+//服务器发牌，补花阶段开始 MessageId.GAME.NOT_CARDS
+message NotCards
+{
+	required HandCards HandCards = 1;//手牌数组
+	required int32 banker       = 2;    //庄家
+	required int32 leftCardsNum = 3;    //牌池剩余多少张牌
+	required int32 stage        = 4;    //当前阶段 2 补花阶段
+	//其他...
+}
+
+//通知补花，每换一张牌通知一次 MessageId.GAME.NOT_BUHUA
+message NotBuhua
+{
+    required int32 seatNo       = 1;    //座位号
+    repeated int32 huapai       = 2;    //花牌
+    required int32 leftCardsNum = 3;    //牌池剩余多少张牌
+    repeated int32 bupai        = 4;    //补牌，如果是自己补花，则有值
+}
+
+//通知补花阶段结束  MessageId.GAME.NOT_BUHUAENDS
+message NotBuhuaEnds
+{
+    required int32 stage = 1;   //当前阶段，3 打牌阶段
+}
+
+//游戏阶段的类型
+message OperationType
+{
+	required int32 CATCH = 1;//抓牌
+	required int32 PLAY = 2;//打牌非摸打
+	required int32 BUHUA = 3;//补花
+	required int32 CHI = 4;//吃牌
+	required int32 PENG = 5;//碰牌
+	required int32 GANG = 6;//明杠牌
+	required int32 ANGANG = 7;//暗杠牌
+	required int32 HU = 8;//胡牌
+	required int32 BUHUAMO = 9;//摸牌补花
+	required int32 KANGMO = 10;//摸牌杠牌
+
+	required int32 NO_OPERATION = 11;//过
+	required int32 HANDCARDS = 12;//手牌
+
+	required int32 BUGANG = 13;//补杠
+	required int32 MOPLAY = 14;//打牌摸打
+	//其他.......
+}
+//客户端游戏中对牌的操作 MessageId.GAME.DISCARD
+message ReqSendCard
+{
+    required string tableId 	 	= 1;//牌桌ID
+    required int64 tableMapId = 2;//牌桌映射ID
+    required int64 userId  		= 3;//玩家ID
+	required CardsGroup Card = 4;//操作的一张牌或者一组牌
+	required string roundId      = 5;//牌局号
+	extensions 100 to 200;
+	//其他.......
+}
+message AckSendCard {
+    required int32 result  = 1;
+	required int64 userId  = 2;//用户ID
+	required string tableId = 3;//牌桌ID
+	extensions 100 to 200;
+}
+
+//服务器返回客户端对牌的操作 （当玩家选择（不）吃碰杠的时候，返回的操作结果应该只给当前玩家自己广播） MessageId.GAME.NOT_SEND_CARD
+message NotSendCard
+{
+	required CardsGroup Card = 1;//操作的一张牌或者一组牌
+	//其他.......
+}
+
+//服务器返回客户端可进行吃碰杠的操作，如果集合为空，继续打牌操作 MessageId.GAME.NOT_USER_OPERATION
+message NotUserOperation
+{
+	repeated Operation operations = 1;
+	repeated MahjongCallInfo callCards = 2; //听牌内容
+}
+
+message Operation {
+    required int32 type = 1;
+    repeated CardsGroup options = 2;  //操作选项
+}
+
+//游戏结束 亮牌 MessageId.GAME.NOT_GAME_END
+message NotGameEnd
+{
+    repeated HandCards playerCards = 1; //玩家手牌
+    required int32 stage = 2;   //牌局阶段 4 结算阶段
+    optional int32 result = 3;  //结果 0 胡 1 流局
+    optional int32 winner = 4;  //胡牌的座位号
+    optional int32 huType = 5;  //胡牌方式 1 自摸 2 点炮 3抢杠胡
+}
+
+//服务器通知客户端结果消息(有人胡牌游戏结束) MessageId.GAME.NOT_GAME_RESULT
+message NotGameResult
+{
+	required string tableId = 1;     //桌子号
+	required int32 result = 2;  //结果 0 胡 1 流局 2 失败 3 不输不赢
+	required PlayerGameResult player = 3;  //玩家游戏结果
+    repeated PlayerGameResult others = 4;   //机器人游戏结果
+    repeated Fan fan = 5;   //番型
+}
+
+message Fan {
+    required int32 fanxing  = 1; //番型
+    required int32 taishu   = 2; //台数
+}
+
+message PlayerGameResult {
+    required int32 seat     = 1;    //座位号
+    required string username = 2;    //玩家姓名
+    required int32 isZhuang = 3;    //是否庄家 0 否 1 是
+    required int64 money    = 4;    //输赢额
+    required int32 position = 5;    //风位 东南西北 1 2 3 4
+    optional int32 isWin    = 6;    //胜败 0 败 1 胜 2 流局
+    optional int64 chips    = 7;    //当前金币数
+}
+
+////////////////////////////////////////////////////
+// 聊天 MessageId.GAME.NOT_CHAT
+////////////////////////////////////////////////////
+message ReqChat {
+	required string tableId 		= 1;
+	required int64 tableMapId = 2;//牌桌映射ID
+	required string roundId    = 3;
+	required int32 seatNo  		= 4;
+	required int64 userId  		= 5;
+	required int32 type    	  = 6;
+	required string content 		= 7;
+	optional string through    = 8;
+}
+
+message NotChat {
+	required string tableId = 1;
+	required string roundId = 2;
+	required int32 seatNo  = 3;
+	required int32 type    = 4;
+	required string content = 5;
+	optional string through = 6;
+}
+
+message ReqAppointCards {
+    required int64 tableMapId = 1;//牌桌映射ID
+    required int64 userId = 2;//玩家ID
+    required int32 banker = 3;  //  庄家
+    repeated HandCards handCards = 4;   //玩家手牌
+}
+
+message AckAppointCards {
+    required int32 result = 1;
+    required int64 userId = 2;
+}
+
+message ReqAppointNextCard {
+    required string tableId 		= 1;
+    required int64 tableMapId = 2;//牌桌映射ID
+    required int64 userId   = 3;//玩家id
+    repeated CardInfo cards   = 4;//下一步要出的牌
+}
+
+message AckAppointNextCard {
+    required int32 result = 1;
+    required int64 userId = 2;
+}
+message ReqTrust{
+    required int64 userId     = 1;//用户ID
+    required string tableId     = 2;//牌桌ID
+    required int64 tableMapId = 3;//牌桌映射ID
+    required int64 type = 4;    //1 取消托管
+    extensions 100 to 200;
+}
+
+message AckTrust {
+    required int32 result  = 1;//结果 0:正常 其他:错误码
+    required int64 userId  = 2;//用户ID
+    required string tableId = 3;//牌桌ID
+    extensions 100 to 200;
+}

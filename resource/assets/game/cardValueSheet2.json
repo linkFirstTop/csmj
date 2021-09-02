@@ -1,0 +1,155 @@
+{
+    "file": "cardValueSheet2.png",
+    "frames": {
+        "cardValue28": {
+            "x": 130,
+            "y": 360,
+            "w": 65,
+            "h": 80,
+            "offX": 13,
+            "offY": 11,
+            "sourceW": 86,
+            "sourceH": 102
+        },
+        "cardValue29": {
+            "x": 73,
+            "y": 442,
+            "w": 66,
+            "h": 64,
+            "offX": 11,
+            "offY": 19,
+            "sourceW": 86,
+            "sourceH": 102
+        },
+        "cardValue30": {
+            "x": 65,
+            "y": 290,
+            "w": 63,
+            "h": 85,
+            "offX": 14,
+            "offY": 8,
+            "sourceW": 86,
+            "sourceH": 102
+        },
+        "cardValue31": {
+            "x": 0,
+            "y": 377,
+            "w": 71,
+            "h": 71,
+            "offX": 8,
+            "offY": 15,
+            "sourceW": 86,
+            "sourceH": 102
+        },
+        "cardValue32": {
+            "x": 70,
+            "y": 191,
+            "w": 62,
+            "h": 97,
+            "offX": 12,
+            "offY": 2,
+            "sourceW": 86,
+            "sourceH": 102
+        },
+        "cardValue33": {
+            "x": 145,
+            "y": 189,
+            "w": 81,
+            "h": 79,
+            "offX": 4,
+            "offY": 11,
+            "sourceW": 86,
+            "sourceH": 102
+        },
+        "cardValue34": {
+            "x": 156,
+            "y": 0,
+            "w": 69,
+            "h": 96,
+            "offX": 9,
+            "offY": 3,
+            "sourceW": 86,
+            "sourceH": 102
+        },
+        "cardValue35": {
+            "x": 73,
+            "y": 96,
+            "w": 70,
+            "h": 93,
+            "offX": 8,
+            "offY": 4,
+            "sourceW": 86,
+            "sourceH": 102
+        },
+        "cardValue36": {
+            "x": 82,
+            "y": 0,
+            "w": 72,
+            "h": 94,
+            "offX": 7,
+            "offY": 4,
+            "sourceW": 86,
+            "sourceH": 102
+        },
+        "cardValue37": {
+            "x": 0,
+            "y": 0,
+            "w": 80,
+            "h": 92,
+            "offX": 3,
+            "offY": 5,
+            "sourceW": 86,
+            "sourceH": 102
+        },
+        "cardValue38": {
+            "x": 0,
+            "y": 281,
+            "w": 63,
+            "h": 89,
+            "offX": 11,
+            "offY": 6,
+            "sourceW": 86,
+            "sourceH": 102
+        },
+        "cardValue39": {
+            "x": 0,
+            "y": 94,
+            "w": 71,
+            "h": 92,
+            "offX": 7,
+            "offY": 5,
+            "sourceW": 86,
+            "sourceH": 102
+        },
+        "cardValue40": {
+            "x": 0,
+            "y": 188,
+            "w": 68,
+            "h": 91,
+            "offX": 9,
+            "offY": 5,
+            "sourceW": 86,
+            "sourceH": 102
+        },
+        "cardValue41": {
+            "x": 134,
+            "y": 270,
+            "w": 68,
+            "h": 88,
+            "offX": 9,
+            "offY": 7,
+            "sourceW": 86,
+            "sourceH": 102
+        },
+        "cardValue42": {
+            "x": 145,
+            "y": 98,
+            "w": 72,
+            "h": 89,
+            "offX": 7,
+            "offY": 6,
+            "sourceW": 86,
+            "sourceH": 102
+        }
+    }
+}

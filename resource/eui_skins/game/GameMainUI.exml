@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="GameMainUISkin" width="1920" height="1080" xmlns:e="http://ns.egret.com/eui"
+        xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*" xmlns:ns1="*">
+	<w:Config id="16e29e9a883"></w:Config>
+	<e:Image source="gamebg_jpg" width="100%" height="100%" y="0" />
+	<!--<e:Image source="test_jpg" />
+	-->
+	<!-- 用户信息 -->
+	<e:Group width="100%" height="100%">
+		<game:GameUserVUI id="gameUser0" x="7" y="297" />
+		<game:GameUserHUI id="gameUser1" x="787" y="66" />
+		<game:GameUserVUI id="gameUser2" y="297" right="7" />
+		<game:GameUserVUI id="gameUser3" x="7" y="856" />
+		<e:Group id="dpText0" x="45" y="260">
+			<e:Label text="漂1分" textColor="0xEDB051" fontFamily="Arial" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="dpText1" x="930" y="35">
+			<e:Label text="漂2分" textColor="0xEDB051" fontFamily="Arial" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="dpText2" x="1785" y="265">
+			<e:Label text="漂3分" textColor="0xEDB051" fontFamily="Arial" verticalCenter="0" />
+		</e:Group>
+		<e:Group id="dpText3" x="45" y="825">
+			<e:Label text="漂4分" textColor="0xEDB051" fontFamily="Arial" verticalCenter="0" />
+		</e:Group>
+	</e:Group>
+	<e:Group id="gGameInfo">
+		<!-- 局号信息 -->
+		<e:Group x="10" y="10">
+			<e:Image id="infoBg" source="gameCommbg_png" width="500" height="60" alpha="0.6" scale9Grid="166,80,72,13" />
+			<e:Label id="lbInfo" text="入门管" fontFamily="Microsoft YaHei" verticalCenter="0" x="15" />
+		</e:Group>
+		<!-- 剩余牌 -->
+		<e:Group x="10" y="74">
+			<e:Image source="gameCommbg_png" width="150" height="61" alpha="0.6" scale9Grid="166,80,72,13" />
+			<e:Label id="lbLeftCard" text="余牌:0" verticalCenter="0" fontFamily="Microsoft YaHei" x="15" />
+		</e:Group>
+	</e:Group>
+	<!-- 中间方位 -->
+	<game:GamePositionUI id="gamePosition" y="560" x="870" />
+	<!-- 操作按钮 -->
+	<game:GameOperationUI id="gameOpt" />
+	<e:Group id="gBtns" right="42" y="24">
+		<ns1:BaseButton id="btnBack" width="100" height="100">
+			<e:Skin>
+				<e:Image source="" width="100" height="100" />
+			</e:Skin>
+		</ns1:BaseButton>
+		<e:Group id="gSound">
+			<ns1:BaseButton id="btnSoundOff" width="100" height="100" visible="false">
+				<e:Skin>
+					<e:Image source="" width="100" height="100" />
+				</e:Skin>
+			</ns1:BaseButton>
+			<ns1:BaseButton id="btnSoundOn" width="100" height="100">
+				<e:Skin>
+					<e:Image source="" width="100" height="100" />
+				</e:Skin>
+			</ns1:BaseButton>
+		</e:Group>
+		<ns1:BaseButton id="btnRule" width="100" height="100">
+			<e:Skin>
+				<e:Image source="" width="100" height="100" />
+			</e:Skin>
+		</ns1:BaseButton>
+		<ns1:BaseButton id="btnMore" width="100" height="100">
+			<e:Skin>
+				<e:Image source="" width="100" height="100" />
+			</e:Skin>
+		</ns1:BaseButton>
+	</e:Group>
+	<e:Group id="gameTrust" width="100%" bottom="0" height="200">
+		<e:Image id="trustText" horizontalCenter="0.5" y="-104" source="gameIcon_tuoguan_cn_png" />
+		<e:Image source="game_tgbg" />
+		<e:Image id="btnTrust" source="gameButton_cancelTrust_cn_png" horizontalCenter="0" y="24" />
+	</e:Group>
+	<!-- 漂分选择 -->
+	<e:Group id="selectFen"></e:Group>
+	<e:Image id="imgTHTip" source="gameIcon_tianhu_cn_png" horizontalCenter="0" bottom="250" visible="false" />
+	<e:Image id="imgTingTip" source="gameIcon_tip" y="710" x="26" visible="false" />
+	<e:Group id="gTingTip" width="566" y="658" x="110" visible="false">
+		<e:Image source="gameCommbg_png" width="100%" />
+		<e:Group id="gTingCards" verticalCenter="0" horizontalCenter="0">
+			<e:Group height="128">
+				<e:Image id="huIcon" source="gameIcon_hu_cn_png" verticalCenter="0" />
+			</e:Group>
+			<e:layout>
+				<e:HorizontalLayout gap="30" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<e:Image id="btnContinue" horizontalCenter="0" verticalCenter="84" source="gameResult_continue_cn_png" />
+</e:Skin>
