@@ -1,0 +1,13 @@
+{"file":"resultWinGameFnt.png","frames":{
+".":{"x":113,"y":56,"w":14,"h":14,"offX":3,"offY":40,"sourceW":22,"sourceH":62},
+",":{"x":111,"y":110,"w":16,"h":22,"offX":1,"offY":40,"sourceW":22,"sourceH":62},
+"+":{"x":36,"y":111,"w":36,"h":37,"offX":7,"offY":13,"sourceW":43,"sourceH":62},
+"1":{"x":36,"y":150,"w":23,"h":54,"offX":6,"offY":0,"sourceW":43,"sourceH":62},
+"2":{"x":39,"y":56,"w":35,"h":53,"offX":3,"offY":1,"sourceW":43,"sourceH":62},
+"3":{"x":1,"y":110,"w":33,"h":53,"offX":4,"offY":1,"sourceW":43,"sourceH":62},
+"4":{"x":1,"y":1,"w":40,"h":52,"offX":0,"offY":2,"sourceW":43,"sourceH":62},
+"5":{"x":76,"y":110,"w":33,"h":52,"offX":4,"offY":2,"sourceW":43,"sourceH":62},
+"6":{"x":82,"y":1,"w":36,"h":53,"offX":3,"offY":1,"sourceW":43,"sourceH":62},
+"7":{"x":76,"y":56,"w":35,"h":52,"offX":3,"offY":2,"sourceW":43,"sourceH":62},
+"8":{"x":43,"y":1,"w":37,"h":53,"offX":2,"offY":1,"sourceW":43,"sourceH":62},
+"9":{"x":1,"y":55,"w":36,"h":53,"offX":2,"offY":1,"sourceW":43,"sourceH":62}}}
