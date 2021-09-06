@@ -3,24 +3,22 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*" xmlns:ns1="*">
 	<w:Config id="16e29e9a883"></w:Config>
 	<e:Image source="gamebg_jpg" width="100%" height="100%" y="0" />
-	<!--<e:Image source="test_jpg" />
-	-->
 	<!-- 用户信息 -->
 	<e:Group width="100%" height="100%">
 		<game:GameUserVUI id="gameUser0" x="7" y="297" />
 		<game:GameUserVUI id="gameUser1" x="1220" y="66" />
 		<game:GameUserVUI id="gameUser2" y="297" right="7" />
 		<game:GameUserVUI id="gameUser3" x="7" y="856" />
-		<e:Group id="dpText0" x="45" y="260">
-			<e:Label text="漂1分" textColor="0xEDB051" fontFamily="Arial" verticalCenter="0" />
+		<e:Group id="dpText0" x="45" y="260" visible="false">
+			<e:BitmapLabel id="qsh1" font="tcznFnt_fnt" horizontalCenter="0" text="0" />
 		</e:Group>
-		<e:Group id="dpText1" x="1264" y="35">
+		<e:Group id="dpText1" x="1264" y="35" visible="false">
 			<e:Label text="漂2分" textColor="0xEDB051" fontFamily="Arial" verticalCenter="0" />
 		</e:Group>
-		<e:Group id="dpText2" x="1785" y="265">
+		<e:Group id="dpText2" x="1785" y="265" visible="false">
 			<e:Label text="漂3分" textColor="0xEDB051" fontFamily="Arial" verticalCenter="0" />
 		</e:Group>
-		<e:Group id="dpText3" x="45" y="825">
+		<e:Group id="dpText3" x="45" y="825" visible="false">
 			<e:Label text="漂4分" textColor="0xEDB051" fontFamily="Arial" verticalCenter="0" />
 		</e:Group>
 	</e:Group>
@@ -37,7 +35,7 @@
 		</e:Group>
 	</e:Group>
 	<!-- 中间方位 -->
-	<game:GamePositionUI id="gamePosition" horizontalCenter="0"  y="420"/>
+	<game:GamePositionUI id="gamePosition" horizontalCenter="0" y="420" />
 	<!-- 操作按钮 -->
 	<game:GameOperationUI id="gameOpt" />
 	<e:Group id="gBtns" right="42" y="24">

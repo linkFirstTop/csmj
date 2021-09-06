@@ -38,7 +38,7 @@ module game {
 					this.imgBack.source = "card_up_m1";
 					this.imgCard.source = "cardValue" + value;
 					this.imgCard.scaleX = 0.5;
-					this.imgCard.scaleY = -0.4;
+					this.imgCard.scaleY = -0.4;//垂直翻转
 					this.imgCard.verticalCenter = -7;
 				}
 			}
@@ -53,7 +53,7 @@ module game {
 					this.imgCard.skewY = -25;
 					this.imgCard.verticalCenter = -8;
 				}
-				this.imgBack.scaleX = -1;
+				this.imgBack.scaleX = -1;//水平翻转由左向右
 			}
 			if (p == 3) {
 				this.imgCard.source = "cardValue" + value;

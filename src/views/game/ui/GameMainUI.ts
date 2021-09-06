@@ -244,7 +244,6 @@ module game {
 			this.gameHand.createHandCard(false, 0);
 		}
 		public showWallCount(): void {
-
 			if (144 - GamePlayData.CardsWall_Head_Index - GamePlayData.CardsWall_Tail_Index - GamePlayData.CardsWall_Hua_Index > 0) {
 				this.lbLeftCard.text = Global.dic["余牌"] + ":" + (144 - GamePlayData.CardsWall_Head_Index - GamePlayData.CardsWall_Tail_Index - GamePlayData.CardsWall_Hua_Index) + Global.dic["张"];
 			} else {

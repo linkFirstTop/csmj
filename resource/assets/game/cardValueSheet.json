@@ -1,28 +1,275 @@
-{"file":"cardValueSheet.png","frames":{
-"cardValue1":{"x":310,"y":230,"w":73,"h":104,"offX":0,"offY":0,"sourceW":73,"sourceH":104},
-"cardValue2":{"x":163,"y":118,"w":72,"h":112,"offX":0,"offY":0,"sourceW":72,"sourceH":112},
-"cardValue3":{"x":350,"y":1,"w":78,"h":114,"offX":0,"offY":0,"sourceW":78,"sourceH":114},
-"cardValue4":{"x":333,"y":117,"w":73,"h":111,"offX":0,"offY":0,"sourceW":73,"sourceH":111},
-"cardValue5":{"x":88,"y":114,"w":73,"h":116,"offX":0,"offY":0,"sourceW":73,"sourceH":116},
-"cardValue6":{"x":258,"y":102,"w":73,"h":116,"offX":0,"offY":0,"sourceW":73,"sourceH":116},
-"cardValue7":{"x":430,"y":1,"w":73,"h":117,"offX":0,"offY":0,"sourceW":73,"sourceH":117},
-"cardValue8":{"x":408,"y":120,"w":72,"h":111,"offX":0,"offY":0,"sourceW":72,"sourceH":111},
-"cardValue9":{"x":1,"y":117,"w":73,"h":116,"offX":0,"offY":0,"sourceW":73,"sourceH":116},
-"cardValue10":{"x":1,"y":1,"w":85,"h":114,"offX":0,"offY":0,"sourceW":85,"sourceH":114},
-"cardValue11":{"x":482,"y":120,"w":22,"h":107,"offX":0,"offY":0,"sourceW":22,"sourceH":107},
-"cardValue12":{"x":237,"y":220,"w":71,"h":107,"offX":0,"offY":0,"sourceW":71,"sourceH":107},
-"cardValue13":{"x":1,"y":344,"w":58,"h":107,"offX":0,"offY":0,"sourceW":58,"sourceH":107},
-"cardValue14":{"x":1,"y":235,"w":68,"h":107,"offX":0,"offY":0,"sourceW":68,"sourceH":107},
-"cardValue15":{"x":76,"y":232,"w":68,"h":108,"offX":0,"offY":0,"sourceW":68,"sourceH":108},
-"cardValue16":{"x":214,"y":329,"w":66,"h":109,"offX":0,"offY":0,"sourceW":66,"sourceH":109},
-"cardValue17":{"x":385,"y":233,"w":69,"h":106,"offX":0,"offY":0,"sourceW":69,"sourceH":106},
-"cardValue18":{"x":146,"y":232,"w":66,"h":111,"offX":0,"offY":0,"sourceW":66,"sourceH":111},
-"cardValue19":{"x":135,"y":345,"w":75,"h":75,"offX":0,"offY":0,"sourceW":75,"sourceH":75},
-"cardValue20":{"x":456,"y":233,"w":49,"h":99,"offX":0,"offY":0,"sourceW":49,"sourceH":99},
-"cardValue21":{"x":258,"y":1,"w":90,"h":99,"offX":0,"offY":0,"sourceW":90,"sourceH":99},
-"cardValue22":{"x":282,"y":336,"w":75,"h":95,"offX":0,"offY":0,"sourceW":75,"sourceH":95},
-"cardValue23":{"x":359,"y":341,"w":75,"h":93,"offX":0,"offY":0,"sourceW":75,"sourceH":93},
-"cardValue24":{"x":71,"y":342,"w":62,"h":108,"offX":0,"offY":0,"sourceW":62,"sourceH":108},
-"cardValue25":{"x":175,"y":1,"w":81,"h":115,"offX":0,"offY":0,"sourceW":81,"sourceH":115},
-"cardValue26":{"x":436,"y":341,"w":61,"h":111,"offX":0,"offY":0,"sourceW":61,"sourceH":111},
-"cardValue27":{"x":88,"y":1,"w":85,"h":111,"offX":0,"offY":0,"sourceW":85,"sourceH":111}}}
+{
+    "file": "cardValueSheet.png",
+    "frames": {
+        "cardValue1": {
+            "x": 310,
+            "y": 230,
+            "w": 73,
+            "h": 104,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 73,
+            "sourceH": 104
+        },
+        "cardValue2": {
+            "x": 163,
+            "y": 118,
+            "w": 72,
+            "h": 112,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 72,
+            "sourceH": 112
+        },
+        "cardValue3": {
+            "x": 350,
+            "y": 1,
+            "w": 78,
+            "h": 114,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 78,
+            "sourceH": 114
+        },
+        "cardValue4": {
+            "x": 333,
+            "y": 117,
+            "w": 73,
+            "h": 111,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 73,
+            "sourceH": 111
+        },
+        "cardValue5": {
+            "x": 88,
+            "y": 114,
+            "w": 73,
+            "h": 116,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 73,
+            "sourceH": 116
+        },
+        "cardValue6": {
+            "x": 258,
+            "y": 102,
+            "w": 73,
+            "h": 116,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 73,
+            "sourceH": 116
+        },
+        "cardValue7": {
+            "x": 430,
+            "y": 1,
+            "w": 73,
+            "h": 117,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 73,
+            "sourceH": 117
+        },
+        "cardValue8": {
+            "x": 408,
+            "y": 120,
+            "w": 72,
+            "h": 111,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 72,
+            "sourceH": 111
+        },
+        "cardValue9": {
+            "x": 1,
+            "y": 117,
+            "w": 73,
+            "h": 116,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 73,
+            "sourceH": 116
+        },
+        "cardValue10": {
+            "x": 1,
+            "y": 1,
+            "w": 85,
+            "h": 114,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 85,
+            "sourceH": 114
+        },
+        "cardValue11": {
+            "x": 482,
+            "y": 120,
+            "w": 22,
+            "h": 107,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 22,
+            "sourceH": 107
+        },
+        "cardValue12": {
+            "x": 237,
+            "y": 220,
+            "w": 71,
+            "h": 107,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 71,
+            "sourceH": 107
+        },
+        "cardValue13": {
+            "x": 1,
+            "y": 344,
+            "w": 58,
+            "h": 107,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 58,
+            "sourceH": 107
+        },
+        "cardValue14": {
+            "x": 1,
+            "y": 235,
+            "w": 68,
+            "h": 107,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 68,
+            "sourceH": 107
+        },
+        "cardValue15": {
+            "x": 76,
+            "y": 232,
+            "w": 68,
+            "h": 108,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 68,
+            "sourceH": 108
+        },
+        "cardValue16": {
+            "x": 214,
+            "y": 329,
+            "w": 66,
+            "h": 109,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 66,
+            "sourceH": 109
+        },
+        "cardValue17": {
+            "x": 385,
+            "y": 233,
+            "w": 69,
+            "h": 106,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 69,
+            "sourceH": 106
+        },
+        "cardValue18": {
+            "x": 146,
+            "y": 232,
+            "w": 66,
+            "h": 111,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 66,
+            "sourceH": 111
+        },
+        "cardValue19": {
+            "x": 135,
+            "y": 345,
+            "w": 75,
+            "h": 75,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 75,
+            "sourceH": 75
+        },
+        "cardValue20": {
+            "x": 456,
+            "y": 233,
+            "w": 49,
+            "h": 99,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 49,
+            "sourceH": 99
+        },
+        "cardValue21": {
+            "x": 258,
+            "y": 1,
+            "w": 90,
+            "h": 99,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 90,
+            "sourceH": 99
+        },
+        "cardValue22": {
+            "x": 282,
+            "y": 336,
+            "w": 75,
+            "h": 95,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 75,
+            "sourceH": 95
+        },
+        "cardValue23": {
+            "x": 359,
+            "y": 341,
+            "w": 75,
+            "h": 93,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 75,
+            "sourceH": 93
+        },
+        "cardValue24": {
+            "x": 71,
+            "y": 342,
+            "w": 62,
+            "h": 108,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 62,
+            "sourceH": 108
+        },
+        "cardValue25": {
+            "x": 175,
+            "y": 1,
+            "w": 81,
+            "h": 115,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 81,
+            "sourceH": 115
+        },
+        "cardValue26": {
+            "x": 436,
+            "y": 341,
+            "w": 61,
+            "h": 111,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 61,
+            "sourceH": 111
+        },
+        "cardValue27": {
+            "x": 88,
+            "y": 1,
+            "w": 85,
+            "h": 111,
+            "offX": 0,
+            "offY": 0,
+            "sourceW": 85,
+            "sourceH": 111
+        }
+    }
+}

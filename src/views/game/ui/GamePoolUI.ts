@@ -11,10 +11,10 @@ module game {
 		{ x: 912, y: 253 }, { x: 862, y: 253 }, { x: 812, y: 253 }, { x: 1056, y: 203 }, { x: 1009, y: 203 }, { x: 964, y: 203 }, { x: 914, y: 203 }, { x: 865, y: 203 }, { x: 816, y: 203 }];
 		/*右边玩家牌池坐标*/
 		private arrRP: Array<any> = [{ x: 1125, y: 564 }, { x: 1124, y: 520 }, { x: 1123, y: 477 }, { x: 1120, y: 434 }, { x: 1118, y: 393 }, { x: 1116, y: 351 }, { x: 1193, y: 564 }, { x: 1189, y: 520 }, { x: 1185, y: 477 },
-		{ x: 1183, y: 4334 }, { x: 1178, y: 393 }, { x: 1176, y: 351 }, { x: 1263, y: 564 }, { x: 1258, y: 519 }, { x: 1252, y: 475 }, { x: 1248, y: 434 }, { x: 1243, y: 393 }, { x: 1238, y: 351 }];
+		{ x: 1183, y: 434 }, { x: 1178, y: 393 }, { x: 1176, y: 351 }, { x: 1263, y: 564 }, { x: 1258, y: 519 }, { x: 1252, y: 475 }, { x: 1248, y: 434 }, { x: 1243, y: 393 }, { x: 1238, y: 351 }];
 		/*下边玩家牌池坐标*/
 		private arrDP: Array<any> = [{ x: 796, y: 597 }, { x: 852, y: 597 }, { x: 907, y: 597 }, { x: 964, y: 597 }, { x: 1015, y: 597 }, { x: 1069, y: 597 }, { x: 792, y: 659 }, { x: 850, y: 659 }, { x: 905, y: 659 },
-		{ x: 965, y: 659 }, { x: 1016, y: 659 }, { x: 1071, y: 659 }, { x: 789, y: 723 }, { x: 847, y: 723 }, { x: 906, y: 723 }, { x: 964, y: 723 }, { x: 1018, y: 723 }, { x: 1074, y: 723 }];
+		{ x: 964, y: 659 }, { x: 1016, y: 659 }, { x: 1071, y: 659 }, { x: 789, y: 723 }, { x: 847, y: 723 }, { x: 906, y: 723 }, { x: 964, y: 723 }, { x: 1018, y: 723 }, { x: 1074, y: 723 }];
 		private gLeftPool: eui.Group = new eui.Group();
 		private gUpPool: eui.Group = new eui.Group();
 		private gRightPool: eui.Group = new eui.Group();
@@ -24,12 +24,10 @@ module game {
 		public initCard(): void {
 			this.width = GameConfig.curWidth();
 			this.height = GameConfig.curHeight();
-
 			this.addChild(this.gLeftPool);
 			this.addChild(this.gUpPool);
 			this.addChild(this.gRightPool);
 			this.addChild(this.gDownPool);
-
 			this.clearCardPool();
 
 			if (this.tipAnim == null) {
@@ -89,7 +87,7 @@ module game {
 				item.x = this.arrLP[len].x;
 				item.y = this.arrLP[len].y;
 				if (nLevel == 1) {
-					item.y -= 15;
+					item.y -= 15;//往上面移动一层
 				}
 				this.tipAnim.x = g.x + item.x + 50;
 				this.tipAnim.y = g.y + item.y;
