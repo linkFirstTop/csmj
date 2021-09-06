@@ -53,6 +53,7 @@ module game {
 			} else {
 				this.zhuangImg.visible = false;
 			}
+			console.log(info.seat);
 			this.icon_f.source = "gameResult_icon_" + Global.getCurrentPositionName(info.seat) + "_" + Global.language + "_png";
 
 		}

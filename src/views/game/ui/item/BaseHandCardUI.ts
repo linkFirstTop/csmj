@@ -21,9 +21,9 @@ module game {
 			this.imgBack.horizontalCenter = this.imgBack.verticalCenter = 0;
 			this.imgCard.horizontalCenter = 0;
 			if (p == 0) {//左
-				if (state == 0) {
+				if (state == 0) {//暗牌
 					this.imgBack.source = "card_left_h" + (index + 1);
-				} else {
+				} else {//明牌
 					this.imgBack.source = "card_left_hl" + (index + 1);
 					this.imgCard.source = "cardValue" + value;
 					this.imgCard.scaleX = this.imgCard.scaleY = 0.5 - 0.01 * index;
@@ -58,7 +58,7 @@ module game {
 			if (p == 3) {
 				this.imgCard.source = "cardValue" + value;
 				this.cardIndex = value;
-				if (state == 0) {
+				if (state == 0) {//暗牌（手牌）
 					this.imgBack.source = "card_down_h1";
 					this.imgCard.verticalCenter = 6;
 					this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCardTap, this);
@@ -68,7 +68,7 @@ module game {
 					if (isDQ) {
 						this.setMaskFlag();
 					}
-				} else {
+				} else {//明牌
 					this.imgBack.source = "card_down_m1";
 					this.imgCard.scaleX = this.imgCard.scaleY = 0.9;
 					this.imgCard.verticalCenter = -10;

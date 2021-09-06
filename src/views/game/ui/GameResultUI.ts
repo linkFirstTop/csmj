@@ -15,12 +15,13 @@ module game {
 		private gInfo: eui.List;
 		private resultBg: eui.Image;
 		private resultText: eui.Image;
+		private resultHuawen: eui.Image;
 		private btnClose: BaseButton;
 		private difen: eui.Label;
 		private listTitleLayout: eui.TileLayout;
 		protected childrenCreated(): void {
 			super.childrenCreated();
-
+			this.btnClose.setImg("Close_png")
 			this.visible = false;
 			if (Global.language == "en") {
 				this.listTitleLayout.requestedColumnCount = 2;
@@ -81,7 +82,6 @@ module game {
 			for (var i: number = 0; i < Global.roomData.length; i++) {
 				if (Global.roomData[i].id == Global.roomId) {
 					this.difen.text = Global.dic["底分/台分"] + ":" + ChipUtils.formatCoin(Number(Global.roomData[i].baseScore)) + "/" + ChipUtils.formatCoin((Global.roomData[i].taifen));
-
 					return;
 				}
 			}
@@ -91,25 +91,28 @@ module game {
 			this.resultBg.source = "gameResult_win_png";
 			this.resultText.source = "winText_" + Global.language + "_png";
 			//this.btnClose.icon="winClose_png";
-			this.btnClose.setImg("winClose_png");
+			// this.btnClose.setImg("winClose_png");
+			this.resultHuawen.source = "winHw_png";
 		}
 		private setLose(): void {
 			this.resultBg.source = "gameResult_lose_png";
 			this.resultText.source = "loseText_" + Global.language + "_png";
 			//this.btnClose.icon=="loseClose_png";
-			this.btnClose.setImg("loseClose_png");
+			// this.btnClose.setImg("loseClose_png");
+			this.resultHuawen.source = "loseHw_png";
 		}
 		private setPing(): void {
 			this.resultBg.source = "gameResult_lose_png";
 			this.resultText.source = "heText_" + Global.language + "_png";
 			//this.btnClose.icon=="loseClose_png";
-			this.btnClose.setImg("loseClose_png");
+			// this.btnClose.setImg("loseClose_png");
+			this.resultHuawen.source = "tieHw_png";
 		}
 		private setNull(): void {
 			this.resultBg.source = "gameResult_lose_png";
 			this.resultText.source = "";
 			//this.btnClose.icon=="loseClose_png";
-			this.btnClose.setImg("loseClose_png");
+			// this.btnClose.setImg("loseClose_png");
 		}
 		/*显示详细信息*/
 		private showDetailInfo(arr: Array<any>): void {

@@ -120,7 +120,7 @@ module game {
 			if (data.info) {
 				this.gameUI.initUser();
 			}
-			this.gameUI.initUser();
+			// this.gameUI.initUser();
 			this.gameUI.showTrust(game.GamePlayData.isTuoguan);
 		}
 		/*

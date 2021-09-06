@@ -39,15 +39,15 @@ module game {
 			if (p == 1) {//上
 				if (isAnGang) {
 					if (value > 0) {
-						this.imgBack.source = "card_up_a2";
+						this.imgBack.source = "card_up_a2";//正面
 						this.imgCard.source = "cardValue" + value;
 						this.imgCard.scaleX = 0.5;
 						this.imgCard.scaleY = -0.35;
 						this.imgCard.verticalCenter = -10;
 					} else {
-						this.imgBack.source = "card_up_a1";
+						this.imgBack.source = "card_up_a1";//背面
 					}
-				} else {
+				} else {//明杠，吃，碰
 					this.imgBack.source = "card_up_m1";
 					if (value > 0) {
 						this.imgCard.source = "cardValue" + value;
@@ -85,14 +85,16 @@ module game {
 			if (p == 3) {
 				if (isAnGang) {
 					if (value > 0) {
+						//明牌（正面）
 						this.imgBack.source = "card_down_a2";
 						this.imgCard.source = "cardValue" + value;
 						this.imgCard.scaleX = this.imgCard.scaleY = 0.8;
 						this.imgCard.verticalCenter = -12;
 					} else {
+						//暗牌（背面）
 						this.imgBack.source = "card_down_a1";
 					}
-				} else {
+				} else {//明杠，吃，碰
 					this.imgBack.source = "card_down_a2";
 					if (value > 0) {
 						this.imgCard.source = "cardValue" + value;
