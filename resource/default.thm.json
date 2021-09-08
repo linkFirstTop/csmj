@@ -27,6 +27,8 @@
 		"resource/eui_skins/DateUISkin.exml",
 		"resource/eui_skins/game/BaseCardUI.exml",
 		"resource/eui_skins/game/BaseTingCardUI.exml",
+		"resource/eui_skins/game/GamePositionScoreItemSkin.exml",
+		"resource/eui_skins/game/GamePositionSkin.exml",
 		"resource/eui_skins/game/GameMainUI.exml",
 		"resource/eui_skins/game/GameMatchUserUI.exml",
 		"resource/eui_skins/game/GameOperationUI.exml",

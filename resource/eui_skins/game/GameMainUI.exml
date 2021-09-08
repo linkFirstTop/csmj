@@ -35,7 +35,9 @@
 		</e:Group>
 	</e:Group>
 	<!-- 中间方位 -->
-	<game:GamePositionUI id="gamePosition" horizontalCenter="0" y="420" />
+	<game:GamePosition id="gamePosition" horizontalCenter="0" y="420" skinName="GamePositionSkin" />
+	<!--<game:GamePositionUI id="gamePosition" horizontalCenter="0" y="420" />
+	-->
 	<!-- 操作按钮 -->
 	<game:GameOperationUI id="gameOpt" />
 	<e:Group id="gBtns" right="42" y="24">

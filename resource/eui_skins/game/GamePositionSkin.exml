@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin class="GamePositionSkin" xmlns:e="http://ns.egret.com/eui" xmlns:game="game.*"
+        xmlns:w="http://ns.egret.com/wing" width="297" height="199">
+	<e:Image source="gameView_json.direction_bg" x="0" />
+	<game:GamePositionScoreItem id="item0" x="0" y="0" skinName="GamePositionScoreItemSkin" />
+	<game:GamePositionScoreItem id="item1" x="0" y="0" skinName="GamePositionScoreItemSkin" />
+	<game:GamePositionScoreItem id="item2" x="0" y="0" skinName="GamePositionScoreItemSkin" />
+	<game:GamePositionScoreItem id="item3" x="0" y="0" skinName="GamePositionScoreItemSkin" />
+	<e:BitmapLabel id="timeNum_lab" text="12" verticalCenter="-15" anchorOffsetX="0" horizontalCenter="0.5"
+	               font="GameTimeFnt_fnt" />
+</e:Skin>

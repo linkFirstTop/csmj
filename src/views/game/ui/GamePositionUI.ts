@@ -75,6 +75,7 @@ module game {
 			}
 		}
 		public setCurrentPosition(n: number): void {
+
 			this.setPosition();
 			let p: number = Global.getUserPosition(n);
 			let str: string = Global.getCurrentPositionName(n);
@@ -121,6 +122,7 @@ module game {
 			this.strState = "";
 		}
 		public startTime(count: number, str: string = ""): void {
+			console.log(count, str);
 			this.mcTimer.start();
 			this.nCount = count;
 			this.lbTime.text = this.nCount + "";

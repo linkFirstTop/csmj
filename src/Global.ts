@@ -181,6 +181,42 @@ class Global {
 		}
 		return str;
 	}
+
+	public static getFrameByCardInfo(color: number, value: number): number {
+		//对应的帧数
+		var pszType: Array<number> = [1, 19, 10];//["万" , "条" , "饼"];
+		var pszWind: Array<number> = [28, 30, 29, 31];//["东风", "南风", "西风", "北风"];
+		var pszJian: Array<number> = [32, 33, 34];//["红中", "绿发", "白板"]
+		var pszFlower: Array<number> = [35, 36, 37, 38];//["梅" , "兰" , "竹" , "菊"]
+		var pszSeason: Array<number> = [39, 40, 41, 42];//["春" , "夏" , "秋" , "冬"];
+
+		var nColor: number = color;
+		var nValue: number = value;
+		// 根据花色、点数、ID号构造牌的名字
+		switch (nColor) {
+			case 0:	// 万
+			case 1:	// 条
+			case 2:	// 饼
+				var nID: number = nValue + pszType[nColor];
+				break;
+			case 3:	// 风牌（东南西北）
+				nID = pszWind[nValue];
+				break;
+
+			case 4:	// 箭牌（中发白）
+				nID = pszJian[nValue];
+				break;
+
+			case 5:	// 梅兰竹菊
+				nID = pszFlower[nValue];
+				break;
+
+			case 6:	// 春夏秋冬
+				nID = pszSeason[nValue];
+				break;
+		}
+		return nID;
+	}
 	/*多语言*/
 	public static language: string = "";
 	public static dic: any = {};

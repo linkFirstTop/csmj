@@ -12,7 +12,8 @@ module game {
 		private lbLeftCard: eui.Label;
 		public gameHand: game.GameHandUI;
 		private gamePool: game.GamePoolUI;
-		public gamePosition: game.GamePositionUI;
+		// public gamePosition: game.GamePositionUI;
+		public gamePosition: game.GamePosition;
 		private gameOpt: game.GameOperationUI;
 		// private gameHSZ:game.GameHSZUI;
 		private gameTrust: eui.Group;
@@ -564,8 +565,10 @@ module game {
 		// 显示当前出牌玩家头像动画
 		public changeUserRight(): void {
 			var nCurrent: number = game.GamePlayData.M_C_P_G_sit;//当前操作人的座位号
-			this.gamePosition.setCurrentPosition(nCurrent);
+			// this.gamePosition.setCurrentPosition(nCurrent);
 			let p: number = Global.getUserPosition(nCurrent);
+			this.gamePosition.onShowOpetorPostion(p);
+
 			for (let i: number = 0; i < 4; i++) {
 				if (p == i) {
 					this["gameUser" + i].showCurrentAnim(true);

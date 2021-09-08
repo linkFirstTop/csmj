@@ -20,56 +20,64 @@ module game {
 			g.addChild(this.imgCard);
 			this.imgBack.horizontalCenter = this.imgBack.verticalCenter = 0;
 			this.imgCard.horizontalCenter = 0;
+			var strIndex: string;
+			if (value < 10) {
+				strIndex = "0" + value;
+			} else {
+				strIndex = "" + value;
+			}
 			if (p == 0) {//左
 				if (state == 0) {//暗牌
-					this.imgBack.source = "card_left_h" + (index + 1);
+					this.imgBack.source = "cardhandL";
 				} else {//明牌
-					this.imgBack.source = "card_left_hl" + (index + 1);
-					this.imgCard.source = "cardValue" + value;
-					this.imgCard.scaleX = this.imgCard.scaleY = 0.5 - 0.01 * index;
-					this.imgCard.rotation = 90;
-					this.imgCard.skewY = 25;
+					this.imgBack.source = "cardValueH" + strIndex;
+					// this.imgCard.source = "cardValue" + value;
+					// this.imgCard.scaleX = this.imgCard.scaleY = 0.5 - 0.01 * index;
+					// this.imgCard.rotation = 90;
+					// this.imgCard.skewY = 25;
 				}
 			}
 			if (p == 1) {//上
 				if (state == 0) {
-					this.imgBack.source = "card_up_h1";
+					this.imgBack.source = "cardBackUp";
 				} else {
-					this.imgBack.source = "card_up_m1";
-					this.imgCard.source = "cardValue" + value;
-					this.imgCard.scaleX = 0.5;
-					this.imgCard.scaleY = -0.4;//垂直翻转
-					this.imgCard.verticalCenter = -7;
+					this.imgBack.source = "cardValueU1" + strIndex;
+					// this.imgCard.source = "cardValue" + value;
+					// this.imgCard.scaleX = 0.5;
+					// this.imgCard.scaleY = -0.4;//垂直翻转
+					// this.imgCard.verticalCenter = -7;
 				}
 			}
 			if (p == 2) {//右
+
 				if (state == 0) {
-					this.imgBack.source = "card_left_h" + (index + 1);
+					this.imgBack.source = "cardhandR";
 				} else {
-					this.imgBack.source = "card_left_hl" + (index + 1);
-					this.imgCard.source = "cardValue" + value;
-					this.imgCard.scaleX = this.imgCard.scaleY = 0.5 - 0.01 * index;
-					this.imgCard.rotation = -90;
-					this.imgCard.skewY = -25;
-					this.imgCard.verticalCenter = -8;
+					this.imgBack.source = "cardValueR" + strIndex;
+					// this.imgCard.source = "cardValue" + value;
+					// this.imgCard.scaleX = this.imgCard.scaleY = 0.5 - 0.01 * index;
+					// this.imgCard.rotation = -90;
+					// this.imgCard.skewY = -25;
+					// this.imgCard.verticalCenter = -8;
 				}
-				this.imgBack.scaleX = -1;//水平翻转由左向右
+				// this.imgBack.scaleX = -1;//水平翻转由左向右
 			}
 			if (p == 3) {
-				this.imgCard.source = "cardValue" + value;
+				// this.imgCard.source = "cardValue" + value;
 				this.cardIndex = value;
+
 				if (state == 0) {//暗牌（手牌）
-					this.imgBack.source = "card_down_h1";
-					this.imgCard.verticalCenter = 6;
-					this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCardTap, this);
+					this.imgBack.source = "cardValue00" + strIndex;
+					// this.imgCard.verticalCenter = 6;
 					this.isSelect = false;
 					this.isTingFlag = false;
 					this.isHuFlag = false;
+					this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCardTap, this);
 					if (isDQ) {
 						this.setMaskFlag();
 					}
 				} else {//明牌
-					this.imgBack.source = "card_down_m1";
+					this.imgBack.source = "cardValueV" + strIndex;
 					this.imgCard.scaleX = this.imgCard.scaleY = 0.9;
 					this.imgCard.verticalCenter = -10;
 				}

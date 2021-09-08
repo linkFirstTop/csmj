@@ -12,6 +12,10 @@ declare class GameMatchUserUISkin extends eui.Skin{
 }
 declare class GameOperationUISkin extends eui.Skin{
 }
+declare class GamePositionScoreItemSkin extends eui.Skin{
+}
+declare class GamePositionSkin extends eui.Skin{
+}
 declare class GamePositionUISkin extends eui.Skin{
 }
 declare class GameResultInfoItemSkin extends eui.Skin{

@@ -287,6 +287,7 @@ module game {
 			let p: number = Global.getUserPosition(sit);
 			// let nQue:number = game.GameUserList.arrUserList[sit].cardType;
 			let ghand: eui.Group = this.findHandGroup(p);
+
 			this.clearGroup(ghand);
 			let arr: Array<proto.CardInfo> = this.copyHandCard(game.GamePlayData.getHandCards(sit));
 			let index: number = 0;
@@ -309,36 +310,74 @@ module game {
 				let card: BaseHandCardUI = new BaseHandCardUI();
 				ghand.addChild(card);
 				card.visible = isShow;
+				let nOptHei: number = 0;
+				let nOptW: number = 0;
 				if (p == 0) {
+					let itemX: number = 277;
+					let itemY: number = 144;
+					let mcX: number = 304;
+					let mcY: number = 16;
+					nOptHei = 160;
+					nOptW = 72;
 					card.setCard(p, (i + index), cardValue, state, isQue);
 					if (state == 0) {//暗牌
-						card.x = this.arrLHP[i + index].x;
-						card.y = this.arrLHP[i + index].y;
+						// card.x = this.arrLHP[i + index].x;
+						// card.y = this.arrLHP[i + index].y;
+						card.x = itemX - (12 - i) * 18;
+						card.y = itemY + (12 - i) * 41;
+						// if (i == 13) {
+						// 	//最后一张牌位置是固定的
+						// 	card.x = 40;
+						// 	card.y = 692;
+
+						// }
+						this.gHandCardL.y = 0;
+						this.gHandCardL.x = 0;
 					} else {//亮牌
-						card.x = this.arrLLP[i + index].x;
-						card.y = this.arrLLP[i + index].y;
+						// card.x = this.arrLLP[i + index].x;
+						// card.y = this.arrLLP[i + index].y;
+						card.x = 304 - (12 - i) * 19;
+						card.y = 144 + (12 - i) * 44 + 20;
 					}
 					ghand.addChildAt(card, 0);
 				}
 				if (p == 1) {
+					let itemCardWidth: number = 76 - 1;
 					card.setCard(p, (i + index), cardValue, state, isQue);
-					card.x = i * 44;
-					if (index == 0 && i == 0) {
-						card.x -= 10;
+					if (state == 0) {
+						card.x = (i) * itemCardWidth;
+						if (index == 0 && i == 0) {
+							card.x -= 10;
+						}
+					} else {
+						card.x = i * 64;
 					}
+
 				}
 				if (p == 2) {
 					card.setCard(p, 16 - i - index, cardValue, state, isQue);
 					if (state == 0) {
-						card.x = this.arrRHP[i + index].x;
-						card.y = this.arrRHP[i + index].y;
+						// card.x = this.arrRHP[i + index].x;
+						card.x = (1578 - 1555) + i * 18;
+						card.y = (143 - 90) + i * 42;
+						// card.y = this.arrRHP[i + index].y;
+						// if (i == 13) {
+						// 	card.y = 0;
+						// 	card.x = 0;
+						// }
+						this.gHandCardR.x = 1555;
+						this.gHandCardR.y = 90;
+
 					} else {
-						card.x = this.arrRLP[i + index].x;
-						card.y = this.arrRLP[i + index].y;
+						// card.x = this.arrRLP[i + index].x;
+						// card.y = this.arrRLP[i + index].y;
+						card.x = i * 19;
+						card.y = i * 44;
 					}
 					ghand.addChild(card);
 				}
 				if (p == 3) {
+					let itemCardWidth: number = 126 - 5;
 					card.setCard(p, (i + index), cardValue, state, isQue);
 					card.cardInfo = info;
 					if (GameParmes.isHu) {
@@ -347,16 +386,33 @@ module game {
 							card.setMaskFlag(true);
 						}
 					}
-					card.x = i * 90;
-					if (i == len - 1 && index == 0) {
-						card.x += 10;
+					if (state == 0) {
+						card.x = i * itemCardWidth;
+						if (i == len - 1 && index == 0) {
+							card.x += 10;
+						}
 					}
+					else {
+						card.x = i * card.width - i * 2;
+					}
+
 				}
+				// if (i == 14) {
+				// 	this.gHandCardD.x = 1740 - this.gHandCardD.width + 20 + 126 - 5;
+				// } else {
+				// 	this.gHandCardD.x = 1740 - this.gHandCardD.width;
+				// }
 			}
-			this.gHandCardU.y = 120;
-			this.gHandCardU.x = 581;
-			this.gHandCardD.y = GameConfig.curHeight() - this.gHandCardD.height;
-			this.gHandCardD.x = GameConfig.curWidth() - this.gHandCardD.width - 150;
+			// this.gHandCardU.y = 120;
+			// this.gHandCardU.x = 581;
+			this.gHandCardU.x = 520;
+			this.gHandCardU.y = 36 + 50;
+			this.gHandCardD.x = 180;
+			this.gHandCardD.height = 190;
+			this.gHandCardD.bottom = 10;
+			// this.gHandCardD.y = GameConfig.curHeight() - this.gHandCardD.height;
+			// this.gHandCardD.x = GameConfig.curWidth() - this.gHandCardD.width - 150;
+
 		}
 
 		/*增加牌的下落动画*/
@@ -427,6 +483,7 @@ module game {
 			let arrCards: Array<CardsGroupInfo> = game.GamePlayData.getOtherCards(nSit);//this.copyCardGroup(game.GamePlayData.getOtherCards(nSit));
 			let nOptCount: number = arrCards.length;//玩家吃碰杠数组
 			for (let i: number = 0; i < nOptCount; i++) {
+
 				this.createCPGItem(p, i, arrCards[i]);
 			}
 			/*测试数据*/
@@ -436,6 +493,7 @@ module game {
 		}
 		/*p 玩家位置 index 牌组索引*/
 		private createCPGItem(p: number, index: number, info: CardsGroupInfo): void {
+			var mc: eui.Group = new eui.Group();
 			let g: eui.Group = this.findOptGroup(p);
 			let isAnGang: boolean = false;
 			if (info.CardsGroupType == CardsGroupType.ANGANG) {
@@ -449,8 +507,23 @@ module game {
 				let cardValue: number = game.GameParmes.getCardID(info.cards[i]);
 				let item: BaseOtherCardUI = new BaseOtherCardUI();
 				item.cardInfo = info.cards[i];
-				gItem.addChild(item);
+				// gItem.addChild(item);
+				let itemUpW: number = 64 + 1;
+				let itemDownW: number = 86 - 2;
+				let itemHei = 51;//牌的高度
 				if (p == 0) {//左
+					let mcX: number = 304;
+					let mcY: number = 16;
+					let nOptHei = 160;
+					let nOptW = 72;
+					if (gItem.numChildren > 0) {
+						mc.x = mcX - (nOptW * index);
+						mc.y = mcY + (nOptHei * index);
+					} else {
+						mc.x = mcX;
+						mc.y = mcY;
+					}
+					gItem.addChild(mc);
 					if (isAnGang) {
 						if (i == 3) {
 							//item.setCard(p,(index*4+i),cardValue,isAnGang);
@@ -458,40 +531,63 @@ module game {
 						} else {
 							item.setCard(p, (index * 4 + i), 0, isAnGang);
 						}
-						item.x = this.arrLAP[index][i].x;
-						item.y = this.arrLAP[index][i].y;
+						// item.x = this.arrLAP[index][i].x;
+						// item.y = this.arrLAP[index][i].y;
+						item.x = mc.getChildAt(1).x - 5;
+						item.y = mc.getChildAt(1).y - 32;
+
+
 					} else {
+
 						item.setCard(p, index * 4 + i, cardValue, isAnGang);
-						item.x = this.arrLCP[index][i].x;
-						item.y = this.arrLCP[index][i].y;
+						if (mc.numChildren > 0) {
+							item.x = i * -23;
+
+						}
+						item.y = i * itemHei;
+
+						// item.x = this.arrLCP[index][i].x;
+						// item.y = this.arrLCP[index][i].y;
 					}
+
 
 				}
 				if (p == 1) {//上
+					mc.x = index * -208;
+					gItem.x = 1350 - 520;
+					gItem.addChild(mc);
 					if (isAnGang) {
-						item.y = 320;
+						item.y = -20
 						if (i == 3) {//暗杠时在上面那张牌
 							//item.setCard(p,index,cardValue,isAnGang);
 							item.setCard(p, index - 2, 0, isAnGang);
-							item.x = GameConfig.curWidth() - index * 140 - (i - 2) * 40 - 550;
-							item.y = 300;
+							item.x = 84;
+							// item.x = GameConfig.curWidth() - index * 140 - (i - 2) * 40 - 550;
+							// item.y = 300;
 						} else {
 							item.setCard(p, index, 0, isAnGang);
-							item.x = GameConfig.curWidth() - index * 140 - i * 40 - 550;
+							item.x = 84 + itemUpW;
+							// item.x = GameConfig.curWidth() - index * 140 - i * 40 - 550;
 						}
+
 					} else {
+						item.y = -20
 						item.setCard(p, index, cardValue, isAnGang);
 						if (i == 3) {
-							item.x = GameConfig.curWidth() - index * 140 - (i - 2) * 42 - 550;
-							item.y = 305;
+							item.x = 84;
+							// item.x = GameConfig.curWidth() - index * 140 - (i - 2) * 42 - 550;
+							// item.y = 305;
 						} else {
-							item.x = GameConfig.curWidth() - index * 140 - i * 42 - 550;
-							item.y = 320;
+							item.x = 84 + itemUpW;
+							// item.x = GameConfig.curWidth() - index * 140 - i * 42 - 550;
+							// item.y = 320;
 						}
 
 					}
 				}
 				if (p == 2) {//右
+					mc.x = (1758 - 1555) - (index) * 72;
+					mc.y = (678 - 90) - (index) * 158;
 					if (isAnGang) {
 						if (i == 3) {
 							gItem.addChild(item);
@@ -501,42 +597,67 @@ module game {
 							gItem.addChildAt(item, 0);
 							item.setCard(p, (index * 4 + i), 0, isAnGang);
 						}
-						item.x = this.arrRAP[index][i].x;
-						item.y = this.arrRAP[index][i].y - 30;
+						item.x = mc.getChildAt(1).x + 5;
+						item.y = mc.getChildAt(1).y - 32;
+						// item.x = this.arrRAP[index][i].x;
+						// item.y = this.arrRAP[index][i].y - 30;
 					} else {
 						if (i == 3) {
 							gItem.addChild(item);
 						} else {
 							gItem.addChildAt(item, 0);
 						}
+
 						item.setCard(p, index * 4 + i, cardValue, isAnGang);
-						item.x = this.arrRCP[index][i].x;
-						item.y = this.arrRCP[index][i].y - 20;
+						if (mc.numChildren > 0) {
+							item.x = i * 23;
+
+						}
+						item.y = i * itemHei;
+						mc.addChild(item);
+						// item.x = this.arrRCP[index][i].x;
+						// item.y = this.arrRCP[index][i].y - 20;
 
 					}
 				}
 				if (p == 3) {//下
+					if (gItem.numChildren > 0) {
+						mc.x = gItem.width + 50;
+					}
+					gItem.x = 237;
+					gItem.addChild(mc);
 					if (isAnGang) {
-						item.y = GameConfig.curHeight() - 120;
+						item.y = 50;
 						if (i == 3) {
 							item.setCard(p, index, cardValue, isAnGang);
-							item.x = 250 + index * 260 + (i - 2) * 70;
-							item.y = GameConfig.curHeight() - 120 - 20;
+							// item.x = 250 + index * 260 + (i - 2) * 75;
+							// item.y = GameConfig.curHeight() - 120 - 20;
+							// item.x = 84;
+							// item.y = 24;
+							item.y = 24;
 						} else {
 							item.setCard(p, index, 0, isAnGang);
-							item.x = 250 + index * 260 + i * 70;
+							item.x = 84 + itemDownW;
+							mc.width = item.x + itemDownW;
+							// item.x = 250 + index * 260 + i * 70;
 						}
+
 					} else {
+						item.y = 50;
 						item.setCard(p, index, cardValue, isAnGang);
 						if (i == 3) {
-							item.x = 250 + index * 260 + (i - 2) * 70;
-							item.y = GameConfig.curHeight() - 142;
+							// item.x = 250 + index * 260 + (i - 2) * 75;
+							// item.y = GameConfig.curHeight() - 142;
+							item.y = 24;
 						} else {
-							item.x = 250 + index * 260 + i * 70;
-							item.y = GameConfig.curHeight() - 120;
+							item.x = 84 + itemDownW;
+							mc.width = item.x + itemDownW;
+							// item.x = 250 + index * 260 + i * 75;
+							// item.y = GameConfig.curHeight() - 120;
 						}
 					}
 				}
+				mc.addChild(item);
 			}
 		}
 		/*点击了手牌*/
