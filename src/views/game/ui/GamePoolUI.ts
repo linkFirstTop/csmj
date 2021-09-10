@@ -22,6 +22,42 @@ module game {
 		private arrCard: Array<any> = [[], [], [], []];
 		private tipAnim: dragonBones.EgretArmatureDisplay;
 		public initCard(): void {
+			this.width = 1920;
+			this.height = 1080;
+			this.x = 192;
+			this.y = 108;
+			this.horizontalCenter = "0";
+			this.verticalCenter = "0";
+			this.scaleX = 0.8;
+			this.scaleY = 0.8;
+			this.gUpPool.width = 805;
+			this.gUpPool.height = 186;
+			this.gUpPool.x = 640;
+			this.gUpPool.y = 244;
+			//  左边玩家牌池坐标
+			this.gLeftPool.width = 0;
+			this.gLeftPool.height = 570;
+			this.gLeftPool.x = 535;
+			this.gLeftPool.y = 204;
+			this.gLeftPool.anchorOffsetX = 0;
+			this.gLeftPool.anchorOffsetY = 0;
+			// 右边玩家牌池坐标
+			this.gRightPool.width = 19.09;
+			this.gRightPool.height = 570;
+			this.gRightPool.x = 1384;
+			this.gRightPool.y = 204;
+			this.gRightPool.anchorOffsetX = 0;
+			this.gRightPool.anchorOffsetY = 0;
+
+			//下边玩家牌池坐标
+			this.gDownPool.width = 805;
+			this.gDownPool.height = 186;
+			this.gDownPool.x = 548;
+			this.gDownPool.y = 680;
+			this.gDownPool.anchorOffsetX = 0;
+			this.gDownPool.anchorOffsetY = 0;
+
+
 			this.width = GameConfig.curWidth();
 			this.height = GameConfig.curHeight();
 			this.addChild(this.gLeftPool);
@@ -82,49 +118,157 @@ module game {
 			item.cardInfo = card;
 			let cardValue: number = game.GameParmes.getCardID(card);//Math.floor(Math.random()*27)+1;
 			item.setCard(p, len, cardValue);
+			g.addChild(item);
 			if (p == 0) {
-				g.addChildAt(item, len % 6 + nLevel * 18);
-				item.x = this.arrLP[len].x;
-				item.y = this.arrLP[len].y;
-				if (nLevel == 1) {
-					item.y -= 15;//往上面移动一层
+
+				var count: number = g.numElements - 1;
+				//一排最大数
+				var itemMax: number = 10;
+
+				//正序Y
+				var invertedOrderX: number = count % itemMax;
+				var invertedOrderY: number = count % itemMax;
+				var elementWidth: number = -23;
+				var elementHeight: number = 54;
+				if (count >= 20) {
+					invertedOrderY = count - 20;
+					invertedOrderX = count - 20;
 				}
+				var childX: number = invertedOrderX * elementWidth - 115;
+				var childY: number = invertedOrderY * elementHeight;
+				if (count >= 10 && count < 20) {
+					// //最多2排
+					childX = childX - 89;
+					childY = childY;
+					g.setChildIndex(item, count - 10);
+				} else if (count >= 20) {
+					childX = childX;
+					childY = childY;
+					g.setChildIndex(item, count);
+				}
+				item.x = childX;
+				item.y = childY
+				// g.addChildAt(item, len % 6 + nLevel * 18);
+				// item.x = this.arrLP[len].x;
+				// item.y = this.arrLP[len].y;
+				// if (nLevel == 1) {
+				// 	item.y -= 15;//往上面移动一层
+				// }
 				this.tipAnim.x = g.x + item.x + 50;
 				this.tipAnim.y = g.y + item.y;
 			}
 			if (p == 1) {
-				g.addChildAt(item, len % 6 + nLevel * 18);
-				item.x = this.arrUP[len].x;
-				item.y = this.arrUP[len].y;
-				if (len == 5 || len == 11 || len == 17) {
-					g.addChildAt(item, 0 + nLevel * 18);
+
+				var count: number = g.numChildren - 1;
+				//一排最大数
+				var itemMax: number = 10;
+				//倒序Y
+				var invertedOrderX: number = 0;
+				var invertedOrderY: number = 0;
+
+
+				var elementWidth: number = 64;
+				var elementHeight: number = 82;
+
+				invertedOrderX = (itemMax - 1) - count % itemMax;
+				invertedOrderY = Math.min(3, Math.floor(count / itemMax));
+
+				var childX: number = invertedOrderX * elementWidth;
+				var childY: number = invertedOrderY * -62;
+				if (count >= 20) {
+					childX = childX;
+					childY = -12;
+					g.setChildIndex(item, count);
+				} else {
+					g.setChildIndex(item, 0);
 				}
-				if (nLevel == 1) {
-					item.y -= 15;
-				}
+				item.x = childX;
+				item.y = childY
+				// g.addChildAt(item, len % 6 + nLevel * 18);
+				// item.x = this.arrUP[len].x;
+				// item.y = this.arrUP[len].y;
+				// if (len == 5 || len == 11 || len == 17) {
+				// 	g.addChildAt(item, 0 + nLevel * 18);
+				// }
+				// if (nLevel == 1) {
+				// 	item.y -= 15;
+				// }
 				this.tipAnim.x = g.x + item.x + 30;
 				this.tipAnim.y = g.y + item.y + 10;
 			}
 			if (p == 2) {
-				g.addChildAt(item, 0 + nLevel * 18);
-				item.x = this.arrRP[len].x;
-				item.y = this.arrRP[len].y;
-				if (nLevel == 1) {
-					item.y -= 15;
+				var count: number = g.numChildren - 1;
+				//一排最大数
+				var itemMax: number = 10;
+				//倒序Y
+				var invertedOrderY: number = (itemMax - 1) - count % itemMax;
+				var invertedOrderX: number = (itemMax - 1) - count % itemMax;
+				var elementWidth: number = 23;
+				var elementHeight: number = 54;
+				if (count >= 20) {
+					// invertedOrderX = count%itemMax;
 				}
+
+				var childX: number = invertedOrderX * elementWidth;
+				var childY: number = invertedOrderY * elementHeight;
+
+				if (count >= 10 && count <= 19) {
+					childX = childX + 89;
+				}
+				if (count >= 20) {
+					//最多2排
+					childX = childX + 6;//(itemMax-1) - (count) % itemMax * elementWidth;//89 - elementWidth*(count-19);
+					childY = childY;//(itemMax-1) - (count) % itemMax * elementHeight;
+					g.addChildAt(item, count - count % 20);
+				} else {
+					g.addChildAt(item, 0);
+				}
+				item.x = childX;
+				item.y = childY
+
+
+				// g.addChildAt(item, 0 + nLevel * 18);
+				// item.x = this.arrRP[len].x;
+				// item.y = this.arrRP[len].y;
+				// if (nLevel == 1) {
+				// 	item.y -= 15;
+				// }
 				this.tipAnim.x = g.x + item.x + 50;
 				this.tipAnim.y = g.y + item.y + 2;
 			}
 			if (p == 3) {
-				g.addChild(item);
-				if (len == 5 || len == 11 || len == 17) {
-					g.addChildAt(item, len + nLevel * 18 - 5);
+
+				var count: number = g.numElements - 1;
+				//一排最大数
+				var itemMax: number = 10;
+				//倒序Y
+				var invertedOrderX: number = 0;
+				var invertedOrderY: number = 0;
+
+				var elementWidth: number = 82;
+				var elementHeight: number = 94;
+
+				invertedOrderX = count % itemMax;
+				invertedOrderY = Math.min(3, Math.floor(count / itemMax));
+
+				var childX: number = invertedOrderX * elementWidth;
+				var childY: number = invertedOrderY * elementHeight;
+
+				if (count >= 20) {
+					childX = childX;
+					childY = 0;
 				}
-				item.x = this.arrDP[len].x;
-				item.y = this.arrDP[len].y;
-				if (nLevel == 1) {
-					item.y -= 15;
-				}
+				item.x = childX;
+				item.y = childY
+
+				// if (len == 5 || len == 11 || len == 17) {
+				// 	g.addChildAt(item, len + nLevel * 18 - 5);
+				// }
+				// item.x = this.arrDP[len].x;
+				// item.y = this.arrDP[len].y;
+				// if (nLevel == 1) {
+				// 	item.y -= 15;
+				// }
 				this.tipAnim.x = g.x + item.x + 35;
 				this.tipAnim.y = g.y + item.y + 15;
 			}

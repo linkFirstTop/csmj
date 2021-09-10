@@ -129,11 +129,11 @@ class Main extends eui.UILayer {
 
     }
     private onResourceLoadError(event: RES.ResourceEvent): void {
-        console.warn("Group:" + event.groupName + " has failed to load");
+        // console.warn("Group:" + event.groupName + " has failed to load");
         this.onResourceLoadComplete(event);
     }
     private onItemLoadError(event: RES.ResourceEvent): void {
-        console.warn("Url:" + event.resItem.url + " has failed to load");
+        // console.warn("Url:" + event.resItem.url + " has failed to load");
     }
 
     private async loadResource() {

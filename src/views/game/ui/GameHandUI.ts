@@ -52,6 +52,10 @@ module game {
 			[{ x: 496, y: 381 }],
 			[{ x: 1335, y: 471 }, { x: 1348, y: 506 }, { x: 1360, y: 543 }, { x: 1372, y: 579 }],
 			[{ x: 1523, y: 863 }, { x: 1457, y: 863 }, { x: 1392, y: 863 }, { x: 1331, y: 863 }]];
+		private sprTmpDown: eui.Group = new eui.Group();
+		private sprTmpRight: eui.Group = new eui.Group();
+		private sprTmpLeft: eui.Group = new eui.Group();
+		private sprTmpUp: eui.Group = new eui.Group();
 		/*四个玩家手牌容器*/
 		private gHandCardL: eui.Group = new eui.Group();
 		private gHandCardU: eui.Group = new eui.Group();
@@ -75,8 +79,28 @@ module game {
 		public initHand(): void {
 			this.width = GameConfig.curWidth();
 			this.height = GameConfig.curHeight();
-
-
+			this.sprTmpDown.height = 190;
+			this.sprTmpDown.bottom = 10;
+			this.addChild(this.sprTmpLeft);
+			this.addChild(this.sprTmpRight);
+			this.addChild(this.sprTmpUp);
+			this.addChild(this.sprTmpDown);
+			this.sprTmpLeft.addChild(this.gOtherCardL);
+			this.sprTmpLeft.addChild(this.gHandCardL);
+			this.sprTmpLeft.x = 0;
+			this.sprTmpLeft.y = 0;
+			this.sprTmpLeft.anchorOffsetX = 0;
+			this.sprTmpLeft.anchorOffsetY = 0;
+			this.sprTmpRight.addChild(this.gHandCardR);
+			this.sprTmpRight.addChild(this.gOtherCardR);
+			this.sprTmpRight.x = 0;
+			this.sprTmpRight.y = 0;
+			this.sprTmpRight.anchorOffsetX = 0;
+			this.sprTmpRight.anchorOffsetY = 0;
+			this.sprTmpUp.addChild(this.gHandCardU);
+			this.sprTmpUp.addChild(this.gOtherCardU);
+			this.sprTmpDown.addChild(this.gOtherCardD);
+			this.sprTmpDown.addChild(this.gHandCardD);
 			this.arrHSZCards = [];
 			this.currentCard = null;
 			this.isSortComplete = false;
@@ -87,17 +111,14 @@ module game {
 			this.addChild(this.gHuCardR);
 			this.addChild(this.gHuCardD);
 
-			this.addChild(this.gHandCardL);
-			this.addChild(this.gHandCardU);
-			this.addChild(this.gHandCardR);
-			this.addChild(this.gHandCardD);
+
 
 			this.gHandCardD.addEventListener("OnClickHandCard", this.onClickHandCard, this);
 
-			this.addChild(this.gOtherCardL);
-			this.addChild(this.gOtherCardU);
-			this.addChild(this.gOtherCardR);
-			this.addChild(this.gOtherCardD);
+			// this.addChild(this.gOtherCardL);
+			// this.addChild(this.gOtherCardU);
+			// this.addChild(this.gOtherCardR);
+			// this.addChild(this.gOtherCardD);
 
 
 			this.clearAllGroup();
@@ -157,7 +178,7 @@ module game {
 			let item: game.BaseHuCardUI = new game.BaseHuCardUI();
 			item.setCard(p, len, cardValue);
 			item.cardInfo = card;
-			console.log(item.cardInfo);
+			// console.log(item.cardInfo);
 			gHu.addChild(item);
 			if (p == 0) {
 				if (len < 4) {
@@ -246,23 +267,36 @@ module game {
 			}
 			card.setCard(p, 0, cardValue, 0, isQue);
 			if (p == 0) {
-				card.x = this.arrLHP[0].x;
-				card.y = this.arrLHP[0].y;
+				// card.x = this.arrLHP[0].x;
+				// card.y = this.arrLHP[0].y;
+				card.x = 40 + 50;
+				card.y = 692;
+				egret.Tween.get(card).to({ x: 40, touchEnabled: true }, 200);
 				ghand.addChild(card);
 			}
 			if (p == 1) {
-				card.x = -54;
+				// card.x = -54;
+				card.x = -96;
+				card.y = 50;
+				egret.Tween.get(card).to({ y: 0, touchEnabled: true }, 200);
 			}
 			if (p == 2) {
 				card.setCard(p, 16, 1, 0, isQue);
-				card.x = this.arrRHP[0].x;
-				card.y = this.arrRHP[0].y;
+				// card.x = this.arrRHP[0].x;
+				// card.y = this.arrRHP[0].y;
+				card.y = 0;
+				card.x = -50;
 				ghand.addChildAt(card, 0);
+				egret.Tween.get(card).to({ x: 0, touchEnabled: true }, 200);
 			}
 			if (p == 3) {
 				card.cardInfo = info;
-				card.x = (ghand.numChildren - 1) * 90;
-				card.x += 10;
+				card.y = -50;
+				// card.x = (ghand.numChildren - 1) * 90;
+				// card.x += 10;
+				card.x = (ghand.numChildren - 1) * (126 - 5) + 15;
+
+				egret.Tween.get(card).to({ y: 0, touchEnabled: true }, 200);
 			}
 		}
 		/*停止自动出牌*/
@@ -321,21 +355,23 @@ module game {
 					nOptW = 72;
 					card.setCard(p, (i + index), cardValue, state, isQue);
 					if (state == 0) {//暗牌
-						// card.x = this.arrLHP[i + index].x;
-						// card.y = this.arrLHP[i + index].y;
+
 						card.x = itemX - (12 - i) * 18;
 						card.y = itemY + (12 - i) * 41;
 						// if (i == 13) {
-						// 	//最后一张牌位置是固定的
+						// 	//最后一张牌多出20像素
 						// 	card.x = 40;
 						// 	card.y = 692;
-
+						// 	this.gHandCardL.addChild(card);
+						// } else {
+						// 	this.gHandCardL.addChildAt(card, 0);
 						// }
 						this.gHandCardL.y = 0;
-						this.gHandCardL.x = 0;
+						this.sprTmpLeft.y = 150;
+						this.sprTmpLeft.x = 90 - 5;
+						this.sprTmpLeft.scaleX = this.sprTmpLeft.scaleY = 0.8;
 					} else {//亮牌
-						// card.x = this.arrLLP[i + index].x;
-						// card.y = this.arrLLP[i + index].y;
+
 						card.x = 304 - (12 - i) * 19;
 						card.y = 144 + (12 - i) * 44 + 20;
 					}
@@ -349,6 +385,9 @@ module game {
 						if (index == 0 && i == 0) {
 							card.x -= 10;
 						}
+						this.gOtherCardU.x = 1350 - 520;
+						this.sprTmpUp.x = 520;
+						this.sprTmpUp.y = 36 + 50;
 					} else {
 						card.x = i * 64;
 					}
@@ -365,8 +404,11 @@ module game {
 						// 	card.y = 0;
 						// 	card.x = 0;
 						// }
-						this.gHandCardR.x = 1555;
-						this.gHandCardR.y = 90;
+						this.gHandCardR.x = this.gHandCardR.y = 0;
+						this.gOtherCardR.y = 0;
+						this.sprTmpRight.x = 1555 - 20;
+						this.sprTmpRight.y = 90 + 150;
+						this.sprTmpRight.scaleX = this.sprTmpRight.scaleY = 0.8;
 
 					} else {
 						// card.x = this.arrRLP[i + index].x;
@@ -405,11 +447,11 @@ module game {
 			}
 			// this.gHandCardU.y = 120;
 			// this.gHandCardU.x = 581;
-			this.gHandCardU.x = 520;
-			this.gHandCardU.y = 36 + 50;
-			this.gHandCardD.x = 180;
-			this.gHandCardD.height = 190;
-			this.gHandCardD.bottom = 10;
+			this.sprTmpUp.x = 520;
+			this.sprTmpUp.y = 36 + 50;
+			this.sprTmpDown.x = 180;
+			this.sprTmpDown.height = 190;
+			this.sprTmpDown.bottom = 10;
 			// this.gHandCardD.y = GameConfig.curHeight() - this.gHandCardD.height;
 			// this.gHandCardD.x = GameConfig.curWidth() - this.gHandCardD.width - 150;
 
@@ -477,23 +519,81 @@ module game {
 		}
 		/*创建吃碰杠牌*/
 		public createCPGCard(nSit: number): void {
+
 			let p: number = Global.getUserPosition(nSit);
 			let g: eui.Group = this.findOptGroup(p);
 			this.clearGroup(g);
 			let arrCards: Array<CardsGroupInfo> = game.GamePlayData.getOtherCards(nSit);//this.copyCardGroup(game.GamePlayData.getOtherCards(nSit));
 			let nOptCount: number = arrCards.length;//玩家吃碰杠数组
-			for (let i: number = 0; i < nOptCount; i++) {
+			var mc: eui.Group;
+			if (p == 0) {
+				let itemX: number = 277;
+				let itemY: number = 144;
+				let mcX: number = 304;
+				let mcY: number = 16;
+				let nOptHei = 160;
+				let nOptW = 72;
 
-				this.createCPGItem(p, i, arrCards[i]);
+				for (var i: number = 0; i < nOptCount; i++) {//吃碰杠的创建
+					mc = this.createCPGItem(p, i, arrCards[i]);
+					if (this.gOtherCardL.numChildren > 0) {
+						mc.x = mcX - (nOptW * i);
+						mc.y = mcY + (nOptHei * i);
+					} else {
+						mc.x = mcX;
+						mc.y = mcY;
+					}
+					this.gOtherCardL.addChild(mc);
+				}
+				this.gHandCardL.y = 0;
+				this.sprTmpLeft.y = 150;
+				this.sprTmpLeft.x = 90 - 5;
+				this.sprTmpLeft.scaleX = this.sprTmpLeft.scaleY = 0.8;
 			}
-			/*测试数据*/
-			/*for(let i:number = 0;i < 4;i++){
-				this.createCPGItem(nSit,i,null);
-			}*/
+			if (p == 1) {
+				for (i = nOptCount - 1; i >= 0; i--) {//吃碰杠的创建
+					mc = this.createCPGItem(p, i, arrCards[i]);
+					mc.x = i * -208;
+					this.gOtherCardU.addChild(mc);
+				}
+
+				this.gOtherCardU.x = 1350 - 520;
+				this.sprTmpUp.x = 520;
+				this.sprTmpUp.y = 36 + 50;
+			}
+			if (p == 2) {
+				for (i = nOptCount - 1; i >= 0; i--) {//吃碰杠的创建
+
+					mc = this.createCPGItem(p, i, arrCards[i]);
+					mc.x = (1758 - 1555) - (i) * 72;
+					mc.y = (678 - 90) - (i) * 158;
+					this.gOtherCardR.addChild(mc);
+				}
+				this.gHandCardR.x = this.gHandCardR.y = 0;
+				this.gOtherCardR.y = 0;
+				this.sprTmpRight.x = 1555 - 20;
+				this.sprTmpRight.y = 90 + 150;
+				this.sprTmpRight.scaleX = this.sprTmpRight.scaleY = 0.8;
+			}
+			if (p == 3) {
+				for (i = 0; i < nOptCount; i++) {//吃碰杠的创建
+					mc = this.createCPGItem(p, i, arrCards[i]);
+					if (this.gOtherCardD.numChildren > 0) {
+						mc.x = this.gOtherCardD.width + 50;
+					}
+					// mc.y = 5;
+					this.gOtherCardD.addChild(mc);
+					this.gOtherCardD.x = 237;
+				}
+				this.gHandCardD.x += this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).width;
+				this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).x += 15;
+				this.gOtherCardD.x = this.gOtherCardD.x - 34 - this.gOtherCardD.width;
+			}
 		}
 		/*p 玩家位置 index 牌组索引*/
-		private createCPGItem(p: number, index: number, info: CardsGroupInfo): void {
+		private createCPGItem(p: number, index: number, info: CardsGroupInfo): eui.Group {
 			var mc: eui.Group = new eui.Group();
+			var arrItems: Array<BaseOtherCardUI> = [];
 			let g: eui.Group = this.findOptGroup(p);
 			let isAnGang: boolean = false;
 			if (info.CardsGroupType == CardsGroupType.ANGANG) {
@@ -501,50 +601,41 @@ module game {
 			} else {
 				isAnGang = false;
 			}
-			let gItem: eui.Group = new eui.Group();
-			g.addChild(gItem);
+			// let gItem: eui.Group = new eui.Group();
+			g.addChild(mc);
 			for (let i: number = 0; i < info.cards.length; i++) {
+				var cardInfo: proto.CardInfo = info.cards[i];
 				let cardValue: number = game.GameParmes.getCardID(info.cards[i]);
 				let item: BaseOtherCardUI = new BaseOtherCardUI();
 				item.cardInfo = info.cards[i];
 				// gItem.addChild(item);
 				let itemUpW: number = 64 + 1;
 				let itemDownW: number = 86 - 2;
-				let itemHei = 51;//牌的高度
+				//牌高度
+				let itemHei: number = 0;
+				arrItems.push(item);
 				if (p == 0) {//左
-					let mcX: number = 304;
-					let mcY: number = 16;
-					let nOptHei = 160;
-					let nOptW = 72;
-					if (gItem.numChildren > 0) {
-						mc.x = mcX - (nOptW * index);
-						mc.y = mcY + (nOptHei * index);
-					} else {
-						mc.x = mcX;
-						mc.y = mcY;
-					}
-					gItem.addChild(mc);
 					if (isAnGang) {
 						if (i == 3) {
-							//item.setCard(p,(index*4+i),cardValue,isAnGang);
+							// item.setCard(p,(index*4+i),cardValue,isAnGang);
 							item.setCard(p, (index * 4 + i - 2), 0, isAnGang);
 						} else {
 							item.setCard(p, (index * 4 + i), 0, isAnGang);
 						}
 						// item.x = this.arrLAP[index][i].x;
 						// item.y = this.arrLAP[index][i].y;
-						item.x = mc.getChildAt(1).x - 5;
-						item.y = mc.getChildAt(1).y - 32;
+						// item.x = mc.getChildAt(1).x - 5;
+						// item.y = mc.getChildAt(1).y - 32;
 
 
 					} else {
 
 						item.setCard(p, index * 4 + i, cardValue, isAnGang);
-						if (mc.numChildren > 0) {
-							item.x = i * -23;
+						// if (mc.numChildren > 0) {
+						// 	item.x = i * -23;
 
-						}
-						item.y = i * itemHei;
+						// }
+						// item.y = i * itemHei;
 
 						// item.x = this.arrLCP[index][i].x;
 						// item.y = this.arrLCP[index][i].y;
@@ -553,32 +644,30 @@ module game {
 
 				}
 				if (p == 1) {//上
-					mc.x = index * -208;
-					gItem.x = 1350 - 520;
-					gItem.addChild(mc);
+
 					if (isAnGang) {
 						item.y = -20
 						if (i == 3) {//暗杠时在上面那张牌
 							//item.setCard(p,index,cardValue,isAnGang);
 							item.setCard(p, index - 2, 0, isAnGang);
-							item.x = 84;
+							// item.x = 84;
 							// item.x = GameConfig.curWidth() - index * 140 - (i - 2) * 40 - 550;
 							// item.y = 300;
 						} else {
 							item.setCard(p, index, 0, isAnGang);
-							item.x = 84 + itemUpW;
+							// item.x = 84 + itemUpW;
 							// item.x = GameConfig.curWidth() - index * 140 - i * 40 - 550;
 						}
 
 					} else {
-						item.y = -20
+
 						item.setCard(p, index, cardValue, isAnGang);
 						if (i == 3) {
-							item.x = 84;
+							// item.x = 84;
 							// item.x = GameConfig.curWidth() - index * 140 - (i - 2) * 42 - 550;
 							// item.y = 305;
 						} else {
-							item.x = 84 + itemUpW;
+							// item.x = 84 + itemUpW;
 							// item.x = GameConfig.curWidth() - index * 140 - i * 42 - 550;
 							// item.y = 320;
 						}
@@ -586,79 +675,117 @@ module game {
 					}
 				}
 				if (p == 2) {//右
-					mc.x = (1758 - 1555) - (index) * 72;
-					mc.y = (678 - 90) - (index) * 158;
+
 					if (isAnGang) {
 						if (i == 3) {
-							gItem.addChild(item);
+							// gItem.addChild(item);
 							item.setCard(p, (index * 4 + i - 2), 0, isAnGang);
 							//item.setCard(p,(index*4+i),cardValue,isAnGang);
 						} else {
-							gItem.addChildAt(item, 0);
+							// gItem.addChildAt(item, 0);
 							item.setCard(p, (index * 4 + i), 0, isAnGang);
 						}
-						item.x = mc.getChildAt(1).x + 5;
-						item.y = mc.getChildAt(1).y - 32;
+
 						// item.x = this.arrRAP[index][i].x;
 						// item.y = this.arrRAP[index][i].y - 30;
 					} else {
 						if (i == 3) {
-							gItem.addChild(item);
+							// gItem.addChild(item);
 						} else {
-							gItem.addChildAt(item, 0);
+							// gItem.addChildAt(item, 0);
 						}
-
 						item.setCard(p, index * 4 + i, cardValue, isAnGang);
-						if (mc.numChildren > 0) {
-							item.x = i * 23;
 
-						}
-						item.y = i * itemHei;
-						mc.addChild(item);
 						// item.x = this.arrRCP[index][i].x;
 						// item.y = this.arrRCP[index][i].y - 20;
 
 					}
 				}
 				if (p == 3) {//下
-					if (gItem.numChildren > 0) {
-						mc.x = gItem.width + 50;
-					}
-					gItem.x = 237;
-					gItem.addChild(mc);
+
 					if (isAnGang) {
 						item.y = 50;
 						if (i == 3) {
 							item.setCard(p, index, cardValue, isAnGang);
 							// item.x = 250 + index * 260 + (i - 2) * 75;
 							// item.y = GameConfig.curHeight() - 120 - 20;
-							// item.x = 84;
+
 							// item.y = 24;
-							item.y = 24;
 						} else {
 							item.setCard(p, index, 0, isAnGang);
-							item.x = 84 + itemDownW;
-							mc.width = item.x + itemDownW;
+
 							// item.x = 250 + index * 260 + i * 70;
 						}
 
 					} else {
-						item.y = 50;
+
 						item.setCard(p, index, cardValue, isAnGang);
-						if (i == 3) {
-							// item.x = 250 + index * 260 + (i - 2) * 75;
-							// item.y = GameConfig.curHeight() - 142;
-							item.y = 24;
-						} else {
-							item.x = 84 + itemDownW;
-							mc.width = item.x + itemDownW;
-							// item.x = 250 + index * 260 + i * 75;
-							// item.y = GameConfig.curHeight() - 120;
-						}
+						// if (i == 3) {
+						// 	item.x = 250 + index * 260 + (i - 2) * 75;
+						// 	item.y = GameConfig.curHeight() - 142;
+						// 	item.y = 24;
+						// } else {
+						// 	// item.x = 84 + itemDownW;
+						// 	// mc.width = item.x + itemDownW;
+						// 	item.x = 250 + index * 260 + i * 75;
+						// 	item.y = GameConfig.curHeight() - 120;
+						// }
 					}
 				}
-				mc.addChild(item);
+				if (p == 0 || p == 2) {
+					//总高度，使用了26
+					let itemHei = 51;
+					if (mc.numChildren > 0) {
+						if (p == 0) {
+							item.x = i * -23;
+						} else {
+							item.x = i * 23;
+						}
+						item.y = i * itemHei;
+					}
+					mc.addChild(item);
+					if (i == 3) {
+						//杠的特殊处理
+						// item.y = mc.getChildAt(1).y - 15;
+						//杠的特殊处理
+						if (p == 2) {
+							item.x = mc.getChildAt(1).x + 5;
+							item.y = mc.getChildAt(1).y - 32;
+						} else {
+							item.x = mc.getChildAt(1).x - 5;
+							item.y = mc.getChildAt(1).y - 32;
+						}
+					}
+				} else {
+					if (i > 0) {
+						if (p == 3 && i != 3) {
+							item.x = arrItems[i - 1].x + itemDownW;
+							mc.width = item.x + itemDownW;
+						} else {
+							item.x = arrItems[i - 1].x + itemUpW;
+							mc.width = item.x + itemUpW;
+						}
+					}
+					mc.addChildAt(item, 0);
+					if (p == 3) {
+						item.y = 50;
+					}
+					if (i == 3) {
+						item.x = arrItems[1].x;
+						if (p == 3) {
+							item.y = 24;
+						} else {
+							item.y = -20;
+						}
+						mc.addChild(item);
+					}
+
+				}
 			}
+
+
+			return mc;
+
 		}
 		/*点击了手牌*/
 		private onClickHandCard(evt: egret.Event): void {
