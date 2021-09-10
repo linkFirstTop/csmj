@@ -52,8 +52,8 @@ module room {
 					if (Global.nSocketIndex < Global.arrConfig.length) {
 						this.strRoomIP = Global.arrConfig[Global.nSocketIndex];
 					}
-					// this.webSocket.connectByUrl("ws://192.168.1.183:6010");
-					this.webSocket.connectByUrl(this.strRoomIP + "/gametype55/room");
+					this.webSocket.connectByUrl("ws://192.168.1.183:6010");
+					// this.webSocket.connectByUrl(this.strRoomIP + "/gametype55/room");
 				}
 
 			}

@@ -51,15 +51,14 @@ module room {
 		public static NOT_USER_TING: number = RoomProtocol.GAME_BASE + 0x20;
 		public static NOT_GAME_END: number = RoomProtocol.GAME_BASE + 0x21;
 		public static NOT_GAME_RESULT: number = RoomProtocol.GAME_BASE + 0x22;
-
+		//通知扎鸟
+		public static NOT_ZA_NIAO: number = RoomProtocol.GAME_BASE + 0x23;
 		public static SVR_CREATE_TABLE: number = RoomProtocol.GAME_BASE + 0x40;
 		public static SVR_DISMISS_TABLE: number = RoomProtocol.GAME_BASE + 0x41;
 		public static SVR_QUERY_CHIPS: number = RoomProtocol.GAME_BASE + 0x44;
 		public static SVR_NOT_STATUS: number = RoomProtocol.GAME_BASE + 0x45;
 		public static SVR_NOT_BILL: number = RoomProtocol.GAME_BASE + 0x46;
 		public static SVR_NOT_GAMEOVER: number = RoomProtocol.GAME_BASE + 0x47;
-
-		
 
 		public static APPOINT_CARD: number = RoomProtocol.GAME_BASE + 0xFF;//请求开始指定发牌
 		public static APPOINT_NEXT_CARD: number = RoomProtocol.GAME_BASE + 0xFE;//请求指定下一张牌

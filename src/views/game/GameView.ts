@@ -47,7 +47,10 @@ module game {
 			GDGame.Msg.ins.addEventListener(GameMessage.ACK_GAMERESULT, this.ACK_GAME_RESULT, this);
 			//游戏全部结束
 			GDGame.Msg.ins.addEventListener(GameMessage.ACK_ALLGAMERESULT, this.ACK_ALL_GAMERESULT, this);
+			//通知结算亮牌
 			GDGame.Msg.ins.addEventListener(GameMessage.ACK_ALLGAMEEND, this.ACK_ALLGAMEEND, this);
+			//游戏通知抓鸟
+			GDGame.Msg.ins.addEventListener(GameMessage.ACK_GAMEZNAIO, this.ACK_GAMEZNAIO, this);
 			//服务器通知客户端托管操作
 			GDGame.Msg.ins.addEventListener(GameMessage.ACK_GAMEPLAYERTRUST, this.ACK_USER_PLAYERTRUST, this);
 			//服务器通知客户端解除托管操作
@@ -136,6 +139,9 @@ module game {
 			this.gameUI.initUser();
 			this.gameUI.initPosition();
 			this.gameUI.initHandCard();
+			egret.setTimeout(function () {
+				this.gameUI.initQshHandCard();
+			}, this, 300);
 		}
 
 		/*
@@ -330,6 +336,15 @@ module game {
 			}
 			this.gameUI.onCloseTingFlag();
 			this.gameUI.showAllHandCard();
+
+		}
+
+		//游戏通知抓鸟
+		private ACK_GAMEZNAIO(evt: egret.Event): void {
+			let body: proto.NotZaNiao = evt.data;
+			//进行抓鸟界面操作
+
+			this.gameUI.showZhuaNiaoResult(body);
 		}
 		/** 
 		 * @param msg
@@ -337,6 +352,7 @@ module game {
 		 */
 		private ACK_ALL_GAMERESULT(evt: egret.Event): void {
 			let body: proto.NotGameResult = evt.data;
+			this.gameUI["zniaoGroup"].visible = false;
 			this.gameResult.showResult(body);
 		}
 		private onGameContinue(): void {
@@ -441,8 +457,10 @@ module game {
 			GDGame.Msg.ins.removeEventListener(GameMessage.ACK_GAMERESULT, this.ACK_GAME_RESULT, this);
 			//游戏全部结束
 			GDGame.Msg.ins.removeEventListener(GameMessage.ACK_ALLGAMERESULT, this.ACK_ALL_GAMERESULT, this);
-
+			//游戏结算亮牌
 			GDGame.Msg.ins.removeEventListener(GameMessage.ACK_ALLGAMEEND, this.ACK_ALLGAMEEND, this);
+			//游戏通知抓鸟
+			GDGame.Msg.ins.removeEventListener(GameMessage.ACK_GAMEZNAIO, this.ACK_GAMEZNAIO, this);
 			//服务器通知客户端托管操作
 			GDGame.Msg.ins.removeEventListener(GameMessage.ACK_GAMEPLAYERTRUST, this.ACK_USER_PLAYERTRUST, this);
 			//服务器通知客户端解除托管操作

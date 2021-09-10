@@ -358,14 +358,14 @@ module game {
 
 						card.x = itemX - (12 - i) * 18;
 						card.y = itemY + (12 - i) * 41;
-						// if (i == 13) {
-						// 	//最后一张牌多出20像素
-						// 	card.x = 40;
-						// 	card.y = 692;
-						// 	this.gHandCardL.addChild(card);
-						// } else {
-						// 	this.gHandCardL.addChildAt(card, 0);
-						// }
+						if (i == 13) {
+							//最后一张牌多出20像素
+							card.x = 40;
+							card.y = 692;
+							this.gHandCardL.addChild(card);
+						} else {
+							this.gHandCardL.addChildAt(card, 0);
+						}
 						this.gHandCardL.y = 0;
 						this.sprTmpLeft.y = 150;
 						this.sprTmpLeft.x = 90 - 5;
@@ -396,14 +396,14 @@ module game {
 				if (p == 2) {
 					card.setCard(p, 16 - i - index, cardValue, state, isQue);
 					if (state == 0) {
-						// card.x = this.arrRHP[i + index].x;
+
 						card.x = (1578 - 1555) + i * 18;
 						card.y = (143 - 90) + i * 42;
-						// card.y = this.arrRHP[i + index].y;
-						// if (i == 13) {
-						// 	card.y = 0;
-						// 	card.x = 0;
-						// }
+
+						if (i == 13) {
+							card.y = 0;
+							card.x = 0;
+						}
 						this.gHandCardR.x = this.gHandCardR.y = 0;
 						this.gOtherCardR.y = 0;
 						this.sprTmpRight.x = 1555 - 20;
@@ -411,8 +411,7 @@ module game {
 						this.sprTmpRight.scaleX = this.sprTmpRight.scaleY = 0.8;
 
 					} else {
-						// card.x = this.arrRLP[i + index].x;
-						// card.y = this.arrRLP[i + index].y;
+
 						card.x = i * 19;
 						card.y = i * 44;
 					}
@@ -430,6 +429,9 @@ module game {
 					}
 					if (state == 0) {
 						card.x = i * itemCardWidth;
+						if (i == 13) {//自己出牌，断线回来
+							card.x = i * itemCardWidth + 20;
+						}
 						if (i == len - 1 && index == 0) {
 							card.x += 10;
 						}
@@ -439,19 +441,20 @@ module game {
 					}
 
 				}
-				// if (i == 14) {
-				// 	this.gHandCardD.x = 1740 - this.gHandCardD.width + 20 + 126 - 5;
-				// } else {
-				// 	this.gHandCardD.x = 1740 - this.gHandCardD.width;
-				// }
+				if (i == 14) {
+					this.gHandCardD.x = 1740 - this.gHandCardD.width + 20 + 126 - 5;
+				} else {
+					this.gHandCardD.x = 1740 - this.gHandCardD.width;
+				}
 			}
 			// this.gHandCardU.y = 120;
 			// this.gHandCardU.x = 581;
 			this.sprTmpUp.x = 520;
 			this.sprTmpUp.y = 36 + 50;
-			this.sprTmpDown.x = 180;
+			this.sprTmpDown.x = 10;
 			this.sprTmpDown.height = 190;
 			this.sprTmpDown.bottom = 10;
+
 			// this.gHandCardD.y = GameConfig.curHeight() - this.gHandCardD.height;
 			// this.gHandCardD.x = GameConfig.curWidth() - this.gHandCardD.width - 150;
 
@@ -584,10 +587,11 @@ module game {
 					// mc.y = 5;
 					this.gOtherCardD.addChild(mc);
 					this.gOtherCardD.x = 237;
+					this.gHandCardD.x += this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).width;
+					this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).x += 15;
+					this.gOtherCardD.x = this.gOtherCardD.x - 34 - this.gOtherCardD.width;
 				}
-				this.gHandCardD.x += this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).width;
-				this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).x += 15;
-				this.gOtherCardD.x = this.gOtherCardD.x - 34 - this.gOtherCardD.width;
+
 			}
 		}
 		/*p 玩家位置 index 牌组索引*/

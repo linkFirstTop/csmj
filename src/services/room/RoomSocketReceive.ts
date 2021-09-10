@@ -44,6 +44,10 @@ module room {
 				case RoomProtocol.GF_ACK | RoomProtocol.NOT_GAME_RESULT:
 					this.NOT_GAME_RESULT(byte);
 					break;
+				//通知扎鸟
+				case RoomProtocol.GF_ACK | RoomProtocol.NOT_ZA_NIAO:
+					this.NOT_ZA_NIAO(byte);
+					break;
 				case RoomProtocol.GF_ACK | RoomProtocol.NOT_GAME_END:
 					this.NOT_GAME_END(byte);
 					break;
@@ -267,7 +271,6 @@ module room {
 			}
 		}
 		private NOT_CARDS(byte: egret.ByteArray): void {
-
 			var body = proto.NotCards.decode(byte.bytes);
 			Global.log("接收到发牌消息" + JSON.stringify(body));
 			game.GameParmes.firstSit = body.banker;//庄家
@@ -327,12 +330,20 @@ module room {
 			Global.log("服务器通知客户端结算亮牌" + JSON.stringify(body));
 			game.GameController.AckGameEnd(body);
 		}
+		private NOT_ZA_NIAO(byte: egret.ByteArray): void {
+			var body = proto.NotZaNiao.decode(byte.bytes);
+			Global.log("服务器通知客户端扎鸟消息" + JSON.stringify(body));
+			game.GameController.AckGameZnaio(body);
+
+		}
 		private NOT_GAME_RESULT(byte: egret.ByteArray): void {
 			var body = proto.NotGameResult.decode(byte.bytes);
 			Global.log("服务器通知客户端结果消息" + JSON.stringify(body));
 			game.GameController.AckGameResult(body);
 
 		}
+
+
 		private NOT_CHAT(byte: egret.ByteArray): void {
 			Global.log("聊天消息");
 		}

@@ -104,6 +104,13 @@ message NotBuhua
     required int32 leftCardsNum = 3;    //牌池剩余多少张牌
     repeated int32 bupai        = 4;    //补牌，如果是自己补花，则有值
 }
+//通知扎鸟
+message NotZaNiao
+{
+	required int32 stage = 1;   //牌局阶段 4 扎鸟阶段
+	required CardInfo result = 2;  //扎鸟
+}
+
 
 //通知补花阶段结束  MessageId.GAME.NOT_BUHUAENDS
 message NotBuhuaEnds

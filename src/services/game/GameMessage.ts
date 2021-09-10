@@ -63,6 +63,9 @@ module game {
 		public static ACK_GAMERESULT: string = GameMessage.GAME_BASE + "ACK_GAMERESULT";
 		//结算亮牌
 		public static ACK_ALLGAMEEND: string = GameMessage.GAME_BASE + "ACK_ALLGAMEEND";
+		//抓鸟
+		public static ACK_GAMEZNAIO: string = GameMessage.GAME_BASE + "ACK_GAMEZNAIO";
+
 		//通知托管
 		public static NOT_CHAIR: string = GameMessage.GAME_BASE + "NOT_CHAIR";
 		//全部结算

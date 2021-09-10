@@ -5262,6 +5262,81 @@ declare namespace proto {
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
+    /** Properties of a NotZaNiao. */
+    interface INotZaNiao {
+
+        /** NotZaNiao stage */
+        stage: number;
+
+        /** NotZaNiao result */
+        result: proto.ICardInfo;
+    }
+
+    /** Represents a NotZaNiao. */
+    class NotZaNiao implements INotZaNiao {
+
+        /**
+         * Constructs a new NotZaNiao.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: proto.INotZaNiao);
+
+        /** NotZaNiao stage. */
+        public stage: number;
+
+        /** NotZaNiao result. */
+        public result: proto.ICardInfo;
+
+        /**
+         * Creates a new NotZaNiao instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns NotZaNiao instance
+         */
+        public static create(properties?: proto.INotZaNiao): proto.NotZaNiao;
+
+        /**
+         * Encodes the specified NotZaNiao message. Does not implicitly {@link proto.NotZaNiao.verify|verify} messages.
+         * @param message NotZaNiao message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: proto.INotZaNiao, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified NotZaNiao message, length delimited. Does not implicitly {@link proto.NotZaNiao.verify|verify} messages.
+         * @param message NotZaNiao message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.INotZaNiao, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a NotZaNiao message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns NotZaNiao
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotZaNiao;
+
+        /**
+         * Decodes a NotZaNiao message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns NotZaNiao
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotZaNiao;
+
+        /**
+         * Verifies a NotZaNiao message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
     /** Properties of a NotBuhuaEnds. */
     interface INotBuhuaEnds {
 

@@ -32,9 +32,11 @@ module game {
 		private gTingCards: eui.Group;
 		private arrTingCards: Array<any> = [];
 		private btnContinue: eui.Image;
+		private zniaoGroup: eui.Group;
 
 		private trustText: eui.Image;
 		private huIcon: eui.Image;
+		private private: eui.Group;
 
 		private infoBg: eui.Image;
 		protected childrenCreated(): void {
@@ -62,7 +64,6 @@ module game {
 			this.gameHand.addEventListener("ShowTingGroup", this.onShowTingGroup, this);
 			this.gameHand.addEventListener("ShowTingTip", this.onShowTingTip, this);
 			this.gameHand.initHand();
-
 			this.addChild(this.gameOpt);
 			this.gameOpt.addEventListener("ShowTianHuFlag", this.onShowTHFlag, this);
 			this.gameOpt.addEventListener("ShowTingHuFlag", this.onShowTingFlag, this);
@@ -244,9 +245,16 @@ module game {
 		public initHandCard(): void {
 			this.gameHand.createHandCard(false, 0);
 		}
+		// 初始化起手牌牌型
+		public initQshHandCard(): void {
+			for (let i: number = 0; i < 4; i++) {
+				this["znaio" + i].visible = false;
+				this["qsh" + i].visible = true;
+			}
+		}
 		public showWallCount(): void {
-			if (144 - GamePlayData.CardsWall_Head_Index - GamePlayData.CardsWall_Tail_Index - GamePlayData.CardsWall_Hua_Index > 0) {
-				this.lbLeftCard.text = Global.dic["余牌"] + ":" + (144 - GamePlayData.CardsWall_Head_Index - GamePlayData.CardsWall_Tail_Index - GamePlayData.CardsWall_Hua_Index) + Global.dic["张"];
+			if (108 - GamePlayData.CardsWall_Head_Index - GamePlayData.CardsWall_Tail_Index - GamePlayData.CardsWall_Hua_Index > 0) {
+				this.lbLeftCard.text = Global.dic["余牌"] + ":" + (108 - GamePlayData.CardsWall_Head_Index - GamePlayData.CardsWall_Tail_Index - GamePlayData.CardsWall_Hua_Index) + Global.dic["张"];
 			} else {
 				this.lbLeftCard.text = Global.dic["余牌"] + ":0" + Global.dic["张"];
 			}
@@ -477,6 +485,31 @@ module game {
 			for (let i: number = 0; i < 4; i++) {
 				this["gameUser" + i].showCurrentAnim(false);
 			}
+
+		}
+		//抓鸟
+		public showZhuaNiaoResult(body: proto.NotZaNiao) {
+			this["qsh0"].visible = this["qsh1"].visible = this["qsh2"].visible = this["qsh3"].visible = false;
+			console.log("抓鸟结果" + JSON.stringify(body));
+			this.zniaoGroup.visible = true;
+			this.zniaoGroup.touchEnabled = false;
+			let state = 0;
+			if (body.stage == 4) {
+				let arr: Array<proto.CardInfo> = [];
+				for (let i: number = 0; i < body.result.length; i++) {
+					let info: proto.CardInfo = body.result[i];
+					arr.push(info);
+					let cardValue: number = game.GameParmes.getCardID(info);
+					let card: BaseHandCardUI = new BaseHandCardUI();
+					card.setCard(3, i, cardValue, state, false);
+					this.zniaoGroup.addChild(card);
+					let p: number = Global.getUserPosition(info.Sit);
+					this["znaio" + p].visible = true;
+					this["znaio" + p].font = Global.language + "znFnt_fnt";
+					this["znaio" + p].text = p;
+				}
+			}
+
 		}
 		public setUserTing(sit: number): void {
 			let p: number = Global.getUserPosition(sit);
@@ -617,7 +650,7 @@ module game {
 			for (let i: number = 0; i < arr.length; i++) {
 				let info: any = arr[i];
 				if (GameParmes.getCardIDByID(info.ObtainCardIndex) == nIndex) {
-					console.log(info.ObtainCardIndex, GameParmes.getCardIDByID(info.ObtainCardIndex));
+					// console.log(info.ObtainCardIndex, GameParmes.getCardIDByID(info.ObtainCardIndex));
 					this.copyTingCards(info.CallCards);
 					this.createHuCards(info.CallCards);
 					break;

@@ -12,6 +12,8 @@
 		"protobuf/library/protobuf-library.js",
 		"protobuf/bundles/protobuf-bundles.js",
 		"protobuf/library/protobuf-library.js",
+		"protobuf/bundles/protobuf-bundles.js",
+		"protobuf/library/protobuf-library.js",
 		"protobuf/bundles/protobuf-bundles.js"
 	],
 	"game": [

@@ -47,6 +47,7 @@ module game {
 		public static isAddHuanSanZhang: boolean = false;
 
 		private static arrHandCards: Array<any> = [];
+		private static arrQshHandCards: Array<any> = [];
 
 		public static arrOtherCards: Array<any> = [[], [], [], []];
 
@@ -69,6 +70,7 @@ module game {
 			GamePlayData.HSZUserChoose = [];
 			GamePlayData.HSZGetCards = [];
 			GamePlayData.arrHandCards = [];
+			GamePlayData.arrQshHandCards = [];
 			GamePlayData.arrOtherCards = [[], [], [], []];
 			GamePlayData.arrPoolCards = [[], [], [], []];
 			GamePlayData.arrLPCards = [];
@@ -111,8 +113,8 @@ module game {
 				if (i == handcard.seat) {
 					arrTmp = handcard.cards
 				} else {
-					let cardsLength: number = 16;
-					if (i == game.GameParmes.firstSit) cardsLength = 17;
+					let cardsLength: number = 13;
+					if (i == game.GameParmes.firstSit) cardsLength = 14;//庄家14
 					for (let j: number = 0; j < cardsLength; j++) {
 						let card: proto.CardInfo = new proto.CardInfo();
 						card.CardID = -1;

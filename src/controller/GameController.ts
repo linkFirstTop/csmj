@@ -276,6 +276,13 @@ module game {
 			game.GamePlayData.tingData = [false, false, false, false];
 			GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_ALLGAMEEND, true, true, body));
 		}
+		//  服务器通知客户端扎鸟消息
+		public static AckGameZnaio(body: proto.NotZaNiao): void {
+
+			// body.others.unshift(body.player);
+			// game.GamePlayData.SaveResultData(body.others);
+			GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_GAMEZNAIO, true, true, body));
+		}
 		/**
 		 * 服务器通知客户端结果消息
 		 * */

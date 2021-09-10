@@ -12190,6 +12190,165 @@ $root.proto = (function() {
         return NotBuhua;
     })();
 
+    proto.NotZaNiao = (function() {
+
+        /**
+         * Properties of a NotZaNiao.
+         * @memberof proto
+         * @interface INotZaNiao
+         * @property {number} stage NotZaNiao stage
+         * @property {proto.ICardInfo} result NotZaNiao result
+         */
+
+        /**
+         * Constructs a new NotZaNiao.
+         * @memberof proto
+         * @classdesc Represents a NotZaNiao.
+         * @implements INotZaNiao
+         * @constructor
+         * @param {proto.INotZaNiao=} [properties] Properties to set
+         */
+        function NotZaNiao(properties) {
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * NotZaNiao stage.
+         * @member {number} stage
+         * @memberof proto.NotZaNiao
+         * @instance
+         */
+        NotZaNiao.prototype.stage = 0;
+
+        /**
+         * NotZaNiao result.
+         * @member {proto.ICardInfo} result
+         * @memberof proto.NotZaNiao
+         * @instance
+         */
+        NotZaNiao.prototype.result = null;
+
+        /**
+         * Creates a new NotZaNiao instance using the specified properties.
+         * @function create
+         * @memberof proto.NotZaNiao
+         * @static
+         * @param {proto.INotZaNiao=} [properties] Properties to set
+         * @returns {proto.NotZaNiao} NotZaNiao instance
+         */
+        NotZaNiao.create = function create(properties) {
+            return new NotZaNiao(properties);
+        };
+
+        /**
+         * Encodes the specified NotZaNiao message. Does not implicitly {@link proto.NotZaNiao.verify|verify} messages.
+         * @function encode
+         * @memberof proto.NotZaNiao
+         * @static
+         * @param {proto.INotZaNiao} message NotZaNiao message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        NotZaNiao.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            writer.uint32(/* id 1, wireType 0 =*/8).int32(message.stage);
+            $root.proto.CardInfo.encode(message.result, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified NotZaNiao message, length delimited. Does not implicitly {@link proto.NotZaNiao.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof proto.NotZaNiao
+         * @static
+         * @param {proto.INotZaNiao} message NotZaNiao message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        NotZaNiao.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a NotZaNiao message from the specified reader or buffer.
+         * @function decode
+         * @memberof proto.NotZaNiao
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {proto.NotZaNiao} NotZaNiao
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        NotZaNiao.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.NotZaNiao();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    message.stage = reader.int32();
+                    break;
+                case 2:
+                    message.result = $root.proto.CardInfo.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            if (!message.hasOwnProperty("stage"))
+                throw $util.ProtocolError("missing required 'stage'", { instance: message });
+            if (!message.hasOwnProperty("result"))
+                throw $util.ProtocolError("missing required 'result'", { instance: message });
+            return message;
+        };
+
+        /**
+         * Decodes a NotZaNiao message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof proto.NotZaNiao
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {proto.NotZaNiao} NotZaNiao
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        NotZaNiao.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a NotZaNiao message.
+         * @function verify
+         * @memberof proto.NotZaNiao
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        NotZaNiao.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (!$util.isInteger(message.stage))
+                return "stage: integer expected";
+            {
+                var error = $root.proto.CardInfo.verify(message.result);
+                if (error)
+                    return "result." + error;
+            }
+            return null;
+        };
+
+        return NotZaNiao;
+    })();
+
     proto.NotBuhuaEnds = (function() {
 
         /**
