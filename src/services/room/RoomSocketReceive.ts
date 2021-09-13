@@ -330,13 +330,7 @@ module room {
 
 
 		}
-		// 通知扎鸟
-		private NOT_ZA_NIAO(byte: egret.ByteArray): void {
-			var body = proto.NotZaNiao.decode(byte.bytes);
-			Global.log("服务器通知客户端扎鸟消息" + JSON.stringify(body));
-			game.GameController.AckGameZnaio(body);
 
-		}
 
 		private NOT_BUHUAENDS(byte: egret.ByteArray): void {
 			var body = proto.NotBuhuaEnds.decode(byte.bytes);
@@ -385,6 +379,13 @@ module room {
 			var body = proto.NotGameEnd.decode(byte.bytes);
 			Global.log("服务器通知客户端结算亮牌" + JSON.stringify(body));
 			game.GameController.AckGameEnd(body);
+		}
+		// 通知扎鸟
+		private NOT_ZA_NIAO(byte: egret.ByteArray): void {
+			var body = proto.NotZaNiao.decode(byte.bytes);
+			Global.log("服务器通知客户端扎鸟消息" + JSON.stringify(body));
+			game.GameController.AckGameZnaio(body);
+
 		}
 		private NOT_GAME_RESULT(byte: egret.ByteArray): void {
 			var body = proto.NotGameResult.decode(byte.bytes);

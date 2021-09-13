@@ -81,7 +81,7 @@ module game {
 			this.height = GameConfig.curHeight();
 			this.sprTmpDown.height = 190;
 			this.sprTmpDown.bottom = 10;
-			this.sprTmpDown.x = 190;
+			this.sprTmpDown.x = 10;
 			this.addChild(this.sprTmpLeft);
 			this.addChild(this.sprTmpRight);
 			this.addChild(this.sprTmpUp);
@@ -106,12 +106,12 @@ module game {
 			this.currentCard = null;
 			this.isSortComplete = false;
 			this.isHSZStart = false;
-
+			this.gOtherCardD.x = 237;
 			this.addChild(this.gHuCardL);
 			this.addChild(this.gHuCardU);
 			this.addChild(this.gHuCardR);
 			this.addChild(this.gHuCardD);
-			this.gOtherCardD.x = 237;
+
 
 
 			this.gHandCardD.addEventListener("OnClickHandCard", this.onClickHandCard, this);
@@ -332,7 +332,7 @@ module game {
 			} else {
 				index = 1;
 			}
-			for (let i: number = 0; i < len; i++) {
+			for (var i: number = 0; i < len; i++) {
 				let isQue: boolean = false;
 				let info: proto.CardInfo = arr[i];
 				let cardValue: number = game.GameParmes.getCardID(info);
@@ -347,37 +347,90 @@ module game {
 				card.visible = isShow;
 				let nOptHei: number = 0;
 				let nOptW: number = 0;
-				if (state == 0)
-					if (p == 0) {
-						let itemX: number = 277;
-						let itemY: number = 144;
-						let mcX: number = 304;
-						let mcY: number = 16;
-						nOptHei = 160;
-						nOptW = 72;
-						card.setCard(p, (i + index), cardValue, state, isQue);
-						if (state == 0) {//暗牌
+				// //手牌亮牌
+				// if (state != 0) {
+				// 	ghand.x = ghand.y = 0;
+				// 	if (p == 0) {
+				// 		this.sprTmpLeft.y = 150;
+				// 		// this.sprTmpLeft.scaleX = this.sprTmpLeft.scaleY = 0.7;
 
-							card.x = itemX - (12 - i) * 18;
-							card.y = itemY + (12 - i) * 41;
-							if (i == 13) {
-								//最后一张牌多出20像素
-								card.x = 40;
-								card.y = 692;
-								this.gHandCardL.addChild(card);
-							} else {
-								this.gHandCardL.addChildAt(card, 0);
-							}
-							this.gHandCardL.y = 0;
-							this.sprTmpLeft.y = 150;
-							this.sprTmpLeft.x = 90 - 5;
-							this.sprTmpLeft.scaleX = this.sprTmpLeft.scaleY = 0.8;
-						} else {//亮牌
-							card.x = 304 - (12 - i) * 19;
-							card.y = 144 + (12 - i) * 44 + 20;
+				// 		let itemY: number = ghand.getChildAt(0).y - this.gOtherCardL.height;
+				// 		for (let g: number = 0; g < ghand.numChildren; g++) {
+				// 			ghand.getChildAt(g).y = ghand.getChildAt(g).y - itemY;
+				// 		}
+				// 		if (this.gOtherCardL.numChildren > 0) {
+				// 			ghand.x -= this.gOtherCardL.numChildren * 20;
+				// 			if (this.gOtherCardL.numChildren == 4)//美术没有出这效果图，客户端强制做的
+				// 			{
+				// 				ghand.x = -60;
+				// 				ghand.y = -10;
+				// 			}
+				// 		}
+				// 		ghand.addChildAt(card, 0);
+				// 	} else if (p == 1) {
+				// 		if (this.gOtherCardU.numChildren > 0) {
+				// 			this.gOtherCardU.x = (this.gOtherCardU.numChildren - 1) * 208 + this.gHandCardU.width + 30;
+				// 		}
+
+				// 		this.sprTmpUp.x = 520;
+				// 		this.sprTmpUp.y = 36 + 50;
+				// 		ghand.addChild(card);
+				// 	} else if (p == 2) {
+				// 		this.sprTmpRight.x = 1535;
+				// 		// this.sprTmpRight.scaleX = this.sprTmpRight.scaleY = 0.7;
+				// 		this.sprTmpRight.y = (1080 - this.sprTmpRight.height) / 2;
+
+				// 		if (this.gOtherCardR.numChildren == 4) {
+				// 			ghand.x = -50;
+				// 		} else if (this.gOtherCardR.numChildren == 1) {
+				// 			ghand.x = -20;
+				// 		} else if (this.gOtherCardR.numChildren == 2) {
+				// 			ghand.x = -20;
+				// 		} else if (this.gOtherCardR.numChildren == 3) {
+				// 			ghand.x = -50;
+				// 		}
+				// 		ghand.addChild(card);
+				// 	} else if (p == 3) {
+				// 		this.gOtherCardD.y -= 50;
+				// 		ghand.x = this.gOtherCardD.x + this.gOtherCardD.width + 50;
+				// 		this.sprTmpDown.x = 10;
+				// 		ghand.y += 50;
+				// 		this.gOtherCardD.y += 50;
+				// 		ghand.addChild(card);
+				// 	}
+
+				// }
+				if (p == 0) {
+					let itemX: number = 277;
+					let itemY: number = 144;
+					let mcX: number = 304;
+					let mcY: number = 16;
+					nOptHei = 160;
+					nOptW = 72;
+					card.setCard(p, (i + index), cardValue, state, isQue);
+					if (state == 0) {//暗牌
+						card.x = itemX - (12 - i) * 18;
+						card.y = itemY + (12 - i) * 41;
+
+						if (i == 13) {
+							//最后一张牌多出20像素
+							card.x = 40;
+							card.y = 692;
+
+							ghand.addChild(card);
+
+
 						}
-						ghand.addChildAt(card, 0);
+						this.gHandCardL.y = 0;
+						this.sprTmpLeft.y = 150;
+						this.sprTmpLeft.x = 90 - 5;
+						this.sprTmpLeft.scaleX = this.sprTmpLeft.scaleY = 0.8;
+					} else {//亮牌
+						card.x = 304 - (12 - i) * 19;
+						card.y = 144 + (12 - i) * 44 + 20;
 					}
+					ghand.addChildAt(card, 0);
+				}
 				if (p == 1) {
 					let itemCardWidth: number = 76 - 1;
 					card.setCard(p, (i + index), cardValue, state, isQue);
@@ -404,6 +457,7 @@ module game {
 						if (i == 13) {
 							card.y = 0;
 							card.x = 0;
+							ghand.addChildAt(card, 0);
 						}
 						this.gHandCardR.x = this.gHandCardR.y = 0;
 						this.gOtherCardR.y = 0;
@@ -436,27 +490,27 @@ module game {
 						if (i == len - 1 && index == 0) {
 							card.x += 10;
 						}
-						if (i == 14) {
-							this.gHandCardD.x = 1740 - this.gHandCardD.width + 20 + 126 - 5;
-						} else {
-							this.gHandCardD.x = 1740 - this.gHandCardD.width;
-						}
+
 					}
 					else {
 						card.x = i * card.width - i * 2;
 					}
 
 				}
+			}
+			if (p == 3) {
+				if (i == 14) {
+					this.gHandCardD.x = 1740 - this.gHandCardD.width + 20 + 126 - 5;
+				} else {
+					this.gHandCardD.x = 1740 - this.gHandCardD.width;
+				}
 
 			}
+
 			// this.gHandCardU.y = 120;
 			// this.gHandCardU.x = 581;
 			this.sprTmpUp.x = 520;
 			this.sprTmpUp.y = 36 + 50;
-
-			this.sprTmpDown.height = 190;
-			this.sprTmpDown.bottom = 10;
-
 			// this.gHandCardD.y = GameConfig.curHeight() - this.gHandCardD.height;
 			// this.gHandCardD.x = GameConfig.curWidth() - this.gHandCardD.width - 150;
 
@@ -588,9 +642,8 @@ module game {
 					}
 					// mc.y = 5;
 					this.gOtherCardD.addChild(mc);
-
-
 				}
+				this.gOtherCardD.x = 237;
 				this.gHandCardD.x += this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).width;
 				this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).x += 15;
 				this.gOtherCardD.x = this.gOtherCardD.x - 34 - this.gOtherCardD.width;

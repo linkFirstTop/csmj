@@ -33,6 +33,7 @@ module game {
 		private arrTingCards: Array<any> = [];
 		private btnContinue: eui.Image;
 		private zniaoGroup: eui.Group;
+		private znaioItemGroup: eui.Group;
 
 		private trustText: eui.Image;
 		private huIcon: eui.Image;
@@ -248,7 +249,7 @@ module game {
 		// 初始化起手牌牌型
 		public initQshHandCard(): void {
 			for (let i: number = 0; i < 4; i++) {
-				this["znaio" + i].visible = false;
+				this["zniao" + i].visible = false;
 				this["qsh" + i].visible = true;
 			}
 		}
@@ -439,6 +440,7 @@ module game {
 			this.gameHand.createHandCard(true, 0);//还原手牌
 			this.gameHand.createAllCPG();//还原吃碰杠牌
 			this.gamePool.reductionCardsPool();//还原牌池
+			this.gamePosition.setPosition();//还原方位
 			this.showGameInfo();
 			GameWebSocket.instance().gameSender.ReqGamePlayerReleveTrustFun();//解除托管
 			if (GameParmes.gameStage == GameStageType.PLAYING) {
@@ -502,11 +504,12 @@ module game {
 					let cardValue: number = game.GameParmes.getCardID(info);
 					let card: BaseHandCardUI = new BaseHandCardUI();
 					card.setCard(3, i, cardValue, state, false);
-					this.zniaoGroup.addChild(card);
+					this.znaioItemGroup.addChild(card);
 					let p: number = Global.getUserPosition(info.Sit);
-					this["znaio" + p].visible = true;
-					this["znaio" + p].font = Global.language + "znFnt_fnt";
-					this["znaio" + p].text = p;
+					this["zniao" + p].visible = true;
+					this["zniao" + p].font = Global.language + "znFnt_fnt";
+					this["zniao" + p].text = p;
+					console.log(p, this["zniao" + p].text);
 				}
 			}
 

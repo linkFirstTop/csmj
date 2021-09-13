@@ -1,18 +1,18 @@
 module room {
 	export class RoomWebSocket {
 		private static ins: room.RoomWebSocket;
-		public roomSender:room.RoomSocketSender;
-		public nRoomTimerCount:number = 0;
-		private roomReceive:room.RoomSocketReceive;
+		public roomSender: room.RoomSocketSender;
+		public nRoomTimerCount: number = 0;
+		private roomReceive: room.RoomSocketReceive;
 		private webSocket: egret.WebSocket;
 		private isConnected: boolean = false;//是否已经连接
-		private interval:number;				//心跳延迟
-		private intervalConnect:number;			//重连服务器延迟
-		private strRoomIP:string = "";
-		public static instance(): room.RoomWebSocket{
-			if(room.RoomWebSocket.ins != null) {
-				
-			}else{
+		private interval: number;				//心跳延迟
+		private intervalConnect: number;			//重连服务器延迟
+		private strRoomIP: string = "";
+		public static instance(): room.RoomWebSocket {
+			if (room.RoomWebSocket.ins != null) {
+
+			} else {
 				room.RoomWebSocket.ins = new room.RoomWebSocket();
 			}
 			return room.RoomWebSocket.ins;
@@ -20,15 +20,15 @@ module room {
 		public constructor() {
 			this.webSocket = new egret.WebSocket();
 			this.webSocket.type = egret.WebSocket.TYPE_BINARY;
-			this.webSocket.addEventListener(egret.ProgressEvent.SOCKET_DATA,this.onReceiveMessage,this);
-			this.webSocket.addEventListener(egret.Event.CONNECT,this.onSocketOpen,this);
-			this.webSocket.addEventListener(egret.Event.CLOSE,this.onSocketClose,this);
-			this.webSocket.addEventListener(egret.IOErrorEvent.IO_ERROR,this.onSocketError,this);
-			
+			this.webSocket.addEventListener(egret.ProgressEvent.SOCKET_DATA, this.onReceiveMessage, this);
+			this.webSocket.addEventListener(egret.Event.CONNECT, this.onSocketOpen, this);
+			this.webSocket.addEventListener(egret.Event.CLOSE, this.onSocketClose, this);
+			this.webSocket.addEventListener(egret.IOErrorEvent.IO_ERROR, this.onSocketError, this);
+
 			this.roomSender = new room.RoomSocketSender();
 			this.roomReceive = new room.RoomSocketReceive();
 		}
-		public connectServer():void{
+		public connectServer(): void {
 			if (this.isConnected) {
 				return;
 			}
@@ -42,19 +42,20 @@ module room {
 			}
 			this.connectSocket();
 		}
-		public connectSocket():void{
-			if(!this.isConnected){
-				if(Global.istest==true){
-					
+		public connectSocket(): void {
+			if (!this.isConnected) {
+				if (Global.istest == true) {
+
 					this.webSocket.connectByUrl("ws://210.64.214.136:43561");
 					//this.webSocket.connectByUrl("ws://172.16.2.12:6010");
-				}else{
-					if(Global.nSocketIndex < Global.arrConfig.length){
+				} else {
+					if (Global.nSocketIndex < Global.arrConfig.length) {
 						this.strRoomIP = Global.arrConfig[Global.nSocketIndex];
 					}
-					this.webSocket.connectByUrl(this.strRoomIP+"/gametype55/room");
+					this.webSocket.connectByUrl("ws://192.168.1.183:6010")
+					// this.webSocket.connectByUrl(this.strRoomIP+"/gametype55/room");
 				}
-			
+
 			}
 		}
 		public onSocketOpen(): void {
@@ -63,19 +64,18 @@ module room {
 			this.startHeart();
 			this.roomSender.REQ_LOGIN();
 		}
-		
+
 		//发送消息
-		public SendMeseage(messageid:number,obj:any): void
-		{
-			if(this.webSocket &&　this.webSocket.connected == false){
-				return ;
+		public SendMeseage(messageid: number, obj: any): void {
+			if (this.webSocket && 　this.webSocket.connected == false) {
+				return;
 			}
-		    var bytes = obj;
+			var bytes = obj;
 			//计算长度
 			var bodyBytes: egret.ByteArray = new egret.ByteArray(bytes);
 			var len = bodyBytes.length;
 			var sendMsg: egret.ByteArray = new egret.ByteArray();
-	
+
 			sendMsg.endian = egret.Endian.BIG_ENDIAN;
 			sendMsg.writeInt(0);
 			sendMsg.writeInt(messageid);
@@ -83,8 +83,8 @@ module room {
 			sendMsg.writeInt(0);
 			sendMsg.writeBytes(bodyBytes);
 			sendMsg.position = 0;
-			
-			this.webSocket.writeBytes(sendMsg,0,sendMsg.bytesAvailable); 
+
+			this.webSocket.writeBytes(sendMsg, 0, sendMsg.bytesAvailable);
 		}
 		public onReceiveMessage(e: egret.Event): void {
 			var sendMsg: egret.ByteArray = new egret.ByteArray();
@@ -94,52 +94,50 @@ module room {
 			var msgID = sendMsg.readInt();
 			var len = sendMsg.readInt();
 			var type = sendMsg.readInt();
-		
-			
-			if(sendMsg.bytesAvailable >= len) {
+
+
+			if (sendMsg.bytesAvailable >= len) {
 				var bytes: egret.ByteArray = new egret.ByteArray();
-				sendMsg.readBytes(bytes,0,len);
-				this.roomReceive.initHandlers(msgID,bytes);
-			} 
+				sendMsg.readBytes(bytes, 0, len);
+				this.roomReceive.initHandlers(msgID, bytes);
+			}
 		}
 		/**
 		 * 服务器断开连接
 		 */
 		public onSocketClose(): void {
-			if(this.isConnected){
+			if (this.isConnected) {
 				Global.log("room server disconnect");
 				this.isConnected = false;
 				egret.clearTimeout(this.interval);	//不再发送心跳
-				ViewManager.ins.showAlert(Global.dic["在别处登陆账号"],function(){
+				ViewManager.ins.showAlert(Global.dic["在别处登陆账号"], function () {
 					window.location.href = location.href;
 				});
 			}
 		}
-		public reconnectionSever():void{
+		public reconnectionSever(): void {
 			this.ClearSocket();
 			this.connectServer();
 		}
 
-		private closeSocket():void
-		{
+		private closeSocket(): void {
 			egret.clearTimeout(this.interval);	//不再发送心跳
-			if(this.webSocket){
+			if (this.webSocket) {
 				this.webSocket.close();
 				Global.log("room socket主动关闭");
 			}
 		}
 
-		public ClearSocket():void
-		{
+		public ClearSocket(): void {
 			egret.clearTimeout(this.interval);	//不再发送心跳
-			if(this.webSocket){
+			if (this.webSocket) {
 				this.webSocket.removeEventListener(egret.ProgressEvent.SOCKET_DATA, this.onReceiveMessage, this);
 				this.webSocket.removeEventListener(egret.Event.CONNECT, this.onSocketOpen, this);
 				this.webSocket.removeEventListener(egret.Event.CLOSE, this.onSocketClose, this);
 				this.webSocket.removeEventListener(egret.IOErrorEvent.IO_ERROR, this.onSocketError, this);
 				this.webSocket.close();
 				this.isConnected = false;
-				this.webSocket = null;	
+				this.webSocket = null;
 			}
 		}
 		/**
@@ -148,20 +146,20 @@ module room {
 		public onSocketError(): void {
 			this.isConnected = false;
 			egret.clearTimeout(this.interval);	//不再发送心跳
-			
-			if(Global.nCurrentSocket < Global.arrSocket.length){
+
+			if (Global.nCurrentSocket < Global.arrSocket.length) {
 				Global.nCurrentSocket += 1;
 			}
-			if(Global.nCurrentSocket == Global.arrSocket.length){
+			if (Global.nCurrentSocket == Global.arrSocket.length) {
 				Global.nCurrentSocket = 0
-				ViewManager.ins.showAlert(Global.dic["在别处登陆账号"],function(){
+				ViewManager.ins.showAlert(Global.dic["在别处登陆账号"], function () {
 					window.location.href = location.href;
 				});
-				return 
+				return
 			}
 			this.connectServer();
 		}
-		public onTimeOut():void{
+		public onTimeOut(): void {
 			this.ClearSocket();
 			ViewManager.ins.showAlert(Global.dic["长时间未操作"], function () {
 				window.location.href = location.href;
@@ -170,13 +168,12 @@ module room {
 		/**
 		 * 发送心跳
 		 */
-		private startHeart():void
-		{
+		private startHeart(): void {
 			egret.clearTimeout(this.interval);
 			this.roomSender.HEART_BEAT();
-			this.interval = egret.setTimeout(this.startHeart,this,10000);
+			this.interval = egret.setTimeout(this.startHeart, this, 10000);
 			this.nRoomTimerCount++;
-			if(this.nRoomTimerCount >= 10 ){
+			if (this.nRoomTimerCount >= 10) {
 				this.closeSocket();
 			}
 		}

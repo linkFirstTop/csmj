@@ -343,7 +343,6 @@ module game {
 		private ACK_GAMEZNAIO(evt: egret.Event): void {
 			let body: proto.NotZaNiao = evt.data;
 			//进行抓鸟界面操作
-
 			this.gameUI.showZhuaNiaoResult(body);
 		}
 		/** 

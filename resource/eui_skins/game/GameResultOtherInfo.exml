@@ -19,5 +19,6 @@
 		<e:BitmapLabel id="lbCoin" font="resultWinFntBig_fnt" text="+36000" x="1100" letterSpacing="-2"
 		               font.sitOther="resultWinFnt_fnt" x.sitOther="1100" y.sitOther="83" y="80" />
 		<e:Image id="icon_f" x="130" y="0" x.sitOther="362.6" y.sitOther="27.6" source="gameResult_icon_east_cn_png" />
+		<e:Group id="GameResultGroup"></e:Group>
 	</e:Group>
 </e:Skin>
