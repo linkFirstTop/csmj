@@ -5268,8 +5268,8 @@ declare namespace proto {
         /** NotZaNiao stage */
         stage: number;
 
-        /** NotZaNiao result */
-        result: proto.ICardInfo;
+        /** NotZaNiao cardInfos */
+        cardInfos?: (proto.ICardInfo[]|null);
     }
 
     /** Represents a NotZaNiao. */
@@ -5284,8 +5284,8 @@ declare namespace proto {
         /** NotZaNiao stage. */
         public stage: number;
 
-        /** NotZaNiao result. */
-        public result: proto.ICardInfo;
+        /** NotZaNiao cardInfos. */
+        public cardInfos: proto.ICardInfo[];
 
         /**
          * Creates a new NotZaNiao instance using the specified properties.

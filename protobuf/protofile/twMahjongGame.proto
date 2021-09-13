@@ -108,9 +108,8 @@ message NotBuhua
 message NotZaNiao
 {
 	required int32 stage = 1;   //牌局阶段 4 扎鸟阶段
-	required CardInfo result = 2;  //扎鸟
+	repeated CardInfo cardInfos = 2;  //扎鸟
 }
-
 
 //通知补花阶段结束  MessageId.GAME.NOT_BUHUAENDS
 message NotBuhuaEnds

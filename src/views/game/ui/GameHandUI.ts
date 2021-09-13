@@ -591,9 +591,9 @@ module game {
 
 
 				}
-				// this.gHandCardD.x += this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).width;
-				// this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).x += 15;
-				// this.gOtherCardD.x = this.gOtherCardD.x - 34 - this.gOtherCardD.width;
+				this.gHandCardD.x += this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).width;
+				this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).x += 15;
+				this.gOtherCardD.x = this.gOtherCardD.x - 34 - this.gOtherCardD.width;
 
 			}
 		}

@@ -496,17 +496,17 @@ module game {
 			let state = 0;
 			if (body.stage == 4) {
 				let arr: Array<proto.CardInfo> = [];
-				for (let i: number = 0; i < body.result.length; i++) {
-					let info: proto.CardInfo = body.result[i];
-					arr.push(info);
-					let cardValue: number = game.GameParmes.getCardID(info);
-					let card: BaseHandCardUI = new BaseHandCardUI();
-					card.setCard(3, i, cardValue, state, false);
-					this.zniaoGroup.addChild(card);
-					let p: number = Global.getUserPosition(info.Sit);
-					this["znaio" + p].visible = true;
-					this["znaio" + p].font = Global.language + "znFnt_fnt";
-					this["znaio" + p].text = p;
+				for (let i: number = 0; i < body.cardInfos.length; i++) {
+					// let info: proto.CardInfo = body.cardInfos[i];
+					// arr.push(info);
+					// let cardValue: number = game.GameParmes.getCardID(info);
+					// let card: BaseHandCardUI = new BaseHandCardUI();
+					// card.setCard(3, i, cardValue, state, false);
+					// this.zniaoGroup.addChild(card);
+					// let p: number = Global.getUserPosition(info.Sit);
+					// this["znaio" + p].visible = true;
+					// this["znaio" + p].font = Global.language + "znFnt_fnt";
+					// this["znaio" + p].text = p;
 				}
 			}
 

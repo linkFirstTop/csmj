@@ -12197,7 +12197,7 @@ $root.proto = (function() {
          * @memberof proto
          * @interface INotZaNiao
          * @property {number} stage NotZaNiao stage
-         * @property {proto.ICardInfo} result NotZaNiao result
+         * @property {Array.<proto.ICardInfo>|null} [cardInfos] NotZaNiao cardInfos
          */
 
         /**
@@ -12209,6 +12209,7 @@ $root.proto = (function() {
          * @param {proto.INotZaNiao=} [properties] Properties to set
          */
         function NotZaNiao(properties) {
+            this.cardInfos = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -12224,12 +12225,12 @@ $root.proto = (function() {
         NotZaNiao.prototype.stage = 0;
 
         /**
-         * NotZaNiao result.
-         * @member {proto.ICardInfo} result
+         * NotZaNiao cardInfos.
+         * @member {Array.<proto.ICardInfo>} cardInfos
          * @memberof proto.NotZaNiao
          * @instance
          */
-        NotZaNiao.prototype.result = null;
+        NotZaNiao.prototype.cardInfos = $util.emptyArray;
 
         /**
          * Creates a new NotZaNiao instance using the specified properties.
@@ -12256,7 +12257,9 @@ $root.proto = (function() {
             if (!writer)
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.stage);
-            $root.proto.CardInfo.encode(message.result, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.cardInfos != null && message.cardInfos.length)
+                for (var i = 0; i < message.cardInfos.length; ++i)
+                    $root.proto.CardInfo.encode(message.cardInfos[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             return writer;
         };
 
@@ -12295,7 +12298,9 @@ $root.proto = (function() {
                     message.stage = reader.int32();
                     break;
                 case 2:
-                    message.result = $root.proto.CardInfo.decode(reader, reader.uint32());
+                    if (!(message.cardInfos && message.cardInfos.length))
+                        message.cardInfos = [];
+                    message.cardInfos.push($root.proto.CardInfo.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -12304,8 +12309,6 @@ $root.proto = (function() {
             }
             if (!message.hasOwnProperty("stage"))
                 throw $util.ProtocolError("missing required 'stage'", { instance: message });
-            if (!message.hasOwnProperty("result"))
-                throw $util.ProtocolError("missing required 'result'", { instance: message });
             return message;
         };
 
@@ -12338,10 +12341,14 @@ $root.proto = (function() {
                 return "object expected";
             if (!$util.isInteger(message.stage))
                 return "stage: integer expected";
-            {
-                var error = $root.proto.CardInfo.verify(message.result);
-                if (error)
-                    return "result." + error;
+            if (message.cardInfos != null && message.hasOwnProperty("cardInfos")) {
+                if (!Array.isArray(message.cardInfos))
+                    return "cardInfos: array expected";
+                for (var i = 0; i < message.cardInfos.length; ++i) {
+                    var error = $root.proto.CardInfo.verify(message.cardInfos[i]);
+                    if (error)
+                        return "cardInfos." + error;
+                }
             }
             return null;
         };
