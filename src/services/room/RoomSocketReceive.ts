@@ -44,13 +44,14 @@ module room {
 				case RoomProtocol.GF_ACK | RoomProtocol.NOT_GAME_RESULT:
 					this.NOT_GAME_RESULT(byte);
 					break;
+				case RoomProtocol.GF_ACK | RoomProtocol.NOT_GAME_END:
+					this.NOT_GAME_END(byte);
+					break;
 				//通知扎鸟
 				case RoomProtocol.GF_ACK | RoomProtocol.NOT_ZA_NIAO:
 					this.NOT_ZA_NIAO(byte);
 					break;
-				case RoomProtocol.GF_ACK | RoomProtocol.NOT_GAME_END:
-					this.NOT_GAME_END(byte);
-					break;
+
 				case RoomProtocol.GF_ACK | RoomProtocol.DISCARD:
 					this.DISCARD(byte);
 					break;
@@ -72,6 +73,7 @@ module room {
 			Global.log("收到登陆返回:" + body.result);
 			if (body.result == 0) {//登陆成功
 				room.RoomWebSocket.instance().roomSender.REQ_ROOMLIST();
+
 				Global.userName = body.userName;
 				Global.gameCoin = Number(body.goldCoin);
 				Global.userId = Number(body.userId);
@@ -108,12 +110,24 @@ module room {
 				ViewManager.ins.showAlert(Global.dic["账号不存在"], function () {
 					window.location.href = location.href;//+"?ver="+Math.random()*9999;
 				});
-			} else if (body.result == -1) {
-				ViewManager.ins.showAlert(Global.dic["游戏维护"], function () {
+			} else if (body.result == 301) {
+				ViewManager.ins.showAlert(Global.dic["token过期"], function () {
 					window.location.href = location.href;//+"?ver="+Math.random()*9999;
 				});
-			} else if (body.result == 301) {
-				ViewManager.ins.showAlert(Global.dic["账号不存在"], function () {
+			} else if (body.result == 305) {
+				ViewManager.ins.showAlert(Global.dic["状态异常"], function () {
+					window.location.href = location.href;//+"?ver="+Math.random()*9999;
+				});
+			} else if (body.result == 401) {
+				ViewManager.ins.showAlert(Global.dic["游戏未开放"], function () {
+					window.location.href = location.href;//+"?ver="+Math.random()*9999;
+				});
+			} else if (body.result == 501) {
+				ViewManager.ins.showAlert(Global.dic["单一钱包"], function () {
+					window.location.href = location.href;//+"?ver="+Math.random()*9999;
+				});
+			} else if (body.result == -1) {
+				ViewManager.ins.showAlert(Global.dic["停服"], function () {
 					window.location.href = location.href;//+"?ver="+Math.random()*9999;
 				});
 			} else {
@@ -179,7 +193,6 @@ module room {
 		//请求进入房间
 		private ON_ACK_ROOM_ENTERROOM(byte: egret.ByteArray): void {
 			var body = proto.AckEnterRoom.decode(byte.bytes);
-
 			Global.log("请求进入房间" + body.result);
 
 			if (body.tableMapId && body.tableMapId != undefined && body.tableMapId != null && body.tableMapId != 0) {
@@ -190,21 +203,23 @@ module room {
 			ViewManager.ins.hideWait();
 
 			if (body.result == 0) {
+
 				ViewManager.ins.switchToGame();
+				ViewManager.ins.reTimeOut();
 				try {
 					window["sendUserClick"](Global.userName, Global.gameID, body.roomId);
 				} catch (error) {
 				}
 			} else if (body.result == 100) {
 
-				ViewManager.ins.showAlert(Global.dic["用户状态异常"], function () {
+				ViewManager.ins.showAlert(Global.dic["状态异常"], function () {
 					ViewManager.ins.leaveGameView();
 				});
 
 
 			} else if (body.result == 1) {
 
-				ViewManager.ins.showAlert(Global.dic["游戏维护"], function () {
+				ViewManager.ins.showAlert(Global.dic["停服"], function () {
 					ViewManager.ins.leaveGameView();
 				});
 
@@ -223,6 +238,34 @@ module room {
 					ViewManager.ins.leaveGameView();
 				});
 
+			} else if (body.result == 203) {
+				ViewManager.ins.showAlert(Global.dic["账号不存在"], function () {
+					window.location.href = location.href;//+"?ver="+Math.random()*9999;
+				});
+			} else if (body.result == 303) {
+				ViewManager.ins.showAlert(Global.dic["游戏中"], function () {
+					window.location.href = location.href;//+"?ver="+Math.random()*9999;
+				});
+			} else if (body.result == 305) {
+				ViewManager.ins.showAlert(Global.dic["状态异常2"], function () {
+					window.location.href = location.href;//+"?ver="+Math.random()*9999;
+				});
+			} else if (body.result == 501) {
+				ViewManager.ins.showAlert(Global.dic["单一钱包2"], function () {
+					window.location.href = location.href;//+"?ver="+Math.random()*9999;
+				});
+			} else if (body.result == 1002) {
+				ViewManager.ins.showAlert(Global.dic["停服"], function () {
+					window.location.href = location.href;//+"?ver="+Math.random()*9999;
+				});
+			} else if (body.result == 1003) {
+				ViewManager.ins.showAlert(Global.dic["金币不足"], function () {
+					ViewManager.ins.leaveGameView();
+				});
+			} else if (body.result == 1004) {
+				ViewManager.ins.showAlert(Global.dic["金币不足"], function () {
+					ViewManager.ins.leaveGameView();
+				});
 			} else {
 				TipsUtils.showTipsDownToUp("进入房间失败" + body.result);
 			}
@@ -245,11 +288,12 @@ module room {
 		//请求进入牌桌结果
 		private ENTER_TABLE(byte: egret.ByteArray): void {
 			var body = proto.AckEnterTable.decode(byte.bytes);
-			Global.log("请求进入牌桌结果" + JSON.stringify(body));
+			Global.log("请求进入牌桌结果");
 			if (body.result == 0) {
-				Global.userSit = body.seatNo;//我的座位号
+				Global.userSit = body.seatNo;
 				game.GamePlayData.isTuoguan = false;
-				game.GameParmes.firstSit = -1;//庄家
+
+				game.GameParmes.firstSit = -1;
 				game.GameParmes.chiPengGangSurplusTime = body.countdown.guanpai;
 				game.GameParmes.gamePlayTime = body.countdown.playCard;
 				game.GameUserList.saveUserListInfo(body.table.chairs);
@@ -272,9 +316,10 @@ module room {
 		}
 		private NOT_CARDS(byte: egret.ByteArray): void {
 			var body = proto.NotCards.decode(byte.bytes);
-			Global.log("接收到发牌消息" + JSON.stringify(body));
-			game.GameParmes.firstSit = body.banker;//庄家
+			game.GameParmes.firstSit = body.banker;
+
 			game.GameController.AckGameDiceAndCards(body);
+			ViewManager.ins.reTimeOut();
 			Global.log("接收到发牌消息" + body.banker);
 
 		}
@@ -283,7 +328,16 @@ module room {
 			Global.log("收到补花消息");
 			game.GameController.NotBuhua(body);
 
+
 		}
+		// 通知扎鸟
+		private NOT_ZA_NIAO(byte: egret.ByteArray): void {
+			var body = proto.NotZaNiao.decode(byte.bytes);
+			Global.log("服务器通知客户端扎鸟消息" + JSON.stringify(body));
+			game.GameController.AckGameZnaio(body);
+
+		}
+
 		private NOT_BUHUAENDS(byte: egret.ByteArray): void {
 			var body = proto.NotBuhuaEnds.decode(byte.bytes);
 			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.ACK_GAMESTAGE, true, true, body));
@@ -292,6 +346,7 @@ module room {
 			Global.log("收到补花结束消息");
 		}
 		private NOT_USER_OPERATION(byte: egret.ByteArray): void {
+
 			var body = proto.NotUserOperation.decode(byte.bytes);
 			Global.log("服务器返回客户端可进行吃碰杠的操作" + JSON.stringify(body));
 			if ((body.operations && body.operations.length > 0) || (body.callCards && body.callCards.length > 0)) {
@@ -303,7 +358,8 @@ module room {
 			var body = proto.NotKick.decode(byte.bytes);
 			Global.log("被踢" + body.code);
 			if (body.code == 1) {
-				ViewManager.ins.showAlert(Global.dic["失去链接"], function () {
+
+				ViewManager.ins.showAlert(Global.dic["在别处登陆账号"], function () {
 					window.location.href = location.href;
 				});
 			}
@@ -314,13 +370,13 @@ module room {
 		}
 		private NOT_CHAIR(byte: egret.ByteArray): void {
 			var body = proto.NotChairStatus.decode(byte.bytes);
-			Global.log("服务器返回客户端椅子状态变化" + body);
 			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.NOT_CHAIR, true, true, body));
 		}
 		private NOT_USER_TING(byte: egret.ByteArray): void {
 			//var body = proto.
 		}
 		private NOT_SEND_CARD(byte: egret.ByteArray): void {
+
 			var body = proto.NotSendCard.decode(byte.bytes);
 			Global.log("服务器返回客户端对牌的操作" + JSON.stringify(body));
 			game.GameController.AckGameSendCards(body);
@@ -330,20 +386,13 @@ module room {
 			Global.log("服务器通知客户端结算亮牌" + JSON.stringify(body));
 			game.GameController.AckGameEnd(body);
 		}
-		private NOT_ZA_NIAO(byte: egret.ByteArray): void {
-			var body = proto.NotZaNiao.decode(byte.bytes);
-			Global.log("服务器通知客户端扎鸟消息" + JSON.stringify(body));
-			game.GameController.AckGameZnaio(body);
-
-		}
 		private NOT_GAME_RESULT(byte: egret.ByteArray): void {
 			var body = proto.NotGameResult.decode(byte.bytes);
-			Global.log("服务器通知客户端结果消息" + JSON.stringify(body));
+			Global.log("服务器通知客户端结果消息");
+
 			game.GameController.AckGameResult(body);
 
 		}
-
-
 		private NOT_CHAT(byte: egret.ByteArray): void {
 			Global.log("聊天消息");
 		}
