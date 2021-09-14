@@ -56,6 +56,7 @@ module game {
 			var sourceSelf: number = 0;//自己的得分
 			for (let i: number = 0; i < 4; i++) {
 				let info: proto.PlayerGameResult = arr[i];
+				// console.log(body);
 				let p: number = Global.getUserPosition(info.seat);
 				if (p == 3) {//玩家自己
 					this["userZ"].setResult(info);

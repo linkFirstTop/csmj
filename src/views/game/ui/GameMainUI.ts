@@ -502,14 +502,25 @@ module game {
 					let info: proto.CardInfo = body.cardInfos[i] as proto.CardInfo;
 					arr.push(info);
 					let cardValue: number = game.GameParmes.getCardID(info);
+					let znValue: Array<number> = [];
+					console.log(cardValue);
+					if (cardValue < 10) {//万
+						znValue.push(cardValue);
+					} else if (cardValue >= 10 && cardValue < 19) {//一条到九条
+						znValue.push(cardValue - 9);
+					} else if (cardValue >= 19 && cardValue < 28) {//一筒到九筒
+						znValue.push(cardValue - 18);
+					}
+					console.log(znValue);
 					let card: BaseHandCardUI = new BaseHandCardUI();
 					card.setCard(3, i, cardValue, state, false);
 					this.znaioItemGroup.addChild(card);
+
 					let p: number = Global.getUserPosition(info.Sit);
 					this["zniao" + p].visible = true;
 					this["zniao" + p].font = Global.language + "znFnt_fnt";
 					this["zniao" + p].text = p;
-					console.log(p, this["zniao" + p].text);
+					// console.log(p, this["zniao" + p].text);
 				}
 			}
 

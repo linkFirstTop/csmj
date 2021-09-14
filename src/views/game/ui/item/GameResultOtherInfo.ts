@@ -15,14 +15,14 @@ module game {
 		private zhuangImg: eui.Image;
 		protected childrenCreated(): void {
 			super.childrenCreated();
-			this.zhuangImg.source = "zhuangText_" + Global.language + "_png";
+			this.zhuangImg.source = "gameIcon_zhuang_" + Global.language + "_png";
 		}
 		public setResult(info: proto.PlayerGameResult): void {
 
 			if (info.seat == Global.userSit) {
 				this.lbName.text = GameUtils.ReplaceChar(GameUtils.getShowName(Global.userName), 10, "...");
 				this.imgHead.source = Global.commURL + "head/iconHead" + Global.userHead + ".png";
-				console.log(Global.commURL + "head/iconHead" + Global.userHead + ".png");
+				// console.log(Global.commURL + "head/iconHead" + Global.userHead + ".png");
 
 				if (Number(info.money) >= 0) {
 					this.lbCoin.font = "resultWinFntBig_fnt";
@@ -42,7 +42,7 @@ module game {
 					this.lbCoin.text = "-" + ChipUtils.formatCoin(-Number(info.money));
 				}
 				this.imgHead.source = Global.commURL + "head/iconHead" + Global.getHeadByName(GameUtils.getShowName(info.username)) + ".png";
-				console.log(info.username);
+				// console.log(info.username);
 
 				if (Global.getUserPosition(info.seat) == 2) {
 					this.imgHead.scaleX = -1;
@@ -53,7 +53,7 @@ module game {
 			} else {
 				this.zhuangImg.visible = false;
 			}
-			console.log(info.seat);
+			// console.log(info.seat);
 			this.icon_f.source = "gameResult_icon_" + Global.getCurrentPositionName(info.seat) + "_" + Global.language + "_png";
 
 		}

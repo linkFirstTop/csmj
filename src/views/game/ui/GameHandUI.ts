@@ -106,7 +106,6 @@ module game {
 			this.currentCard = null;
 			this.isSortComplete = false;
 			this.isHSZStart = false;
-			this.gOtherCardD.x = 237;
 			this.addChild(this.gHuCardL);
 			this.addChild(this.gHuCardU);
 			this.addChild(this.gHuCardR);
@@ -416,10 +415,9 @@ module game {
 							//最后一张牌多出20像素
 							card.x = 40;
 							card.y = 692;
-
 							ghand.addChild(card);
-
-
+						} else {
+							ghand.addChildAt(card, 0);
 						}
 						this.gHandCardL.y = 0;
 						this.sprTmpLeft.y = 150;
@@ -428,8 +426,9 @@ module game {
 					} else {//亮牌
 						card.x = 304 - (12 - i) * 19;
 						card.y = 144 + (12 - i) * 44 + 20;
+						ghand.addChildAt(card, 0);
 					}
-					ghand.addChildAt(card, 0);
+
 				}
 				if (p == 1) {
 					let itemCardWidth: number = 76 - 1;
@@ -458,6 +457,8 @@ module game {
 							card.y = 0;
 							card.x = 0;
 							ghand.addChildAt(card, 0);
+						} else {
+							ghand.addChild(card);
 						}
 						this.gHandCardR.x = this.gHandCardR.y = 0;
 						this.gOtherCardR.y = 0;
@@ -469,8 +470,9 @@ module game {
 
 						card.x = i * 19;
 						card.y = i * 44;
+						ghand.addChild(card);
 					}
-					ghand.addChild(card);
+
 				}
 				if (p == 3) {
 					let itemCardWidth: number = 126 - 5;
@@ -506,7 +508,6 @@ module game {
 				}
 
 			}
-
 			// this.gHandCardU.y = 120;
 			// this.gHandCardU.x = 581;
 			this.sprTmpUp.x = 520;
@@ -610,7 +611,7 @@ module game {
 				this.sprTmpLeft.scaleX = this.sprTmpLeft.scaleY = 0.8;
 			}
 			if (p == 1) {
-				for (i = nOptCount - 1; i >= 0; i--) {//吃碰杠的创建
+				for (let i = nOptCount - 1; i >= 0; i--) {//吃碰杠的创建
 					mc = this.createCPGItem(p, i, arrCards[i]);
 					mc.x = i * -208;
 					this.gOtherCardU.addChild(mc);
@@ -621,7 +622,7 @@ module game {
 				this.sprTmpUp.y = 36 + 50;
 			}
 			if (p == 2) {
-				for (i = nOptCount - 1; i >= 0; i--) {//吃碰杠的创建
+				for (let i = nOptCount - 1; i >= 0; i--) {//吃碰杠的创建
 
 					mc = this.createCPGItem(p, i, arrCards[i]);
 					mc.x = (1758 - 1555) - (i) * 72;
@@ -635,7 +636,7 @@ module game {
 				this.sprTmpRight.scaleX = this.sprTmpRight.scaleY = 0.8;
 			}
 			if (p == 3) {
-				for (i = 0; i < nOptCount; i++) {//吃碰杠的创建
+				for (let i = 0; i < nOptCount; i++) {//吃碰杠的创建
 					mc = this.createCPGItem(p, i, arrCards[i]);
 					if (this.gOtherCardD.numChildren > 0) {
 						mc.x = this.gOtherCardD.width + 50;
@@ -646,7 +647,7 @@ module game {
 				this.gOtherCardD.x = 237;
 				this.gHandCardD.x += this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).width;
 				this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).x += 15;
-				this.gOtherCardD.x = this.gOtherCardD.x - 34 - this.gOtherCardD.width;
+				this.gOtherCardD.x = this.gHandCardD.x - 34 - this.gOtherCardD.width;
 
 			}
 		}
@@ -677,28 +678,18 @@ module game {
 				if (p == 0) {//左
 					if (isAnGang) {
 						if (i == 3) {
-							// item.setCard(p,(index*4+i),cardValue,isAnGang);
+
 							item.setCard(p, (index * 4 + i - 2), 0, isAnGang);
 						} else {
 							item.setCard(p, (index * 4 + i), 0, isAnGang);
 						}
-						// item.x = this.arrLAP[index][i].x;
-						// item.y = this.arrLAP[index][i].y;
-						// item.x = mc.getChildAt(1).x - 5;
-						// item.y = mc.getChildAt(1).y - 32;
+
 
 
 					} else {
 
 						item.setCard(p, index * 4 + i, cardValue, isAnGang);
-						// if (mc.numChildren > 0) {
-						// 	item.x = i * -23;
 
-						// }
-						// item.y = i * itemHei;
-
-						// item.x = this.arrLCP[index][i].x;
-						// item.y = this.arrLCP[index][i].y;
 					}
 
 
@@ -708,29 +699,18 @@ module game {
 					if (isAnGang) {
 						item.y = -20
 						if (i == 3) {//暗杠时在上面那张牌
-							//item.setCard(p,index,cardValue,isAnGang);
+
 							item.setCard(p, index - 2, 0, isAnGang);
-							// item.x = 84;
-							// item.x = GameConfig.curWidth() - index * 140 - (i - 2) * 40 - 550;
-							// item.y = 300;
+
 						} else {
 							item.setCard(p, index, 0, isAnGang);
-							// item.x = 84 + itemUpW;
-							// item.x = GameConfig.curWidth() - index * 140 - i * 40 - 550;
+
 						}
 
 					} else {
 
 						item.setCard(p, index, cardValue, isAnGang);
-						if (i == 3) {
-							// item.x = 84;
-							// item.x = GameConfig.curWidth() - index * 140 - (i - 2) * 42 - 550;
-							// item.y = 305;
-						} else {
-							// item.x = 84 + itemUpW;
-							// item.x = GameConfig.curWidth() - index * 140 - i * 42 - 550;
-							// item.y = 320;
-						}
+
 
 					}
 				}
@@ -738,26 +718,20 @@ module game {
 
 					if (isAnGang) {
 						if (i == 3) {
-							// gItem.addChild(item);
+
 							item.setCard(p, (index * 4 + i - 2), 0, isAnGang);
-							//item.setCard(p,(index*4+i),cardValue,isAnGang);
+
 						} else {
-							// gItem.addChildAt(item, 0);
+
 							item.setCard(p, (index * 4 + i), 0, isAnGang);
 						}
 
-						// item.x = this.arrRAP[index][i].x;
-						// item.y = this.arrRAP[index][i].y - 30;
+
 					} else {
-						if (i == 3) {
-							// gItem.addChild(item);
-						} else {
-							// gItem.addChildAt(item, 0);
-						}
+
 						item.setCard(p, index * 4 + i, cardValue, isAnGang);
 
-						// item.x = this.arrRCP[index][i].x;
-						// item.y = this.arrRCP[index][i].y - 20;
+
 
 					}
 				}
@@ -767,29 +741,11 @@ module game {
 						item.y = 50;
 						if (i == 3) {
 							item.setCard(p, index, cardValue, isAnGang);
-							// item.x = 250 + index * 260 + (i - 2) * 75;
-							// item.y = GameConfig.curHeight() - 120 - 20;
-
-							// item.y = 24;
 						} else {
 							item.setCard(p, index, 0, isAnGang);
-
-							// item.x = 250 + index * 260 + i * 70;
 						}
-
 					} else {
-
 						item.setCard(p, index, cardValue, isAnGang);
-						// if (i == 3) {
-						// 	item.x = 250 + index * 260 + (i - 2) * 75;
-						// 	item.y = GameConfig.curHeight() - 142;
-						// 	item.y = 24;
-						// } else {
-						// 	// item.x = 84 + itemDownW;
-						// 	// mc.width = item.x + itemDownW;
-						// 	item.x = 250 + index * 260 + i * 75;
-						// 	item.y = GameConfig.curHeight() - 120;
-						// }
 					}
 				}
 				if (p == 0 || p == 2) {
@@ -816,7 +772,7 @@ module game {
 							item.y = mc.getChildAt(1).y - 32;
 						}
 					}
-				} else {
+				} else {//p=1,p=3
 					if (i > 0) {
 						if (p == 3 && i != 3) {
 							item.x = arrItems[i - 1].x + itemDownW;

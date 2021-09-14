@@ -3,20 +3,21 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*" xmlns:ns1="*">
 	<w:Config id="1710ac54d9b"></w:Config>
 	<e:Image name="resultBg" source="black_png" width="100%" height="100%" alpha="0.5" />
-	<e:Group horizontalCenter="0" width="100%" y="60">
+	<e:Image name="winBg" source="win_jpg" width="100%" height="100%"  visible="false"/>
+	<e:Group horizontalCenter="0" width="100%" y="45">
 		<e:Image id="resultBg" source="gameResult_win_png" width="100%" height="100%" />
-		<e:Image id="resultText" source="winText_cn_png" x="50" y="310" />
-		<e:Image id="resultHuawen" verticalCenter="0" source="winHw_png" x="0" />
+		<e:Image id="resultText" source="winText_cn_png" x="44" y="330" />
+		<e:Image id="resultHuawen" source="winHw_png" x="0"  y="50"/>
 		<!--<e:Image id="resultText" horizontalCenter="10" top="131" source="winText_cn_png" />
 		-->
-		<game:GameResultOtherInfo id="userZ" x="298.29" y="6" currentState="sitSelf" anchorOffsetX="0" width="1610"
+		<game:GameResultOtherInfo id="userZ" x="260" y="10" currentState="sitSelf" anchorOffsetX="0" width="1610"
 		                          anchorOffsetY="0" height="214" />
 		<!-- 其他玩家结算 -->
-		<game:GameResultOtherInfo id="user0" currentState="sitSelf" width="1610" x="298.29" y="230" anchorOffsetY="0"
+		<game:GameResultOtherInfo id="user0" currentState="sitSelf" width="1610" x="260" y="230" anchorOffsetY="0"
 		                          height="214" />
-		<game:GameResultOtherInfo id="user1" currentState="sitSelf" width="1610" x="298.29" y="450" anchorOffsetY="0"
+		<game:GameResultOtherInfo id="user1" currentState="sitSelf" width="1610" x="260" y="450" anchorOffsetY="0"
 		                          height="218" />
-		<game:GameResultOtherInfo id="user2" currentState="sitSelf" width="1610" x="298.29" y="673" anchorOffsetY="0"
+		<game:GameResultOtherInfo id="user2" currentState="sitSelf" width="1610" x="260" y="673" anchorOffsetY="0"
 		                          height="214" />
 		<!--<e:Group horizontalCenter="30" verticalCenter="298">
 		<game:GameResultOtherInfo id="user0" currentState="sitOther" />
@@ -28,10 +29,10 @@
 	</e:Group>
 	-->
 	<!-- 自己结算 -->
-	<e:Group y="104.73" x="539.15" width="808.15" anchorOffsetX="0" anchorOffsetY="0" height="103.21">
+	<e:Group y="120" x="539.15" width="820" anchorOffsetX="0" anchorOffsetY="0" height="103.21">
 		<!-- 详细信息 -->
-		<e:Scroller width="808.16" height="105.21" y="0" x="0" anchorOffsetX="0" anchorOffsetY="0">
-			<e:List id="gInfo" width="805.12" anchorOffsetX="0" anchorOffsetY="0" height="103.69" x="0" y="-6.06">
+		<e:Scroller width="820" height="105.21" y="0" x="0" anchorOffsetX="0" anchorOffsetY="0">
+			<e:List id="gInfo" width="820" anchorOffsetX="0" anchorOffsetY="0" height="103.69" x="0" y="-6.06">
 				<e:itemRendererSkinName>
 					<e:Skin height="55">
 						<e:Label text="{data.label}" bold="true" textColor="0x602102" horizontalCenter="0" verticalCenter="0" size="36" />
@@ -65,7 +66,7 @@
 	</e:Group>
 	<!--<e:Image id="btnContinue" name="btnContinue" horizontalCenter="0" source="gameResult_continue_png" bottom="44" />
 	-->
-	<ns1:BaseButton  id="btnClose" name="btnClose" y="-30" x="1850" />
+	<ns1:BaseButton id="btnClose" name="btnClose" y="-9" x="1850" />
 	<!--<e:Image id="btnClose" name="btnClose" source="winClose_png" right="97" top="202" />
 	-->
 	<e:Label id="difen" text="底分/台分" x="52" y="865" />

@@ -19,7 +19,7 @@ module game {
 
 		//-----------------------------------初始化东西南北   0-东，1-西，2-南，3-北-----------------------------------
 		public setData(str: string, p: number = 3): void {
-			console.log(str, p);
+
 			this.clearUI();
 			if (p == 0) {
 				this.bmp.source = RES.getRes("direction_left");
@@ -58,6 +58,7 @@ module game {
 		}
 		//-----------------------------------循环亮不亮动画-----------------------------------
 		private onTweenLoopAnim(): void {
+			// console.log(this.bmp.visible);
 			egret.Tween.get(this.bmp).to({ alpha: 0 }, 1500).call(function () {
 				egret.Tween.get(this.bmp).to({ alpha: 1 }, 1500).call(function () {
 					this.onTweenLoopAnim();
