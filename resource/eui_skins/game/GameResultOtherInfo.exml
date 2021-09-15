@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e:Skin class="GameResultOtherInfoSkin" height="198" xmlns:e="http://ns.egret.com/eui"
+<e:Skin class="GameResultOtherInfoSkin" height="228" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing" states="sitSelf,sitOther">
 	<w:Config id="1710ac9d18b"></w:Config>
-	<e:Group width="1163">
-		<e:Group id="headGroup" y="50" width="120" height="120" x="20">
+	<e:Group width="1163" y="-3" anchorOffsetY="0" height="228" x="0">
+		<e:Group id="headGroup" y="48" width="120" height="120" x="20">
 			<e:Image source="resultHead0_png" source.sitOther="resultHead1_png" width="120" height="120" />
 			<e:Image id="imgHead" mask="{imgMask}" width="120" height="120" horizontalCenter="0" verticalCenter="0"
 			         smoothing="true" source="" scaleX="1" width.sitOther="125" height.sitOther="125" />
 			<e:Rect id="imgMask" ellipseWidth="305" ellipseHeight="228" width="120" height="120" fillColor="0x000000"
 			        horizontalCenter="0" verticalCenter="0" width.sitOther="117" height.sitOther="117" />
 		</e:Group>
-		<e:Image source="gameIcon_zhuang_cn_png" id="zhuangImg"  x="20" y="40"/>
+		<e:Image source="gameIcon_zhuang_cn_png" id="zhuangImg" x="18" y="42" />
 		<e:Group y="180" width="150" horizontalCenter="-506.5">
 			<e:Label id="lbName" text="1234" width="170" verticalAlign="middle" horizontalCenter="0" textAlign="center" size="30"
 			         textColor="0xFCEFCE" size.sitOther="36" x.sitOther="167" y.sitOther="30.89" textColor.sitOther="0x451a05"
 			         verticalCenter="0" x="0" />
 		</e:Group>
-		<e:BitmapLabel id="lbCoin" font="resultWinFntBig_fnt" text="+36000" x="1200" letterSpacing="-2"
-		               font.sitOther="resultWinFnt_fnt" x.sitOther="1100" y.sitOther="83" y="95" />
-		<e:Image id="icon_f" x="110" y="50" x.sitOther="362.6" y.sitOther="27.6" source="gameResult_icon_east_cn_png" />
+		<e:BitmapLabel id="lbCoin" text="36000" x="1200" letterSpacing="-2" x.sitOther="1100" y.sitOther="83" y="148"  font="resultLoseGameFnt_fnt"/>
+		<e:Image id="icon_f" x="110" y="48" x.sitOther="362.6" y.sitOther="27.6" source="gameResult_icon_east_cn_png" />
+		<e:Image id="icon_h" x="110" y="135" x.sitOther="362.6" y.sitOther="27.6" source="gameResult_icon_htype_cn_png" />
 		<e:Group id="GameResultGroup"></e:Group>
 	</e:Group>
 </e:Skin>

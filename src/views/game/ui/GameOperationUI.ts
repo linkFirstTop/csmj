@@ -15,6 +15,8 @@ module game {
 		private btnTing: eui.Image;
 		private btnHu: eui.Image;
 		private btnGuo: eui.Image;
+		private btnGangyao: eui.Image;
+
 		private arrTmp: Array<eui.Image> = [];
 
 		private gCardBg: eui.Group;
@@ -34,6 +36,7 @@ module game {
 			this.btnHu.source = "gameButton_hu_" + Global.language + "_png";
 			this.btnGuo.source = "gameButton_guo_" + Global.language + "_png";
 			this.huIcon.source = "gameIcon_hu_" + Global.language + "_png";
+			this.btnGangyao.source = "gameButton_peng_cn_png";
 
 
 			this.btnPeng.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPeng, this);
@@ -43,9 +46,11 @@ module game {
 			this.btnHu.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onHu, this);
 			this.btnGuo.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onGuo, this);
 			this.gPGCards.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onPGGroupTap, this);
+			this.btnGangyao.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onGangyao, this);
 		}
 		public initBtns(): void {
 			this.arrTmp = [];
+			this.btnGangyao.visible = false;
 			this.btnPeng.visible = false;
 			this.btnGang.visible = false;
 			this.btnTing.visible = false;
@@ -128,6 +133,12 @@ module game {
 				let img: eui.Image = this.arrTmp[i];
 				img.x = this.arrPosition[4 - i];
 			}
+		}
+
+		// 杠摇
+		private onGangyao(): void {
+			this.initBtns();
+			//杠摇
 		}
 		private onPeng(): void {
 			this.initBtns();

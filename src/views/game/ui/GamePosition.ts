@@ -48,10 +48,10 @@ module game {
 			}
 		}
 
-		public setPosition(): void {
+		public setPosition(n: number): void {
 			this.visible = true;
 			this.setCurrentRing();
-			this.setPositionItem(5);
+			this.setPositionItem(n);
 		}
 
 		/**

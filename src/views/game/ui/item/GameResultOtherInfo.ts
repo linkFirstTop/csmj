@@ -12,33 +12,35 @@ module game {
 		private lbCoin: eui.BitmapLabel;
 		private imgHead: eui.Image;
 		private icon_f: eui.Image;
+		private icon_h: eui.Image;
+
 		private zhuangImg: eui.Image;
 		protected childrenCreated(): void {
 			super.childrenCreated();
 			this.zhuangImg.source = "gameIcon_zhuang_" + Global.language + "_png";
+			this.icon_h.source = "gameResult_icon_htype_cn_png";
 		}
 		public setResult(info: proto.PlayerGameResult): void {
-
 			if (info.seat == Global.userSit) {
 				this.lbName.text = GameUtils.ReplaceChar(GameUtils.getShowName(Global.userName), 10, "...");
 				this.imgHead.source = Global.commURL + "head/iconHead" + Global.userHead + ".png";
 				// console.log(Global.commURL + "head/iconHead" + Global.userHead + ".png");
 
 				if (Number(info.money) >= 0) {
-					this.lbCoin.font = "resultWinFntBig_fnt";
+					this.lbCoin.font = "resultWinGameFnt_fnt";
 					this.lbCoin.text = "+" + ChipUtils.formatCoin(Number(info.money));
 				} else {
-					this.lbCoin.font = "resultWinFntSml_fnt";
+					this.lbCoin.font = "resultLoseGameFnt_fnt";
 					this.lbCoin.text = "-" + ChipUtils.formatCoin(-Number(info.money));
 				}
 
 			} else {
 				this.lbName.text = GameUtils.getShowName(info.username);
 				if (Number(info.money) >= 0) {
-					this.lbCoin.font = "resultWinFnt_fnt";
+					this.lbCoin.font = "resultWinGameFnt_fnt";
 					this.lbCoin.text = "+" + ChipUtils.formatCoin(Number(info.money));
 				} else {
-					this.lbCoin.font = "resultLoseFnt_fnt";
+					this.lbCoin.font = "resultLoseGameFnt_fnt";
 					this.lbCoin.text = "-" + ChipUtils.formatCoin(-Number(info.money));
 				}
 				this.imgHead.source = Global.commURL + "head/iconHead" + Global.getHeadByName(GameUtils.getShowName(info.username)) + ".png";

@@ -91,8 +91,8 @@
 			</e:layout>
 		</e:Group>
 	</e:Group>
-	<e:Image id="imgTHTip" source="gameIcon_tianhu_cn_png" horizontalCenter="0" bottom="250" visible="false" />
-	<e:Image id="imgTingTip" source="gameIcon_tip" y="710" x="26" visible="false" />
+	<e:Image id="imgTHTip" source="gameIcon_tianhu_cn_png" horizontalCenter="0" bottom="250"  visible="false"/>
+	<e:Image id="imgTingTip" source="gameIcon_tip" y="710" x="26"  visible="false"/>
 	<e:Group id="gTingTip" width="566" y="658" x="110" visible="false">
 		<e:Image source="gameCommbg_png" width="100%" />
 		<e:Group id="gTingCards" verticalCenter="0" horizontalCenter="0">

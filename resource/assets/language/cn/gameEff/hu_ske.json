@@ -1,1 +1,216 @@
-{"frameRate":24,"name":"huan","version":"5.5","compatibleVersion":"5.5","armature":[{"type":"Armature","frameRate":24,"name":"huan","aabb":{"x":-75,"y":-161.17,"width":150,"height":236.17},"bone":[{"name":"root"},{"name":"hong","parent":"root"},{"name":"hu","parent":"root","transform":{"x":-4.59,"y":-2.5585}},{"name":"hy_0000_1","parent":"root","transform":{"x":-0.3916,"y":36.3299,"scX":1.3,"scY":1.3}}],"slot":[{"name":"hong","parent":"hong"},{"name":"hy_0000_1","parent":"hy_0000_1"},{"name":"hu","parent":"hu"}],"skin":[{"slot":[{"name":"hy_0000_1","display":[{"name":"hy_0000_1","transform":{"y":-65}},{"name":"hy_0001_2","transform":{"y":-70.54}},{"name":"hy_0002_3","transform":{"y":-79.37}},{"name":"hy_0003_4","transform":{"y":-83.06}},{"name":"hy_0004_5","transform":{"y":-82.3}},{"name":"hy_0005_6","transform":{"y":-81.26}},{"name":"hy_0006_7","transform":{"y":-82.27}},{"name":"hy_0007_8","transform":{"y":-60.27}}]},{"name":"hong","display":[{"name":"hong"}]},{"name":"hu","display":[{"name":"hu"}]}]}],"animation":[{"duration":30,"playTimes":0,"name":"huan","slot":[{"name":"hy_0000_1","displayFrame":[{"duration":2},{"duration":2,"value":1},{"duration":2,"value":2},{"duration":2,"value":3},{"duration":2,"value":4},{"duration":2,"value":5},{"duration":2,"value":6},{"duration":2,"value":7},{"duration":2},{"duration":2,"value":1},{"duration":2,"value":2},{"duration":2,"value":3},{"duration":2,"value":4},{"duration":2,"value":5},{"duration":2,"value":6},{"duration":0,"value":7}]}]}],"defaultActions":[{"gotoAndPlay":"huan"}]}]}
+{
+    "frameRate": 24,
+    "name": "hu",
+    "version": "5.5",
+    "compatibleVersion": "5.5",
+    "armature": [
+        {
+            "type": "Armature",
+            "frameRate": 24,
+            "name": "hu",
+            "aabb": {
+                "x": -75,
+                "y": -161.17,
+                "width": 150,
+                "height": 236.17
+            },
+            "bone": [
+                {
+                    "name": "root"
+                },
+                {
+                    "name": "hong",
+                    "parent": "root"
+                },
+                {
+                    "name": "hu",
+                    "parent": "root",
+                    "transform": {
+                        "x": -4.59,
+                        "y": -2.5585
+                    }
+                },
+                {
+                    "name": "hy_0000_1",
+                    "parent": "root",
+                    "transform": {
+                        "x": -0.3916,
+                        "y": 36.3299,
+                        "scX": 1.3,
+                        "scY": 1.3
+                    }
+                }
+            ],
+            "slot": [
+                {
+                    "name": "hong",
+                    "parent": "hong"
+                },
+                {
+                    "name": "hy_0000_1",
+                    "parent": "hy_0000_1"
+                },
+                {
+                    "name": "hu",
+                    "parent": "hu"
+                }
+            ],
+            "skin": [
+                {
+                    "slot": [
+                        {
+                            "name": "hy_0000_1",
+                            "display": [
+                                {
+                                    "name": "hy_0000_1",
+                                    "transform": {
+                                        "y": -65
+                                    }
+                                },
+                                {
+                                    "name": "hy_0001_2",
+                                    "transform": {
+                                        "y": -70.54
+                                    }
+                                },
+                                {
+                                    "name": "hy_0002_3",
+                                    "transform": {
+                                        "y": -79.37
+                                    }
+                                },
+                                {
+                                    "name": "hy_0003_4",
+                                    "transform": {
+                                        "y": -83.06
+                                    }
+                                },
+                                {
+                                    "name": "hy_0004_5",
+                                    "transform": {
+                                        "y": -82.3
+                                    }
+                                },
+                                {
+                                    "name": "hy_0005_6",
+                                    "transform": {
+                                        "y": -81.26
+                                    }
+                                },
+                                {
+                                    "name": "hy_0006_7",
+                                    "transform": {
+                                        "y": -82.27
+                                    }
+                                },
+                                {
+                                    "name": "hy_0007_8",
+                                    "transform": {
+                                        "y": -60.27
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "hong",
+                            "display": [
+                                {
+                                    "name": "hong"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "hu",
+                            "display": [
+                                {
+                                    "name": "hu"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "animation": [
+                {
+                    "duration": 30,
+                    "playTimes": 0,
+                    "name": "hu",
+                    "slot": [
+                        {
+                            "name": "hy_0000_1",
+                            "displayFrame": [
+                                {
+                                    "duration": 2
+                                },
+                                {
+                                    "duration": 2,
+                                    "value": 1
+                                },
+                                {
+                                    "duration": 2,
+                                    "value": 2
+                                },
+                                {
+                                    "duration": 2,
+                                    "value": 3
+                                },
+                                {
+                                    "duration": 2,
+                                    "value": 4
+                                },
+                                {
+                                    "duration": 2,
+                                    "value": 5
+                                },
+                                {
+                                    "duration": 2,
+                                    "value": 6
+                                },
+                                {
+                                    "duration": 2,
+                                    "value": 7
+                                },
+                                {
+                                    "duration": 2
+                                },
+                                {
+                                    "duration": 2,
+                                    "value": 1
+                                },
+                                {
+                                    "duration": 2,
+                                    "value": 2
+                                },
+                                {
+                                    "duration": 2,
+                                    "value": 3
+                                },
+                                {
+                                    "duration": 2,
+                                    "value": 4
+                                },
+                                {
+                                    "duration": 2,
+                                    "value": 5
+                                },
+                                {
+                                    "duration": 2,
+                                    "value": 6
+                                },
+                                {
+                                    "duration": 0,
+                                    "value": 7
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "defaultActions": [
+                {
+                    "gotoAndPlay": "hu"
+                }
+            ]
+        }
+    ]
+}

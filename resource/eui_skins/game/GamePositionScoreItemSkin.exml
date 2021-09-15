@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <e:Skin class="GamePositionScoreItemSkin" width="299" height="197" xmlns:e="http://ns.egret.com/eui"
         xmlns:w="http://ns.egret.com/wing">
-	<e:Image id="bmp" x="0" y="0" source="gameView_json.direction_down" />
-	<e:Image id="item" y="7" x="130" source="dong_down_1" />
+	<e:Image id="bmp" x="0" y="0"  source=""/>
+	<e:Image id="item" y="7" x="130"  source=""/>
 </e:Skin>

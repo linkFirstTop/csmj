@@ -13,8 +13,16 @@ module game {
 		protected childrenCreated(): void {
 			super.childrenCreated();
 		}
+
 		public setCard(value: number): void {
+			var strIndex: string;
+			// if (value < 10) {
+			// 	strIndex = "0" + value;
+			// } else {
+			// 	strIndex = "" + value;
+			// }
 			this.imgValue.source = "cardValue" + value;
+			// this.imgValue.source = "cardValue00" + strIndex;
 		}
 	}
 }

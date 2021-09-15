@@ -288,7 +288,7 @@ module room {
 		//请求进入牌桌结果
 		private ENTER_TABLE(byte: egret.ByteArray): void {
 			var body = proto.AckEnterTable.decode(byte.bytes);
-			Global.log("请求进入牌桌结果");
+			Global.log("请求进入牌桌结果" + JSON.stringify(body));
 			if (body.result == 0) {
 				Global.userSit = body.seatNo;
 				game.GamePlayData.isTuoguan = false;
@@ -389,7 +389,7 @@ module room {
 		}
 		private NOT_GAME_RESULT(byte: egret.ByteArray): void {
 			var body = proto.NotGameResult.decode(byte.bytes);
-			Global.log("服务器通知客户端结果消息");
+			Global.log("服务器通知客户端结果消息"  + JSON.stringify(body));
 
 			game.GameController.AckGameResult(body);
 

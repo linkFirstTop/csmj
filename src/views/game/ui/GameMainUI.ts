@@ -240,7 +240,8 @@ module game {
 			this.lbInfo.text = Global.dic["局号"] + Global.strGameGUID + " " + this.findRoomName();
 		}
 		public initPosition(): void {
-			this.gamePosition.setPosition();
+			let p: number = Global.getUserPosition(game.GameParmes.firstSit);
+			this.gamePosition.setPosition(p);
 		}
 		/*初始化玩家手牌*/
 		public initHandCard(): void {
@@ -440,7 +441,7 @@ module game {
 			this.gameHand.createHandCard(true, 0);//还原手牌
 			this.gameHand.createAllCPG();//还原吃碰杠牌
 			this.gamePool.reductionCardsPool();//还原牌池
-			this.gamePosition.setPosition();//还原方位
+			this.gamePosition.setPosition(game.GamePlayData.M_C_P_G_sit);//还原方位
 			this.showGameInfo();
 			GameWebSocket.instance().gameSender.ReqGamePlayerReleveTrustFun();//解除托管
 			if (GameParmes.gameStage == GameStageType.PLAYING) {
@@ -533,18 +534,18 @@ module game {
 							zniaoCount0++;
 						}
 					}
-					if (zniaoCount3 == 0) {
-						zniaoCount3 = 0;
-					}
-					if (zniaoCount2 == 0) {
-						zniaoCount2 = 0;
-					}
-					if (zniaoCount1 == 0) {
-						zniaoCount1 = 0;
-					}
-					if (zniaoCount0 == 0) {
-						zniaoCount0 = 0;
-					}
+					// if (zniaoCount3 == 0) {
+					// 	zniaoCount3 = 0;
+					// }
+					// if (zniaoCount2 == 0) {
+					// 	zniaoCount2 = 0;
+					// }
+					// if (zniaoCount1 == 0) {
+					// 	zniaoCount1 = 0;
+					// }
+					// if (zniaoCount0 == 0) {
+					// 	zniaoCount0 = 0;
+					// }
 					if (Global.language == "en") {
 						this["zniao0"].x = 0;
 						this["zniao1"].x = -10;
@@ -603,6 +604,9 @@ module game {
 			let p: number = Global.getUserPosition(sit);
 			let op: number = Global.getUserPosition(obSit);
 			if (str == "hdly") {
+				comm.DragonAnim.ins.playAnimByName(str, p);
+			}
+			if (str == "gy") {
 				comm.DragonAnim.ins.playAnimByName(str, p);
 			}
 			if (str == "anGang") {

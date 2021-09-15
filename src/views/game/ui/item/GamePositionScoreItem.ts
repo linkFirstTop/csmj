@@ -30,7 +30,7 @@ module game {
 			} else if (p == 2) {
 				this.bmp.source = RES.getRes("direction_right");
 				this.fangXiang = "right";
-			} else {
+			} else if (p == 3) {
 				this.bmp.source = RES.getRes("direction_down");
 				this.fangXiang = "down";
 			}
@@ -47,7 +47,7 @@ module game {
 
 				this.fangXiang = Global.language + "nan_" + this.fangXiang;
 				this.item.source = RES.getRes(this.fangXiang + "_2" + "_png");
-			} else {
+			} else if (str == "north") {
 
 				this.fangXiang = Global.language + "bei_" + this.fangXiang;
 				this.item.source = RES.getRes(this.fangXiang + "_2" + "_png");

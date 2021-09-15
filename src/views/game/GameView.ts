@@ -137,11 +137,11 @@ module game {
 		*/
 		private ACK_GAME_DICEANDCARDS(): void {
 			this.gameUI.initUser();
-			this.gameUI.initPosition();
 			this.gameUI.initHandCard();
 			egret.setTimeout(function () {
+				this.gameUI.initPosition();
 				this.gameUI.initQshHandCard();
-			}, this, 300);
+			}, this, 2000);
 		}
 
 		/*
