@@ -351,7 +351,6 @@ module game {
 		 */
 		private ACK_ALL_GAMERESULT(evt: egret.Event): void {
 			let body: proto.NotGameResult = evt.data;
-			debugger
 			this.gameUI["zniaoGroup"].visible = false;
 			this.gameResult.showResult(body);
 		}

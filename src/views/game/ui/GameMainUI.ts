@@ -498,11 +498,12 @@ module game {
 			let state = 0;
 			if (body.stage == 4) {
 				let arr: Array<proto.CardInfo> = [];
+				let znValue: Array<number> = [];
+
 				for (let i: number = 0; i < body.cardInfos.length; i++) {
 					let info: proto.CardInfo = body.cardInfos[i] as proto.CardInfo;
 					arr.push(info);
 					let cardValue: number = game.GameParmes.getCardID(info);
-					let znValue: Array<number> = [];
 					console.log(cardValue);
 					if (cardValue < 10) {//万
 						znValue.push(cardValue);
@@ -511,17 +512,50 @@ module game {
 					} else if (cardValue >= 19 && cardValue < 28) {//一筒到九筒
 						znValue.push(cardValue - 18);
 					}
-					console.log(znValue);
 					let card: BaseHandCardUI = new BaseHandCardUI();
 					card.setCard(3, i, cardValue, state, false);
 					this.znaioItemGroup.addChild(card);
-
-					let p: number = Global.getUserPosition(info.Sit);
-					this["zniao" + p].visible = true;
-					this["zniao" + p].font = Global.language + "znFnt_fnt";
-					this["zniao" + p].text = p;
-					// console.log(p, this["zniao" + p].text);
 				}
+				var zniaoCount3: number = 0;
+				var zniaoCount2: number = 0;
+				var zniaoCount1: number = 0;
+				var zniaoCount0: number = 0;
+				egret.setTimeout(function () {
+				// 	this.zniaoGroup.visible = false;
+				for (let i: number = 0; i < znValue.length; i++) {
+					if (znValue[i] == 1 || znValue[i] == 5 || znValue[i] == 9) {
+						zniaoCount3++;
+					} else if (znValue[i] == 2 || znValue[i] == 6) {
+						zniaoCount2++;
+					} else if (znValue[i] == 3 || znValue[i] == 7) {
+						zniaoCount1++;
+					} else if (znValue[i] == 4 || znValue[i] == 8) {
+						zniaoCount0++;
+					}
+				}
+				if (zniaoCount3 == 0) {
+					zniaoCount3 = 0;
+				}
+				if (zniaoCount2 == 0) {
+					zniaoCount2 = 0;
+				}
+				if (zniaoCount1 == 0) {
+					zniaoCount1 = 0;
+				}
+				if (zniaoCount0 == 0) {
+					zniaoCount0 = 0;
+				}
+				this["zniao3"].visible = this["zniao2"].visible = this["zniao1"].visible = this["zniao0"].visible = true;
+				this["zniao3"].font = this["zniao2"].font = this["zniao1"].font = this["zniao0"].font = Global.language + "znFnt_fnt";
+				this["zniao3"].text = zniaoCount3 + "";
+				this["zniao2"].text = zniaoCount2 + "";
+				this["zniao1"].text = zniaoCount1 + "";
+				this["zniao0"].text = zniaoCount0 + "";
+
+				}, this, 300);
+
+
+				console.log(znValue);
 			}
 
 		}
