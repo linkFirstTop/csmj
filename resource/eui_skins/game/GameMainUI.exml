@@ -13,19 +13,19 @@
 		<game:GameUserVUI id="gameUser3" x="2" y="848" />
 		<e:Group id="dpText0" x="20" y="258">
 			<e:BitmapLabel id="qsh0" horizontalCenter="0" text="l b" font="cnqshFnt_fnt" visible="false" />
-			<e:BitmapLabel id="zniao0" text="" font="cnznFnt_fnt" verticalCenter="0" x="20" visible="false" />
+			<e:BitmapLabel id="zniao0" text="0" verticalCenter="0" x="20"  font="enznFnt_fnt" visible="false"/>
 		</e:Group>
 		<e:Group id="dpText1" x="1360" y="30">
 			<e:BitmapLabel id="qsh1" text="l b" font="cnqshFnt_fnt" x="-50"  y="-10" visible="false"/>
-			<e:BitmapLabel id="zniao1" text="" font="cnznFnt_fnt" verticalCenter="0" x="75"  visible="false"/>
+			<e:BitmapLabel id="zniao1" text="0" verticalCenter="0" x="75"  font="enznFnt_fnt" visible="false"/>
 		</e:Group>
 		<e:Group id="dpText2" x="1655" y="258">
-			<e:BitmapLabel id="qsh2" horizontalCenter="0" text="l b" font="cnqshFnt_fnt" visible="false" />
-			<e:BitmapLabel id="zniao2" text="" font="cnznFnt_fnt" visible="false" verticalCenter="0" x="125" />
+			<e:BitmapLabel id="qsh2" text="l b" font="cnqshFnt_fnt"  x="0" visible="false"/>
+			<e:BitmapLabel id="zniao2" text="0" verticalCenter="0" x="125"  font="enznFnt_fnt" visible="false"/>
 		</e:Group>
 		<e:Group id="dpText3" x="20" y="810">
 			<e:BitmapLabel id="qsh3" horizontalCenter="0" text="l b" font="cnqshFnt_fnt" visible="false" />
-			<e:BitmapLabel id="zniao3" text="" font="cnznFnt_fnt" visible="false" verticalCenter="0" x="20" />
+			<e:BitmapLabel id="zniao3" text="" font="cnznFnt_fnt" verticalCenter="0" x="20"  visible="false"/>
 		</e:Group>
 	</e:Group>
 	<e:Group id="gGameInfo">

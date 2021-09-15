@@ -492,7 +492,7 @@ module game {
 		//抓鸟
 		public showZhuaNiaoResult(body: proto.NotZaNiao) {
 			this["qsh0"].visible = this["qsh1"].visible = this["qsh2"].visible = this["qsh3"].visible = false;
-			console.log("抓鸟结果" + JSON.stringify(body));
+			// console.log("抓鸟结果" + JSON.stringify(body));
 			this.zniaoGroup.visible = true;
 			this.zniaoGroup.touchEnabled = false;
 			let state = 0;
@@ -504,7 +504,7 @@ module game {
 					let info: proto.CardInfo = body.cardInfos[i] as proto.CardInfo;
 					arr.push(info);
 					let cardValue: number = game.GameParmes.getCardID(info);
-					console.log(cardValue);
+					// console.log(cardValue);
 					if (cardValue < 10) {//万
 						znValue.push(cardValue);
 					} else if (cardValue >= 10 && cardValue < 19) {//一条到九条
@@ -521,41 +521,47 @@ module game {
 				var zniaoCount1: number = 0;
 				var zniaoCount0: number = 0;
 				egret.setTimeout(function () {
-				// 	this.zniaoGroup.visible = false;
-				for (let i: number = 0; i < znValue.length; i++) {
-					if (znValue[i] == 1 || znValue[i] == 5 || znValue[i] == 9) {
-						zniaoCount3++;
-					} else if (znValue[i] == 2 || znValue[i] == 6) {
-						zniaoCount2++;
-					} else if (znValue[i] == 3 || znValue[i] == 7) {
-						zniaoCount1++;
-					} else if (znValue[i] == 4 || znValue[i] == 8) {
-						zniaoCount0++;
+					// 	this.zniaoGroup.visible = false;
+					for (let i: number = 0; i < znValue.length; i++) {
+						if (znValue[i] == 1 || znValue[i] == 5 || znValue[i] == 9) {
+							zniaoCount3++;
+						} else if (znValue[i] == 2 || znValue[i] == 6) {
+							zniaoCount2++;
+						} else if (znValue[i] == 3 || znValue[i] == 7) {
+							zniaoCount1++;
+						} else if (znValue[i] == 4 || znValue[i] == 8) {
+							zniaoCount0++;
+						}
 					}
-				}
-				if (zniaoCount3 == 0) {
-					zniaoCount3 = 0;
-				}
-				if (zniaoCount2 == 0) {
-					zniaoCount2 = 0;
-				}
-				if (zniaoCount1 == 0) {
-					zniaoCount1 = 0;
-				}
-				if (zniaoCount0 == 0) {
-					zniaoCount0 = 0;
-				}
-				this["zniao3"].visible = this["zniao2"].visible = this["zniao1"].visible = this["zniao0"].visible = true;
-				this["zniao3"].font = this["zniao2"].font = this["zniao1"].font = this["zniao0"].font = Global.language + "znFnt_fnt";
-				this["zniao3"].text = zniaoCount3 + "";
-				this["zniao2"].text = zniaoCount2 + "";
-				this["zniao1"].text = zniaoCount1 + "";
-				this["zniao0"].text = zniaoCount0 + "";
+					if (zniaoCount3 == 0) {
+						zniaoCount3 = 0;
+					}
+					if (zniaoCount2 == 0) {
+						zniaoCount2 = 0;
+					}
+					if (zniaoCount1 == 0) {
+						zniaoCount1 = 0;
+					}
+					if (zniaoCount0 == 0) {
+						zniaoCount0 = 0;
+					}
+					if (Global.language == "en") {
+						this["zniao0"].x = 0;
+						this["zniao1"].x = -10;
+						this["zniao2"].x = 20;
+						this["zniao3"].x = 0;
+					}
+					this["zniao3"].visible = this["zniao2"].visible = this["zniao1"].visible = this["zniao0"].visible = true;
+					this["zniao3"].font = this["zniao2"].font = this["zniao1"].font = this["zniao0"].font = Global.language + "znFnt_fnt";
+					this["zniao3"].text = zniaoCount3 + "";
+					this["zniao2"].text = zniaoCount2 + "";
+					this["zniao1"].text = zniaoCount1 + "";
+					this["zniao0"].text = zniaoCount0 + "";
 
 				}, this, 300);
 
 
-				console.log(znValue);
+				// console.log(znValue);
 			}
 
 		}
