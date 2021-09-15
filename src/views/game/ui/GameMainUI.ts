@@ -561,7 +561,7 @@ module game {
 				}, this, 300);
 
 
-				// console.log(znValue);
+				console.log(znValue);
 			}
 
 		}

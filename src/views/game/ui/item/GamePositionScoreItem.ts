@@ -82,7 +82,6 @@ module game {
 		}
 
 		public onClosed(): void {
-
 			this.clearUI();
 			this.removeChild(this.bmp);
 			this.removeChild(this.item);

@@ -1,11 +1,11 @@
 {
 	"groups": [
 		{
-			"keys": "black_png,loadingbg_jpg,loadprogress_png,loadprogressbg_png,waitloading_png,changeLanguagebg_png,csmjcgrw_ske_json,csmjcgrw_tex_json,csmjcgrw_tex_png,loadingLogo2_png,roomlogo2_png,loadingLogo3_png,roomlogo3_png,roomItem1_ske_json,roomItem1_tex_json,roomItem1_tex_png,roomItem2_tex_png,roomItem2_tex_json,roomItem2_ske_json,roomItem3_ske_json,roomItem3_tex_json,roomItem3_tex_png,roomItem4_ske_json,roomItem4_tex_json,roomItem4_tex_png,roomItem5_ske_json,roomItem5_tex_json,roomItem5_tex_png,roomItem6_ske_json,roomItem6_tex_json,roomItem6_tex_png,roomItembg2_png,roomItembg1_png,enroomItemFnt1_fnt,enroomItemFnt1_png,cnroomItemFnt1_fnt,cnroomItemFnt1_png,cnroomItemFnt0_fnt,cnroomItemFnt0_png,enroomItemFnt0_fnt,enroomItemFnt0_png,cnroomItemNumFnt0_fnt,cnroomItemNumFnt0_png,cnroomItemNumFnt1_fnt,cnroomItemNumFnt1_png,cardValueSheet_png,cardValueSheet_json,tcroomItemNumFnt1_fnt,tcroomItemNumFnt1_png,tcroomItemNumFnt0_fnt,tcroomItemNumFnt0_png,enroomItemNumFnt0_fnt,enroomItemNumFnt0_png,enroomItemNumFnt1_fnt,enroomItemNumFnt1_png,enroomItemNumFnt1_fnt_png,enroomItemNumFnt0_fnt_fnt,enroomItemNumFnt0_fnt_png,enroomItemNumFnt1_fnt_fnt,ksyx_ske_json,ksyx_tex_json,ksyx_tex_png,ting_ske_json,ting_tex_json,ting_tex_png,enting_tex_png,enting_ske_json,enting_tex_json,tcting_tex_png,tcting_ske_json,tcting_tex_json,resultLoseGameFnt_fnt,resultLoseGameFnt_png,resultWinGameFnt_fnt,resultWinGameFnt_png,loseHw_png,tieHw_png,winHw_png,Close_png,cnqshFnt_fnt,cnqshFnt_png,enqshFnt_fnt,enqshFnt_png,cnznFnt_fnt,cnznFnt_png,enznFnt_fnt,enznFnt_png,tcznFnt_fnt,tcznFnt_png,tcqshFnt_fnt,tcqshFnt_png,gameView_json,cnbei_down_1_png,cnbei_down_2_png,cnbei_left_1_png,cnbei_left_2_png,cnbei_right_1_png,cnbei_right_2_png,cnbei_up_1_png,cnbei_up_2_png,cndong_down_1_png,cndong_down_2_png,cndong_left_1_png,cndong_left_2_png,cndong_right_1_png,cndong_right_2_png,cndong_up_1_png,cndong_up_2_png,cnnan_down_1_png,cnnan_down_2_png,cnnan_left_1_png,cnnan_left_2_png,cnnan_right_1_png,cnnan_right_2_png,cnnan_up_1_png,cnnan_up_2_png,cnxi_down_1_png,cnxi_down_2_png,cnxi_left_1_png,cnxi_left_2_png,cnxi_right_1_png,cnxi_right_2_png,cnxi_up_1_png,cnxi_up_2_png,enbei_down_1_png,enbei_down_2_png,enbei_left_1_png,enbei_left_2_png,enbei_right_1_png,enbei_right_2_png,enbei_up_1_png,enbei_up_2_png,endong_down_1_png,endong_down_2_png,endong_left_1_png,endong_left_2_png,endong_right_1_png,endong_right_2_png,endong_up_1_png,endong_up_2_png,ennan_down_1_png,ennan_down_2_png,ennan_left_1_png,ennan_left_2_png,ennan_right_1_png,ennan_right_2_png,ennan_up_1-2_png,ennan_up_1_png,ennan_up_2_png,enxi_down_1_png,enxi_down_2_png,enxi_left_1_png,enxi_left_2_png,enxi_right_1_png,enxi_right_2_png,enxi_up_1_png,enxi_up_2_png,tcbei_down_1_png,tcbei_down_2_png,tcbei_left_1_png,tcbei_left_2_png,tcbei_right_1_png,tcbei_right_2_png,tcbei_up_1_png,tcbei_up_2_png,tcdong_down_1_png,tcdong_down_2_png,tcdong_left_1_png,tcdong_left_2_png,tcdong_right_1_png,tcdong_right_2_png,tcdong_up_1_png,tcdong_up_2_png,tcnan_down_1_png,tcnan_down_2_png,tcnan_left_1_png,tcnan_left_2_png,tcnan_right_1_png,tcnan_right_2_png,tcnan_up_1_png,tcnan_up_2_png,tcxi_down_1_png,tcxi_down_2_png,tcxi_left_1_png,tcxi_left_2_png,tcxi_right_1_png,tcxi_right_2_png,tcxi_up_1_png,tcxi_up_2_png,handCard_json,otherCard_json,otherCard1_json,cardBackSheet_json,showaAlert_png,testBg_jpg,win_jpg",
+			"keys": "black_png,loadingbg_jpg,loadprogress_png,loadprogressbg_png,waitloading_png,changeLanguagebg_png,csmjcgrw_ske_json,csmjcgrw_tex_json,csmjcgrw_tex_png,loadingLogo2_png,roomlogo2_png,loadingLogo3_png,roomlogo3_png,roomItem1_ske_json,roomItem1_tex_json,roomItem1_tex_png,roomItem2_tex_png,roomItem2_tex_json,roomItem2_ske_json,roomItem3_ske_json,roomItem3_tex_json,roomItem3_tex_png,roomItem4_ske_json,roomItem4_tex_json,roomItem4_tex_png,roomItem5_ske_json,roomItem5_tex_json,roomItem5_tex_png,roomItem6_ske_json,roomItem6_tex_json,roomItem6_tex_png,roomItembg2_png,roomItembg1_png,enroomItemFnt1_fnt,enroomItemFnt1_png,cnroomItemFnt1_fnt,cnroomItemFnt1_png,cnroomItemFnt0_fnt,cnroomItemFnt0_png,enroomItemFnt0_fnt,enroomItemFnt0_png,cnroomItemNumFnt0_fnt,cnroomItemNumFnt0_png,cnroomItemNumFnt1_fnt,cnroomItemNumFnt1_png,cardValueSheet_png,cardValueSheet_json,tcroomItemNumFnt1_fnt,tcroomItemNumFnt1_png,tcroomItemNumFnt0_fnt,tcroomItemNumFnt0_png,enroomItemNumFnt0_fnt,enroomItemNumFnt0_png,enroomItemNumFnt1_fnt,enroomItemNumFnt1_png,enroomItemNumFnt1_fnt_png,enroomItemNumFnt0_fnt_fnt,enroomItemNumFnt0_fnt_png,enroomItemNumFnt1_fnt_fnt,ksyx_ske_json,ksyx_tex_json,ksyx_tex_png,ting_ske_json,ting_tex_json,ting_tex_png,enting_tex_png,enting_ske_json,enting_tex_json,tcting_tex_png,tcting_ske_json,tcting_tex_json,resultLoseGameFnt_fnt,resultLoseGameFnt_png,resultWinGameFnt_fnt,resultWinGameFnt_png,loseHw_png,tieHw_png,winHw_png,Close_png,cnqshFnt_fnt,cnqshFnt_png,enqshFnt_fnt,enqshFnt_png,cnznFnt_fnt,cnznFnt_png,enznFnt_fnt,enznFnt_png,tcznFnt_fnt,tcznFnt_png,tcqshFnt_fnt,tcqshFnt_png,gameView_json,cnbei_down_1_png,cnbei_down_2_png,cnbei_left_1_png,cnbei_left_2_png,cnbei_right_1_png,cnbei_right_2_png,cnbei_up_1_png,cnbei_up_2_png,cndong_down_1_png,cndong_down_2_png,cndong_left_1_png,cndong_left_2_png,cndong_right_1_png,cndong_right_2_png,cndong_up_1_png,cndong_up_2_png,cnnan_down_1_png,cnnan_down_2_png,cnnan_left_1_png,cnnan_left_2_png,cnnan_right_1_png,cnnan_right_2_png,cnnan_up_1_png,cnnan_up_2_png,cnxi_down_1_png,cnxi_down_2_png,cnxi_left_1_png,cnxi_left_2_png,cnxi_right_1_png,cnxi_right_2_png,cnxi_up_1_png,cnxi_up_2_png,enbei_down_1_png,enbei_down_2_png,enbei_left_1_png,enbei_left_2_png,enbei_right_1_png,enbei_right_2_png,enbei_up_1_png,enbei_up_2_png,endong_down_1_png,endong_down_2_png,endong_left_1_png,endong_left_2_png,endong_right_1_png,endong_right_2_png,endong_up_1_png,endong_up_2_png,ennan_down_1_png,ennan_down_2_png,ennan_left_1_png,ennan_left_2_png,ennan_right_1_png,ennan_right_2_png,ennan_up_1-2_png,ennan_up_1_png,ennan_up_2_png,enxi_down_1_png,enxi_down_2_png,enxi_left_1_png,enxi_left_2_png,enxi_right_1_png,enxi_right_2_png,enxi_up_1_png,enxi_up_2_png,tcbei_down_1_png,tcbei_down_2_png,tcbei_left_1_png,tcbei_left_2_png,tcbei_right_1_png,tcbei_right_2_png,tcbei_up_1_png,tcbei_up_2_png,tcdong_down_1_png,tcdong_down_2_png,tcdong_left_1_png,tcdong_left_2_png,tcdong_right_1_png,tcdong_right_2_png,tcdong_up_1_png,tcdong_up_2_png,tcnan_down_1_png,tcnan_down_2_png,tcnan_left_1_png,tcnan_left_2_png,tcnan_right_1_png,tcnan_right_2_png,tcnan_up_1_png,tcnan_up_2_png,tcxi_down_1_png,tcxi_down_2_png,tcxi_left_1_png,tcxi_left_2_png,tcxi_right_1_png,tcxi_right_2_png,tcxi_up_1_png,tcxi_up_2_png,handCard_json,otherCard_json,otherCard1_json,showaAlert_png,testBg_jpg,win_jpg,roomItem5_ske2_json,roomItem5_tex2_json,roomItem5_tex2_png,roomItem6_ske2_json,roomItem6_tex2_json,roomItem6_tex2_png",
 			"name": "preload"
 		},
 		{
-			"keys": "commCoin_png,gameSetClose_png,roombg_jpg,rw_ske_json,rw_tex_json,rw_tex_png,cardValueSheet2_json,game_tgbg_png,gameCommsbg_png,gameHszTipbg_png,gameIcon_tip_png,gameTingbg_png,gameTipBei_png,gameTipDong_png,gameTipNan_png,gameTipXI_png,gamebg_jpg,gameCommbg_png,gameHeadCoinbg_png,gameHeadHBg_png,gameHeadKuang_png,gameHeadVBg_png,gameResult_lose_png,gameResult_win_png,gameSheet_json,positionSheet_json,icon_select_no_png,icon_select_yes_png,tcroomItemFnt0_fnt,tcroomItemFnt0_png,tcroomItemFnt1_fnt,tcroomItemFnt1_png,cpts_ske_json,cpts_tex_json,cpts_tex_png,dqSelect_ske_json,dqSelect_tex_json,dqSelect_tex_png,txhhxd_ske_json,txhhxd_tex_json,txhhxd_tex_png,txshxd_ske_json,txshxd_tex_json,txshxd_tex_png,alertbg_png,resultHead0_png,resultHead1_png,roomItemFnt0_fnt,roomItemFnt0_png,roomItemFnt1_fnt,roomItemFnt1_png,changeHeadSheet_json",
+			"keys": "commCoin_png,gameSetClose_png,roombg_jpg,rw_ske_json,rw_tex_json,rw_tex_png,game_tgbg_png,gameCommsbg_png,gameHszTipbg_png,gameIcon_tip_png,gameTingbg_png,gameTipBei_png,gameTipDong_png,gameTipNan_png,gameTipXI_png,gamebg_jpg,gameCommbg_png,gameHeadCoinbg_png,gameHeadHBg_png,gameHeadKuang_png,gameHeadVBg_png,gameResult_lose_png,gameResult_win_png,gameSheet_json,positionSheet_json,icon_select_no_png,icon_select_yes_png,tcroomItemFnt0_fnt,tcroomItemFnt0_png,tcroomItemFnt1_fnt,tcroomItemFnt1_png,cpts_ske_json,cpts_tex_json,cpts_tex_png,dqSelect_ske_json,dqSelect_tex_json,dqSelect_tex_png,txhhxd_ske_json,txhhxd_tex_json,txhhxd_tex_png,txshxd_ske_json,txshxd_tex_json,txshxd_tex_png,alertbg_png,resultHead0_png,resultHead1_png,roomItemFnt0_fnt,roomItemFnt0_png,roomItemFnt1_fnt,roomItemFnt1_png,changeHeadSheet_json",
 			"name": "room"
 		},
 		{
@@ -767,12 +767,6 @@
 			"url": "assets/font/winCoinFnt.fnt",
 			"type": "font",
 			"name": "winCoinFnt_fnt"
-		},
-		{
-			"url": "assets/game/cardValueSheet2.json",
-			"type": "sheet",
-			"name": "cardValueSheet2_json",
-			"subkeys": "cardValue28,cardValue29,cardValue30,cardValue31,cardValue32,cardValue33,cardValue34,cardValue35,cardValue36,cardValue37,cardValue38,cardValue39,cardValue40,cardValue41,cardValue42"
 		},
 		{
 			"url": "assets/game/comm/gameCommsbg.png",
@@ -1999,965 +1993,989 @@
 			"subkeys": "changeHeadbg_png,headBtn_cancel_png,headBtn_save_png,icon_chooseHead_png"
 		},
 		{
-			"name": "changeLanguagebg_png",
+			"url": "assets/room/changeLanguagebg.png",
 			"type": "image",
-			"url": "assets/room/changeLanguagebg.png"
+			"name": "changeLanguagebg_png"
 		},
 		{
-			"name": "csmjcgrw_ske_json",
+			"url": "assets/room/csmjcgrw_ske.json",
 			"type": "json",
-			"url": "assets/room/csmjcgrw_ske.json"
+			"name": "csmjcgrw_ske_json"
 		},
 		{
-			"name": "csmjcgrw_tex_json",
+			"url": "assets/room/csmjcgrw_tex.json",
 			"type": "json",
-			"url": "assets/room/csmjcgrw_tex.json"
+			"name": "csmjcgrw_tex_json"
 		},
 		{
-			"name": "csmjcgrw_tex_png",
+			"url": "assets/room/csmjcgrw_tex.png",
 			"type": "image",
-			"url": "assets/room/csmjcgrw_tex.png"
+			"name": "csmjcgrw_tex_png"
 		},
 		{
-			"name": "loadingLogo2_png",
+			"url": "assets/language/tc/logo/loadingLogo.png",
 			"type": "image",
-			"url": "assets/language/tc/logo/loadingLogo.png"
+			"name": "loadingLogo2_png"
 		},
 		{
-			"name": "roomlogo2_png",
+			"url": "assets/language/tc/logo/roomlogo.png",
 			"type": "image",
-			"url": "assets/language/tc/logo/roomlogo.png"
+			"name": "roomlogo2_png"
 		},
 		{
-			"name": "loadingLogo3_png",
+			"url": "assets/language/en/logo/loadingLogo.png",
 			"type": "image",
-			"url": "assets/language/en/logo/loadingLogo.png"
+			"name": "loadingLogo3_png"
 		},
 		{
-			"name": "roomlogo3_png",
+			"url": "assets/language/en/logo/roomlogo.png",
 			"type": "image",
-			"url": "assets/language/en/logo/roomlogo.png"
+			"name": "roomlogo3_png"
 		},
 		{
-			"name": "roomItem1_ske_json",
+			"url": "assets/language/cn/roomAnim/roomItem1_ske.json",
 			"type": "json",
-			"url": "assets/language/cn/roomAnim/roomItem1_ske.json"
+			"name": "roomItem1_ske_json"
 		},
 		{
-			"name": "roomItem1_tex_json",
+			"url": "assets/language/cn/roomAnim/roomItem1_tex.json",
 			"type": "json",
-			"url": "assets/language/cn/roomAnim/roomItem1_tex.json"
+			"name": "roomItem1_tex_json"
 		},
 		{
-			"name": "roomItem1_tex_png",
+			"url": "assets/language/cn/roomAnim/roomItem1_tex.png",
 			"type": "image",
-			"url": "assets/language/cn/roomAnim/roomItem1_tex.png"
+			"name": "roomItem1_tex_png"
 		},
 		{
-			"name": "roomItem2_tex_png",
+			"url": "assets/language/cn/roomAnim/roomItem2_tex.png",
 			"type": "image",
-			"url": "assets/language/cn/roomAnim/roomItem2_tex.png"
+			"name": "roomItem2_tex_png"
 		},
 		{
-			"name": "roomItem2_tex_json",
+			"url": "assets/language/cn/roomAnim/roomItem2_tex.json",
 			"type": "json",
-			"url": "assets/language/cn/roomAnim/roomItem2_tex.json"
+			"name": "roomItem2_tex_json"
 		},
 		{
-			"name": "roomItem2_ske_json",
+			"url": "assets/language/cn/roomAnim/roomItem2_ske.json",
 			"type": "json",
-			"url": "assets/language/cn/roomAnim/roomItem2_ske.json"
+			"name": "roomItem2_ske_json"
 		},
 		{
-			"name": "roomItem3_ske_json",
+			"url": "assets/language/cn/roomAnim/roomItem3_ske.json",
 			"type": "json",
-			"url": "assets/language/cn/roomAnim/roomItem3_ske.json"
+			"name": "roomItem3_ske_json"
 		},
 		{
-			"name": "roomItem3_tex_json",
+			"url": "assets/language/cn/roomAnim/roomItem3_tex.json",
 			"type": "json",
-			"url": "assets/language/cn/roomAnim/roomItem3_tex.json"
+			"name": "roomItem3_tex_json"
 		},
 		{
-			"name": "roomItem3_tex_png",
+			"url": "assets/language/cn/roomAnim/roomItem3_tex.png",
 			"type": "image",
-			"url": "assets/language/cn/roomAnim/roomItem3_tex.png"
+			"name": "roomItem3_tex_png"
 		},
 		{
-			"name": "roomItem4_ske_json",
+			"url": "assets/language/cn/roomAnim/roomItem4_ske.json",
 			"type": "json",
-			"url": "assets/language/cn/roomAnim/roomItem4_ske.json"
+			"name": "roomItem4_ske_json"
 		},
 		{
-			"name": "roomItem4_tex_json",
+			"url": "assets/language/cn/roomAnim/roomItem4_tex.json",
 			"type": "json",
-			"url": "assets/language/cn/roomAnim/roomItem4_tex.json"
+			"name": "roomItem4_tex_json"
 		},
 		{
-			"name": "roomItem4_tex_png",
+			"url": "assets/language/cn/roomAnim/roomItem4_tex.png",
 			"type": "image",
-			"url": "assets/language/cn/roomAnim/roomItem4_tex.png"
+			"name": "roomItem4_tex_png"
 		},
 		{
-			"name": "roomItem5_ske_json",
+			"url": "assets/language/cn/roomAnim/roomItem5_ske.json",
 			"type": "json",
-			"url": "assets/language/cn/roomAnim/roomItem5_ske.json"
+			"name": "roomItem5_ske_json"
 		},
 		{
-			"name": "roomItem5_tex_json",
+			"url": "assets/language/cn/roomAnim/roomItem5_tex.json",
 			"type": "json",
-			"url": "assets/language/cn/roomAnim/roomItem5_tex.json"
+			"name": "roomItem5_tex_json"
 		},
 		{
-			"name": "roomItem5_tex_png",
+			"url": "assets/language/cn/roomAnim/roomItem5_tex.png",
 			"type": "image",
-			"url": "assets/language/cn/roomAnim/roomItem5_tex.png"
+			"name": "roomItem5_tex_png"
 		},
 		{
-			"name": "roomItem6_ske_json",
+			"url": "assets/language/cn/roomAnim/roomItem6_ske.json",
 			"type": "json",
-			"url": "assets/language/cn/roomAnim/roomItem6_ske.json"
+			"name": "roomItem6_ske_json"
 		},
 		{
-			"name": "roomItem6_tex_json",
+			"url": "assets/language/cn/roomAnim/roomItem6_tex.json",
 			"type": "json",
-			"url": "assets/language/cn/roomAnim/roomItem6_tex.json"
+			"name": "roomItem6_tex_json"
 		},
 		{
-			"name": "roomItem6_tex_png",
+			"url": "assets/language/cn/roomAnim/roomItem6_tex.png",
 			"type": "image",
-			"url": "assets/language/cn/roomAnim/roomItem6_tex.png"
+			"name": "roomItem6_tex_png"
 		},
 		{
-			"name": "roomItembg2_png",
+			"url": "assets/room/roomItembg2.png",
 			"type": "image",
-			"url": "assets/room/roomItembg2.png"
+			"name": "roomItembg2_png"
 		},
 		{
-			"name": "roomItembg1_png",
+			"url": "assets/room/roomItembg1.png",
 			"type": "image",
-			"url": "assets/room/roomItembg1.png"
+			"name": "roomItembg1_png"
 		},
 		{
-			"name": "enroomItemFnt1_fnt",
+			"url": "assets/language/en/comm/enroomItemFnt1.fnt",
 			"type": "font",
-			"url": "assets/language/en/comm/enroomItemFnt1.fnt"
+			"name": "enroomItemFnt1_fnt"
 		},
 		{
-			"name": "enroomItemFnt1_png",
+			"url": "assets/language/en/comm/enroomItemFnt1.png",
 			"type": "image",
-			"url": "assets/language/en/comm/enroomItemFnt1.png"
+			"name": "enroomItemFnt1_png"
 		},
 		{
-			"name": "cnroomItemFnt1_fnt",
+			"url": "assets/language/cn/comm/cnroomItemFnt1.fnt",
 			"type": "font",
-			"url": "assets/language/cn/comm/cnroomItemFnt1.fnt"
+			"name": "cnroomItemFnt1_fnt"
 		},
 		{
-			"name": "cnroomItemFnt1_png",
+			"url": "assets/language/cn/comm/cnroomItemFnt1.png",
 			"type": "image",
-			"url": "assets/language/cn/comm/cnroomItemFnt1.png"
+			"name": "cnroomItemFnt1_png"
 		},
 		{
-			"name": "cnroomItemFnt0_fnt",
+			"url": "assets/language/cn/comm/cnroomItemFnt0.fnt",
 			"type": "font",
-			"url": "assets/language/cn/comm/cnroomItemFnt0.fnt"
+			"name": "cnroomItemFnt0_fnt"
 		},
 		{
-			"name": "cnroomItemFnt0_png",
+			"url": "assets/language/cn/comm/cnroomItemFnt0.png",
 			"type": "image",
-			"url": "assets/language/cn/comm/cnroomItemFnt0.png"
+			"name": "cnroomItemFnt0_png"
 		},
 		{
-			"name": "enroomItemFnt0_fnt",
+			"url": "assets/language/en/comm/enroomItemFnt0.fnt",
 			"type": "font",
-			"url": "assets/language/en/comm/enroomItemFnt0.fnt"
+			"name": "enroomItemFnt0_fnt"
 		},
 		{
-			"name": "enroomItemFnt0_png",
+			"url": "assets/language/en/comm/enroomItemFnt0.png",
 			"type": "image",
-			"url": "assets/language/en/comm/enroomItemFnt0.png"
+			"name": "enroomItemFnt0_png"
 		},
 		{
-			"name": "cnroomItemNumFnt0_fnt",
+			"url": "assets/language/cn/comm/cnroomItemNumFnt0.fnt",
 			"type": "font",
-			"url": "assets/language/cn/comm/cnroomItemNumFnt0.fnt"
+			"name": "cnroomItemNumFnt0_fnt"
 		},
 		{
-			"name": "cnroomItemNumFnt0_png",
+			"url": "assets/language/cn/comm/cnroomItemNumFnt0.png",
 			"type": "image",
-			"url": "assets/language/cn/comm/cnroomItemNumFnt0.png"
+			"name": "cnroomItemNumFnt0_png"
 		},
 		{
-			"name": "cnroomItemNumFnt1_fnt",
+			"url": "assets/language/cn/comm/cnroomItemNumFnt1.fnt",
 			"type": "font",
-			"url": "assets/language/cn/comm/cnroomItemNumFnt1.fnt"
+			"name": "cnroomItemNumFnt1_fnt"
 		},
 		{
-			"name": "cnroomItemNumFnt1_png",
+			"url": "assets/language/cn/comm/cnroomItemNumFnt1.png",
 			"type": "image",
-			"url": "assets/language/cn/comm/cnroomItemNumFnt1.png"
+			"name": "cnroomItemNumFnt1_png"
 		},
 		{
-			"name": "cardValueSheet_png",
+			"url": "assets/game/cardValueSheet.png",
 			"type": "image",
-			"url": "assets/game/cardValueSheet.png"
+			"name": "cardValueSheet_png"
 		},
 		{
-			"name": "cardValueSheet_json",
-			"type": "sheet",
 			"url": "assets/game/cardValueSheet.json",
-			"subkeys": "cardValue1,cardValue2,cardValue3,cardValue4,cardValue5,cardValue6,cardValue7,cardValue8,cardValue9,cardValue10,cardValue11,cardValue12,cardValue13,cardValue14,cardValue15,cardValue16,cardValue17,cardValue18,cardValue19,cardValue20,cardValue21,cardValue22,cardValue23,cardValue24,cardValue25,cardValue26,cardValue27"
-		},
-		{
-			"name": "tcroomItemNumFnt1_fnt",
-			"type": "font",
-			"url": "assets/language/tc/comm/tcroomItemNumFnt1.fnt"
-		},
-		{
-			"name": "tcroomItemNumFnt1_png",
-			"type": "image",
-			"url": "assets/language/tc/comm/tcroomItemNumFnt1.png"
-		},
-		{
-			"name": "tcroomItemNumFnt0_fnt",
-			"type": "font",
-			"url": "assets/language/tc/comm/tcroomItemNumFnt0.fnt"
-		},
-		{
-			"name": "tcroomItemNumFnt0_png",
-			"type": "image",
-			"url": "assets/language/tc/comm/tcroomItemNumFnt0.png"
-		},
-		{
-			"name": "enroomItemNumFnt0_fnt",
-			"type": "font",
-			"url": "assets/language/en/comm/enroomItemNumFnt0.fnt"
-		},
-		{
-			"name": "enroomItemNumFnt0_png",
-			"type": "image",
-			"url": "assets/language/en/comm/enroomItemNumFnt0.png"
-		},
-		{
-			"name": "enroomItemNumFnt1_fnt",
-			"type": "font",
-			"url": "assets/language/en/comm/enroomItemNumFnt1.fnt"
-		},
-		{
-			"name": "enroomItemNumFnt1_png",
-			"type": "image",
-			"url": "assets/language/en/comm/enroomItemNumFnt1.png"
-		},
-		{
-			"name": "enroomItemNumFnt1_fnt_png",
-			"type": "image",
-			"url": "assets/language/en/comm/enroomItemNumFnt1_fnt.png"
-		},
-		{
-			"name": "enroomItemNumFnt0_fnt_fnt",
-			"type": "font",
-			"url": "assets/language/en/comm/enroomItemNumFnt0_fnt.fnt"
-		},
-		{
-			"name": "enroomItemNumFnt0_fnt_png",
-			"type": "image",
-			"url": "assets/language/en/comm/enroomItemNumFnt0_fnt.png"
-		},
-		{
-			"name": "enroomItemNumFnt1_fnt_fnt",
-			"type": "font",
-			"url": "assets/language/en/comm/enroomItemNumFnt1_fnt.fnt"
-		},
-		{
-			"name": "ksyx_ske_json",
-			"type": "json",
-			"url": "assets/language/cn/gameEff/ksyx_ske.json"
-		},
-		{
-			"name": "ksyx_tex_json",
-			"type": "json",
-			"url": "assets/language/cn/gameEff/ksyx_tex.json"
-		},
-		{
-			"name": "ksyx_tex_png",
-			"type": "image",
-			"url": "assets/language/cn/gameEff/ksyx_tex.png"
-		},
-		{
-			"name": "ting_ske_json",
-			"type": "json",
-			"url": "assets/language/cn/gameEff/ting_ske.json"
-		},
-		{
-			"name": "ting_tex_json",
-			"type": "json",
-			"url": "assets/language/cn/gameEff/ting_tex.json"
-		},
-		{
-			"name": "ting_tex_png",
-			"type": "image",
-			"url": "assets/language/cn/gameEff/ting_tex.png"
-		},
-		{
-			"name": "enting_tex_png",
-			"type": "image",
-			"url": "assets/language/en/gameEff/enting_tex.png"
-		},
-		{
-			"name": "enting_ske_json",
-			"type": "json",
-			"url": "assets/language/en/gameEff/enting_ske.json"
-		},
-		{
-			"name": "enting_tex_json",
-			"type": "json",
-			"url": "assets/language/en/gameEff/enting_tex.json"
-		},
-		{
-			"name": "tcting_tex_png",
-			"type": "image",
-			"url": "assets/language/tc/gameEff/tcting_tex.png"
-		},
-		{
-			"name": "tcting_ske_json",
-			"type": "json",
-			"url": "assets/language/tc/gameEff/tcting_ske.json"
-		},
-		{
-			"name": "tcting_tex_json",
-			"type": "json",
-			"url": "assets/language/tc/gameEff/tcting_tex.json"
-		},
-		{
-			"name": "resultLoseGameFnt_fnt",
-			"type": "font",
-			"url": "assets/font/resultLoseGameFnt.fnt"
-		},
-		{
-			"name": "resultLoseGameFnt_png",
-			"type": "image",
-			"url": "assets/font/resultLoseGameFnt.png"
-		},
-		{
-			"name": "resultWinGameFnt_fnt",
-			"type": "font",
-			"url": "assets/font/resultWinGameFnt.fnt"
-		},
-		{
-			"name": "resultWinGameFnt_png",
-			"type": "image",
-			"url": "assets/font/resultWinGameFnt.png"
-		},
-		{
-			"name": "loseHw_png",
-			"type": "image",
-			"url": "assets/game/loseHw.png"
-		},
-		{
-			"name": "tieHw_png",
-			"type": "image",
-			"url": "assets/game/tieHw.png"
-		},
-		{
-			"name": "winHw_png",
-			"type": "image",
-			"url": "assets/game/winHw.png"
-		},
-		{
-			"name": "Close_png",
-			"type": "image",
-			"url": "assets/room/Close.png"
-		},
-		{
-			"name": "cnqshFnt_fnt",
-			"type": "font",
-			"url": "assets/font/cnqshFnt.fnt"
-		},
-		{
-			"name": "cnqshFnt_png",
-			"type": "image",
-			"url": "assets/font/cnqshFnt.png"
-		},
-		{
-			"name": "enqshFnt_fnt",
-			"type": "font",
-			"url": "assets/font/enqshFnt.fnt"
-		},
-		{
-			"name": "enqshFnt_png",
-			"type": "image",
-			"url": "assets/font/enqshFnt.png"
-		},
-		{
-			"name": "cnznFnt_fnt",
-			"type": "font",
-			"url": "assets/font/cnznFnt.fnt"
-		},
-		{
-			"name": "cnznFnt_png",
-			"type": "image",
-			"url": "assets/font/cnznFnt.png"
-		},
-		{
-			"name": "enznFnt_fnt",
-			"type": "font",
-			"url": "assets/font/enznFnt.fnt"
-		},
-		{
-			"name": "enznFnt_png",
-			"type": "image",
-			"url": "assets/font/enznFnt.png"
-		},
-		{
-			"name": "tcznFnt_fnt",
-			"type": "font",
-			"url": "assets/font/tcznFnt.fnt"
-		},
-		{
-			"name": "tcznFnt_png",
-			"type": "image",
-			"url": "assets/font/tcznFnt.png"
-		},
-		{
-			"name": "tcqshFnt_fnt",
-			"type": "font",
-			"url": "assets/font/tcqshFnt.fnt"
-		},
-		{
-			"name": "tcqshFnt_png",
-			"type": "image",
-			"url": "assets/font/tcqshFnt.png"
-		},
-		{
-			"name": "gameView_json",
 			"type": "sheet",
+			"name": "cardValueSheet_json",
+			"subkeys": "cardValue1,cardValue10,cardValue11,cardValue12,cardValue13,cardValue14,cardValue15,cardValue16,cardValue17,cardValue18,cardValue19,cardValue2,cardValue20,cardValue21,cardValue22,cardValue23,cardValue24,cardValue25,cardValue26,cardValue27,cardValue3,cardValue4,cardValue5,cardValue6,cardValue7,cardValue8,cardValue9"
+		},
+		{
+			"url": "assets/language/tc/comm/tcroomItemNumFnt1.fnt",
+			"type": "font",
+			"name": "tcroomItemNumFnt1_fnt"
+		},
+		{
+			"url": "assets/language/tc/comm/tcroomItemNumFnt1.png",
+			"type": "image",
+			"name": "tcroomItemNumFnt1_png"
+		},
+		{
+			"url": "assets/language/tc/comm/tcroomItemNumFnt0.fnt",
+			"type": "font",
+			"name": "tcroomItemNumFnt0_fnt"
+		},
+		{
+			"url": "assets/language/tc/comm/tcroomItemNumFnt0.png",
+			"type": "image",
+			"name": "tcroomItemNumFnt0_png"
+		},
+		{
+			"url": "assets/language/en/comm/enroomItemNumFnt0.fnt",
+			"type": "font",
+			"name": "enroomItemNumFnt0_fnt"
+		},
+		{
+			"url": "assets/language/en/comm/enroomItemNumFnt0.png",
+			"type": "image",
+			"name": "enroomItemNumFnt0_png"
+		},
+		{
+			"url": "assets/language/en/comm/enroomItemNumFnt1.fnt",
+			"type": "font",
+			"name": "enroomItemNumFnt1_fnt"
+		},
+		{
+			"url": "assets/language/en/comm/enroomItemNumFnt1.png",
+			"type": "image",
+			"name": "enroomItemNumFnt1_png"
+		},
+		{
+			"url": "assets/language/en/comm/enroomItemNumFnt1_fnt.png",
+			"type": "image",
+			"name": "enroomItemNumFnt1_fnt_png"
+		},
+		{
+			"url": "assets/language/en/comm/enroomItemNumFnt0_fnt.fnt",
+			"type": "font",
+			"name": "enroomItemNumFnt0_fnt_fnt"
+		},
+		{
+			"url": "assets/language/en/comm/enroomItemNumFnt0_fnt.png",
+			"type": "image",
+			"name": "enroomItemNumFnt0_fnt_png"
+		},
+		{
+			"url": "assets/language/en/comm/enroomItemNumFnt1_fnt.fnt",
+			"type": "font",
+			"name": "enroomItemNumFnt1_fnt_fnt"
+		},
+		{
+			"url": "assets/language/cn/gameEff/ksyx_ske.json",
+			"type": "json",
+			"name": "ksyx_ske_json"
+		},
+		{
+			"url": "assets/language/cn/gameEff/ksyx_tex.json",
+			"type": "json",
+			"name": "ksyx_tex_json"
+		},
+		{
+			"url": "assets/language/cn/gameEff/ksyx_tex.png",
+			"type": "image",
+			"name": "ksyx_tex_png"
+		},
+		{
+			"url": "assets/language/cn/gameEff/ting_ske.json",
+			"type": "json",
+			"name": "ting_ske_json"
+		},
+		{
+			"url": "assets/language/cn/gameEff/ting_tex.json",
+			"type": "json",
+			"name": "ting_tex_json"
+		},
+		{
+			"url": "assets/language/cn/gameEff/ting_tex.png",
+			"type": "image",
+			"name": "ting_tex_png"
+		},
+		{
+			"url": "assets/language/en/gameEff/enting_tex.png",
+			"type": "image",
+			"name": "enting_tex_png"
+		},
+		{
+			"url": "assets/language/en/gameEff/enting_ske.json",
+			"type": "json",
+			"name": "enting_ske_json"
+		},
+		{
+			"url": "assets/language/en/gameEff/enting_tex.json",
+			"type": "json",
+			"name": "enting_tex_json"
+		},
+		{
+			"url": "assets/language/tc/gameEff/tcting_tex.png",
+			"type": "image",
+			"name": "tcting_tex_png"
+		},
+		{
+			"url": "assets/language/tc/gameEff/tcting_ske.json",
+			"type": "json",
+			"name": "tcting_ske_json"
+		},
+		{
+			"url": "assets/language/tc/gameEff/tcting_tex.json",
+			"type": "json",
+			"name": "tcting_tex_json"
+		},
+		{
+			"url": "assets/font/resultLoseGameFnt.fnt",
+			"type": "font",
+			"name": "resultLoseGameFnt_fnt"
+		},
+		{
+			"url": "assets/font/resultLoseGameFnt.png",
+			"type": "image",
+			"name": "resultLoseGameFnt_png"
+		},
+		{
+			"url": "assets/font/resultWinGameFnt.fnt",
+			"type": "font",
+			"name": "resultWinGameFnt_fnt"
+		},
+		{
+			"url": "assets/font/resultWinGameFnt.png",
+			"type": "image",
+			"name": "resultWinGameFnt_png"
+		},
+		{
+			"url": "assets/game/loseHw.png",
+			"type": "image",
+			"name": "loseHw_png"
+		},
+		{
+			"url": "assets/game/tieHw.png",
+			"type": "image",
+			"name": "tieHw_png"
+		},
+		{
+			"url": "assets/game/winHw.png",
+			"type": "image",
+			"name": "winHw_png"
+		},
+		{
+			"url": "assets/room/Close.png",
+			"type": "image",
+			"name": "Close_png"
+		},
+		{
+			"url": "assets/font/cnqshFnt.fnt",
+			"type": "font",
+			"name": "cnqshFnt_fnt"
+		},
+		{
+			"url": "assets/font/cnqshFnt.png",
+			"type": "image",
+			"name": "cnqshFnt_png"
+		},
+		{
+			"url": "assets/font/enqshFnt.fnt",
+			"type": "font",
+			"name": "enqshFnt_fnt"
+		},
+		{
+			"url": "assets/font/enqshFnt.png",
+			"type": "image",
+			"name": "enqshFnt_png"
+		},
+		{
+			"url": "assets/font/cnznFnt.fnt",
+			"type": "font",
+			"name": "cnznFnt_fnt"
+		},
+		{
+			"url": "assets/font/cnznFnt.png",
+			"type": "image",
+			"name": "cnznFnt_png"
+		},
+		{
+			"url": "assets/font/enznFnt.fnt",
+			"type": "font",
+			"name": "enznFnt_fnt"
+		},
+		{
+			"url": "assets/font/enznFnt.png",
+			"type": "image",
+			"name": "enznFnt_png"
+		},
+		{
+			"url": "assets/font/tcznFnt.fnt",
+			"type": "font",
+			"name": "tcznFnt_fnt"
+		},
+		{
+			"url": "assets/font/tcznFnt.png",
+			"type": "image",
+			"name": "tcznFnt_png"
+		},
+		{
+			"url": "assets/font/tcqshFnt.fnt",
+			"type": "font",
+			"name": "tcqshFnt_fnt"
+		},
+		{
+			"url": "assets/font/tcqshFnt.png",
+			"type": "image",
+			"name": "tcqshFnt_png"
+		},
+		{
 			"url": "assets/game/gameView.json",
-			"subkeys": "bei_left_2,nan_right_1,nan_left_2,zizun_icon,bei_right_2,peng_btn_up,card_arrow_3_0,chat_btn_up,game_head_bg,dong_left_2,hu_btn_down,card_arrow_0_1,card_arrow_3_1,guiPaiRight,gengduo_btn_up,nan_left_1,back_btn_up,gang_btn_up,card_arrow_3_2,zhuang_icon,nan_up_1,bei_down_2,xi_down_2,hu_btn_up,bei_down_1,card_arrow_2_3,rumen_icon,xi_up_1,peng_btn_down,card_arrow_2_1,dong_left_1,nan_down_1,xi_up_2,dong_right_1,direction_down,direction_bg,guo_btn_down,nan_down_2,card_arrow_3_3,card_arrow_0_0,direction_up,bei_right_1,dong_up_2,bei_up_2,dong_right_2,gang_btn_down,card_arrow_2_2,dong_down_2,xi_right_1,nan_right_2,dingji_icon,majiang_icon,guiPai_icon,bei_up_1,xi_right_2,direction_right,chuJi_icon,game_head,xi_left_1,card_arrow_0_2,dong_up_1,dong_down_1,nan_up_2,guiPaiLeft,bei_left_1,guo_btn_up,yuPai_bg,xi_down_1,xi_left_2,zhongji_icon,card_arrow_0_3,direction_left,card_arrow_2_0,gaoji_icon,chi_btn_up,chi_btn_down,guizeBtn,back_btn_down,seting,gengduo_btn_down,chat_btn_down"
-		},
-		{
-			"name": "cnbei_down_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnbei_down_1.png"
-		},
-		{
-			"name": "cnbei_down_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnbei_down_2.png"
-		},
-		{
-			"name": "cnbei_left_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnbei_left_1.png"
-		},
-		{
-			"name": "cnbei_left_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnbei_left_2.png"
-		},
-		{
-			"name": "cnbei_right_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnbei_right_1.png"
-		},
-		{
-			"name": "cnbei_right_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnbei_right_2.png"
-		},
-		{
-			"name": "cnbei_up_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnbei_up_1.png"
-		},
-		{
-			"name": "cnbei_up_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnbei_up_2.png"
-		},
-		{
-			"name": "cndong_down_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cndong_down_1.png"
-		},
-		{
-			"name": "cndong_down_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cndong_down_2.png"
-		},
-		{
-			"name": "cndong_left_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cndong_left_1.png"
-		},
-		{
-			"name": "cndong_left_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cndong_left_2.png"
-		},
-		{
-			"name": "cndong_right_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cndong_right_1.png"
-		},
-		{
-			"name": "cndong_right_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cndong_right_2.png"
-		},
-		{
-			"name": "cndong_up_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cndong_up_1.png"
-		},
-		{
-			"name": "cndong_up_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cndong_up_2.png"
-		},
-		{
-			"name": "cnnan_down_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnnan_down_1.png"
-		},
-		{
-			"name": "cnnan_down_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnnan_down_2.png"
-		},
-		{
-			"name": "cnnan_left_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnnan_left_1.png"
-		},
-		{
-			"name": "cnnan_left_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnnan_left_2.png"
-		},
-		{
-			"name": "cnnan_right_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnnan_right_1.png"
-		},
-		{
-			"name": "cnnan_right_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnnan_right_2.png"
-		},
-		{
-			"name": "cnnan_up_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnnan_up_1.png"
-		},
-		{
-			"name": "cnnan_up_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnnan_up_2.png"
-		},
-		{
-			"name": "cnxi_down_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnxi_down_1.png"
-		},
-		{
-			"name": "cnxi_down_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnxi_down_2.png"
-		},
-		{
-			"name": "cnxi_left_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnxi_left_1.png"
-		},
-		{
-			"name": "cnxi_left_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnxi_left_2.png"
-		},
-		{
-			"name": "cnxi_right_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnxi_right_1.png"
-		},
-		{
-			"name": "cnxi_right_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnxi_right_2.png"
-		},
-		{
-			"name": "cnxi_up_1_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnxi_up_1.png"
-		},
-		{
-			"name": "cnxi_up_2_png",
-			"type": "image",
-			"url": "assets/language/cn/game/cnxi_up_2.png"
-		},
-		{
-			"name": "enbei_down_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/enbei_down_1.png"
-		},
-		{
-			"name": "enbei_down_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/enbei_down_2.png"
-		},
-		{
-			"name": "enbei_left_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/enbei_left_1.png"
-		},
-		{
-			"name": "enbei_left_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/enbei_left_2.png"
-		},
-		{
-			"name": "enbei_right_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/enbei_right_1.png"
-		},
-		{
-			"name": "enbei_right_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/enbei_right_2.png"
-		},
-		{
-			"name": "enbei_up_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/enbei_up_1.png"
-		},
-		{
-			"name": "enbei_up_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/enbei_up_2.png"
-		},
-		{
-			"name": "endong_down_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/endong_down_1.png"
-		},
-		{
-			"name": "endong_down_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/endong_down_2.png"
-		},
-		{
-			"name": "endong_left_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/endong_left_1.png"
-		},
-		{
-			"name": "endong_left_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/endong_left_2.png"
-		},
-		{
-			"name": "endong_right_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/endong_right_1.png"
-		},
-		{
-			"name": "endong_right_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/endong_right_2.png"
-		},
-		{
-			"name": "endong_up_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/endong_up_1.png"
-		},
-		{
-			"name": "endong_up_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/endong_up_2.png"
-		},
-		{
-			"name": "ennan_down_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/ennan_down_1.png"
-		},
-		{
-			"name": "ennan_down_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/ennan_down_2.png"
-		},
-		{
-			"name": "ennan_left_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/ennan_left_1.png"
-		},
-		{
-			"name": "ennan_left_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/ennan_left_2.png"
-		},
-		{
-			"name": "ennan_right_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/ennan_right_1.png"
-		},
-		{
-			"name": "ennan_right_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/ennan_right_2.png"
-		},
-		{
-			"name": "ennan_up_1-2_png",
-			"type": "image",
-			"url": "assets/language/en/game/ennan_up_1-2.png"
-		},
-		{
-			"name": "ennan_up_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/ennan_up_1.png"
-		},
-		{
-			"name": "ennan_up_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/ennan_up_2.png"
-		},
-		{
-			"name": "enxi_down_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/enxi_down_1.png"
-		},
-		{
-			"name": "enxi_down_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/enxi_down_2.png"
-		},
-		{
-			"name": "enxi_left_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/enxi_left_1.png"
-		},
-		{
-			"name": "enxi_left_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/enxi_left_2.png"
-		},
-		{
-			"name": "enxi_right_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/enxi_right_1.png"
-		},
-		{
-			"name": "enxi_right_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/enxi_right_2.png"
-		},
-		{
-			"name": "enxi_up_1_png",
-			"type": "image",
-			"url": "assets/language/en/game/enxi_up_1.png"
-		},
-		{
-			"name": "enxi_up_2_png",
-			"type": "image",
-			"url": "assets/language/en/game/enxi_up_2.png"
-		},
-		{
-			"name": "tcbei_down_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcbei_down_1.png"
-		},
-		{
-			"name": "tcbei_down_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcbei_down_2.png"
-		},
-		{
-			"name": "tcbei_left_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcbei_left_1.png"
-		},
-		{
-			"name": "tcbei_left_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcbei_left_2.png"
-		},
-		{
-			"name": "tcbei_right_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcbei_right_1.png"
-		},
-		{
-			"name": "tcbei_right_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcbei_right_2.png"
-		},
-		{
-			"name": "tcbei_up_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcbei_up_1.png"
-		},
-		{
-			"name": "tcbei_up_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcbei_up_2.png"
-		},
-		{
-			"name": "tcdong_down_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcdong_down_1.png"
-		},
-		{
-			"name": "tcdong_down_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcdong_down_2.png"
-		},
-		{
-			"name": "tcdong_left_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcdong_left_1.png"
-		},
-		{
-			"name": "tcdong_left_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcdong_left_2.png"
-		},
-		{
-			"name": "tcdong_right_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcdong_right_1.png"
-		},
-		{
-			"name": "tcdong_right_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcdong_right_2.png"
-		},
-		{
-			"name": "tcdong_up_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcdong_up_1.png"
-		},
-		{
-			"name": "tcdong_up_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcdong_up_2.png"
-		},
-		{
-			"name": "tcnan_down_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcnan_down_1.png"
-		},
-		{
-			"name": "tcnan_down_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcnan_down_2.png"
-		},
-		{
-			"name": "tcnan_left_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcnan_left_1.png"
-		},
-		{
-			"name": "tcnan_left_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcnan_left_2.png"
-		},
-		{
-			"name": "tcnan_right_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcnan_right_1.png"
-		},
-		{
-			"name": "tcnan_right_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcnan_right_2.png"
-		},
-		{
-			"name": "tcnan_up_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcnan_up_1.png"
-		},
-		{
-			"name": "tcnan_up_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcnan_up_2.png"
-		},
-		{
-			"name": "tcxi_down_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcxi_down_1.png"
-		},
-		{
-			"name": "tcxi_down_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcxi_down_2.png"
-		},
-		{
-			"name": "tcxi_left_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcxi_left_1.png"
-		},
-		{
-			"name": "tcxi_left_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcxi_left_2.png"
-		},
-		{
-			"name": "tcxi_right_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcxi_right_1.png"
-		},
-		{
-			"name": "tcxi_right_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcxi_right_2.png"
-		},
-		{
-			"name": "tcxi_up_1_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcxi_up_1.png"
-		},
-		{
-			"name": "tcxi_up_2_png",
-			"type": "image",
-			"url": "assets/language/tc/game/tcxi_up_2.png"
-		},
-		{
-			"name": "handCard_json",
 			"type": "sheet",
+			"name": "gameView_json",
+			"subkeys": "back_btn_down,back_btn_up,bei_down_1,bei_down_2,bei_left_1,bei_left_2,bei_right_1,bei_right_2,bei_up_1,bei_up_2,card_arrow_0_0,card_arrow_0_1,card_arrow_0_2,card_arrow_0_3,card_arrow_2_0,card_arrow_2_1,card_arrow_2_2,card_arrow_2_3,card_arrow_3_0,card_arrow_3_1,card_arrow_3_2,card_arrow_3_3,chat_btn_down,chat_btn_up,chi_btn_down,chi_btn_up,chuJi_icon,dingji_icon,direction_bg,direction_down,direction_left,direction_right,direction_up,dong_down_1,dong_down_2,dong_left_1,dong_left_2,dong_right_1,dong_right_2,dong_up_1,dong_up_2,game_head,game_head_bg,gang_btn_down,gang_btn_up,gaoji_icon,gengduo_btn_down,gengduo_btn_up,guiPaiLeft,guiPaiRight,guiPai_icon,guizeBtn,guo_btn_down,guo_btn_up,hu_btn_down,hu_btn_up,majiang_icon,nan_down_1,nan_down_2,nan_left_1,nan_left_2,nan_right_1,nan_right_2,nan_up_1,nan_up_2,peng_btn_down,peng_btn_up,rumen_icon,seting,xi_down_1,xi_down_2,xi_left_1,xi_left_2,xi_right_1,xi_right_2,xi_up_1,xi_up_2,yuPai_bg,zhongji_icon,zhuang_icon,zizun_icon"
+		},
+		{
+			"url": "assets/language/cn/game/cnbei_down_1.png",
+			"type": "image",
+			"name": "cnbei_down_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnbei_down_2.png",
+			"type": "image",
+			"name": "cnbei_down_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnbei_left_1.png",
+			"type": "image",
+			"name": "cnbei_left_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnbei_left_2.png",
+			"type": "image",
+			"name": "cnbei_left_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnbei_right_1.png",
+			"type": "image",
+			"name": "cnbei_right_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnbei_right_2.png",
+			"type": "image",
+			"name": "cnbei_right_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnbei_up_1.png",
+			"type": "image",
+			"name": "cnbei_up_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnbei_up_2.png",
+			"type": "image",
+			"name": "cnbei_up_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cndong_down_1.png",
+			"type": "image",
+			"name": "cndong_down_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cndong_down_2.png",
+			"type": "image",
+			"name": "cndong_down_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cndong_left_1.png",
+			"type": "image",
+			"name": "cndong_left_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cndong_left_2.png",
+			"type": "image",
+			"name": "cndong_left_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cndong_right_1.png",
+			"type": "image",
+			"name": "cndong_right_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cndong_right_2.png",
+			"type": "image",
+			"name": "cndong_right_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cndong_up_1.png",
+			"type": "image",
+			"name": "cndong_up_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cndong_up_2.png",
+			"type": "image",
+			"name": "cndong_up_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnnan_down_1.png",
+			"type": "image",
+			"name": "cnnan_down_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnnan_down_2.png",
+			"type": "image",
+			"name": "cnnan_down_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnnan_left_1.png",
+			"type": "image",
+			"name": "cnnan_left_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnnan_left_2.png",
+			"type": "image",
+			"name": "cnnan_left_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnnan_right_1.png",
+			"type": "image",
+			"name": "cnnan_right_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnnan_right_2.png",
+			"type": "image",
+			"name": "cnnan_right_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnnan_up_1.png",
+			"type": "image",
+			"name": "cnnan_up_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnnan_up_2.png",
+			"type": "image",
+			"name": "cnnan_up_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnxi_down_1.png",
+			"type": "image",
+			"name": "cnxi_down_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnxi_down_2.png",
+			"type": "image",
+			"name": "cnxi_down_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnxi_left_1.png",
+			"type": "image",
+			"name": "cnxi_left_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnxi_left_2.png",
+			"type": "image",
+			"name": "cnxi_left_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnxi_right_1.png",
+			"type": "image",
+			"name": "cnxi_right_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnxi_right_2.png",
+			"type": "image",
+			"name": "cnxi_right_2_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnxi_up_1.png",
+			"type": "image",
+			"name": "cnxi_up_1_png"
+		},
+		{
+			"url": "assets/language/cn/game/cnxi_up_2.png",
+			"type": "image",
+			"name": "cnxi_up_2_png"
+		},
+		{
+			"url": "assets/language/en/game/enbei_down_1.png",
+			"type": "image",
+			"name": "enbei_down_1_png"
+		},
+		{
+			"url": "assets/language/en/game/enbei_down_2.png",
+			"type": "image",
+			"name": "enbei_down_2_png"
+		},
+		{
+			"url": "assets/language/en/game/enbei_left_1.png",
+			"type": "image",
+			"name": "enbei_left_1_png"
+		},
+		{
+			"url": "assets/language/en/game/enbei_left_2.png",
+			"type": "image",
+			"name": "enbei_left_2_png"
+		},
+		{
+			"url": "assets/language/en/game/enbei_right_1.png",
+			"type": "image",
+			"name": "enbei_right_1_png"
+		},
+		{
+			"url": "assets/language/en/game/enbei_right_2.png",
+			"type": "image",
+			"name": "enbei_right_2_png"
+		},
+		{
+			"url": "assets/language/en/game/enbei_up_1.png",
+			"type": "image",
+			"name": "enbei_up_1_png"
+		},
+		{
+			"url": "assets/language/en/game/enbei_up_2.png",
+			"type": "image",
+			"name": "enbei_up_2_png"
+		},
+		{
+			"url": "assets/language/en/game/endong_down_1.png",
+			"type": "image",
+			"name": "endong_down_1_png"
+		},
+		{
+			"url": "assets/language/en/game/endong_down_2.png",
+			"type": "image",
+			"name": "endong_down_2_png"
+		},
+		{
+			"url": "assets/language/en/game/endong_left_1.png",
+			"type": "image",
+			"name": "endong_left_1_png"
+		},
+		{
+			"url": "assets/language/en/game/endong_left_2.png",
+			"type": "image",
+			"name": "endong_left_2_png"
+		},
+		{
+			"url": "assets/language/en/game/endong_right_1.png",
+			"type": "image",
+			"name": "endong_right_1_png"
+		},
+		{
+			"url": "assets/language/en/game/endong_right_2.png",
+			"type": "image",
+			"name": "endong_right_2_png"
+		},
+		{
+			"url": "assets/language/en/game/endong_up_1.png",
+			"type": "image",
+			"name": "endong_up_1_png"
+		},
+		{
+			"url": "assets/language/en/game/endong_up_2.png",
+			"type": "image",
+			"name": "endong_up_2_png"
+		},
+		{
+			"url": "assets/language/en/game/ennan_down_1.png",
+			"type": "image",
+			"name": "ennan_down_1_png"
+		},
+		{
+			"url": "assets/language/en/game/ennan_down_2.png",
+			"type": "image",
+			"name": "ennan_down_2_png"
+		},
+		{
+			"url": "assets/language/en/game/ennan_left_1.png",
+			"type": "image",
+			"name": "ennan_left_1_png"
+		},
+		{
+			"url": "assets/language/en/game/ennan_left_2.png",
+			"type": "image",
+			"name": "ennan_left_2_png"
+		},
+		{
+			"url": "assets/language/en/game/ennan_right_1.png",
+			"type": "image",
+			"name": "ennan_right_1_png"
+		},
+		{
+			"url": "assets/language/en/game/ennan_right_2.png",
+			"type": "image",
+			"name": "ennan_right_2_png"
+		},
+		{
+			"url": "assets/language/en/game/ennan_up_1-2.png",
+			"type": "image",
+			"name": "ennan_up_1-2_png"
+		},
+		{
+			"url": "assets/language/en/game/ennan_up_1.png",
+			"type": "image",
+			"name": "ennan_up_1_png"
+		},
+		{
+			"url": "assets/language/en/game/ennan_up_2.png",
+			"type": "image",
+			"name": "ennan_up_2_png"
+		},
+		{
+			"url": "assets/language/en/game/enxi_down_1.png",
+			"type": "image",
+			"name": "enxi_down_1_png"
+		},
+		{
+			"url": "assets/language/en/game/enxi_down_2.png",
+			"type": "image",
+			"name": "enxi_down_2_png"
+		},
+		{
+			"url": "assets/language/en/game/enxi_left_1.png",
+			"type": "image",
+			"name": "enxi_left_1_png"
+		},
+		{
+			"url": "assets/language/en/game/enxi_left_2.png",
+			"type": "image",
+			"name": "enxi_left_2_png"
+		},
+		{
+			"url": "assets/language/en/game/enxi_right_1.png",
+			"type": "image",
+			"name": "enxi_right_1_png"
+		},
+		{
+			"url": "assets/language/en/game/enxi_right_2.png",
+			"type": "image",
+			"name": "enxi_right_2_png"
+		},
+		{
+			"url": "assets/language/en/game/enxi_up_1.png",
+			"type": "image",
+			"name": "enxi_up_1_png"
+		},
+		{
+			"url": "assets/language/en/game/enxi_up_2.png",
+			"type": "image",
+			"name": "enxi_up_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcbei_down_1.png",
+			"type": "image",
+			"name": "tcbei_down_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcbei_down_2.png",
+			"type": "image",
+			"name": "tcbei_down_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcbei_left_1.png",
+			"type": "image",
+			"name": "tcbei_left_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcbei_left_2.png",
+			"type": "image",
+			"name": "tcbei_left_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcbei_right_1.png",
+			"type": "image",
+			"name": "tcbei_right_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcbei_right_2.png",
+			"type": "image",
+			"name": "tcbei_right_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcbei_up_1.png",
+			"type": "image",
+			"name": "tcbei_up_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcbei_up_2.png",
+			"type": "image",
+			"name": "tcbei_up_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcdong_down_1.png",
+			"type": "image",
+			"name": "tcdong_down_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcdong_down_2.png",
+			"type": "image",
+			"name": "tcdong_down_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcdong_left_1.png",
+			"type": "image",
+			"name": "tcdong_left_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcdong_left_2.png",
+			"type": "image",
+			"name": "tcdong_left_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcdong_right_1.png",
+			"type": "image",
+			"name": "tcdong_right_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcdong_right_2.png",
+			"type": "image",
+			"name": "tcdong_right_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcdong_up_1.png",
+			"type": "image",
+			"name": "tcdong_up_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcdong_up_2.png",
+			"type": "image",
+			"name": "tcdong_up_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcnan_down_1.png",
+			"type": "image",
+			"name": "tcnan_down_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcnan_down_2.png",
+			"type": "image",
+			"name": "tcnan_down_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcnan_left_1.png",
+			"type": "image",
+			"name": "tcnan_left_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcnan_left_2.png",
+			"type": "image",
+			"name": "tcnan_left_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcnan_right_1.png",
+			"type": "image",
+			"name": "tcnan_right_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcnan_right_2.png",
+			"type": "image",
+			"name": "tcnan_right_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcnan_up_1.png",
+			"type": "image",
+			"name": "tcnan_up_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcnan_up_2.png",
+			"type": "image",
+			"name": "tcnan_up_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcxi_down_1.png",
+			"type": "image",
+			"name": "tcxi_down_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcxi_down_2.png",
+			"type": "image",
+			"name": "tcxi_down_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcxi_left_1.png",
+			"type": "image",
+			"name": "tcxi_left_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcxi_left_2.png",
+			"type": "image",
+			"name": "tcxi_left_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcxi_right_1.png",
+			"type": "image",
+			"name": "tcxi_right_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcxi_right_2.png",
+			"type": "image",
+			"name": "tcxi_right_2_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcxi_up_1.png",
+			"type": "image",
+			"name": "tcxi_up_1_png"
+		},
+		{
+			"url": "assets/language/tc/game/tcxi_up_2.png",
+			"type": "image",
+			"name": "tcxi_up_2_png"
+		},
+		{
 			"url": "assets/game/handCard.json",
-			"subkeys": "cardBackDown,cardBackUp,cardGangD,cardGangD2,cardGangL,cardGangR,cardhandL,cardhandR,cardValue0027,cardValue0028,cardValue0029,cardValue0030,cardValue0031,cardValue0032,cardValue0033,cardValue0034,cardValue0001,cardValue0002,cardValue0003,cardValue0004,cardValue0005,cardValue0006,cardValue0007,cardValue0008,cardValue0009,cardValue0010,cardValue0011,cardValue0012,cardValue0013,cardValue0014,cardValue0015,cardValue0016,cardValue0017,cardValue0018,cardValue0019,cardValue0020,cardValue0021,cardValue0022,cardValue0023,cardValue0024,cardValue0025,cardValue0026"
+			"type": "sheet",
+			"name": "handCard_json",
+			"subkeys": "cardBackDown,cardBackUp,cardGangD,cardGangD2,cardGangL,cardGangR,cardValue0001,cardValue0002,cardValue0003,cardValue0004,cardValue0005,cardValue0006,cardValue0007,cardValue0008,cardValue0009,cardValue0010,cardValue0011,cardValue0012,cardValue0013,cardValue0014,cardValue0015,cardValue0016,cardValue0017,cardValue0018,cardValue0019,cardValue0020,cardValue0021,cardValue0022,cardValue0023,cardValue0024,cardValue0025,cardValue0026,cardValue0027,cardValue0028,cardValue0029,cardValue0030,cardValue0031,cardValue0032,cardValue0033,cardValue0034,cardhandL,cardhandR"
 		},
 		{
-			"name": "otherCard_json",
-			"type": "sheet",
 			"url": "assets/game/otherCard.json",
-			"subkeys": "cardValueR34,cardValueR01,cardValueR02,cardValueR03,cardValueR04,cardValueR05,cardValueR06,cardValueR07,cardValueR08,cardValueR09,cardValueR10,cardValueR11,cardValueR12,cardValueR13,cardValueR14,cardValueR15,cardValueR16,cardValueR17,cardValueR18,cardValueR19,cardValueR20,cardValueR21,cardValueR22,cardValueR23,cardValueR24,cardValueR25,cardValueR26,cardValueR27,cardValueR28,cardValueR29,cardValueR30,cardValueR31,cardValueR32,cardValueR33,cardValueH34,cardValueH01,cardValueH02,cardValueH03,cardValueH04,cardValueH05,cardValueH06,cardValueH07,cardValueH08,cardValueH09,cardValueH10,cardValueH11,cardValueH12,cardValueH13,cardValueH14,cardValueH15,cardValueH16,cardValueH17,cardValueH18,cardValueH19,cardValueH20,cardValueH21,cardValueH22,cardValueH23,cardValueH24,cardValueH25,cardValueH26,cardValueH27,cardValueH28,cardValueH29,cardValueH30,cardValueH31,cardValueH32,cardValueH33,cardValueU01,cardValueU02,cardValueU03,cardValueU04,cardValueU05,cardValueU06,cardValueU07,cardValueU08,cardValueU09,cardValueU10,cardValueU11,cardValueU12,cardValueU13,cardValueU14,cardValueU15,cardValueU16,cardValueU17,cardValueU18,cardValueU19,cardValueU20,cardValueU21,cardValueU22,cardValueU23,cardValueU24,cardValueU25,cardValueU26,cardValueU27,cardValueU28,cardValueU29,cardValueU30,cardValueU31,cardValueU32,cardValueU33,cardValueU34,cardValueV34,cardValueV01,cardValueV02,cardValueV03,cardValueV04,cardValueV05,cardValueV06,cardValueV07,cardValueV08,cardValueV09,cardValueV10,cardValueV11,cardValueV12,cardValueV13,cardValueV14,cardValueV15,cardValueV16,cardValueV17,cardValueV18,cardValueV19,cardValueV20,cardValueV21,cardValueV22,cardValueV23,cardValueV24,cardValueV25,cardValueV26,cardValueV27,cardValueV28,cardValueV29,cardValueV30,cardValueV31,cardValueV32,cardValueV33"
+			"type": "sheet",
+			"name": "otherCard_json",
+			"subkeys": "cardValueH01,cardValueH02,cardValueH03,cardValueH04,cardValueH05,cardValueH06,cardValueH07,cardValueH08,cardValueH09,cardValueH10,cardValueH11,cardValueH12,cardValueH13,cardValueH14,cardValueH15,cardValueH16,cardValueH17,cardValueH18,cardValueH19,cardValueH20,cardValueH21,cardValueH22,cardValueH23,cardValueH24,cardValueH25,cardValueH26,cardValueH27,cardValueH28,cardValueH29,cardValueH30,cardValueH31,cardValueH32,cardValueH33,cardValueH34,cardValueR01,cardValueR02,cardValueR03,cardValueR04,cardValueR05,cardValueR06,cardValueR07,cardValueR08,cardValueR09,cardValueR10,cardValueR11,cardValueR12,cardValueR13,cardValueR14,cardValueR15,cardValueR16,cardValueR17,cardValueR18,cardValueR19,cardValueR20,cardValueR21,cardValueR22,cardValueR23,cardValueR24,cardValueR25,cardValueR26,cardValueR27,cardValueR28,cardValueR29,cardValueR30,cardValueR31,cardValueR32,cardValueR33,cardValueR34,cardValueU01,cardValueU02,cardValueU03,cardValueU04,cardValueU05,cardValueU06,cardValueU07,cardValueU08,cardValueU09,cardValueU10,cardValueU11,cardValueU12,cardValueU13,cardValueU14,cardValueU15,cardValueU16,cardValueU17,cardValueU18,cardValueU19,cardValueU20,cardValueU21,cardValueU22,cardValueU23,cardValueU24,cardValueU25,cardValueU26,cardValueU27,cardValueU28,cardValueU29,cardValueU30,cardValueU31,cardValueU32,cardValueU33,cardValueU34,cardValueV01,cardValueV02,cardValueV03,cardValueV04,cardValueV05,cardValueV06,cardValueV07,cardValueV08,cardValueV09,cardValueV10,cardValueV11,cardValueV12,cardValueV13,cardValueV14,cardValueV15,cardValueV16,cardValueV17,cardValueV18,cardValueV19,cardValueV20,cardValueV21,cardValueV22,cardValueV23,cardValueV24,cardValueV25,cardValueV26,cardValueV27,cardValueV28,cardValueV29,cardValueV30,cardValueV31,cardValueV32,cardValueV33,cardValueV34"
 		},
 		{
-			"name": "otherCard1_json",
-			"type": "sheet",
 			"url": "assets/game/otherCard1.json",
-			"subkeys": "cardValueU116,cardValueU117,cardValueU118,cardValueU119,cardValueU120,cardValueU121,cardValueU122,cardValueU123,cardValueU124,cardValueU125,cardValueU126,cardValueU127,cardValueU128,cardValueU129,cardValueU130,cardValueU131,cardValueU132,cardValueU133,cardValueU134,cardValueU101,cardValueU102,cardValueU103,cardValueU104,cardValueU105,cardValueU106,cardValueU107,cardValueU108,cardValueU109,cardValueU110,cardValueU111,cardValueU112,cardValueU113,cardValueU114,cardValueU115"
-		},
-		{
-			"name": "cardBackSheet_json",
 			"type": "sheet",
-			"url": "assets/game/cardBackSheet.json",
-			"subkeys": "BJHP_1,BJHP_2,BJHP_3,BJHP_4,card_down_a1,card_down_a2,card_down_h1,card_down_m1,card_left_h1,card_left_h2,card_left_h3,card_left_h4,card_left_h5,card_left_h6,card_left_h7,card_left_h8,card_left_h9,card_left_h10,card_left_h11,card_left_h12,card_left_h13,card_left_h14,card_left_h15,card_left_h16,card_left_h17,card_left_hl1,card_left_hl2,card_left_hl3,card_left_hl4,card_left_hl5,card_left_hl6,card_left_hl7,card_left_hl8,card_left_hl9,card_left_hl10,card_left_hl11,card_left_hl12,card_left_hl13,card_left_hl14,card_left_hl15,card_left_hl16,card_left_hl17,card_pool_down_1,card_pool_down_2,card_pool_down_3,card_pool_down_4,card_pool_down_5,card_pool_down_6,card_pool_down_7,card_pool_down_8,card_pool_down_9,card_pool_down_10,card_pool_down_11,card_pool_down_12,card_pool_down_13,card_pool_down_14,card_pool_down_15,card_pool_down_16,card_pool_down_17,card_pool_down_18,card_pool_left_1,card_pool_left_2,card_pool_left_3,card_pool_left_4,card_pool_left_5,card_pool_left_6,card_pool_left_7,card_pool_left_8,card_pool_left_9,card_pool_left_10,card_pool_left_11,card_pool_left_12,card_pool_left_13,card_pool_left_14,card_pool_left_15,card_pool_left_16,card_pool_left_17,card_pool_left_18,card_pool_right_1,card_pool_right_2,card_pool_right_3,card_pool_right_4,card_pool_right_5,card_pool_right_6,card_pool_right_7,card_pool_right_8,card_pool_right_9,card_pool_right_10,card_pool_right_11,card_pool_right_12,card_pool_right_13,card_pool_right_14,card_pool_right_15,card_pool_right_16,card_pool_right_17,card_pool_right_18,card_pool_up_1,card_pool_up_2,card_pool_up_3,card_pool_up_4,card_pool_up_5,card_pool_up_6,card_pool_up_7,card_pool_up_8,card_pool_up_9,card_pool_up_10,card_pool_up_11,card_pool_up_12,card_pool_up_13,card_pool_up_14,card_pool_up_15,card_pool_up_16,card_pool_up_17,card_pool_up_18,card_up_a1,card_up_a2,card_up_h1,card_up_m1,DJHP,SJAG_left_1,SJAG_left_2,SJAG_left_3,SJAG_left_4,SJAG_left_5,SJAG_left_6,SJAG_left_7,SJAG_left_8,SJAG_left_9,SJAG_left_10,SJAG_left_11,SJAG_left_12,SJAG_left_13,SJAG_left_14,SJAG_left_15,SJAG_left_16,SJAG_left_17,SJAG_left_18,SJAG_left_19,SJAG_left_20,SJAG_right_1,SJAG_right_2,SJAG_right_3,SJAG_right_4,SJAG_right_5,SJAG_right_6,SJAG_right_7,SJAG_right_8,SJAG_right_9,SJAG_right_10,SJAG_right_11,SJAG_right_12,SJAG_right_13,SJAG_right_14,SJAG_right_15,SJAG_right_16,SJAG_right_17,SJAG_right_18,SJAG_right_19,SJAG_right_20,SJHP,SJPP_left_1,SJPP_left_2,SJPP_left_3,SJPP_left_4,SJPP_left_5,SJPP_left_6,SJPP_left_7,SJPP_left_8,SJPP_left_9,SJPP_left_10,SJPP_left_11,SJPP_left_12,SJPP_left_13,SJPP_left_14,SJPP_left_15,SJPP_left_16,SJPP_left_17,SJPP_left_18,SJPP_left_19,SJPP_left_20,SJPP_right_1,SJPP_right_2,SJPP_right_3,SJPP_right_4,SJPP_right_5,SJPP_right_6,SJPP_right_7,SJPP_right_8,SJPP_right_9,SJPP_right_10,SJPP_right_11,SJPP_right_12,SJPP_right_13,SJPP_right_14,SJPP_right_15,SJPP_right_16,SJPP_right_17,SJPP_right_18,SJPP_right_19,SJPP_right_20,XJHP_1,XJHP_2,XJHP_3,XJHP_4"
+			"name": "otherCard1_json",
+			"subkeys": "cardValueU101,cardValueU102,cardValueU103,cardValueU104,cardValueU105,cardValueU106,cardValueU107,cardValueU108,cardValueU109,cardValueU110,cardValueU111,cardValueU112,cardValueU113,cardValueU114,cardValueU115,cardValueU116,cardValueU117,cardValueU118,cardValueU119,cardValueU120,cardValueU121,cardValueU122,cardValueU123,cardValueU124,cardValueU125,cardValueU126,cardValueU127,cardValueU128,cardValueU129,cardValueU130,cardValueU131,cardValueU132,cardValueU133,cardValueU134"
 		},
 		{
-			"name": "showaAlert_png",
+			"url": "assets/game/showaAlert.png",
 			"type": "image",
-			"url": "assets/game/showaAlert.png"
+			"name": "showaAlert_png"
 		},
 		{
-			"name": "testBg_jpg",
+			"url": "assets/game/testBg.jpg",
 			"type": "image",
-			"url": "assets/game/testBg.jpg"
+			"name": "testBg_jpg"
 		},
 		{
-			"name": "win_jpg",
+			"url": "assets/game/win.jpg",
 			"type": "image",
-			"url": "assets/game/win.jpg"
+			"name": "win_jpg"
+		},
+		{
+			"name": "roomItem5_ske2_json",
+			"type": "json",
+			"url": "assets/language/tc/roomAnim/roomItem5_ske.json"
+		},
+		{
+			"name": "roomItem5_tex2_json",
+			"type": "json",
+			"url": "assets/language/tc/roomAnim/roomItem5_tex.json"
+		},
+		{
+			"name": "roomItem5_tex2_png",
+			"type": "image",
+			"url": "assets/language/tc/roomAnim/roomItem5_tex.png"
+		},
+		{
+			"name": "roomItem6_ske2_json",
+			"type": "json",
+			"url": "assets/language/tc/roomAnim/roomItem6_ske.json"
+		},
+		{
+			"name": "roomItem6_tex2_json",
+			"type": "json",
+			"url": "assets/language/tc/roomAnim/roomItem6_tex.json"
+		},
+		{
+			"name": "roomItem6_tex2_png",
+			"type": "image",
+			"url": "assets/language/tc/roomAnim/roomItem6_tex.png"
 		}
 	]
 }

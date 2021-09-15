@@ -10,7 +10,7 @@
 			                   bottom="94" height="31" />
 			-->
 			<e:Group height="31">
-				<e:BitmapLabel id="lbEnterT" text="zr" anchorOffsetX="0" textAlign="center" left="0" height="31" width="50"
+				<e:BitmapLabel id="lbEnterT" text="z" anchorOffsetX="0" textAlign="center" left="0" height="31" width="50"
 				               font="cnroomItemFnt1_fnt" verticalCenter="0" />
 			</e:Group>
 			<e:Group id="lbEnterGroup">
@@ -23,12 +23,12 @@
 		</e:Group>
 		<e:Group y="260" x="200" height="31">
 			<e:Group height="31">
-				<e:BitmapLabel id="lbBaseT" text="df" anchorOffsetX="0" textAlign="center" font="cnroomItemFnt1_fnt" height="31"
+				<e:BitmapLabel id="lbBaseT" text="d" anchorOffsetX="0" textAlign="center" font="cnroomItemFnt1_fnt" height="31"
 				               verticalCenter="0" left="0" />
 			</e:Group>
 			<e:Group height="31">
 				<e:BitmapLabel id="lbBase" text="999w" anchorOffsetX="0" verticalAlign="middle" textAlign="center"
-				               font="cnroomItemNumFnt1_fnt" right="0" height="31" y="-2" />
+				               right="0" height="31" y="-3"  font="enroomItemNumFnt1_fnt_fnt"/>
 			</e:Group>
 			<!--<e:BitmapLabel id="lbTai" text="999K" anchorOffsetX="0" textAlign="center" verticalAlign="middle"
 			                   font="roomItemFnt1_fnt" right="90" bottom="94" height="31" />
