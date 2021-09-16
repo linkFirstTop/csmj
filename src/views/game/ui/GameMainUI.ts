@@ -500,7 +500,7 @@ module game {
 			if (body.stage == 4) {
 				let arr: Array<proto.CardInfo> = [];
 				let znValue: Array<number> = [];
-
+				let islight: boolean = true;//发冠
 				for (let i: number = 0; i < body.cardInfos.length; i++) {
 					let info: proto.CardInfo = body.cardInfos[i] as proto.CardInfo;
 					arr.push(info);
@@ -508,13 +508,13 @@ module game {
 					// console.log(cardValue);
 					if (cardValue < 10) {//万
 						znValue.push(cardValue);
-					} else if (cardValue >= 10 && cardValue < 19) {//一条到九条
+					} else if (cardValue >= 10 && cardValue < 19) {//条
 						znValue.push(cardValue - 9);
-					} else if (cardValue >= 19 && cardValue < 28) {//一筒到九筒
+					} else if (cardValue >= 19 && cardValue < 28) {//筒
 						znValue.push(cardValue - 18);
 					}
 					let card: BaseHandCardUI = new BaseHandCardUI();
-					card.setCard(3, i, cardValue, state, false);
+					card.setCard(3, i, cardValue, state, false, islight);
 					this.znaioItemGroup.addChild(card);
 				}
 				var zniaoCount3: number = 0;
@@ -534,18 +534,6 @@ module game {
 							zniaoCount0++;
 						}
 					}
-					// if (zniaoCount3 == 0) {
-					// 	zniaoCount3 = 0;
-					// }
-					// if (zniaoCount2 == 0) {
-					// 	zniaoCount2 = 0;
-					// }
-					// if (zniaoCount1 == 0) {
-					// 	zniaoCount1 = 0;
-					// }
-					// if (zniaoCount0 == 0) {
-					// 	zniaoCount0 = 0;
-					// }
 					if (Global.language == "en") {
 						this["zniao0"].x = 0;
 						this["zniao1"].x = -10;
@@ -559,7 +547,7 @@ module game {
 					this["zniao1"].text = zniaoCount1 + "";
 					this["zniao0"].text = zniaoCount0 + "";
 
-				}, this, 300);
+				}, this, 500);
 
 
 				console.log(znValue);
@@ -606,7 +594,7 @@ module game {
 			if (str == "hdly") {
 				comm.DragonAnim.ins.playAnimByName(str, p);
 			}
-			if (str == "gy") {
+			if (str == "gy") {//杠摇
 				comm.DragonAnim.ins.playAnimByName(str, p);
 			}
 			if (str == "anGang") {

@@ -13,7 +13,7 @@ module game {
 		private imgMask: eui.Image = new eui.Image();
 		private imgTip: eui.Image;
 		/*p:方位 index:牌的索引 value:牌值 state:0 暗牌 1亮牌 isDQ:是否定缺牌*/
-		public setCard(p: number, index: number, value: number, state: number, isDQ: boolean = false): void {
+		public setCard(p: number, index: number, value: number, state: number, isDQ: boolean = false, islight: boolean = false): void {
 			let g: eui.Group = new eui.Group();
 			this.addChild(g);
 			g.addChild(this.imgBack);
@@ -21,6 +21,7 @@ module game {
 			this.imgBack.horizontalCenter = this.imgBack.verticalCenter = 0;
 			this.imgCard.horizontalCenter = 0;
 			var strIndex: string;
+
 			if (value < 10) {
 				strIndex = "0" + value;
 			} else {
@@ -63,12 +64,12 @@ module game {
 				// this.imgBack.scaleX = -1;//水平翻转由左向右
 			}
 			if (p == 3) {
-				// this.imgCard.source = "cardValue" + value;
+
 				this.cardIndex = value;
 
 				if (state == 0) {//暗牌（手牌）
 					this.imgBack.source = "cardValue00" + strIndex;
-					// this.imgCard.verticalCenter = 6;
+
 					this.isSelect = false;
 					this.isTingFlag = false;
 					this.isHuFlag = false;
@@ -87,6 +88,11 @@ module game {
 			} else {
 
 				this.setMaskFlagEX(false);
+			}
+			if (islight) {
+				let guangQuanBg: eui.Image = new eui.Image();
+				guangQuanBg.source = "guangquan_png";
+				g.addChild(guangQuanBg);
 			}
 
 		}

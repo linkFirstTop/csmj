@@ -18,7 +18,7 @@ module game {
 		protected childrenCreated(): void {
 			super.childrenCreated();
 			this.zhuangImg.source = "gameIcon_zhuang_" + Global.language + "_png";
-			this.icon_h.source = "gameResult_icon_htype_cn_png";
+			this.icon_h.source = "gameResult_icon_htype_" + Global.language + "__png";
 		}
 		public setResult(info: proto.PlayerGameResult): void {
 			if (info.seat == Global.userSit) {

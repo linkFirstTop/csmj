@@ -321,7 +321,6 @@ module game {
 			let p: number = Global.getUserPosition(sit);
 			// let nQue:number = game.GameUserList.arrUserList[sit].cardType;
 			let ghand: eui.Group = this.findHandGroup(p);
-
 			this.clearGroup(ghand);
 			let arr: Array<proto.CardInfo> = this.copyHandCard(game.GamePlayData.getHandCards(sit));
 			let index: number = 0;
@@ -346,59 +345,7 @@ module game {
 				card.visible = isShow;
 				let nOptHei: number = 0;
 				let nOptW: number = 0;
-				// //手牌亮牌
-				// if (state != 0) {
-				// 	ghand.x = ghand.y = 0;
-				// 	if (p == 0) {
-				// 		this.sprTmpLeft.y = 150;
-				// 		// this.sprTmpLeft.scaleX = this.sprTmpLeft.scaleY = 0.7;
 
-				// 		let itemY: number = ghand.getChildAt(0).y - this.gOtherCardL.height;
-				// 		for (let g: number = 0; g < ghand.numChildren; g++) {
-				// 			ghand.getChildAt(g).y = ghand.getChildAt(g).y - itemY;
-				// 		}
-				// 		if (this.gOtherCardL.numChildren > 0) {
-				// 			ghand.x -= this.gOtherCardL.numChildren * 20;
-				// 			if (this.gOtherCardL.numChildren == 4)//美术没有出这效果图，客户端强制做的
-				// 			{
-				// 				ghand.x = -60;
-				// 				ghand.y = -10;
-				// 			}
-				// 		}
-				// 		ghand.addChildAt(card, 0);
-				// 	} else if (p == 1) {
-				// 		if (this.gOtherCardU.numChildren > 0) {
-				// 			this.gOtherCardU.x = (this.gOtherCardU.numChildren - 1) * 208 + this.gHandCardU.width + 30;
-				// 		}
-
-				// 		this.sprTmpUp.x = 520;
-				// 		this.sprTmpUp.y = 36 + 50;
-				// 		ghand.addChild(card);
-				// 	} else if (p == 2) {
-				// 		this.sprTmpRight.x = 1535;
-				// 		// this.sprTmpRight.scaleX = this.sprTmpRight.scaleY = 0.7;
-				// 		this.sprTmpRight.y = (1080 - this.sprTmpRight.height) / 2;
-
-				// 		if (this.gOtherCardR.numChildren == 4) {
-				// 			ghand.x = -50;
-				// 		} else if (this.gOtherCardR.numChildren == 1) {
-				// 			ghand.x = -20;
-				// 		} else if (this.gOtherCardR.numChildren == 2) {
-				// 			ghand.x = -20;
-				// 		} else if (this.gOtherCardR.numChildren == 3) {
-				// 			ghand.x = -50;
-				// 		}
-				// 		ghand.addChild(card);
-				// 	} else if (p == 3) {
-				// 		this.gOtherCardD.y -= 50;
-				// 		ghand.x = this.gOtherCardD.x + this.gOtherCardD.width + 50;
-				// 		this.sprTmpDown.x = 10;
-				// 		ghand.y += 50;
-				// 		this.gOtherCardD.y += 50;
-				// 		ghand.addChild(card);
-				// 	}
-
-				// }
 				if (p == 0) {
 					let itemX: number = 277;
 					let itemY: number = 144;
@@ -508,12 +455,9 @@ module game {
 				}
 
 			}
-			// this.gHandCardU.y = 120;
-			// this.gHandCardU.x = 581;
+			console.log(this.gHandCardD.x, this.gHandCardD.width);
 			this.sprTmpUp.x = 520;
 			this.sprTmpUp.y = 36 + 50;
-			// this.gHandCardD.y = GameConfig.curHeight() - this.gHandCardD.height;
-			// this.gHandCardD.x = GameConfig.curWidth() - this.gHandCardD.width - 150;
 
 		}
 
@@ -650,6 +594,7 @@ module game {
 				this.gOtherCardD.x = this.gHandCardD.x - 34 - this.gOtherCardD.width;
 
 			}
+			console.log(this.gOtherCardD.x);
 		}
 		/*p 玩家位置 index 牌组索引*/
 		private createCPGItem(p: number, index: number, info: CardsGroupInfo): eui.Group {

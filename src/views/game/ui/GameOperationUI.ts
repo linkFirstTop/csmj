@@ -28,7 +28,6 @@ module game {
 			super.childrenCreated();
 
 			this.initBtns();
-
 			this.btnPeng.source = "gameButton_peng_" + Global.language + "_png";
 			this.btnChi.source = "gameButton_chi_" + Global.language + "_png";
 			this.btnGang.source = "gameButton_gang_" + Global.language + "_png";
@@ -71,6 +70,8 @@ module game {
 			var isHu: boolean = false;
 			var isTing: boolean = false;
 			var istianHu: boolean = false;
+			var isGangyao: boolean = false;
+			console.log(data, data.operations);
 			for (var i: number = 0; i < data.operations.length; i++) {
 				var temp = data.operations[i];
 				if (temp.type == 4) {
@@ -79,8 +80,12 @@ module game {
 				if (temp.type == 5) {
 					isPeng = true;
 				}
+				if (temp.type == 24) {
+					isGangyao = true;
+				}
 				if (temp.type == 6 || temp.type == 7 || temp.type == 13) {
 					isGang = true;
+
 				}
 				if (temp.type == 8 || temp.type == 16) {
 					isHu = true;
@@ -92,7 +97,7 @@ module game {
 			if (data.callCards.length > 0) {
 				isTing = true;
 			}
-			console.log("isPeng:" + isPeng, "isGang:" + isGang, "isHu:" + isHu, "isTing:" + isTing, "isChi:" + isChi);
+			console.log("isPeng:" + isPeng, "isGang:" + isGang, "isHu:" + isHu, "isTing:" + isTing, "isChi:" + isChi, "isGangyao:" + isGangyao);
 			if (isHu) {
 				this.arrTmp.unshift(this.btnHu);
 				this.btnHu.visible = true;
@@ -100,6 +105,11 @@ module game {
 			if (isGang) {
 				this.arrTmp.unshift(this.btnGang);
 				this.btnGang.visible = true;
+
+			}
+			if (isGangyao) {
+				this.arrTmp.unshift(this.btnGangyao);
+				this.btnGangyao.visible = true;
 			}
 			if (isPeng) {
 				this.arrTmp.unshift(this.btnPeng);
@@ -139,6 +149,13 @@ module game {
 		private onGangyao(): void {
 			this.initBtns();
 			//杠摇
+			var arr: Array<CardsGroupInfo> = GamePlayData.GetChiPengGangHuGroup(CardsGroupType.GANGYAO);
+			// if (arr.length == 1) {
+			// 	room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gang_Groups[0]);
+			// 	return;
+			// }
+			// this.isChi = false;
+			// this.showCardGroups(arr);
 		}
 		private onPeng(): void {
 			this.initBtns();
@@ -168,7 +185,6 @@ module game {
 			this.dispatchEvent(new egret.Event("ShowTingHuFlag"));
 		}
 		private onChi(): void {
-
 			let arr: Array<CardsGroupInfo> = GamePlayData.GetChiPengGangHuGroup(CardsGroupType.CHI);
 			if (arr.length == 1) {
 				this.initBtns();
@@ -216,7 +232,7 @@ module game {
 			for (let i: number = 0; i < num; i++) {
 				let cardGroup: CardsGroupInfo = arrGroup[i] as CardsGroupInfo;
 				let g: eui.Group = new eui.Group();
-				this.gPGCards.addChild(g);
+				this.gPGCards.addChild(g);//吃碰杠容器
 				g.name = "" + i;
 				g.touchChildren = false;
 				for (let j: number = 0; j < cardGroup.cards.length; j++) {
@@ -225,8 +241,8 @@ module game {
 					g.addChild(item);
 					let cardValue: number = game.GameParmes.getCardID(card);
 					item.setCard(cardValue);
-					item.x = j * 90;
-					g.scaleX = g.scaleY = 0.9;
+					item.x = j * 126;
+					g.scaleX = g.scaleY = 0.8;
 				}
 
 			}

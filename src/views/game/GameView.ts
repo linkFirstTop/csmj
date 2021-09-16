@@ -69,6 +69,8 @@ module game {
 			GDGame.Msg.ins.addEventListener(GameMessage.ACK_USER_CHIPAI, this.ACK_USER_CHIPAI, this);
 			//服务器通知客户端  明杠
 			GDGame.Msg.ins.addEventListener(GameMessage.ACK_USER_MINGGANGPAI, this.ACK_USER_MINGGANGPAI, this);
+			//服务器通知客户端  杠摇
+			GDGame.Msg.ins.addEventListener(GameMessage.ACK_USER_GANGYAOPAI, this.ACK_USER_GANGYAOPAI, this);
 			//服务器通知客户端  暗杠
 			GDGame.Msg.ins.addEventListener(GameMessage.ACK_USER_ANGANGPAI, this.ACK_USER_ANGANGPAI, this);
 			//服务器通知客户端  补杠
@@ -199,6 +201,15 @@ module game {
 			this.gameUI.updataUserCPG(nSit, card);
 			SoundModel.playEffect(SoundModel.CHI);
 		}
+		// 服务器通知客户端杠摇 
+		private ACK_USER_GANGYAOPAI(evt: egret.Event): void {
+			let nSit: number = evt.data[0];
+			let card: proto.CardInfo = evt.data[1];
+			this.gameUI.playAnim("gy", nSit);
+			// this.gameUI.updataUserCPG(nSit, card);
+			SoundModel.playEffect(SoundModel.GANG);
+		}
+
 		/** 
 		 * @param msg
 		 * 服务器通知客户端碰牌
@@ -482,7 +493,8 @@ module game {
 			GDGame.Msg.ins.removeEventListener(GameMessage.ACK_USER_ANGANGPAI, this.ACK_USER_ANGANGPAI, this);
 			//服务器通知客户端  补杠
 			GDGame.Msg.ins.removeEventListener(GameMessage.ACK_USER_BUGANGPAI, this.ACK_USER_BUGANGPAI, this);
-
+			//服务器通知客户端  杠摇
+			GDGame.Msg.ins.removeEventListener(GameMessage.ACK_USER_GANGYAOPAI, this.ACK_USER_GANGYAOPAI, this);
 
 			//服务器通知客户端定缺
 			GDGame.Msg.ins.removeEventListener(GameMessage.ACK_USER_DINGQUE_STATE, this.ACK_USER_DINGQUESTATE, this);

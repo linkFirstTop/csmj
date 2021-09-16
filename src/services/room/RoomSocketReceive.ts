@@ -389,7 +389,7 @@ module room {
 		}
 		private NOT_GAME_RESULT(byte: egret.ByteArray): void {
 			var body = proto.NotGameResult.decode(byte.bytes);
-			Global.log("服务器通知客户端结果消息"  + JSON.stringify(body));
+			Global.log("服务器通知客户端结果消息" + JSON.stringify(body));
 
 			game.GameController.AckGameResult(body);
 

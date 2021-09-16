@@ -34,7 +34,8 @@ module game {
 		public static Gang_Groups: Array<CardsGroupInfo> = [];
 		//胡牌
 		public static Hu_Groups: Array<CardsGroupInfo> = [];
-
+		//杠摇
+		public static Gangyao_Groups: Array<CardsGroupInfo> = [];
 		public static Call_Groups: Array<any> = [];
 		public static isTuoguan: boolean = false;
 		//服务器的推荐换三张与玩家选择
@@ -64,6 +65,7 @@ module game {
 			GamePlayData.M_C_P_G_sit = -1;
 			GamePlayData.Peng_Groups = [];
 			GamePlayData.Gang_Groups = [];
+			GamePlayData.Gangyao_Groups = [];
 			GamePlayData.Hu_Groups = [];
 			GamePlayData.Call_Groups = [];
 			GamePlayData.HSZRecommend = [];
@@ -336,6 +338,7 @@ module game {
 				this.Chi_Groups.length = 0;
 				this.Peng_Groups.length = 0;
 				this.Gang_Groups.length = 0;
+				this.Gangyao_Groups.length = 0;
 				this.Hu_Groups.length = 0;
 				this.Call_Groups.length = 0;
 				/*console.log("清理碰杠权限数组:"+this.Call_Groups.length);
@@ -359,6 +362,8 @@ module game {
 					return GamePlayData.Hu_Groups;
 				case CardsGroupType.CALL:
 					return GamePlayData.Call_Groups;
+				case CardsGroupType.GANGYAO:
+					return GamePlayData.Gangyao_Groups;
 			}
 			return [];
 		}
@@ -410,6 +415,7 @@ module game {
 			this.Gang_Groups.length = 0;
 			this.Hu_Groups.length = 0;
 			this.Call_Groups.length = 0;
+			this.Gangyao_Groups.length = 0;
 			for (var i: number = 0; i < body.operations.length; i++) {
 				var temp = body.operations[i];;
 				if (temp.type == 2) {
@@ -420,6 +426,9 @@ module game {
 				}
 				if (temp.type == 5) {
 					this.Peng_Groups = this.CopyChiPengGangHu(this.Peng_Groups, temp.options);
+				}
+				if (temp.type == 24) {
+					this.Gangyao_Groups = this.CopyChiPengGangHu(this.Gangyao_Groups, temp.options);
 				}
 				if (temp.type == 6 || temp.type == 7 || temp.type == 13) {
 					this.Gang_Groups = this.CopyChiPengGangHu(this.Gang_Groups, temp.options);

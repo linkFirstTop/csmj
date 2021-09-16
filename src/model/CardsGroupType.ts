@@ -18,9 +18,12 @@ module game {
 		 *吃牌
 			* **/
 		public static CHI: number = 4;
+
 		/**
 		 *碰牌
 			* **/
+		// 杠摇
+		public static GANGYAO: number = 24;
 		public static PENG: number = 5;
 		/**
 		 *明杠牌
@@ -70,5 +73,6 @@ module game {
 		 * 客户端统一杠的现实
 		 * */
 		public static GANG: number = 17;
+
 	}
 }

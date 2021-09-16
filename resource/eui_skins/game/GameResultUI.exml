@@ -3,8 +3,7 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*" xmlns:ns1="*">
 	<w:Config id="1710ac54d9b"></w:Config>
 	<e:Image name="resultBg" source="black_png" width="100%" height="100%" alpha="0.5" />
-	<e:Image name="winBg" source="win_jpg" width="100%" height="100%"  visible="false"/>
-	
+	<e:Image name="winBg" source="win_jpg" width="100%" height="100%" visible="false" />
 	<e:Group horizontalCenter="0" width="100%" y="76" anchorOffsetY="0" height="909">
 		<e:Image id="resultBg" source="gameResult_win_png" width="100%" height="100%" />
 		<e:Image id="resultText" source="winText_cn_png" x="42" y="312" />
@@ -34,7 +33,7 @@
 		<!-- 详细信息 -->
 		<e:Scroller width="820" height="87.21" y="0" x="0" anchorOffsetX="0" anchorOffsetY="0">
 			<e:List id="gInfo" width="820" anchorOffsetX="0" anchorOffsetY="0" height="87.21" x="0" y="-28">
-				<e:itemRendererSkinName>
+				<e:itemRendererSkinName id="labelColor">
 					<e:Skin height="55">
 						<e:Label text="{data.label}" bold="true" textColor="0xFDD9A2" horizontalCenter="0" verticalCenter="0" size="36" />
 					</e:Skin>

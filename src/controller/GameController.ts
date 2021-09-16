@@ -154,6 +154,14 @@ module game {
 					dataArray.push(card);
 					GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_USER_CHIPAI, true, true, dataArray));
 					break;
+				case CardsGroupType.GANGYAO://杠摇
+					Global.log("杠摇");
+					game.GamePlayData.SaveOperationSit(body.Card.Sit);
+					card = game.GamePlayData.AddChiPengGangCards(body.Card, body.Card.Sit);
+					dataArray.push(body.Card.Sit);
+					dataArray.push(card);
+					GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_USER_GANGYAOPAI, true, true, dataArray));
+					break;
 				case CardsGroupType.PENG://碰牌
 					Global.log("碰牌");
 					game.GamePlayData.SaveOperationSit(body.Card.Sit);

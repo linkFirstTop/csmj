@@ -175,6 +175,7 @@ message CardsGroup
 	//如果是吃、碰、杠、胡则以下值需要读取或者写入
 	optional CardInfo ObtainCard  = 4;//需要吃碰杠胡的那一张牌
 	optional int32 ObtainCardSit  = 5;//被吃碰杠胡的那个人的座位号
+	optional CardInfo Card2  = 6;//杠摇的另一张牌
 	//其他.......
 }
 

@@ -162,6 +162,10 @@ module game {
 			*/
 		public static ACK_USER_BUGANGPAI: string = GameMessage.CLIENT_BASE + "ACK_USER_BUGANGPAI";
 		/**
+		 *服务器通知客户端杠摇牌
+			*/
+		public static ACK_USER_GANGYAOPAI: string = GameMessage.CLIENT_BASE + "ACK_USER_GANGYAOPAI";
+		/**
 		 *服务器通知客户端“过牌”的操作
 			*/
 		public static ACK_GAME_NO_OPERATION: string = GameMessage.CLIENT_BASE + "ACK_GAME_NO_OPERATION";

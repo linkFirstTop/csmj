@@ -1643,6 +1643,9 @@ declare namespace proto {
 
         /** CardsGroup ObtainCardSit */
         ObtainCardSit?: (number|null);
+
+        /** CardsGroup Card2 */
+        Card2?: (proto.ICardInfo|null);
     }
 
     /** Represents a CardsGroup. */
@@ -1668,6 +1671,9 @@ declare namespace proto {
 
         /** CardsGroup ObtainCardSit. */
         public ObtainCardSit: number;
+
+        /** CardsGroup Card2. */
+        public Card2?: (proto.ICardInfo|null);
 
         /**
          * Creates a new CardsGroup instance using the specified properties.

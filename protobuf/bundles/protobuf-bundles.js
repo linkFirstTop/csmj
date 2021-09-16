@@ -3825,6 +3825,7 @@ $root.proto = (function() {
          * @property {Array.<proto.ICardInfo>|null} [Cards] CardsGroup Cards
          * @property {proto.ICardInfo|null} [ObtainCard] CardsGroup ObtainCard
          * @property {number|null} [ObtainCardSit] CardsGroup ObtainCardSit
+         * @property {proto.ICardInfo|null} [Card2] CardsGroup Card2
          */
 
         /**
@@ -3884,6 +3885,14 @@ $root.proto = (function() {
         CardsGroup.prototype.ObtainCardSit = 0;
 
         /**
+         * CardsGroup Card2.
+         * @member {proto.ICardInfo|null|undefined} Card2
+         * @memberof proto.CardsGroup
+         * @instance
+         */
+        CardsGroup.prototype.Card2 = null;
+
+        /**
          * Creates a new CardsGroup instance using the specified properties.
          * @function create
          * @memberof proto.CardsGroup
@@ -3916,6 +3925,8 @@ $root.proto = (function() {
                 $root.proto.CardInfo.encode(message.ObtainCard, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
             if (message.ObtainCardSit != null && message.hasOwnProperty("ObtainCardSit"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.ObtainCardSit);
+            if (message.Card2 != null && message.hasOwnProperty("Card2"))
+                $root.proto.CardInfo.encode(message.Card2, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
             return writer;
         };
 
@@ -3966,6 +3977,9 @@ $root.proto = (function() {
                     break;
                 case 5:
                     message.ObtainCardSit = reader.int32();
+                    break;
+                case 6:
+                    message.Card2 = $root.proto.CardInfo.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4027,6 +4041,11 @@ $root.proto = (function() {
             if (message.ObtainCardSit != null && message.hasOwnProperty("ObtainCardSit"))
                 if (!$util.isInteger(message.ObtainCardSit))
                     return "ObtainCardSit: integer expected";
+            if (message.Card2 != null && message.hasOwnProperty("Card2")) {
+                var error = $root.proto.CardInfo.verify(message.Card2);
+                if (error)
+                    return "Card2." + error;
+            }
             return null;
         };
 

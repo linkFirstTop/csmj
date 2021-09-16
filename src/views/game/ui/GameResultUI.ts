@@ -12,6 +12,8 @@ module game {
 		//private lbCoin:eui.BitmapLabel;
 		//private imgFlag:eui.Image;
 		//private imgHead:eui.Image;
+
+		private labelColor: eui.Label;
 		private gInfo: eui.List;
 		private resultBg: eui.Image;
 		private resultText: eui.Image;
@@ -93,13 +95,17 @@ module game {
 			this.resultText.source = "winText_" + Global.language + "_png";
 			//this.btnClose.icon="winClose_png";
 			// this.btnClose.setImg("winClose_png");
+			// this["lbName"].textColor = "0xFDF1DB";
+			// this.labelColor.textColor = "0XFCEFCE";
 			this.resultHuawen.source = "winHw_png";
 		}
 		private setLose(): void {
 			this.resultBg.source = "gameResult_lose_png";
 			this.resultText.source = "loseText_" + Global.language + "_png";
+			// this.labelColor.textColor = "0xE8EEFF";
 			//this.btnClose.icon=="loseClose_png";
 			// this.btnClose.setImg("loseClose_png");
+			// this["lbName"].textColor = "0xE7EBFF";
 			this.resultHuawen.source = "loseHw_png";
 		}
 		private setPing(): void {
@@ -107,6 +113,7 @@ module game {
 			this.resultText.source = "heText_" + Global.language + "_png";
 			//this.btnClose.icon=="loseClose_png";
 			// this.btnClose.setImg("loseClose_png");
+			this["lbName"].textColor = "0xE7EBFF";
 			this.resultHuawen.source = "tieHw_png";
 		}
 		private setNull(): void {
