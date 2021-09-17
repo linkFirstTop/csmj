@@ -115,21 +115,12 @@ module game {
 
 			this.gHandCardD.addEventListener("OnClickHandCard", this.onClickHandCard, this);
 
-			// this.addChild(this.gOtherCardL);
-			// this.addChild(this.gOtherCardU);
-			// this.addChild(this.gOtherCardR);
-			// this.addChild(this.gOtherCardD);
+
 
 
 			this.clearAllGroup();
 
-			/*for(let i:number = 0;i < 4;i++){
-				this.showHuCard(i,1,3);
-			}*/
 
-			/*for(let j:number = 0;j < 4;j++){
-				this.testHand(j,0);
-			}*/
 
 
 		}
@@ -374,6 +365,7 @@ module game {
 						card.x = 304 - (12 - i) * 19;
 						card.y = 144 + (12 - i) * 44 + 20;
 						ghand.addChildAt(card, 0);
+
 					}
 
 				}
@@ -436,9 +428,9 @@ module game {
 						if (i == 13) {//自己出牌，断线回来
 							card.x = i * itemCardWidth + 20;
 						}
-						if (i == len - 1 && index == 0) {
-							card.x += 10;
-						}
+						// if (i == len - 1 && index == 0) {
+						// 	card.x += 10;
+						// }
 
 					}
 					else {
@@ -453,9 +445,10 @@ module game {
 				} else {
 					this.gHandCardD.x = 1740 - this.gHandCardD.width;
 				}
-
+				console.log(this.gHandCardD.x, this.gHandCardD.width);
 			}
-			console.log(this.gHandCardD.x, this.gHandCardD.width);
+
+
 			this.sprTmpUp.x = 520;
 			this.sprTmpUp.y = 36 + 50;
 
@@ -493,9 +486,9 @@ module game {
 			this.gHandCardD.x = (GameConfig.curWidth() - this.gHandCardD.width) / 2;
 		}
 		/*创建全部玩家的吃碰杠数据*/
-		public createAllCPG(): void {
+		public createAllCPG(b: boolean): void {
 			for (let i: number = 0; i < 4; i++) {
-				this.createCPGCard(i);
+				this.createCPGCard(i, b);
 			}
 		}
 		private copyCardGroup(arrTmp: Array<CardsGroupInfo>): Array<CardsGroupInfo> {
@@ -522,7 +515,7 @@ module game {
 			return arr;
 		}
 		/*创建吃碰杠牌*/
-		public createCPGCard(nSit: number): void {
+		public createCPGCard(nSit: number, b: boolean = false): void {
 
 			let p: number = Global.getUserPosition(nSit);
 			let g: eui.Group = this.findOptGroup(p);
@@ -580,21 +573,28 @@ module game {
 				this.sprTmpRight.scaleX = this.sprTmpRight.scaleY = 0.8;
 			}
 			if (p == 3) {
+				// var gHandx: number;
 				for (let i = 0; i < nOptCount; i++) {//吃碰杠的创建
 					mc = this.createCPGItem(p, i, arrCards[i]);
 					if (this.gOtherCardD.numChildren > 0) {
 						mc.x = this.gOtherCardD.width + 50;
 					}
-					// mc.y = 5;
 					this.gOtherCardD.addChild(mc);
 				}
-				this.gOtherCardD.x = 237;
-				this.gHandCardD.x += this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).width;
-				this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).x += 15;
-				this.gOtherCardD.x = this.gHandCardD.x - 34 - this.gOtherCardD.width;
-
+				if (b) {//断线续玩
+					this.gOtherCardD.x = 237;
+					this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).x += 15;
+					this.gOtherCardD.x = this.gHandCardD.x - 34 - this.gOtherCardD.width;//554
+					console.log("gOtherCardD1的X坐标:" + this.gOtherCardD.x, "gHandCardD1的x" + this.gHandCardD.x, "gOtherCardD1宽 :" + this.gOtherCardD.width);
+				} else {
+					this.gOtherCardD.x = 237;
+					this.gHandCardD.x += this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).width;//126
+					this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).x += 15;
+					this.gOtherCardD.x = this.gHandCardD.x - 34 - this.gOtherCardD.width;//554
+					console.log("gOtherCardD的X坐标:" + this.gOtherCardD.x, "gHandCardD的x" + this.gHandCardD.x, "gOtherCardD宽 :" + this.gOtherCardD.width);
+				}
 			}
-			console.log(this.gOtherCardD.x);
+
 		}
 		/*p 玩家位置 index 牌组索引*/
 		private createCPGItem(p: number, index: number, info: CardsGroupInfo): eui.Group {
@@ -1010,6 +1010,8 @@ module game {
 			this.clearGroup(this.gOtherCardL);
 			this.clearGroup(this.gOtherCardR);
 			this.clearGroup(this.gOtherCardU);
+
+
 
 			this.clearGroup(this.gHuCardD);
 			this.clearGroup(this.gHuCardL);

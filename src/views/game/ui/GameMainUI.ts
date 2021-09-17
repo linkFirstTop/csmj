@@ -439,7 +439,7 @@ module game {
 		}
 		public onGameContinue(): void {
 			this.gameHand.createHandCard(true, 0);//还原手牌
-			this.gameHand.createAllCPG();//还原吃碰杠牌
+			this.gameHand.createAllCPG(true);//还原吃碰杠牌
 			this.gamePool.reductionCardsPool();//还原牌池
 			this.gamePosition.setPosition(game.GamePlayData.M_C_P_G_sit);//还原方位
 			this.showGameInfo();

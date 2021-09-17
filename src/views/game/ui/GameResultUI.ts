@@ -8,28 +8,25 @@ module game {
 			super.partAdded(partName, instance);
 		}
 		private btnContinue: BaseButton;
-		//private lbName:eui.Label;
-		//private lbCoin:eui.BitmapLabel;
-		//private imgFlag:eui.Image;
-		//private imgHead:eui.Image;
+
 
 		private labelColor: eui.Label;
-		private gInfo: eui.List;
+
 		private resultBg: eui.Image;
 		private resultText: eui.Image;
 		private resultHuawen: eui.Image;
 		private btnClose: BaseButton;
 		private difen: eui.Label;
-		private listTitleLayout: eui.TileLayout;
+		// private listTitleLayout: eui.TileLayout;
 		protected childrenCreated(): void {
 			super.childrenCreated();
 			this.btnClose.setImg("Close_png")
 			this.visible = false;
-			if (Global.language == "en") {
-				this.listTitleLayout.requestedColumnCount = 2;
-			} else {
-				this.listTitleLayout.requestedColumnCount = 4;
-			}
+			// if (Global.language == "en") {
+			// 	this.listTitleLayout.requestedColumnCount = 2;
+			// } else {
+			// 	this.listTitleLayout.requestedColumnCount = 4;
+			// }
 
 			this.btnContinue.icon = "gameResult_continue_" + Global.language + "_png";;
 			this.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onResultTap, this);
@@ -51,25 +48,23 @@ module game {
 			this.visible = true;
 			this.alpha = 1;
 			let arr: Array<any> = body.others;
-			// if(body.IsOver == 2){
-			// 	this.imgFlag.source = "gameResult_flow";
-			// }
-
 			var sourceSelf: number = 0;//自己的得分
 			for (let i: number = 0; i < 4; i++) {
 				let info: proto.PlayerGameResult = arr[i];
 				// console.log(body);
 				let p: number = Global.getUserPosition(info.seat);
 				if (p == 3) {//玩家自己
-					this["userZ"].setResult(info);
+					this["userZ"].setResult(info, body.result);
 					sourceSelf = Number(info.money);
 					Global.gameCoin = Number(info.chips);
+					this["userZ"].showDetailInfo(body.fan);
 					GDGame.Msg.ins.dispatchEvent(new egret.Event(room.RoomMessage.OGID_ROOM_UPDATECOIN));
 				} else {//其他玩家
-					this["user" + p].setResult(info);
+					this["user" + p].setResult(info, body.result);
+					this["user" + p].showDetailInfo(body.fan);
 				}
 			}
-			this.showDetailInfo(body.fan);
+			// this.showDetailInfo(body.fan);
 			//结果 0 胡 1 流局 2 失败 3 不输不赢
 			if (body.result == 1) {
 				this.setPing();
@@ -93,43 +88,36 @@ module game {
 		private setWin(): void {
 			this.resultBg.source = "gameResult_win_png";
 			this.resultText.source = "winText_" + Global.language + "_png";
-			//this.btnClose.icon="winClose_png";
-			// this.btnClose.setImg("winClose_png");
-			// this["lbName"].textColor = "0xFDF1DB";
-			// this.labelColor.textColor = "0XFCEFCE";
+
+
 			this.resultHuawen.source = "winHw_png";
 		}
 		private setLose(): void {
 			this.resultBg.source = "gameResult_lose_png";
 			this.resultText.source = "loseText_" + Global.language + "_png";
-			// this.labelColor.textColor = "0xE8EEFF";
-			//this.btnClose.icon=="loseClose_png";
-			// this.btnClose.setImg("loseClose_png");
-			// this["lbName"].textColor = "0xE7EBFF";
+
+
 			this.resultHuawen.source = "loseHw_png";
 		}
 		private setPing(): void {
 			this.resultBg.source = "gameResult_lose_png";
 			this.resultText.source = "heText_" + Global.language + "_png";
-			//this.btnClose.icon=="loseClose_png";
-			// this.btnClose.setImg("loseClose_png");
-			this["lbName"].textColor = "0xE7EBFF";
+
 			this.resultHuawen.source = "tieHw_png";
 		}
 		private setNull(): void {
 			this.resultBg.source = "gameResult_lose_png";
 			this.resultText.source = "";
-			//this.btnClose.icon=="loseClose_png";
-			// this.btnClose.setImg("loseClose_png");
+
 		}
-		/*显示详细信息*/
-		private showDetailInfo(arr: Array<any>): void {
-			var collection = new eui.ArrayCollection();
-			for (let i: number = 0; i < arr.length; i++) {
-				collection.addItem({ "label": "" + this.getTypeName(arr[i].fanxing) + " " + arr[i].taishu + Global.dic["台"] });
-			}
-			this.gInfo.dataProvider = collection;
-		}
+		// /*显示详细信息*/
+		// private showDetailInfo(arr: Array<any>): void {
+		// 	var collection = new eui.ArrayCollection();
+		// 	for (let i: number = 0; i < arr.length; i++) {
+		// 		collection.addItem({ "label": "" + this.getTypeName(arr[i].fanxing) + " " + arr[i].taishu + Global.dic["台"] });
+		// 	}
+		// 	this.gInfo.dataProvider = collection;
+		// }
 		/*1刮风 2下雨 3自摸 4胡  5花猪  6大叫 7呼叫转移 8补杠 9退税*/
 		private getTypeName(type: number): string {
 			let str: string = "";

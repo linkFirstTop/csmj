@@ -5,7 +5,7 @@
 			"name": "preload"
 		},
 		{
-			"keys": "commCoin_png,gameSetClose_png,roombg_jpg,rw_ske_json,rw_tex_json,rw_tex_png,game_tgbg_png,gameCommsbg_png,gameHszTipbg_png,gameIcon_tip_png,gameTingbg_png,gameTipBei_png,gameTipDong_png,gameTipNan_png,gameTipXI_png,gamebg_jpg,gameCommbg_png,gameHeadCoinbg_png,gameHeadHBg_png,gameHeadKuang_png,gameHeadVBg_png,gameResult_lose_png,gameResult_win_png,gameSheet_json,positionSheet_json,icon_select_no_png,icon_select_yes_png,tcroomItemFnt0_fnt,tcroomItemFnt0_png,tcroomItemFnt1_fnt,tcroomItemFnt1_png,cpts_ske_json,cpts_tex_json,cpts_tex_png,dqSelect_ske_json,dqSelect_tex_json,dqSelect_tex_png,txhhxd_ske_json,txhhxd_tex_json,txhhxd_tex_png,txshxd_ske_json,txshxd_tex_json,txshxd_tex_png,alertbg_png,resultHead0_png,resultHead1_png,roomItemFnt0_fnt,roomItemFnt0_png,roomItemFnt1_fnt,roomItemFnt1_png,changeHeadSheet_json",
+			"keys": "commCoin_png,gameSetClose_png,roombg_jpg,game_tgbg_png,gameCommsbg_png,gameHszTipbg_png,gameIcon_tip_png,gameTingbg_png,gameTipBei_png,gameTipDong_png,gameTipNan_png,gameTipXI_png,gamebg_jpg,gameCommbg_png,gameHeadCoinbg_png,gameHeadHBg_png,gameHeadKuang_png,gameHeadVBg_png,gameResult_lose_png,gameResult_win_png,gameSheet_json,positionSheet_json,icon_select_no_png,icon_select_yes_png,tcroomItemFnt0_fnt,tcroomItemFnt0_png,tcroomItemFnt1_fnt,tcroomItemFnt1_png,cpts_ske_json,cpts_tex_json,cpts_tex_png,dqSelect_ske_json,dqSelect_tex_json,dqSelect_tex_png,txhhxd_ske_json,txhhxd_tex_json,txhhxd_tex_png,txshxd_ske_json,txshxd_tex_json,txshxd_tex_png,alertbg_png,resultHead0_png,resultHead1_png,roomItemFnt0_fnt,roomItemFnt0_png,roomItemFnt1_fnt,roomItemFnt1_png,changeHeadSheet_json",
 			"name": "room"
 		},
 		{
@@ -467,21 +467,6 @@
 			"url": "assets/room/roombg.jpg",
 			"type": "image",
 			"name": "roombg_jpg"
-		},
-		{
-			"url": "assets/room/rw_ske.json",
-			"type": "json",
-			"name": "rw_ske_json"
-		},
-		{
-			"url": "assets/room/rw_tex.json",
-			"type": "json",
-			"name": "rw_tex_json"
-		},
-		{
-			"url": "assets/room/rw_tex.png",
-			"type": "image",
-			"name": "rw_tex_png"
 		},
 		{
 			"url": "assets/sound/1b.mp3",

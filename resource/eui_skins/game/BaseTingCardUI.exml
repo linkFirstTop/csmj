@@ -4,9 +4,9 @@
 	<w:Config id="1712046366b"></w:Config>
 	<e:Group>
 		<e:Image source="gameCommsbg" width="186" height="128" />
-		<e:Group scaleX="0.8" scaleY="0.8" verticalCenter="-0.5" x="10">
-			<e:Image source="card_down_h1" />
-			<e:Image id="imgValue" horizontalCenter="0.5" verticalCenter="6" source="cardValue1" />
+		<e:Group scaleX="0.8" scaleY="0.8" x="0" anchorOffsetX="0" width="113" verticalCenter="0">
+			<!--<e:Image source="card_down_h1" />-->
+			<e:Image id="imgValue" source="cardValue0012"  anchorOffsetY="0" height="135" anchorOffsetX="0" width="107.25" horizontalCenter="2" y="0"/>
 		</e:Group>
 		<e:Label id="lbFan" text="0番" fontFamily="Microsoft YaHei" size="36" y="25" textAlign="center" x="94" />
 		<e:Label id="lbNum" text="4张" fontFamily="Microsoft YaHei" size="36" y="75" x="94" anchorOffsetX="0"

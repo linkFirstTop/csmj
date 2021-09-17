@@ -12,14 +12,13 @@
 		<e:Image id="btnGuo" source="gameButton_guo_cn_png" />
 		<e:Image id="btnGangyao" source="gameButton_gang_yao_png" />
 	</e:Group>
-	<e:Group id="gCardBg" horizontalCenter="0" y="600">
-		<e:Image source="gameCommbg_png" scale9Grid="54,20,324,121" width="689" anchorOffsetY="0" height="322"
-		         horizontalCenter="0" />
+	<e:Group id="gCardBg" horizontalCenter="0" y="750" height="180">
+		<e:Image source="gameCommbg_png" width="100%" scale9Grid="54,20,324,121" height="180" />
 		<e:Group id="gPGCards" verticalCenter="0" horizontalCenter="0">
 			<e:layout>
 				<!--<e:HorizontalLayout gap="30" />
 				-->
-				<e:TileLayout horizontalGap="30" requestedColumnCount="3" />
+				<e:TileLayout horizontalGap="30" requestedColumnCount="2" id="tileLayout" />
 			</e:layout>
 		</e:Group>
 		<e:Group id="gTingCards" verticalCenter="0" horizontalCenter="0" visible="false">

@@ -79,8 +79,8 @@ module game {
 					}
 				} else {//明牌
 					this.imgBack.source = "cardValueV" + strIndex;
-					this.imgCard.scaleX = this.imgCard.scaleY = 0.9;
-					this.imgCard.verticalCenter = -10;
+					// this.imgCard.scaleX = this.imgCard.scaleY = 0.9;
+					// this.imgCard.verticalCenter = -10;
 				}
 			}
 			if (game.GamePlayData.tingData[Global.userSit] == true && p == 3) {

@@ -194,6 +194,8 @@ module game {
 			this.isChi = true;
 			this.showCardGroups(arr);
 
+
+
 		}
 		private onHu(): void {
 			if (GameParmes.nHuType == 16) {//此时是天胡情况
@@ -229,10 +231,17 @@ module game {
 			this.clearCardGroup();
 			this.visible = this.gCardBg.visible = this.gPGCards.visible = true;
 			let num: number = arrGroup.length;
+			if (num >= 3) {//最多有六组吃碰杠牌组
+				this["gameCommbg_png"].width = 150;
+				this["tileLayout"].requestedColumnCount = 3;
+			}
 			for (let i: number = 0; i < num; i++) {
 				let cardGroup: CardsGroupInfo = arrGroup[i] as CardsGroupInfo;
 				let g: eui.Group = new eui.Group();
 				this.gPGCards.addChild(g);//吃碰杠容器
+				let layout: eui.HorizontalLayout = new eui.HorizontalLayout();
+				layout.gap = 0;
+				g.layout = layout;
 				g.name = "" + i;
 				g.touchChildren = false;
 				for (let j: number = 0; j < cardGroup.cards.length; j++) {
@@ -241,12 +250,13 @@ module game {
 					g.addChild(item);
 					let cardValue: number = game.GameParmes.getCardID(card);
 					item.setCard(cardValue);
-					item.x = j * 126;
-					g.scaleX = g.scaleY = 0.8;
+					// item.x = j * 126;
+					g.scaleX = g.scaleY = 0.9;
 				}
 
 			}
 			this.gCardBg.width = this.gPGCards.width + 58;
+
 		}
 		private isChi: boolean = false;
 		private onPGGroupTap(evt: egret.TouchEvent): void {
