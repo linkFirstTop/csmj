@@ -24,6 +24,8 @@ module game {
 			* **/
 		// 杠摇
 		public static GANGYAO: number = 24;
+		// 起手胡
+		public static QISHOUHU: number = 25;
 		public static PENG: number = 5;
 		/**
 		 *明杠牌

@@ -205,9 +205,6 @@ module game {
 				var invertedOrderX: number = (itemMax - 1) - count % itemMax;
 				var elementWidth: number = 23;
 				var elementHeight: number = 54;
-				if (count >= 20) {
-					// invertedOrderX = count%itemMax;
-				}
 
 				var childX: number = invertedOrderX * elementWidth;
 				var childY: number = invertedOrderY * elementHeight;

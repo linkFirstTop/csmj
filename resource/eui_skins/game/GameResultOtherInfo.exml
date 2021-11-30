@@ -21,59 +21,60 @@
 		<e:Image id="icon_f" x="110" y="48" x.sitOther="362.6" y.sitOther="27.6" source="gameResult_icon_east_cn_png" />
 		<e:Image id="icon_h" x="110" y="135" x.sitOther="362.6" y.sitOther="27.6" source="gameResult_icon_htype_cn_png" />
 		<!-- 自己结算 -->
-		<e:Group y="132" x="300" width="820" anchorOffsetX="0" anchorOffsetY="0" height="93.21">
+		<e:Group y="122" x="300" width="820" anchorOffsetX="0" anchorOffsetY="0" height="110.21">
 			<!-- 详细信息 -->
-			<e:Scroller width="820" height="87.21" y="0" x="0" anchorOffsetX="0" anchorOffsetY="0">
-				<e:List id="gInfo" width="820" anchorOffsetX="0" anchorOffsetY="0" height="87.21" x="0" y="-28">
+			<e:Scroller width="820" height="111.21" y="0" x="0" anchorOffsetX="0" anchorOffsetY="0">
+				<e:List id="gInfo" width="820" anchorOffsetX="0" anchorOffsetY="0" height="106.21" x="0" y="-30">
 					<e:itemRendererSkinName>
-						<e:Skin height="55">
-							<e:Label text="{data.label}" bold="true" horizontalCenter="0" verticalCenter="0" size="36" />
+						<e:Skin height="50">
+							<e:Label text="{data.label}" bold="true" horizontalCenter="0" verticalCenter="0" size="32" />
 						</e:Skin>
 					</e:itemRendererSkinName>
 					<e:ArrayCollection>
-						<!--<e:Array>
-							<e:Object label="三暗刻 2台" />
-							<e:Object label="三暗刻 2台" />
-							<e:Object label="三暗刻 2台" />
-							<e:Object label="三暗刻 2台" />
-							<e:Object label="三暗刻 2台" />
-							<e:Object label="三暗刻 2台" />
-							<e:Object label="三暗刻 2台" />
-							<e:Object label="三暗刻 2台" />
-							<e:Object label="三暗刻 2台" />
-							<e:Object label="三暗刻 2台" />
-							<e:Object label="三暗刻 2台" />
-							<e:Object label="三暗刻 2台" />
-							<e:Object label="三暗刻 2台" />
-							<e:Object label="三暗刻 2台" />
-							<e:Object label="三暗刻 2台" />
-						</e:Array>-->
-					</e:ArrayCollection>
-					<e:layout>
-						<e:TileLayout id="listTitleLayout" horizontalGap="30" requestedColumnCount="4" />
-					</e:layout>
-				</e:List>
-			</e:Scroller>
-		</e:Group>
-		<!-- 牌型展示 -->
-		<e:Group id="CandsGroup" x="250" y="20">
-			<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
-			<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
-			<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
-			<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
-			<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
-			<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
-			<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
-			<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
-			<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
-			<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
-			<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
-			<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
-			<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
-			<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
-			<e:layout>
-				<e:HorizontalLayout gap="0" />
-			</e:layout>
-		</e:Group>
+						<e:Array>
+						<!-- <e:Object label="三暗刻 2台" />
+						<e:Object label="三暗刻 2台" />
+						<e:Object label="三暗刻 2台" />
+						<e:Object label="三暗刻 2台" />
+						<e:Object label="三暗刻 2台" />
+						<e:Object label="三暗刻 2台" />
+						<e:Object label="三暗刻 2台" />
+						<e:Object label="三暗刻 2台" />
+						<e:Object label="三暗刻 2台" />
+						<e:Object label="三暗刻 2台" />
+						<e:Object label="三暗刻 2台" />
+						<e:Object label="三暗刻 2台" />
+						<e:Object label="三暗刻 2台" />
+						<e:Object label="三暗刻 2台" />
+						<e:Object label="三暗刻 2台" /> -->
+					</e:Array>
+					
+				</e:ArrayCollection>
+				<e:layout>
+					<e:TileLayout id="listTitleLayout" horizontalGap="30" requestedColumnCount="4" />
+				</e:layout>
+			</e:List>
+		</e:Scroller>
 	</e:Group>
+	<!-- 牌型展示 -->
+	<e:Group id="CandsGroup" x="250" y="20">
+		<!-- <game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
+		<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
+		<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
+		<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
+		<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
+		<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
+		<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
+		<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
+		<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
+		<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
+		<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
+		<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
+		<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" />
+		<game:BaseCardUI width="126" scaleX="0.5" scaleY="0.5" /> -->
+		<e:layout>
+			<e:HorizontalLayout gap="0" />
+		</e:layout>
+	</e:Group>
+</e:Group>
 </e:Skin>

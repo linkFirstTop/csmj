@@ -7,7 +7,7 @@ module comm {
 			}
 			return DragonAnim._ins;
 		}
-		private dataArray: Array<string> = ["dqSelect", "cpts", "txshxd", "txhhxd"];
+		private dataArray: Array<string> = ["dqSelect", "cpts", "txshxd", "txhhxd", "gy"];
 		private dataArrayGame: Array<string> = ["hdly", "ag", "bh", "bt", "chi", "hu", "jg", "ksyx", "mg", "peng", "qgh", "zm"];
 		public topLayer: egret.DisplayObjectContainer;
 		public constructor() {
@@ -74,7 +74,7 @@ module comm {
 					return { "x": GameConfig.curWidth() / 2, "y": GameConfig.curHeight() / 2 }
 				}
 			} else {//qgh 抢杠胡 ypdx一炮多响 gskh杠上开花 hjzy呼叫转移
-				if (str == "hdly" || str == "mg" || str == "jg" || str == "bt" || str == "bh" || str == "gf" || str == "ljf" || str == "xyz" || str == "peng" || str == "chi" || str == "hu" || str == "bt" || str == "zm"
+				if (str == "hdly" || str == "mg" || str == "jg" || str == "bt" || str == "bh" || str == "gf" || str == "ljf" || str == "gy" || str == "xyz" || str == "peng" || str == "chi" || str == "hu" || str == "bt" || str == "zm"
 					|| str == "qgh" || str == "ag" || str == "ypdx" || str == "gskh" || str == "hjzy" || str == "dj" || str == "hz") {
 					if (p == 0) {
 						return { "x": 400, "y": GameConfig.curHeight() / 2 }

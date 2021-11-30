@@ -237,7 +237,7 @@ module game {
 		}
 		private showGameInfo(): void {
 			this.gGameInfo.visible = true;
-			this.lbInfo.text = Global.dic["局号"] + Global.strGameGUID + " " + this.findRoomName();
+			this.lbInfo.text = Global.dic["局号"] +": "+ Global.strGameGUID + " " + this.findRoomName();
 		}
 		public initPosition(): void {
 			let p: number = Global.getUserPosition(game.GameParmes.firstSit);
@@ -251,12 +251,13 @@ module game {
 		public initQshHandCard(): void {
 			for (let i: number = 0; i < 4; i++) {
 				this["zniao" + i].visible = false;
-				this["qsh" + i].visible = true;
 			}
 		}
 		public showWallCount(): void {
-			if (108 - GamePlayData.CardsWall_Head_Index - GamePlayData.CardsWall_Tail_Index - GamePlayData.CardsWall_Hua_Index > 0) {
-				this.lbLeftCard.text = Global.dic["余牌"] + ":" + (108 - GamePlayData.CardsWall_Head_Index - GamePlayData.CardsWall_Tail_Index - GamePlayData.CardsWall_Hua_Index) + Global.dic["张"];
+		
+			//if (108 - GamePlayData.CardsWall_Head_Index - GamePlayData.CardsWall_Tail_Index - GamePlayData.CardsWall_Hua_Index > 0) {
+			if (120 - GamePlayData.CardsWall_Head_Index - GamePlayData.CardsWall_Tail_Index  > 0) {
+				this.lbLeftCard.text = Global.dic["余牌"] + ":" + (120 - GamePlayData.CardsWall_Head_Index - GamePlayData.CardsWall_Tail_Index) + Global.dic["张"];
 			} else {
 				this.lbLeftCard.text = Global.dic["余牌"] + ":0" + Global.dic["张"];
 			}
@@ -329,7 +330,6 @@ module game {
 		}
 		/*显示吃碰杠等操作按钮*/
 		public onShowOpt(data: proto.NotUserOperation): void {
-
 			this.gameOpt.showOpt(data);//0 吃 1碰 2杠 3胡 4听
 			this.onCloseTingFlag();
 			this.gamePosition.startTime(GameParmes.chiPengGangSurplusTime);
@@ -490,17 +490,51 @@ module game {
 			}
 
 		}
+		public showSomeHandCard(body: proto.AckQishouhu): void {
+			this.imgTingTip.visible = false;
+			this.gTingTip.visible = false;
+			this.gameTrust.visible = false;
+			this.gameOpt.visible = false;
+			this.isGaming = false;
+			this.gameHand.showQishouHandCard(true, 1,body);//亮开部分手牌
+			for (let i: number = 0; i < 4; i++) {
+				this["gameUser" + i].showCurrentAnim(false);
+			}
+	
+			for (let i: number = 0; i < body.qishouhus.length; i++) {
+				let t ="";
+				for(let j:number =0;j<body.qishouhus[i].qishouType.length;j++){
+                    if(body.qishouhus[i].qishouType[j]==1){
+                        t+="b ";
+					}else if(body.qishouhus[i].qishouType[j]==2){
+						t+="x ";
+					}else if(body.qishouhus[i].qishouType[j]==3){
+						t+="l ";
+					}else if(body.qishouhus[i].qishouType[j]==4){
+						t+="q ";
+					}
+				}
+				let p: number = Global.getUserPosition(body.qishouhus[i].winners);
+				this["qsh" +p].text=t;
+				this["qsh" +p].visible = true;
+			}
+		}
+		public showQishouhu(): void {
+			console.log("收到起手胡通知 展示起手胡1");
+			this.gameOpt.visible = true;
+			this.gameOpt.showQishouhu();
+		}
 		//抓鸟
 		public showZhuaNiaoResult(body: proto.NotZaNiao) {
 			this["qsh0"].visible = this["qsh1"].visible = this["qsh2"].visible = this["qsh3"].visible = false;
-			// console.log("抓鸟结果" + JSON.stringify(body));
+			 console.log("抓鸟结果" + JSON.stringify(body));
 			this.zniaoGroup.visible = true;
 			this.zniaoGroup.touchEnabled = false;
 			let state = 0;
 			if (body.stage == 4) {
 				let arr: Array<proto.CardInfo> = [];
 				let znValue: Array<number> = [];
-				let islight: boolean = true;//发冠
+				let islight: boolean = true;//发光
 				for (let i: number = 0; i < body.cardInfos.length; i++) {
 					let info: proto.CardInfo = body.cardInfos[i] as proto.CardInfo;
 					arr.push(info);
@@ -513,8 +547,12 @@ module game {
 					} else if (cardValue >= 19 && cardValue < 28) {//筒
 						znValue.push(cardValue - 18);
 					}
-					let card: BaseHandCardUI = new BaseHandCardUI();
-					card.setCard(3, i, cardValue, state, false, islight);
+					 let card: BaseHandCardUI = new BaseHandCardUI();
+					 card.setCard(3, i, cardValue, state, false);
+					//let card: game.BaseCardUI = new game.BaseCardUI();
+					//card.setCard(cardValue, islight);\
+					console.log(this.znaioItemGroup);
+					//card.setCard(1, islight);
 					this.znaioItemGroup.addChild(card);
 				}
 				var zniaoCount3: number = 0;

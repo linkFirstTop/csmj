@@ -17,6 +17,5 @@
 		<e:Image source="gameHeadCoinbg_png" width="180" height="35"/>
 		<e:Label id="lbCoin" text=""  size="30" textAlign="center" width="100%" height="100%" verticalAlign="middle" textColor="0xe2e0b6"/>
 	</e:Group>
-	<!--<e:BitmapLabel id="lbCoinWinAnim"  font="winCoinFnt_fnt" horizontalCenter="60" y="60"  text=""/>
-	<e:BitmapLabel id="lbCoinLoseAnim" font="loseCoinFnt_fnt" horizontalCenter="60" y="60"  />-->
+	
 </e:Skin>

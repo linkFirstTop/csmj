@@ -31,7 +31,7 @@
 			<e:ViewStack  id="viewStack" selectedIndex="{tabBar.selectedIndex}">
 				
 				<e:Group name="g1">
-					<e:Image source="rule1_png"/>
+					<e:Image source="rule1_png" visible="true"/>
 				</e:Group>
 				<e:Group name="g2">
 					<e:Image source="rule2_png"/>
@@ -48,7 +48,7 @@
 		</e:Scroller>
 		<e:Group x="47" y="192">
 			<e:Image source="ruleButtonUp_png" />
-			<e:Image source="sgdcx1_png" x="47" y="27"/>
+			<e:Image source="sgdcx1_png" x="47" y="27" visible="true"/>
 		</e:Group>
 	</e:Group>
 	

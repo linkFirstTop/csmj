@@ -52,7 +52,7 @@ module room {
 					if (Global.nSocketIndex < Global.arrConfig.length) {
 						this.strRoomIP = Global.arrConfig[Global.nSocketIndex];
 					}
-					this.webSocket.connectByUrl("ws://192.168.1.183:6010")
+					this.webSocket.connectByUrl("ws://localhost:6010")
 					// this.webSocket.connectByUrl(this.strRoomIP+"/gametype55/room");
 				}
 
@@ -67,7 +67,7 @@ module room {
 
 		//发送消息
 		public SendMeseage(messageid: number, obj: any): void {
-			if (this.webSocket && 　this.webSocket.connected == false) {
+			if (this.webSocket && this.webSocket.connected == false) {
 				return;
 			}
 			var bytes = obj;

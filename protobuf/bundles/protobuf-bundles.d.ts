@@ -1,4 +1,5 @@
 type Long = protobuf.Long;
+// DO NOT EDIT! This is a generated file. Edit the JSDoc in src/*.js instead and run 'npm run types'.
 
 /** Namespace proto. */
 declare namespace proto {
@@ -5885,6 +5886,9 @@ declare namespace proto {
 
         /** Operation options */
         options?: (proto.ICardsGroup[]|null);
+
+        /** Operation canGangYao */
+        canGangYao?: (number|null);
     }
 
     /** Represents an Operation. */
@@ -5901,6 +5905,9 @@ declare namespace proto {
 
         /** Operation options. */
         public options: proto.ICardsGroup[];
+
+        /** Operation canGangYao. */
+        public canGangYao: number;
 
         /**
          * Creates a new Operation instance using the specified properties.
@@ -5946,6 +5953,231 @@ declare namespace proto {
 
         /**
          * Verifies an Operation message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a NotUserQishouhu. */
+    interface INotUserQishouhu {
+
+        /** NotUserQishouhu qishouhus */
+        qishouhus?: (proto.IQishouhu[]|null);
+    }
+
+    /** Represents a NotUserQishouhu. */
+    class NotUserQishouhu implements INotUserQishouhu {
+
+        /**
+         * Constructs a new NotUserQishouhu.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: proto.INotUserQishouhu);
+
+        /** NotUserQishouhu qishouhus. */
+        public qishouhus: proto.IQishouhu[];
+
+        /**
+         * Creates a new NotUserQishouhu instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns NotUserQishouhu instance
+         */
+        public static create(properties?: proto.INotUserQishouhu): proto.NotUserQishouhu;
+
+        /**
+         * Encodes the specified NotUserQishouhu message. Does not implicitly {@link proto.NotUserQishouhu.verify|verify} messages.
+         * @param message NotUserQishouhu message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: proto.INotUserQishouhu, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified NotUserQishouhu message, length delimited. Does not implicitly {@link proto.NotUserQishouhu.verify|verify} messages.
+         * @param message NotUserQishouhu message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.INotUserQishouhu, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a NotUserQishouhu message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns NotUserQishouhu
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotUserQishouhu;
+
+        /**
+         * Decodes a NotUserQishouhu message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns NotUserQishouhu
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotUserQishouhu;
+
+        /**
+         * Verifies a NotUserQishouhu message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a Qishouhu. */
+    interface IQishouhu {
+
+        /** Qishouhu qishouType */
+        qishouType?: (number[]|null);
+
+        /** Qishouhu winners */
+        winners?: (number|null);
+
+        /** Qishouhu qishouFan */
+        qishouFan?: (number|null);
+    }
+
+    /** Represents a Qishouhu. */
+    class Qishouhu implements IQishouhu {
+
+        /**
+         * Constructs a new Qishouhu.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: proto.IQishouhu);
+
+        /** Qishouhu qishouType. */
+        public qishouType: number[];
+
+        /** Qishouhu winners. */
+        public winners: number;
+
+        /** Qishouhu qishouFan. */
+        public qishouFan: number;
+
+        /**
+         * Creates a new Qishouhu instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Qishouhu instance
+         */
+        public static create(properties?: proto.IQishouhu): proto.Qishouhu;
+
+        /**
+         * Encodes the specified Qishouhu message. Does not implicitly {@link proto.Qishouhu.verify|verify} messages.
+         * @param message Qishouhu message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: proto.IQishouhu, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified Qishouhu message, length delimited. Does not implicitly {@link proto.Qishouhu.verify|verify} messages.
+         * @param message Qishouhu message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.IQishouhu, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a Qishouhu message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Qishouhu
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.Qishouhu;
+
+        /**
+         * Decodes a Qishouhu message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns Qishouhu
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.Qishouhu;
+
+        /**
+         * Verifies a Qishouhu message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of an AckQishouhu. */
+    interface IAckQishouhu {
+
+        /** AckQishouhu playerCards */
+        playerCards?: (proto.IHandCards[]|null);
+
+        /** AckQishouhu qishouhus */
+        qishouhus?: (proto.IQishouhu[]|null);
+    }
+
+    /** Represents an AckQishouhu. */
+    class AckQishouhu implements IAckQishouhu {
+
+        /**
+         * Constructs a new AckQishouhu.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: proto.IAckQishouhu);
+
+        /** AckQishouhu playerCards. */
+        public playerCards: proto.IHandCards[];
+
+        /** AckQishouhu qishouhus. */
+        public qishouhus: proto.IQishouhu[];
+
+        /**
+         * Creates a new AckQishouhu instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AckQishouhu instance
+         */
+        public static create(properties?: proto.IAckQishouhu): proto.AckQishouhu;
+
+        /**
+         * Encodes the specified AckQishouhu message. Does not implicitly {@link proto.AckQishouhu.verify|verify} messages.
+         * @param message AckQishouhu message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: proto.IAckQishouhu, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified AckQishouhu message, length delimited. Does not implicitly {@link proto.AckQishouhu.verify|verify} messages.
+         * @param message AckQishouhu message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: proto.IAckQishouhu, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an AckQishouhu message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AckQishouhu
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckQishouhu;
+
+        /**
+         * Decodes an AckQishouhu message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AckQishouhu
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckQishouhu;
+
+        /**
+         * Verifies an AckQishouhu message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
@@ -6059,9 +6291,6 @@ declare namespace proto {
 
         /** NotGameResult others */
         others?: (proto.IPlayerGameResult[]|null);
-
-        /** NotGameResult fan */
-        fan?: (proto.IFan[]|null);
     }
 
     /** Represents a NotGameResult. */
@@ -6084,9 +6313,6 @@ declare namespace proto {
 
         /** NotGameResult others. */
         public others: proto.IPlayerGameResult[];
-
-        /** NotGameResult fan. */
-        public fan: proto.IFan[];
 
         /**
          * Creates a new NotGameResult instance using the specified properties.
@@ -6236,6 +6462,12 @@ declare namespace proto {
 
         /** PlayerGameResult chips */
         chips?: (number|Long|null);
+
+        /** PlayerGameResult playerCards */
+        playerCards?: (proto.IHandCards[]|null);
+
+        /** PlayerGameResult fan */
+        fan?: (proto.IFan[]|null);
     }
 
     /** Represents a PlayerGameResult. */
@@ -6267,6 +6499,12 @@ declare namespace proto {
 
         /** PlayerGameResult chips. */
         public chips: (number|Long);
+
+        /** PlayerGameResult playerCards. */
+        public playerCards: proto.IHandCards[];
+
+        /** PlayerGameResult fan. */
+        public fan: proto.IFan[];
 
         /**
          * Creates a new PlayerGameResult instance using the specified properties.

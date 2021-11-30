@@ -4,6 +4,7 @@ module game {
 			super();
 		}
 		private gameUI: game.GameMainUI;
+		private gameOperationUI: game.GameOperationUI;
 		private gameMatch: game.GameMatchUserUI;
 		private gameResult: game.GameResultUI;
 		/*添加view*/
@@ -51,6 +52,12 @@ module game {
 			GDGame.Msg.ins.addEventListener(GameMessage.ACK_ALLGAMEEND, this.ACK_ALLGAMEEND, this);
 			//游戏通知抓鸟
 			GDGame.Msg.ins.addEventListener(GameMessage.ACK_GAMEZNAIO, this.ACK_GAMEZNAIO, this);
+			//游戏通知起手胡
+			GDGame.Msg.ins.addEventListener(GameMessage.NOT_GAMEQishouhu, this.NOT_GAMEQishouhu, this);
+
+			//游戏通知展示起手胡
+			GDGame.Msg.ins.addEventListener(GameMessage.ACK_GAMESHOWQISHOU, this.ACK_GAMESHOWQISHOU, this);
+			
 			//服务器通知客户端托管操作
 			GDGame.Msg.ins.addEventListener(GameMessage.ACK_GAMEPLAYERTRUST, this.ACK_USER_PLAYERTRUST, this);
 			//服务器通知客户端解除托管操作
@@ -65,7 +72,7 @@ module game {
 			GDGame.Msg.ins.addEventListener(GameMessage.ACK_USER_ZHUAPAI, this.ACK_USER_ZHUAPAI, this);
 			//服务器通知客户端  碰牌
 			GDGame.Msg.ins.addEventListener(GameMessage.ACK_USER_PENGPAI, this.ACK_USER_PENGPAI, this);
-			//服务器通知客户端  碰牌
+			//服务器通知客户端 吃牌
 			GDGame.Msg.ins.addEventListener(GameMessage.ACK_USER_CHIPAI, this.ACK_USER_CHIPAI, this);
 			//服务器通知客户端  明杠
 			GDGame.Msg.ins.addEventListener(GameMessage.ACK_USER_MINGGANGPAI, this.ACK_USER_MINGGANGPAI, this);
@@ -206,7 +213,7 @@ module game {
 			let nSit: number = evt.data[0];
 			let card: proto.CardInfo = evt.data[1];
 			this.gameUI.playAnim("gy", nSit);
-			// this.gameUI.updataUserCPG(nSit, card);
+			this.gameUI.updataUserCPG(nSit, card);
 			SoundModel.playEffect(SoundModel.GANG);
 		}
 
@@ -344,10 +351,10 @@ module game {
 				} else if (body.huType == 4) {
 					this.gameUI.playAnim("hdly", body.winner);
 				}
-			}
+			}		
 			this.gameUI.onCloseTingFlag();
-			this.gameUI.showAllHandCard();
-
+		    this.gameUI.showAllHandCard();
+			
 		}
 
 		//游戏通知抓鸟
@@ -356,6 +363,23 @@ module game {
 			//进行抓鸟界面操作
 			this.gameUI.showZhuaNiaoResult(body);
 		}
+		//游戏通知起手胡
+		private NOT_GAMEQishouhu(evt: egret.Event): void {
+		
+			console.log("收到起手胡通知 展示起手胡");
+			//进行起手胡界面操作
+			this.gameUI.showQishouhu();
+		}
+		//游戏通知起手胡亮牌
+		private ACK_GAMESHOWQISHOU(evt: egret.Event): void {
+			
+			console.log("收到起手胡展示通知");
+			let body: proto.AckQishouhu = evt.data;	
+			this.gameUI.onCloseTingFlag();
+		    this.gameUI.showSomeHandCard(body);
+		
+		}
+		
 		/** 
 		 * @param msg
 		 * 服务器通知客户端 全部结束
@@ -471,6 +495,8 @@ module game {
 			GDGame.Msg.ins.removeEventListener(GameMessage.ACK_ALLGAMEEND, this.ACK_ALLGAMEEND, this);
 			//游戏通知抓鸟
 			GDGame.Msg.ins.removeEventListener(GameMessage.ACK_GAMEZNAIO, this.ACK_GAMEZNAIO, this);
+			//游戏通知起手胡
+			GDGame.Msg.ins.removeEventListener(GameMessage.NOT_GAMEQishouhu, this.NOT_GAMEQishouhu, this);
 			//服务器通知客户端托管操作
 			GDGame.Msg.ins.removeEventListener(GameMessage.ACK_GAMEPLAYERTRUST, this.ACK_USER_PLAYERTRUST, this);
 			//服务器通知客户端解除托管操作

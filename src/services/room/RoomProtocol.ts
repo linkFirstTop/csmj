@@ -51,8 +51,12 @@ module room {
 		public static NOT_USER_TING: number = RoomProtocol.GAME_BASE + 0x20;
 		public static NOT_GAME_END: number = RoomProtocol.GAME_BASE + 0x21;
 		public static NOT_GAME_RESULT: number = RoomProtocol.GAME_BASE + 0x22;
-		//通知扎鸟
-		public static NOT_ZA_NIAO: number = RoomProtocol.GAME_BASE + 0x23;
+	
+		public static NOT_ZA_NIAO: number = RoomProtocol.GAME_BASE + 0x23;	//通知扎鸟
+		public static NOT_USER_QISHOUHU: number = RoomProtocol.GAME_BASE + 0x24;//通知可起手胡
+		public static ACK_USER_QISHOUHU: number = RoomProtocol.GAME_BASE + 0x25;//回复起手胡
+
+
 		public static SVR_CREATE_TABLE: number = RoomProtocol.GAME_BASE + 0x40;
 		public static SVR_DISMISS_TABLE: number = RoomProtocol.GAME_BASE + 0x41;
 		public static SVR_QUERY_CHIPS: number = RoomProtocol.GAME_BASE + 0x44;

@@ -51,7 +51,12 @@ module room {
 				case RoomProtocol.GF_ACK | RoomProtocol.NOT_ZA_NIAO:
 					this.NOT_ZA_NIAO(byte);
 					break;
-
+				case RoomProtocol.GF_ACK | RoomProtocol.NOT_USER_QISHOUHU:
+				this.NOT_QISHOU_HU(byte);
+					break;
+				case RoomProtocol.GF_ACK | RoomProtocol.ACK_USER_QISHOUHU:
+				this.ACK_SHOW_QISHOU_HU(byte);
+					break;
 				case RoomProtocol.GF_ACK | RoomProtocol.DISCARD:
 					this.DISCARD(byte);
 					break;
@@ -385,6 +390,41 @@ module room {
 			var body = proto.NotZaNiao.decode(byte.bytes);
 			Global.log("服务器通知客户端扎鸟消息" + JSON.stringify(body));
 			game.GameController.AckGameZnaio(body);
+
+		}
+		// 通知起手胡
+		private NOT_QISHOU_HU(byte: egret.ByteArray): void {
+			var body = proto.NotUserQishouhu.decode(byte.bytes);
+			Global.log("服务器通知客户端起手胡消息" + JSON.stringify(body));
+			game.GameController.AckQiShouhu(body);
+
+		}
+		// 展示起手胡
+		private ACK_SHOW_QISHOU_HU(byte: egret.ByteArray): void {
+			var body = proto.AckQishouhu.decode(byte.bytes);
+			Global.log("客户端收到服务器起手胡展示消息" + JSON.stringify(body));
+			game.GameController.AckShowQiShouhu(body);
+			
+			// for (let i: number = 0; i < body.qishouhus.length; i++) {
+			// 	let t ="";
+			// 	for(let j:number =0;j<body.qishouhus[i].qishouType.length;j++){
+            //         if(body.qishouhus[i].qishouType[j]==1){
+            //             t+="b ";
+			// 		}else if(body.qishouhus[i].qishouType[j]==2){
+			// 			t+="x ";
+			// 		}else if(body.qishouhus[i].qishouType[j]==3){
+			// 			t+="l ";
+			// 		}else if(body.qishouhus[i].qishouType[j]==4){
+			// 			t+="q ";
+			// 		}
+			// 	}
+			// 	this["qsh" + i].text=t;
+			// 	this["qsh" + 	body.qishouhus[i].winners].visible = true;
+			// }
+			// for (let i: number = 0; i < 4; i++) {
+			// 	this["qsh" + i].visible = true;
+			// 	this["qsh" + i].text="l";
+			// }
 
 		}
 		private NOT_GAME_RESULT(byte: egret.ByteArray): void {

@@ -36,6 +36,8 @@ module game {
 		public static Hu_Groups: Array<CardsGroupInfo> = [];
 		//杠摇
 		public static Gangyao_Groups: Array<CardsGroupInfo> = [];
+		//起手胡
+		public static QiShouHu_Groups: Array<CardsGroupInfo> = [];
 		public static Call_Groups: Array<any> = [];
 		public static isTuoguan: boolean = false;
 		//服务器的推荐换三张与玩家选择
@@ -68,6 +70,7 @@ module game {
 			GamePlayData.Gangyao_Groups = [];
 			GamePlayData.Hu_Groups = [];
 			GamePlayData.Call_Groups = [];
+			GamePlayData.QiShouHu_Groups=[];
 			GamePlayData.HSZRecommend = [];
 			GamePlayData.HSZUserChoose = [];
 			GamePlayData.HSZGetCards = [];
@@ -130,8 +133,8 @@ module game {
 		}
 		//结算手牌数据
 		public static SaveResultEnd(body: proto.NotGameEnd): void {
+			console.log("亮手牌");
 			for (let i: number = 0; i < body.playerCards.length; i++) {
-
 				if (body.playerCards[i].seat != Global.userSit) {
 					let arrCards: Array<any> = body.playerCards[i].cards;
 					let arrTmp: Array<proto.CardInfo> = [];
@@ -146,8 +149,13 @@ module game {
 						// }
 						// }
 						arrTmp.push(info);
+							// let card:proto.CardInfo = new proto.CardInfo();
+							// card.CardID = info.CardID;
+							// card.Sit = info.Sit;
+							// arrTmp.push(card);
 					}
 					arrTmp = this.SortCards(arrTmp).reverse();
+					console.log(arrTmp);
 					if (body.playerCards[i].huCard != null && body.playerCards[i].huCard != undefined) {
 						var cardtemp: proto.CardInfo = new proto.CardInfo();
 						cardtemp.CardID = body.playerCards[i].huCard.CardID;
@@ -160,25 +168,31 @@ module game {
 		}
 		/*结算数据*/
 		public static SaveResultData(arr: Array<any>): void {
-			// for(let i:number = 0;i < arr.length;i++){
-			// 	if(arr[i].seat != Global.userSit){
-			// 		let arrCards:Array<any> = arr[i].handCards;
-			// 		let arrTmp:Array<proto.CardInfo> = [];
-			// 		for(let j:number = 0;j < arrCards.length;j++){
-			// 			let info:any = arrCards[j];
-			// 			if(info.Type == 12){//手牌
-			// 				for(let n:number = 0; n < info.Cards.length;n++){
-			// 					let card:proto.CardInfo = new proto.CardInfo();
-			// 					card.CardID = info.Cards[n].CardID;
-			// 					card.Sit = info.Sit;
-			// 					arrTmp.push(card);
-			// 				}
-			// 			}
-			// 		}
-			// 		arrTmp = this.SortCards(arrTmp);
-			// 		this.arrHandCards[arr[i].seat] = arrTmp;
-			// 	}
-			// }
+			console.log("结算展示手牌");
+			for(let i:number = 0;i < arr.length;i++){
+				if(arr[i].seat != Global.userSit){
+					console.log(arr);
+					console.log(arr[i].username);
+					let arrCards:Array<any> = arr[i].playerCards;
+					console.log(arrCards);
+					let arrTmp:Array<proto.CardInfo> = [];
+					console.log( arrCards[0]);
+					console.log( arrCards[0].length);
+					// for(let j:number = 0;j < arrCards[0].length;j++){
+					// 	let info:any = arrCards[j];
+					// 	// if(info.Type == 12){//手牌
+					// 		for(let n:number = 0; n < info.Cards.length;n++){
+					// 			let card:proto.CardInfo = new proto.CardInfo();
+					// 			card.CardID = info.Cards[n].CardID;
+					// 			card.Sit = info.Sit;
+					// 			arrTmp.push(card);
+					// 		}
+					// 	// }
+					// }
+					// arrTmp = this.SortCards(arrTmp);
+					// this.arrHandCards[arr[i].seat] = arrTmp;
+				}
+			}
 		}
 		public static SetOtherCardsValue(arr: Array<proto.ICardsGroup>, sit: number): void {
 			var arrtemp: Array<CardsGroupInfo> = [];
@@ -363,6 +377,8 @@ module game {
 				case CardsGroupType.CALL:
 					return GamePlayData.Call_Groups;
 				case CardsGroupType.GANGYAO:
+					return GamePlayData.Gangyao_Groups;
+				case CardsGroupType.QISHOUHU:
 					return GamePlayData.Gangyao_Groups;
 			}
 			return [];

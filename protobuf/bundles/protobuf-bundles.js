@@ -71,7 +71,7 @@ $root.proto = (function() {
         Heartbeat.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.times != null && message.hasOwnProperty("times"))
+            if (message.times != null && Object.hasOwnProperty.call(message, "times"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int64(message.times);
             return writer;
         };
@@ -230,7 +230,7 @@ $root.proto = (function() {
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int64(message.userId);
             writer.uint32(/* id 2, wireType 0 =*/16).int32(message.code);
-            if (message.reason != null && message.hasOwnProperty("reason"))
+            if (message.reason != null && Object.hasOwnProperty.call(message, "reason"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.reason);
             return writer;
         };
@@ -601,11 +601,11 @@ $root.proto = (function() {
             if (!writer)
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
-            if (message.ip != null && message.hasOwnProperty("ip"))
+            if (message.ip != null && Object.hasOwnProperty.call(message, "ip"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.ip);
-            if (message.port != null && message.hasOwnProperty("port"))
+            if (message.port != null && Object.hasOwnProperty.call(message, "port"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.port);
-            if (message.domain != null && message.hasOwnProperty("domain"))
+            if (message.domain != null && Object.hasOwnProperty.call(message, "domain"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.domain);
             return writer;
         };
@@ -781,11 +781,11 @@ $root.proto = (function() {
         KVPair.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.key != null && message.hasOwnProperty("key"))
+            if (message.key != null && Object.hasOwnProperty.call(message, "key"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int64(message.key);
-            if (message.lVal != null && message.hasOwnProperty("lVal"))
+            if (message.lVal != null && Object.hasOwnProperty.call(message, "lVal"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int64(message.lVal);
-            if (message.sVal != null && message.hasOwnProperty("sVal"))
+            if (message.sVal != null && Object.hasOwnProperty.call(message, "sVal"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.sVal);
             return writer;
         };
@@ -1187,23 +1187,23 @@ $root.proto = (function() {
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.id);
             writer.uint32(/* id 2, wireType 0 =*/16).int64(message.mapId);
             writer.uint32(/* id 3, wireType 2 =*/26).string(message.name);
-            if (message.icon != null && message.hasOwnProperty("icon"))
+            if (message.icon != null && Object.hasOwnProperty.call(message, "icon"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.icon);
-            if (message.type != null && message.hasOwnProperty("type"))
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.type);
-            if (message.level != null && message.hasOwnProperty("level"))
+            if (message.level != null && Object.hasOwnProperty.call(message, "level"))
                 writer.uint32(/* id 6, wireType 0 =*/48).int32(message.level);
-            if (message.baseScore != null && message.hasOwnProperty("baseScore"))
+            if (message.baseScore != null && Object.hasOwnProperty.call(message, "baseScore"))
                 writer.uint32(/* id 7, wireType 0 =*/56).int64(message.baseScore);
             if (message.limit != null && message.limit.length)
                 for (var i = 0; i < message.limit.length; ++i)
                     writer.uint32(/* id 8, wireType 0 =*/64).int64(message.limit[i]);
-            if (message.describes != null && message.hasOwnProperty("describes"))
+            if (message.describes != null && Object.hasOwnProperty.call(message, "describes"))
                 writer.uint32(/* id 9, wireType 2 =*/74).string(message.describes);
             if (message.servers != null && message.servers.length)
                 for (var i = 0; i < message.servers.length; ++i)
                     $root.proto.Server.encode(message.servers[i], writer.uint32(/* id 10, wireType 2 =*/82).fork()).ldelim();
-            if (message.taifen != null && message.hasOwnProperty("taifen"))
+            if (message.taifen != null && Object.hasOwnProperty.call(message, "taifen"))
                 writer.uint32(/* id 11, wireType 0 =*/88).int64(message.taifen);
             return writer;
         };
@@ -1462,11 +1462,11 @@ $root.proto = (function() {
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int64(message.userId);
             writer.uint32(/* id 2, wireType 2 =*/18).string(message.nickName);
-            if (message.avatar != null && message.hasOwnProperty("avatar"))
+            if (message.avatar != null && Object.hasOwnProperty.call(message, "avatar"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.avatar);
-            if (message.goldCoin != null && message.hasOwnProperty("goldCoin"))
+            if (message.goldCoin != null && Object.hasOwnProperty.call(message, "goldCoin"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int64(message.goldCoin);
-            if (message.status != null && message.hasOwnProperty("status"))
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.status);
             return writer;
         };
@@ -1650,9 +1650,9 @@ $root.proto = (function() {
             if (!writer)
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.seatNo);
-            if (message.user != null && message.hasOwnProperty("user"))
+            if (message.user != null && Object.hasOwnProperty.call(message, "user"))
                 $root.proto.User.encode(message.user, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-            if (message.status != null && message.hasOwnProperty("status"))
+            if (message.status != null && Object.hasOwnProperty.call(message, "status"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.status);
             return writer;
         };
@@ -1880,7 +1880,7 @@ $root.proto = (function() {
             if (message.discard != null && message.discard.length)
                 for (var i = 0; i < message.discard.length; ++i)
                     $root.proto.CardInfo.encode(message.discard[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-            if (message.position != null && message.hasOwnProperty("position"))
+            if (message.position != null && Object.hasOwnProperty.call(message, "position"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.position);
             if (message.huapai != null && message.huapai.length)
                 for (var i = 0; i < message.huapai.length; ++i)
@@ -1888,9 +1888,9 @@ $root.proto = (function() {
             if (message.patterns != null && message.patterns.length)
                 for (var i = 0; i < message.patterns.length; ++i)
                     $root.proto.CardsGroup.encode(message.patterns[i], writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
-            if (message.lastCard != null && message.hasOwnProperty("lastCard"))
+            if (message.lastCard != null && Object.hasOwnProperty.call(message, "lastCard"))
                 $root.proto.CardInfo.encode(message.lastCard, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
-            if (message.ting != null && message.hasOwnProperty("ting"))
+            if (message.ting != null && Object.hasOwnProperty.call(message, "ting"))
                 writer.uint32(/* id 8, wireType 0 =*/64).int32(message.ting);
             return writer;
         };
@@ -2357,9 +2357,9 @@ $root.proto = (function() {
             writer.uint32(/* id 1, wireType 2 =*/10).string(message.tableId);
             writer.uint32(/* id 2, wireType 0 =*/16).int32(message.roomId);
             writer.uint32(/* id 3, wireType 0 =*/24).int32(message.roomLevel);
-            if (message.type != null && message.hasOwnProperty("type"))
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.type);
-            if (message.tableName != null && message.hasOwnProperty("tableName"))
+            if (message.tableName != null && Object.hasOwnProperty.call(message, "tableName"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.tableName);
             writer.uint32(/* id 6, wireType 2 =*/50).string(message.roundId);
             writer.uint32(/* id 7, wireType 0 =*/56).int64(message.baseScore);
@@ -2718,17 +2718,17 @@ $root.proto = (function() {
             writer.uint32(/* id 2, wireType 0 =*/16).int64(message.userId);
             writer.uint32(/* id 3, wireType 0 =*/24).int32(message.userType);
             writer.uint32(/* id 4, wireType 2 =*/34).string(message.userName);
-            if (message.nickName != null && message.hasOwnProperty("nickName"))
+            if (message.nickName != null && Object.hasOwnProperty.call(message, "nickName"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.nickName);
-            if (message.avatar != null && message.hasOwnProperty("avatar"))
+            if (message.avatar != null && Object.hasOwnProperty.call(message, "avatar"))
                 writer.uint32(/* id 6, wireType 2 =*/50).string(message.avatar);
-            if (message.channel != null && message.hasOwnProperty("channel"))
+            if (message.channel != null && Object.hasOwnProperty.call(message, "channel"))
                 writer.uint32(/* id 7, wireType 2 =*/58).string(message.channel);
-            if (message.proxy != null && message.hasOwnProperty("proxy"))
+            if (message.proxy != null && Object.hasOwnProperty.call(message, "proxy"))
                 writer.uint32(/* id 8, wireType 2 =*/66).string(message.proxy);
-            if (message.group != null && message.hasOwnProperty("group"))
+            if (message.group != null && Object.hasOwnProperty.call(message, "group"))
                 writer.uint32(/* id 9, wireType 2 =*/74).string(message.group);
-            if (message.userIp != null && message.hasOwnProperty("userIp"))
+            if (message.userIp != null && Object.hasOwnProperty.call(message, "userIp"))
                 writer.uint32(/* id 10, wireType 2 =*/82).string(message.userIp);
             if (message.handCards != null && message.handCards.length)
                 for (var i = 0; i < message.handCards.length; ++i)
@@ -2736,12 +2736,12 @@ $root.proto = (function() {
             if (message.surplusCards != null && message.surplusCards.length)
                 for (var i = 0; i < message.surplusCards.length; ++i)
                     writer.uint32(/* id 12, wireType 0 =*/96).int32(message.surplusCards[i]);
-            if (message.bombCount != null && message.hasOwnProperty("bombCount"))
+            if (message.bombCount != null && Object.hasOwnProperty.call(message, "bombCount"))
                 writer.uint32(/* id 13, wireType 0 =*/104).int32(message.bombCount);
             writer.uint32(/* id 14, wireType 0 =*/112).int64(message.initChips);
-            if (message.winChips != null && message.hasOwnProperty("winChips"))
+            if (message.winChips != null && Object.hasOwnProperty.call(message, "winChips"))
                 writer.uint32(/* id 15, wireType 0 =*/120).int64(message.winChips);
-            if (message.endChips != null && message.hasOwnProperty("endChips"))
+            if (message.endChips != null && Object.hasOwnProperty.call(message, "endChips"))
                 writer.uint32(/* id 16, wireType 0 =*/128).int64(message.endChips);
             return writer;
         };
@@ -3026,12 +3026,12 @@ $root.proto = (function() {
             if (!writer)
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
-            if (message.seatNo != null && message.hasOwnProperty("seatNo"))
+            if (message.seatNo != null && Object.hasOwnProperty.call(message, "seatNo"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.seatNo);
             if (message.data != null && message.data.length)
                 for (var i = 0; i < message.data.length; ++i)
                     writer.uint32(/* id 3, wireType 0 =*/24).int32(message.data[i]);
-            if (message.timestamp != null && message.hasOwnProperty("timestamp"))
+            if (message.timestamp != null && Object.hasOwnProperty.call(message, "timestamp"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int64(message.timestamp);
             return writer;
         };
@@ -3294,14 +3294,14 @@ $root.proto = (function() {
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.roomId);
             writer.uint32(/* id 2, wireType 0 =*/16).int32(message.roomLevel);
-            if (message.type != null && message.hasOwnProperty("type"))
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.type);
             writer.uint32(/* id 4, wireType 2 =*/34).string(message.tableId);
             writer.uint32(/* id 5, wireType 2 =*/42).string(message.roundId);
             writer.uint32(/* id 6, wireType 0 =*/48).int64(message.beginTime);
             writer.uint32(/* id 7, wireType 0 =*/56).int64(message.endTime);
             writer.uint32(/* id 8, wireType 0 =*/64).int32(message.dealer);
-            if (message.baseScore != null && message.hasOwnProperty("baseScore"))
+            if (message.baseScore != null && Object.hasOwnProperty.call(message, "baseScore"))
                 writer.uint32(/* id 9, wireType 0 =*/72).int64(message.baseScore);
             if (message.players != null && message.players.length)
                 for (var i = 0; i < message.players.length; ++i)
@@ -3539,7 +3539,7 @@ $root.proto = (function() {
             if (!writer)
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.CardID);
-            if (message.Sit != null && message.hasOwnProperty("Sit"))
+            if (message.Sit != null && Object.hasOwnProperty.call(message, "Sit"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.Sit);
             return writer;
         };
@@ -3708,7 +3708,7 @@ $root.proto = (function() {
             if (message.cards != null && message.cards.length)
                 for (var i = 0; i < message.cards.length; ++i)
                     $root.proto.CardInfo.encode(message.cards[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-            if (message.huCard != null && message.hasOwnProperty("huCard"))
+            if (message.huCard != null && Object.hasOwnProperty.call(message, "huCard"))
                 $root.proto.CardInfo.encode(message.huCard, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
             return writer;
         };
@@ -3921,11 +3921,11 @@ $root.proto = (function() {
             if (message.Cards != null && message.Cards.length)
                 for (var i = 0; i < message.Cards.length; ++i)
                     $root.proto.CardInfo.encode(message.Cards[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-            if (message.ObtainCard != null && message.hasOwnProperty("ObtainCard"))
+            if (message.ObtainCard != null && Object.hasOwnProperty.call(message, "ObtainCard"))
                 $root.proto.CardInfo.encode(message.ObtainCard, writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
-            if (message.ObtainCardSit != null && message.hasOwnProperty("ObtainCardSit"))
+            if (message.ObtainCardSit != null && Object.hasOwnProperty.call(message, "ObtainCardSit"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.ObtainCardSit);
-            if (message.Card2 != null && message.hasOwnProperty("Card2"))
+            if (message.Card2 != null && Object.hasOwnProperty.call(message, "Card2"))
                 $root.proto.CardInfo.encode(message.Card2, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
             return writer;
         };
@@ -4697,19 +4697,19 @@ $root.proto = (function() {
             if (!writer)
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 2 =*/10).string(message.username);
-            if (message.seat != null && message.hasOwnProperty("seat"))
+            if (message.seat != null && Object.hasOwnProperty.call(message, "seat"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.seat);
-            if (message.fantype != null && message.hasOwnProperty("fantype"))
+            if (message.fantype != null && Object.hasOwnProperty.call(message, "fantype"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.fantype);
-            if (message.wintype != null && message.hasOwnProperty("wintype"))
+            if (message.wintype != null && Object.hasOwnProperty.call(message, "wintype"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.wintype);
-            if (message.max_fan != null && message.hasOwnProperty("max_fan"))
+            if (message.max_fan != null && Object.hasOwnProperty.call(message, "max_fan"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.max_fan);
-            if (message.gameCoin != null && message.hasOwnProperty("gameCoin"))
+            if (message.gameCoin != null && Object.hasOwnProperty.call(message, "gameCoin"))
                 writer.uint32(/* id 6, wireType 0 =*/48).int32(message.gameCoin);
-            if (message.Coin != null && message.hasOwnProperty("Coin"))
+            if (message.Coin != null && Object.hasOwnProperty.call(message, "Coin"))
                 writer.uint32(/* id 7, wireType 0 =*/56).int32(message.Coin);
-            if (message.feeCoin != null && message.hasOwnProperty("feeCoin"))
+            if (message.feeCoin != null && Object.hasOwnProperty.call(message, "feeCoin"))
                 writer.uint32(/* id 8, wireType 0 =*/64).int32(message.feeCoin);
             if (message.result_list_detail != null && message.result_list_detail.length)
                 for (var i = 0; i < message.result_list_detail.length; ++i)
@@ -5000,15 +5000,15 @@ $root.proto = (function() {
         ScoreDescDetail.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.type != null && message.hasOwnProperty("type"))
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
-            if (message.fannum != null && message.hasOwnProperty("fannum"))
+            if (message.fannum != null && Object.hasOwnProperty.call(message, "fannum"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.fannum);
-            if (message.score != null && message.hasOwnProperty("score"))
+            if (message.score != null && Object.hasOwnProperty.call(message, "score"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.score);
-            if (message.obtainsit != null && message.hasOwnProperty("obtainsit"))
+            if (message.obtainsit != null && Object.hasOwnProperty.call(message, "obtainsit"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.obtainsit);
-            if (message.selfseat != null && message.hasOwnProperty("selfseat"))
+            if (message.selfseat != null && Object.hasOwnProperty.call(message, "selfseat"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.selfseat);
             if (message.score_change != null && message.score_change.length)
                 for (var i = 0; i < message.score_change.length; ++i)
@@ -5019,7 +5019,7 @@ $root.proto = (function() {
             if (message.fan_num != null && message.fan_num.length)
                 for (var i = 0; i < message.fan_num.length; ++i)
                     writer.uint32(/* id 8, wireType 0 =*/64).int32(message.fan_num[i]);
-            if (message.huCardID != null && message.hasOwnProperty("huCardID"))
+            if (message.huCardID != null && Object.hasOwnProperty.call(message, "huCardID"))
                 writer.uint32(/* id 9, wireType 0 =*/72).int32(message.huCardID);
             return writer;
         };
@@ -5536,73 +5536,73 @@ $root.proto = (function() {
         PlayerInfo.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.UserName != null && message.hasOwnProperty("UserName"))
+            if (message.UserName != null && Object.hasOwnProperty.call(message, "UserName"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.UserName);
-            if (message.UsershowName != null && message.hasOwnProperty("UsershowName"))
+            if (message.UsershowName != null && Object.hasOwnProperty.call(message, "UsershowName"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.UsershowName);
-            if (message.UserImage != null && message.hasOwnProperty("UserImage"))
+            if (message.UserImage != null && Object.hasOwnProperty.call(message, "UserImage"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.UserImage);
-            if (message.UserSit != null && message.hasOwnProperty("UserSit"))
+            if (message.UserSit != null && Object.hasOwnProperty.call(message, "UserSit"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.UserSit);
-            if (message.Integral != null && message.hasOwnProperty("Integral"))
+            if (message.Integral != null && Object.hasOwnProperty.call(message, "Integral"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.Integral);
-            if (message.Coin != null && message.hasOwnProperty("Coin"))
+            if (message.Coin != null && Object.hasOwnProperty.call(message, "Coin"))
                 writer.uint32(/* id 6, wireType 0 =*/48).int64(message.Coin);
-            if (message.NowLevel != null && message.hasOwnProperty("NowLevel"))
+            if (message.NowLevel != null && Object.hasOwnProperty.call(message, "NowLevel"))
                 $root.proto.Rank.encode(message.NowLevel, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
-            if (message.HisLevel != null && message.hasOwnProperty("HisLevel"))
+            if (message.HisLevel != null && Object.hasOwnProperty.call(message, "HisLevel"))
                 $root.proto.Rank.encode(message.HisLevel, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
-            if (message.Stage != null && message.hasOwnProperty("Stage"))
+            if (message.Stage != null && Object.hasOwnProperty.call(message, "Stage"))
                 writer.uint32(/* id 9, wireType 0 =*/72).int32(message.Stage);
-            if (message.Ranking != null && message.hasOwnProperty("Ranking"))
+            if (message.Ranking != null && Object.hasOwnProperty.call(message, "Ranking"))
                 writer.uint32(/* id 10, wireType 0 =*/80).int32(message.Ranking);
-            if (message.WinIntegral != null && message.hasOwnProperty("WinIntegral"))
+            if (message.WinIntegral != null && Object.hasOwnProperty.call(message, "WinIntegral"))
                 writer.uint32(/* id 11, wireType 0 =*/88).int32(message.WinIntegral);
-            if (message.TotalNum != null && message.hasOwnProperty("TotalNum"))
+            if (message.TotalNum != null && Object.hasOwnProperty.call(message, "TotalNum"))
                 writer.uint32(/* id 12, wireType 0 =*/96).int32(message.TotalNum);
-            if (message.ReadyNum != null && message.hasOwnProperty("ReadyNum"))
+            if (message.ReadyNum != null && Object.hasOwnProperty.call(message, "ReadyNum"))
                 writer.uint32(/* id 13, wireType 0 =*/104).int32(message.ReadyNum);
-            if (message.HuNum != null && message.hasOwnProperty("HuNum"))
+            if (message.HuNum != null && Object.hasOwnProperty.call(message, "HuNum"))
                 writer.uint32(/* id 14, wireType 0 =*/112).int32(message.HuNum);
-            if (message.GunNum != null && message.hasOwnProperty("GunNum"))
+            if (message.GunNum != null && Object.hasOwnProperty.call(message, "GunNum"))
                 writer.uint32(/* id 15, wireType 0 =*/120).int32(message.GunNum);
-            if (message.ZimoNum != null && message.hasOwnProperty("ZimoNum"))
+            if (message.ZimoNum != null && Object.hasOwnProperty.call(message, "ZimoNum"))
                 writer.uint32(/* id 16, wireType 0 =*/128).int32(message.ZimoNum);
-            if (message.Sex != null && message.hasOwnProperty("Sex"))
+            if (message.Sex != null && Object.hasOwnProperty.call(message, "Sex"))
                 writer.uint32(/* id 17, wireType 0 =*/136).int32(message.Sex);
-            if (message.IsMember != null && message.hasOwnProperty("IsMember"))
+            if (message.IsMember != null && Object.hasOwnProperty.call(message, "IsMember"))
                 writer.uint32(/* id 18, wireType 0 =*/144).bool(message.IsMember);
-            if (message.HistoryMaxLevel != null && message.hasOwnProperty("HistoryMaxLevel"))
+            if (message.HistoryMaxLevel != null && Object.hasOwnProperty.call(message, "HistoryMaxLevel"))
                 $root.proto.Rank.encode(message.HistoryMaxLevel, writer.uint32(/* id 19, wireType 2 =*/154).fork()).ldelim();
-            if (message.Average_Rank != null && message.hasOwnProperty("Average_Rank"))
+            if (message.Average_Rank != null && Object.hasOwnProperty.call(message, "Average_Rank"))
                 writer.uint32(/* id 20, wireType 0 =*/160).int32(message.Average_Rank);
-            if (message.Openingrate != null && message.hasOwnProperty("Openingrate"))
+            if (message.Openingrate != null && Object.hasOwnProperty.call(message, "Openingrate"))
                 writer.uint32(/* id 21, wireType 0 =*/168).int32(message.Openingrate);
-            if (message.Round2_rank1 != null && message.hasOwnProperty("Round2_rank1"))
+            if (message.Round2_rank1 != null && Object.hasOwnProperty.call(message, "Round2_rank1"))
                 writer.uint32(/* id 22, wireType 0 =*/176).int32(message.Round2_rank1);
-            if (message.Round2_rank2 != null && message.hasOwnProperty("Round2_rank2"))
+            if (message.Round2_rank2 != null && Object.hasOwnProperty.call(message, "Round2_rank2"))
                 writer.uint32(/* id 23, wireType 0 =*/184).int32(message.Round2_rank2);
-            if (message.Round2_rank3 != null && message.hasOwnProperty("Round2_rank3"))
+            if (message.Round2_rank3 != null && Object.hasOwnProperty.call(message, "Round2_rank3"))
                 writer.uint32(/* id 24, wireType 0 =*/192).int32(message.Round2_rank3);
-            if (message.Round2_rank4 != null && message.hasOwnProperty("Round2_rank4"))
+            if (message.Round2_rank4 != null && Object.hasOwnProperty.call(message, "Round2_rank4"))
                 writer.uint32(/* id 25, wireType 0 =*/200).int32(message.Round2_rank4);
-            if (message.Round4_rank1 != null && message.hasOwnProperty("Round4_rank1"))
+            if (message.Round4_rank1 != null && Object.hasOwnProperty.call(message, "Round4_rank1"))
                 writer.uint32(/* id 26, wireType 0 =*/208).int32(message.Round4_rank1);
-            if (message.Round4_rank2 != null && message.hasOwnProperty("Round4_rank2"))
+            if (message.Round4_rank2 != null && Object.hasOwnProperty.call(message, "Round4_rank2"))
                 writer.uint32(/* id 27, wireType 0 =*/216).int32(message.Round4_rank2);
-            if (message.Round4_rank3 != null && message.hasOwnProperty("Round4_rank3"))
+            if (message.Round4_rank3 != null && Object.hasOwnProperty.call(message, "Round4_rank3"))
                 writer.uint32(/* id 28, wireType 0 =*/224).int32(message.Round4_rank3);
-            if (message.Round4_rank4 != null && message.hasOwnProperty("Round4_rank4"))
+            if (message.Round4_rank4 != null && Object.hasOwnProperty.call(message, "Round4_rank4"))
                 writer.uint32(/* id 29, wireType 0 =*/232).int32(message.Round4_rank4);
-            if (message.SocietyContributionValue != null && message.hasOwnProperty("SocietyContributionValue"))
+            if (message.SocietyContributionValue != null && Object.hasOwnProperty.call(message, "SocietyContributionValue"))
                 writer.uint32(/* id 30, wireType 0 =*/240).int32(message.SocietyContributionValue);
-            if (message.SocietyPracticeType != null && message.hasOwnProperty("SocietyPracticeType"))
+            if (message.SocietyPracticeType != null && Object.hasOwnProperty.call(message, "SocietyPracticeType"))
                 writer.uint32(/* id 31, wireType 0 =*/248).int32(message.SocietyPracticeType);
-            if (message.SocietyPracticeFirstCount != null && message.hasOwnProperty("SocietyPracticeFirstCount"))
+            if (message.SocietyPracticeFirstCount != null && Object.hasOwnProperty.call(message, "SocietyPracticeFirstCount"))
                 writer.uint32(/* id 32, wireType 0 =*/256).int32(message.SocietyPracticeFirstCount);
-            if (message.SocietyPracticeSecondCount != null && message.hasOwnProperty("SocietyPracticeSecondCount"))
+            if (message.SocietyPracticeSecondCount != null && Object.hasOwnProperty.call(message, "SocietyPracticeSecondCount"))
                 writer.uint32(/* id 33, wireType 0 =*/264).int32(message.SocietyPracticeSecondCount);
-            if (message.SocietyPracticeFourCount != null && message.hasOwnProperty("SocietyPracticeFourCount"))
+            if (message.SocietyPracticeFourCount != null && Object.hasOwnProperty.call(message, "SocietyPracticeFourCount"))
                 writer.uint32(/* id 34, wireType 0 =*/272).int32(message.SocietyPracticeFourCount);
             return writer;
         };
@@ -6257,37 +6257,37 @@ $root.proto = (function() {
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.seatNo);
             writer.uint32(/* id 2, wireType 0 =*/16).int64(message.userId);
-            if (message.type != null && message.hasOwnProperty("type"))
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.type);
-            if (message.state != null && message.hasOwnProperty("state"))
+            if (message.state != null && Object.hasOwnProperty.call(message, "state"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.state);
-            if (message.userName != null && message.hasOwnProperty("userName"))
+            if (message.userName != null && Object.hasOwnProperty.call(message, "userName"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.userName);
-            if (message.channel != null && message.hasOwnProperty("channel"))
+            if (message.channel != null && Object.hasOwnProperty.call(message, "channel"))
                 writer.uint32(/* id 6, wireType 2 =*/50).string(message.channel);
-            if (message.proxy != null && message.hasOwnProperty("proxy"))
+            if (message.proxy != null && Object.hasOwnProperty.call(message, "proxy"))
                 writer.uint32(/* id 7, wireType 2 =*/58).string(message.proxy);
-            if (message.group != null && message.hasOwnProperty("group"))
+            if (message.group != null && Object.hasOwnProperty.call(message, "group"))
                 writer.uint32(/* id 8, wireType 2 =*/66).string(message.group);
-            if (message.nickName != null && message.hasOwnProperty("nickName"))
+            if (message.nickName != null && Object.hasOwnProperty.call(message, "nickName"))
                 writer.uint32(/* id 9, wireType 2 =*/74).string(message.nickName);
-            if (message.avatar != null && message.hasOwnProperty("avatar"))
+            if (message.avatar != null && Object.hasOwnProperty.call(message, "avatar"))
                 writer.uint32(/* id 10, wireType 2 =*/82).string(message.avatar);
             writer.uint32(/* id 11, wireType 0 =*/88).int64(message.chips);
-            if (message.style != null && message.hasOwnProperty("style"))
+            if (message.style != null && Object.hasOwnProperty.call(message, "style"))
                 writer.uint32(/* id 12, wireType 0 =*/96).int32(message.style);
-            if (message.ability != null && message.hasOwnProperty("ability"))
+            if (message.ability != null && Object.hasOwnProperty.call(message, "ability"))
                 writer.uint32(/* id 13, wireType 0 =*/104).int32(message.ability);
             if (message.attributes != null && message.attributes.length)
                 for (var i = 0; i < message.attributes.length; ++i)
                     writer.uint32(/* id 14, wireType 0 =*/112).int32(message.attributes[i]);
-            if (message.money != null && message.hasOwnProperty("money"))
+            if (message.money != null && Object.hasOwnProperty.call(message, "money"))
                 writer.uint32(/* id 15, wireType 0 =*/120).int64(message.money);
-            if (message.curChips != null && message.hasOwnProperty("curChips"))
+            if (message.curChips != null && Object.hasOwnProperty.call(message, "curChips"))
                 writer.uint32(/* id 16, wireType 0 =*/128).int64(message.curChips);
-            if (message.kickOut != null && message.hasOwnProperty("kickOut"))
+            if (message.kickOut != null && Object.hasOwnProperty.call(message, "kickOut"))
                 writer.uint32(/* id 17, wireType 0 =*/136).bool(message.kickOut);
-            if (message.serviceMoney != null && message.hasOwnProperty("serviceMoney"))
+            if (message.serviceMoney != null && Object.hasOwnProperty.call(message, "serviceMoney"))
                 writer.uint32(/* id 18, wireType 0 =*/144).int64(message.serviceMoney);
             return writer;
         };
@@ -6744,15 +6744,15 @@ $root.proto = (function() {
         ReqLogin.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.certType != null && message.hasOwnProperty("certType"))
+            if (message.certType != null && Object.hasOwnProperty.call(message, "certType"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.certType);
-            if (message.cert != null && message.hasOwnProperty("cert"))
+            if (message.cert != null && Object.hasOwnProperty.call(message, "cert"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.cert);
-            if (message.nickName != null && message.hasOwnProperty("nickName"))
+            if (message.nickName != null && Object.hasOwnProperty.call(message, "nickName"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.nickName);
-            if (message.avatar != null && message.hasOwnProperty("avatar"))
+            if (message.avatar != null && Object.hasOwnProperty.call(message, "avatar"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.avatar);
-            if (message.channelId != null && message.hasOwnProperty("channelId"))
+            if (message.channelId != null && Object.hasOwnProperty.call(message, "channelId"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.channelId);
             if (message.kvList != null && message.kvList.length)
                 for (var i = 0; i < message.kvList.length; ++i)
@@ -7015,21 +7015,21 @@ $root.proto = (function() {
             if (!writer)
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
-            if (message.userId != null && message.hasOwnProperty("userId"))
+            if (message.userId != null && Object.hasOwnProperty.call(message, "userId"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int64(message.userId);
-            if (message.userName != null && message.hasOwnProperty("userName"))
+            if (message.userName != null && Object.hasOwnProperty.call(message, "userName"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.userName);
-            if (message.nickName != null && message.hasOwnProperty("nickName"))
+            if (message.nickName != null && Object.hasOwnProperty.call(message, "nickName"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.nickName);
-            if (message.avatar != null && message.hasOwnProperty("avatar"))
+            if (message.avatar != null && Object.hasOwnProperty.call(message, "avatar"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.avatar);
-            if (message.goldCoin != null && message.hasOwnProperty("goldCoin"))
+            if (message.goldCoin != null && Object.hasOwnProperty.call(message, "goldCoin"))
                 writer.uint32(/* id 6, wireType 0 =*/48).int64(message.goldCoin);
-            if (message.diamond != null && message.hasOwnProperty("diamond"))
+            if (message.diamond != null && Object.hasOwnProperty.call(message, "diamond"))
                 writer.uint32(/* id 7, wireType 0 =*/56).int64(message.diamond);
-            if (message.roomId != null && message.hasOwnProperty("roomId"))
+            if (message.roomId != null && Object.hasOwnProperty.call(message, "roomId"))
                 writer.uint32(/* id 8, wireType 0 =*/64).int32(message.roomId);
-            if (message.tableId != null && message.hasOwnProperty("tableId"))
+            if (message.tableId != null && Object.hasOwnProperty.call(message, "tableId"))
                 writer.uint32(/* id 9, wireType 2 =*/74).string(message.tableId);
             if (message.properties != null && message.properties.length)
                 for (var i = 0; i < message.properties.length; ++i)
@@ -7393,7 +7393,7 @@ $root.proto = (function() {
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
             writer.uint32(/* id 2, wireType 0 =*/16).int64(message.userId);
-            if (message.goldCoin != null && message.hasOwnProperty("goldCoin"))
+            if (message.goldCoin != null && Object.hasOwnProperty.call(message, "goldCoin"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int64(message.goldCoin);
             return writer;
         };
@@ -8351,9 +8351,9 @@ $root.proto = (function() {
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
             writer.uint32(/* id 2, wireType 0 =*/16).int64(message.userId);
-            if (message.available != null && message.hasOwnProperty("available"))
+            if (message.available != null && Object.hasOwnProperty.call(message, "available"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.available);
-            if (message.goldCoin != null && message.hasOwnProperty("goldCoin"))
+            if (message.goldCoin != null && Object.hasOwnProperty.call(message, "goldCoin"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int64(message.goldCoin);
             return writer;
         };
@@ -8560,11 +8560,11 @@ $root.proto = (function() {
             writer.uint32(/* id 1, wireType 0 =*/8).int64(message.userId);
             writer.uint32(/* id 2, wireType 0 =*/16).int32(message.roomId);
             writer.uint32(/* id 3, wireType 0 =*/24).int64(message.mapId);
-            if (message.tableId != null && message.hasOwnProperty("tableId"))
+            if (message.tableId != null && Object.hasOwnProperty.call(message, "tableId"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.tableId);
-            if (message.goldCoin != null && message.hasOwnProperty("goldCoin"))
+            if (message.goldCoin != null && Object.hasOwnProperty.call(message, "goldCoin"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int64(message.goldCoin);
-            if (message.type != null && message.hasOwnProperty("type"))
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 6, wireType 0 =*/48).int32(message.type);
             return writer;
         };
@@ -8802,15 +8802,15 @@ $root.proto = (function() {
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
             writer.uint32(/* id 2, wireType 0 =*/16).int64(message.userId);
             writer.uint32(/* id 3, wireType 0 =*/24).int32(message.roomId);
-            if (message.tableId != null && message.hasOwnProperty("tableId"))
+            if (message.tableId != null && Object.hasOwnProperty.call(message, "tableId"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.tableId);
-            if (message.tableMapId != null && message.hasOwnProperty("tableMapId"))
+            if (message.tableMapId != null && Object.hasOwnProperty.call(message, "tableMapId"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int64(message.tableMapId);
-            if (message.server != null && message.hasOwnProperty("server"))
+            if (message.server != null && Object.hasOwnProperty.call(message, "server"))
                 $root.proto.Server.encode(message.server, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
-            if (message.type != null && message.hasOwnProperty("type"))
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 7, wireType 0 =*/56).int32(message.type);
-            if (message.goldCoin != null && message.hasOwnProperty("goldCoin"))
+            if (message.goldCoin != null && Object.hasOwnProperty.call(message, "goldCoin"))
                 writer.uint32(/* id 8, wireType 0 =*/64).int64(message.goldCoin);
             return writer;
         };
@@ -9026,7 +9026,7 @@ $root.proto = (function() {
             writer.uint32(/* id 1, wireType 0 =*/8).int64(message.userId);
             writer.uint32(/* id 2, wireType 0 =*/16).int32(message.roomId);
             writer.uint32(/* id 3, wireType 0 =*/24).int64(message.mapId);
-            if (message.tableId != null && message.hasOwnProperty("tableId"))
+            if (message.tableId != null && Object.hasOwnProperty.call(message, "tableId"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.tableId);
             return writer;
         };
@@ -9579,13 +9579,13 @@ $root.proto = (function() {
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.seatNo);
             writer.uint32(/* id 2, wireType 2 =*/18).string(message.nickName);
-            if (message.winChips != null && message.hasOwnProperty("winChips"))
+            if (message.winChips != null && Object.hasOwnProperty.call(message, "winChips"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int64(message.winChips);
-            if (message.surplusCards != null && message.hasOwnProperty("surplusCards"))
+            if (message.surplusCards != null && Object.hasOwnProperty.call(message, "surplusCards"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.surplusCards);
-            if (message.bombCount != null && message.hasOwnProperty("bombCount"))
+            if (message.bombCount != null && Object.hasOwnProperty.call(message, "bombCount"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.bombCount);
-            if (message.allOff != null && message.hasOwnProperty("allOff"))
+            if (message.allOff != null && Object.hasOwnProperty.call(message, "allOff"))
                 writer.uint32(/* id 6, wireType 0 =*/48).int32(message.allOff);
             return writer;
         };
@@ -9785,7 +9785,7 @@ $root.proto = (function() {
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int64(message.userId);
             writer.uint32(/* id 2, wireType 2 =*/18).string(message.roundId);
-            if (message.orderId != null && message.hasOwnProperty("orderId"))
+            if (message.orderId != null && Object.hasOwnProperty.call(message, "orderId"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.orderId);
             writer.uint32(/* id 4, wireType 0 =*/32).int64(message.createTime);
             return writer;
@@ -9986,7 +9986,7 @@ $root.proto = (function() {
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
             writer.uint32(/* id 2, wireType 0 =*/16).int64(message.userId);
             writer.uint32(/* id 3, wireType 2 =*/26).string(message.roundId);
-            if (message.baseScore != null && message.hasOwnProperty("baseScore"))
+            if (message.baseScore != null && Object.hasOwnProperty.call(message, "baseScore"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.baseScore);
             if (message.records != null && message.records.length)
                 for (var i = 0; i < message.records.length; ++i)
@@ -10202,9 +10202,9 @@ $root.proto = (function() {
             writer.uint32(/* id 1, wireType 0 =*/8).int64(message.userId);
             writer.uint32(/* id 2, wireType 2 =*/18).string(message.tableId);
             writer.uint32(/* id 3, wireType 0 =*/24).int64(message.tableMapId);
-            if (message.goldCoin != null && message.hasOwnProperty("goldCoin"))
+            if (message.goldCoin != null && Object.hasOwnProperty.call(message, "goldCoin"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int64(message.goldCoin);
-            if (message.seatNo != null && message.hasOwnProperty("seatNo"))
+            if (message.seatNo != null && Object.hasOwnProperty.call(message, "seatNo"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.seatNo);
             return writer;
         };
@@ -10454,19 +10454,19 @@ $root.proto = (function() {
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
             writer.uint32(/* id 2, wireType 0 =*/16).int64(message.userId);
             writer.uint32(/* id 3, wireType 2 =*/26).string(message.tableId);
-            if (message.seatNo != null && message.hasOwnProperty("seatNo"))
+            if (message.seatNo != null && Object.hasOwnProperty.call(message, "seatNo"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.seatNo);
-            if (message.table != null && message.hasOwnProperty("table"))
+            if (message.table != null && Object.hasOwnProperty.call(message, "table"))
                 $root.proto.Table.encode(message.table, writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
-            if (message.stage != null && message.hasOwnProperty("stage"))
+            if (message.stage != null && Object.hasOwnProperty.call(message, "stage"))
                 writer.uint32(/* id 6, wireType 0 =*/48).int32(message.stage);
-            if (message.remainingSeconds != null && message.hasOwnProperty("remainingSeconds"))
+            if (message.remainingSeconds != null && Object.hasOwnProperty.call(message, "remainingSeconds"))
                 writer.uint32(/* id 7, wireType 0 =*/56).int32(message.remainingSeconds);
-            if (message.info != null && message.hasOwnProperty("info"))
+            if (message.info != null && Object.hasOwnProperty.call(message, "info"))
                 $root.proto.ReconnectionInfo.encode(message.info, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
-            if (message.countdown != null && message.hasOwnProperty("countdown"))
+            if (message.countdown != null && Object.hasOwnProperty.call(message, "countdown"))
                 $root.proto.Countdown.encode(message.countdown, writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
-            if (message.roundId != null && message.hasOwnProperty("roundId"))
+            if (message.roundId != null && Object.hasOwnProperty.call(message, "roundId"))
                 writer.uint32(/* id 10, wireType 2 =*/82).string(message.roundId);
             return writer;
         };
@@ -10708,13 +10708,13 @@ $root.proto = (function() {
             if (message.players != null && message.players.length)
                 for (var i = 0; i < message.players.length; ++i)
                     $root.proto.ReconnectPlayerInfo.encode(message.players[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
-            if (message.currentActionSeat != null && message.hasOwnProperty("currentActionSeat"))
+            if (message.currentActionSeat != null && Object.hasOwnProperty.call(message, "currentActionSeat"))
                 writer.uint32(/* id 2, wireType 0 =*/16).int32(message.currentActionSeat);
-            if (message.operations != null && message.hasOwnProperty("operations"))
+            if (message.operations != null && Object.hasOwnProperty.call(message, "operations"))
                 $root.proto.NotUserOperation.encode(message.operations, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
-            if (message.banker != null && message.hasOwnProperty("banker"))
+            if (message.banker != null && Object.hasOwnProperty.call(message, "banker"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.banker);
-            if (message.trust != null && message.hasOwnProperty("trust"))
+            if (message.trust != null && Object.hasOwnProperty.call(message, "trust"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.trust);
             return writer;
         };
@@ -11701,7 +11701,7 @@ $root.proto = (function() {
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 2 =*/10).string(message.tableId);
             writer.uint32(/* id 2, wireType 0 =*/16).int32(message.type);
-            if (message.chair != null && message.hasOwnProperty("chair"))
+            if (message.chair != null && Object.hasOwnProperty.call(message, "chair"))
                 $root.proto.Chair.encode(message.chair, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
             return writer;
         };
@@ -13583,6 +13583,7 @@ $root.proto = (function() {
          * @interface IOperation
          * @property {number} type Operation type
          * @property {Array.<proto.ICardsGroup>|null} [options] Operation options
+         * @property {number|null} [canGangYao] Operation canGangYao
          */
 
         /**
@@ -13618,6 +13619,14 @@ $root.proto = (function() {
         Operation.prototype.options = $util.emptyArray;
 
         /**
+         * Operation canGangYao.
+         * @member {number} canGangYao
+         * @memberof proto.Operation
+         * @instance
+         */
+        Operation.prototype.canGangYao = 0;
+
+        /**
          * Creates a new Operation instance using the specified properties.
          * @function create
          * @memberof proto.Operation
@@ -13645,6 +13654,8 @@ $root.proto = (function() {
             if (message.options != null && message.options.length)
                 for (var i = 0; i < message.options.length; ++i)
                     $root.proto.CardsGroup.encode(message.options[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.canGangYao != null && Object.hasOwnProperty.call(message, "canGangYao"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.canGangYao);
             return writer;
         };
 
@@ -13686,6 +13697,9 @@ $root.proto = (function() {
                     if (!(message.options && message.options.length))
                         message.options = [];
                     message.options.push($root.proto.CardsGroup.decode(reader, reader.uint32()));
+                    break;
+                case 3:
+                    message.canGangYao = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -13735,10 +13749,524 @@ $root.proto = (function() {
                         return "options." + error;
                 }
             }
+            if (message.canGangYao != null && message.hasOwnProperty("canGangYao"))
+                if (!$util.isInteger(message.canGangYao))
+                    return "canGangYao: integer expected";
             return null;
         };
 
         return Operation;
+    })();
+
+    proto.NotUserQishouhu = (function() {
+
+        /**
+         * Properties of a NotUserQishouhu.
+         * @memberof proto
+         * @interface INotUserQishouhu
+         * @property {Array.<proto.IQishouhu>|null} [qishouhus] NotUserQishouhu qishouhus
+         */
+
+        /**
+         * Constructs a new NotUserQishouhu.
+         * @memberof proto
+         * @classdesc Represents a NotUserQishouhu.
+         * @implements INotUserQishouhu
+         * @constructor
+         * @param {proto.INotUserQishouhu=} [properties] Properties to set
+         */
+        function NotUserQishouhu(properties) {
+            this.qishouhus = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * NotUserQishouhu qishouhus.
+         * @member {Array.<proto.IQishouhu>} qishouhus
+         * @memberof proto.NotUserQishouhu
+         * @instance
+         */
+        NotUserQishouhu.prototype.qishouhus = $util.emptyArray;
+
+        /**
+         * Creates a new NotUserQishouhu instance using the specified properties.
+         * @function create
+         * @memberof proto.NotUserQishouhu
+         * @static
+         * @param {proto.INotUserQishouhu=} [properties] Properties to set
+         * @returns {proto.NotUserQishouhu} NotUserQishouhu instance
+         */
+        NotUserQishouhu.create = function create(properties) {
+            return new NotUserQishouhu(properties);
+        };
+
+        /**
+         * Encodes the specified NotUserQishouhu message. Does not implicitly {@link proto.NotUserQishouhu.verify|verify} messages.
+         * @function encode
+         * @memberof proto.NotUserQishouhu
+         * @static
+         * @param {proto.INotUserQishouhu} message NotUserQishouhu message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        NotUserQishouhu.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.qishouhus != null && message.qishouhus.length)
+                for (var i = 0; i < message.qishouhus.length; ++i)
+                    $root.proto.Qishouhu.encode(message.qishouhus[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified NotUserQishouhu message, length delimited. Does not implicitly {@link proto.NotUserQishouhu.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof proto.NotUserQishouhu
+         * @static
+         * @param {proto.INotUserQishouhu} message NotUserQishouhu message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        NotUserQishouhu.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a NotUserQishouhu message from the specified reader or buffer.
+         * @function decode
+         * @memberof proto.NotUserQishouhu
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {proto.NotUserQishouhu} NotUserQishouhu
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        NotUserQishouhu.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.NotUserQishouhu();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    if (!(message.qishouhus && message.qishouhus.length))
+                        message.qishouhus = [];
+                    message.qishouhus.push($root.proto.Qishouhu.decode(reader, reader.uint32()));
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a NotUserQishouhu message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof proto.NotUserQishouhu
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {proto.NotUserQishouhu} NotUserQishouhu
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        NotUserQishouhu.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a NotUserQishouhu message.
+         * @function verify
+         * @memberof proto.NotUserQishouhu
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        NotUserQishouhu.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.qishouhus != null && message.hasOwnProperty("qishouhus")) {
+                if (!Array.isArray(message.qishouhus))
+                    return "qishouhus: array expected";
+                for (var i = 0; i < message.qishouhus.length; ++i) {
+                    var error = $root.proto.Qishouhu.verify(message.qishouhus[i]);
+                    if (error)
+                        return "qishouhus." + error;
+                }
+            }
+            return null;
+        };
+
+        return NotUserQishouhu;
+    })();
+
+    proto.Qishouhu = (function() {
+
+        /**
+         * Properties of a Qishouhu.
+         * @memberof proto
+         * @interface IQishouhu
+         * @property {Array.<number>|null} [qishouType] Qishouhu qishouType
+         * @property {number|null} [winners] Qishouhu winners
+         * @property {number|null} [qishouFan] Qishouhu qishouFan
+         */
+
+        /**
+         * Constructs a new Qishouhu.
+         * @memberof proto
+         * @classdesc Represents a Qishouhu.
+         * @implements IQishouhu
+         * @constructor
+         * @param {proto.IQishouhu=} [properties] Properties to set
+         */
+        function Qishouhu(properties) {
+            this.qishouType = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * Qishouhu qishouType.
+         * @member {Array.<number>} qishouType
+         * @memberof proto.Qishouhu
+         * @instance
+         */
+        Qishouhu.prototype.qishouType = $util.emptyArray;
+
+        /**
+         * Qishouhu winners.
+         * @member {number} winners
+         * @memberof proto.Qishouhu
+         * @instance
+         */
+        Qishouhu.prototype.winners = 0;
+
+        /**
+         * Qishouhu qishouFan.
+         * @member {number} qishouFan
+         * @memberof proto.Qishouhu
+         * @instance
+         */
+        Qishouhu.prototype.qishouFan = 0;
+
+        /**
+         * Creates a new Qishouhu instance using the specified properties.
+         * @function create
+         * @memberof proto.Qishouhu
+         * @static
+         * @param {proto.IQishouhu=} [properties] Properties to set
+         * @returns {proto.Qishouhu} Qishouhu instance
+         */
+        Qishouhu.create = function create(properties) {
+            return new Qishouhu(properties);
+        };
+
+        /**
+         * Encodes the specified Qishouhu message. Does not implicitly {@link proto.Qishouhu.verify|verify} messages.
+         * @function encode
+         * @memberof proto.Qishouhu
+         * @static
+         * @param {proto.IQishouhu} message Qishouhu message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Qishouhu.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.qishouType != null && message.qishouType.length)
+                for (var i = 0; i < message.qishouType.length; ++i)
+                    writer.uint32(/* id 1, wireType 0 =*/8).int32(message.qishouType[i]);
+            if (message.winners != null && Object.hasOwnProperty.call(message, "winners"))
+                writer.uint32(/* id 2, wireType 0 =*/16).int32(message.winners);
+            if (message.qishouFan != null && Object.hasOwnProperty.call(message, "qishouFan"))
+                writer.uint32(/* id 3, wireType 0 =*/24).int32(message.qishouFan);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified Qishouhu message, length delimited. Does not implicitly {@link proto.Qishouhu.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof proto.Qishouhu
+         * @static
+         * @param {proto.IQishouhu} message Qishouhu message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        Qishouhu.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes a Qishouhu message from the specified reader or buffer.
+         * @function decode
+         * @memberof proto.Qishouhu
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {proto.Qishouhu} Qishouhu
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Qishouhu.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.Qishouhu();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    if (!(message.qishouType && message.qishouType.length))
+                        message.qishouType = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.qishouType.push(reader.int32());
+                    } else
+                        message.qishouType.push(reader.int32());
+                    break;
+                case 2:
+                    message.winners = reader.int32();
+                    break;
+                case 3:
+                    message.qishouFan = reader.int32();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes a Qishouhu message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof proto.Qishouhu
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {proto.Qishouhu} Qishouhu
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        Qishouhu.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies a Qishouhu message.
+         * @function verify
+         * @memberof proto.Qishouhu
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        Qishouhu.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.qishouType != null && message.hasOwnProperty("qishouType")) {
+                if (!Array.isArray(message.qishouType))
+                    return "qishouType: array expected";
+                for (var i = 0; i < message.qishouType.length; ++i)
+                    if (!$util.isInteger(message.qishouType[i]))
+                        return "qishouType: integer[] expected";
+            }
+            if (message.winners != null && message.hasOwnProperty("winners"))
+                if (!$util.isInteger(message.winners))
+                    return "winners: integer expected";
+            if (message.qishouFan != null && message.hasOwnProperty("qishouFan"))
+                if (!$util.isInteger(message.qishouFan))
+                    return "qishouFan: integer expected";
+            return null;
+        };
+
+        return Qishouhu;
+    })();
+
+    proto.AckQishouhu = (function() {
+
+        /**
+         * Properties of an AckQishouhu.
+         * @memberof proto
+         * @interface IAckQishouhu
+         * @property {Array.<proto.IHandCards>|null} [playerCards] AckQishouhu playerCards
+         * @property {Array.<proto.IQishouhu>|null} [qishouhus] AckQishouhu qishouhus
+         */
+
+        /**
+         * Constructs a new AckQishouhu.
+         * @memberof proto
+         * @classdesc Represents an AckQishouhu.
+         * @implements IAckQishouhu
+         * @constructor
+         * @param {proto.IAckQishouhu=} [properties] Properties to set
+         */
+        function AckQishouhu(properties) {
+            this.playerCards = [];
+            this.qishouhus = [];
+            if (properties)
+                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * AckQishouhu playerCards.
+         * @member {Array.<proto.IHandCards>} playerCards
+         * @memberof proto.AckQishouhu
+         * @instance
+         */
+        AckQishouhu.prototype.playerCards = $util.emptyArray;
+
+        /**
+         * AckQishouhu qishouhus.
+         * @member {Array.<proto.IQishouhu>} qishouhus
+         * @memberof proto.AckQishouhu
+         * @instance
+         */
+        AckQishouhu.prototype.qishouhus = $util.emptyArray;
+
+        /**
+         * Creates a new AckQishouhu instance using the specified properties.
+         * @function create
+         * @memberof proto.AckQishouhu
+         * @static
+         * @param {proto.IAckQishouhu=} [properties] Properties to set
+         * @returns {proto.AckQishouhu} AckQishouhu instance
+         */
+        AckQishouhu.create = function create(properties) {
+            return new AckQishouhu(properties);
+        };
+
+        /**
+         * Encodes the specified AckQishouhu message. Does not implicitly {@link proto.AckQishouhu.verify|verify} messages.
+         * @function encode
+         * @memberof proto.AckQishouhu
+         * @static
+         * @param {proto.IAckQishouhu} message AckQishouhu message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        AckQishouhu.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.playerCards != null && message.playerCards.length)
+                for (var i = 0; i < message.playerCards.length; ++i)
+                    $root.proto.HandCards.encode(message.playerCards[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
+            if (message.qishouhus != null && message.qishouhus.length)
+                for (var i = 0; i < message.qishouhus.length; ++i)
+                    $root.proto.Qishouhu.encode(message.qishouhus[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified AckQishouhu message, length delimited. Does not implicitly {@link proto.AckQishouhu.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof proto.AckQishouhu
+         * @static
+         * @param {proto.IAckQishouhu} message AckQishouhu message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        AckQishouhu.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an AckQishouhu message from the specified reader or buffer.
+         * @function decode
+         * @memberof proto.AckQishouhu
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {proto.AckQishouhu} AckQishouhu
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        AckQishouhu.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.proto.AckQishouhu();
+            while (reader.pos < end) {
+                var tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 1:
+                    if (!(message.playerCards && message.playerCards.length))
+                        message.playerCards = [];
+                    message.playerCards.push($root.proto.HandCards.decode(reader, reader.uint32()));
+                    break;
+                case 2:
+                    if (!(message.qishouhus && message.qishouhus.length))
+                        message.qishouhus = [];
+                    message.qishouhus.push($root.proto.Qishouhu.decode(reader, reader.uint32()));
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an AckQishouhu message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof proto.AckQishouhu
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {proto.AckQishouhu} AckQishouhu
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        AckQishouhu.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an AckQishouhu message.
+         * @function verify
+         * @memberof proto.AckQishouhu
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        AckQishouhu.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.playerCards != null && message.hasOwnProperty("playerCards")) {
+                if (!Array.isArray(message.playerCards))
+                    return "playerCards: array expected";
+                for (var i = 0; i < message.playerCards.length; ++i) {
+                    var error = $root.proto.HandCards.verify(message.playerCards[i]);
+                    if (error)
+                        return "playerCards." + error;
+                }
+            }
+            if (message.qishouhus != null && message.hasOwnProperty("qishouhus")) {
+                if (!Array.isArray(message.qishouhus))
+                    return "qishouhus: array expected";
+                for (var i = 0; i < message.qishouhus.length; ++i) {
+                    var error = $root.proto.Qishouhu.verify(message.qishouhus[i]);
+                    if (error)
+                        return "qishouhus." + error;
+                }
+            }
+            return null;
+        };
+
+        return AckQishouhu;
     })();
 
     proto.NotGameEnd = (function() {
@@ -13838,11 +14366,11 @@ $root.proto = (function() {
                 for (var i = 0; i < message.playerCards.length; ++i)
                     $root.proto.HandCards.encode(message.playerCards[i], writer.uint32(/* id 1, wireType 2 =*/10).fork()).ldelim();
             writer.uint32(/* id 2, wireType 0 =*/16).int32(message.stage);
-            if (message.result != null && message.hasOwnProperty("result"))
+            if (message.result != null && Object.hasOwnProperty.call(message, "result"))
                 writer.uint32(/* id 3, wireType 0 =*/24).int32(message.result);
-            if (message.winner != null && message.hasOwnProperty("winner"))
+            if (message.winner != null && Object.hasOwnProperty.call(message, "winner"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.winner);
-            if (message.huType != null && message.hasOwnProperty("huType"))
+            if (message.huType != null && Object.hasOwnProperty.call(message, "huType"))
                 writer.uint32(/* id 5, wireType 0 =*/40).int32(message.huType);
             return writer;
         };
@@ -13968,7 +14496,6 @@ $root.proto = (function() {
          * @property {number} result NotGameResult result
          * @property {proto.IPlayerGameResult} player NotGameResult player
          * @property {Array.<proto.IPlayerGameResult>|null} [others] NotGameResult others
-         * @property {Array.<proto.IFan>|null} [fan] NotGameResult fan
          */
 
         /**
@@ -13981,7 +14508,6 @@ $root.proto = (function() {
          */
         function NotGameResult(properties) {
             this.others = [];
-            this.fan = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -14021,14 +14547,6 @@ $root.proto = (function() {
         NotGameResult.prototype.others = $util.emptyArray;
 
         /**
-         * NotGameResult fan.
-         * @member {Array.<proto.IFan>} fan
-         * @memberof proto.NotGameResult
-         * @instance
-         */
-        NotGameResult.prototype.fan = $util.emptyArray;
-
-        /**
          * Creates a new NotGameResult instance using the specified properties.
          * @function create
          * @memberof proto.NotGameResult
@@ -14058,9 +14576,6 @@ $root.proto = (function() {
             if (message.others != null && message.others.length)
                 for (var i = 0; i < message.others.length; ++i)
                     $root.proto.PlayerGameResult.encode(message.others[i], writer.uint32(/* id 4, wireType 2 =*/34).fork()).ldelim();
-            if (message.fan != null && message.fan.length)
-                for (var i = 0; i < message.fan.length; ++i)
-                    $root.proto.Fan.encode(message.fan[i], writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
             return writer;
         };
 
@@ -14108,11 +14623,6 @@ $root.proto = (function() {
                     if (!(message.others && message.others.length))
                         message.others = [];
                     message.others.push($root.proto.PlayerGameResult.decode(reader, reader.uint32()));
-                    break;
-                case 5:
-                    if (!(message.fan && message.fan.length))
-                        message.fan = [];
-                    message.fan.push($root.proto.Fan.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -14171,15 +14681,6 @@ $root.proto = (function() {
                     var error = $root.proto.PlayerGameResult.verify(message.others[i]);
                     if (error)
                         return "others." + error;
-                }
-            }
-            if (message.fan != null && message.hasOwnProperty("fan")) {
-                if (!Array.isArray(message.fan))
-                    return "fan: array expected";
-                for (var i = 0; i < message.fan.length; ++i) {
-                    var error = $root.proto.Fan.verify(message.fan[i]);
-                    if (error)
-                        return "fan." + error;
                 }
             }
             return null;
@@ -14357,6 +14858,8 @@ $root.proto = (function() {
          * @property {number} position PlayerGameResult position
          * @property {number|null} [isWin] PlayerGameResult isWin
          * @property {number|Long|null} [chips] PlayerGameResult chips
+         * @property {Array.<proto.IHandCards>|null} [playerCards] PlayerGameResult playerCards
+         * @property {Array.<proto.IFan>|null} [fan] PlayerGameResult fan
          */
 
         /**
@@ -14368,6 +14871,8 @@ $root.proto = (function() {
          * @param {proto.IPlayerGameResult=} [properties] Properties to set
          */
         function PlayerGameResult(properties) {
+            this.playerCards = [];
+            this.fan = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -14431,6 +14936,22 @@ $root.proto = (function() {
         PlayerGameResult.prototype.chips = $util.Long ? $util.Long.fromBits(0,0,false) : 0;
 
         /**
+         * PlayerGameResult playerCards.
+         * @member {Array.<proto.IHandCards>} playerCards
+         * @memberof proto.PlayerGameResult
+         * @instance
+         */
+        PlayerGameResult.prototype.playerCards = $util.emptyArray;
+
+        /**
+         * PlayerGameResult fan.
+         * @member {Array.<proto.IFan>} fan
+         * @memberof proto.PlayerGameResult
+         * @instance
+         */
+        PlayerGameResult.prototype.fan = $util.emptyArray;
+
+        /**
          * Creates a new PlayerGameResult instance using the specified properties.
          * @function create
          * @memberof proto.PlayerGameResult
@@ -14459,10 +14980,16 @@ $root.proto = (function() {
             writer.uint32(/* id 3, wireType 0 =*/24).int32(message.isZhuang);
             writer.uint32(/* id 4, wireType 0 =*/32).int64(message.money);
             writer.uint32(/* id 5, wireType 0 =*/40).int32(message.position);
-            if (message.isWin != null && message.hasOwnProperty("isWin"))
+            if (message.isWin != null && Object.hasOwnProperty.call(message, "isWin"))
                 writer.uint32(/* id 6, wireType 0 =*/48).int32(message.isWin);
-            if (message.chips != null && message.hasOwnProperty("chips"))
+            if (message.chips != null && Object.hasOwnProperty.call(message, "chips"))
                 writer.uint32(/* id 7, wireType 0 =*/56).int64(message.chips);
+            if (message.playerCards != null && message.playerCards.length)
+                for (var i = 0; i < message.playerCards.length; ++i)
+                    $root.proto.HandCards.encode(message.playerCards[i], writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
+            if (message.fan != null && message.fan.length)
+                for (var i = 0; i < message.fan.length; ++i)
+                    $root.proto.Fan.encode(message.fan[i], writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
             return writer;
         };
 
@@ -14517,6 +15044,16 @@ $root.proto = (function() {
                     break;
                 case 7:
                     message.chips = reader.int64();
+                    break;
+                case 8:
+                    if (!(message.playerCards && message.playerCards.length))
+                        message.playerCards = [];
+                    message.playerCards.push($root.proto.HandCards.decode(reader, reader.uint32()));
+                    break;
+                case 9:
+                    if (!(message.fan && message.fan.length))
+                        message.fan = [];
+                    message.fan.push($root.proto.Fan.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -14579,6 +15116,24 @@ $root.proto = (function() {
             if (message.chips != null && message.hasOwnProperty("chips"))
                 if (!$util.isInteger(message.chips) && !(message.chips && $util.isInteger(message.chips.low) && $util.isInteger(message.chips.high)))
                     return "chips: integer|Long expected";
+            if (message.playerCards != null && message.hasOwnProperty("playerCards")) {
+                if (!Array.isArray(message.playerCards))
+                    return "playerCards: array expected";
+                for (var i = 0; i < message.playerCards.length; ++i) {
+                    var error = $root.proto.HandCards.verify(message.playerCards[i]);
+                    if (error)
+                        return "playerCards." + error;
+                }
+            }
+            if (message.fan != null && message.hasOwnProperty("fan")) {
+                if (!Array.isArray(message.fan))
+                    return "fan: array expected";
+                for (var i = 0; i < message.fan.length; ++i) {
+                    var error = $root.proto.Fan.verify(message.fan[i]);
+                    if (error)
+                        return "fan." + error;
+                }
+            }
             return null;
         };
 
@@ -14711,7 +15266,7 @@ $root.proto = (function() {
             writer.uint32(/* id 5, wireType 0 =*/40).int64(message.userId);
             writer.uint32(/* id 6, wireType 0 =*/48).int32(message.type);
             writer.uint32(/* id 7, wireType 2 =*/58).string(message.content);
-            if (message.through != null && message.hasOwnProperty("through"))
+            if (message.through != null && Object.hasOwnProperty.call(message, "through"))
                 writer.uint32(/* id 8, wireType 2 =*/66).string(message.through);
             return writer;
         };
@@ -14949,7 +15504,7 @@ $root.proto = (function() {
             writer.uint32(/* id 3, wireType 0 =*/24).int32(message.seatNo);
             writer.uint32(/* id 4, wireType 0 =*/32).int32(message.type);
             writer.uint32(/* id 5, wireType 2 =*/42).string(message.content);
-            if (message.through != null && message.hasOwnProperty("through"))
+            if (message.through != null && Object.hasOwnProperty.call(message, "through"))
                 writer.uint32(/* id 6, wireType 2 =*/50).string(message.through);
             return writer;
         };
@@ -16349,7 +16904,7 @@ $root.message = (function() {
         HeartBeatAck.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.time != null && message.hasOwnProperty("time"))
+            if (message.time != null && Object.hasOwnProperty.call(message, "time"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int64(message.time);
             return writer;
         };
@@ -16527,7 +17082,7 @@ $root.message = (function() {
             writer.uint32(/* id 1, wireType 2 =*/10).string(message.userName);
             writer.uint32(/* id 2, wireType 2 =*/18).string(message.avatarUrl);
             writer.uint32(/* id 3, wireType 2 =*/26).string(message.channelId);
-            if (message.gameId != null && message.hasOwnProperty("gameId"))
+            if (message.gameId != null && Object.hasOwnProperty.call(message, "gameId"))
                 writer.uint32(/* id 4, wireType 0 =*/32).int32(message.gameId);
             writer.uint32(/* id 5, wireType 2 =*/42).string(message.ticket);
             return writer;
@@ -16741,15 +17296,15 @@ $root.message = (function() {
             if (!writer)
                 writer = $Writer.create();
             writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
-            if (message.userName != null && message.hasOwnProperty("userName"))
+            if (message.userName != null && Object.hasOwnProperty.call(message, "userName"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.userName);
-            if (message.showName != null && message.hasOwnProperty("showName"))
+            if (message.showName != null && Object.hasOwnProperty.call(message, "showName"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.showName);
-            if (message.userIp != null && message.hasOwnProperty("userIp"))
+            if (message.userIp != null && Object.hasOwnProperty.call(message, "userIp"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.userIp);
-            if (message.enterCode != null && message.hasOwnProperty("enterCode"))
+            if (message.enterCode != null && Object.hasOwnProperty.call(message, "enterCode"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.enterCode);
-            if (message.ingame != null && message.hasOwnProperty("ingame"))
+            if (message.ingame != null && Object.hasOwnProperty.call(message, "ingame"))
                 writer.uint32(/* id 6, wireType 0 =*/48).int32(message.ingame);
             return writer;
         };
@@ -16919,7 +17474,7 @@ $root.message = (function() {
         ByUserKickNtc.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.result != null && message.hasOwnProperty("result"))
+            if (message.result != null && Object.hasOwnProperty.call(message, "result"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
             return writer;
         };
@@ -17103,17 +17658,17 @@ $root.message = (function() {
         NotifyMsgNtc.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.type != null && message.hasOwnProperty("type"))
+            if (message.type != null && Object.hasOwnProperty.call(message, "type"))
                 writer.uint32(/* id 1, wireType 0 =*/8).int32(message.type);
-            if (message.who != null && message.hasOwnProperty("who"))
+            if (message.who != null && Object.hasOwnProperty.call(message, "who"))
                 writer.uint32(/* id 2, wireType 2 =*/18).string(message.who);
-            if (message.title != null && message.hasOwnProperty("title"))
+            if (message.title != null && Object.hasOwnProperty.call(message, "title"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.title);
-            if (message.content != null && message.hasOwnProperty("content"))
+            if (message.content != null && Object.hasOwnProperty.call(message, "content"))
                 writer.uint32(/* id 4, wireType 2 =*/34).string(message.content);
-            if (message.createTime != null && message.hasOwnProperty("createTime"))
+            if (message.createTime != null && Object.hasOwnProperty.call(message, "createTime"))
                 writer.uint32(/* id 5, wireType 2 =*/42).string(message.createTime);
-            if (message.isLoop != null && message.hasOwnProperty("isLoop"))
+            if (message.isLoop != null && Object.hasOwnProperty.call(message, "isLoop"))
                 writer.uint32(/* id 6, wireType 0 =*/48).int32(message.isLoop);
             return writer;
         };

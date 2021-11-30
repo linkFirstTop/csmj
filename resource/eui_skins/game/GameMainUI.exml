@@ -12,20 +12,20 @@
 		<game:GameUserVUI id="gameUser2" y="299" right="7" />
 		<game:GameUserVUI id="gameUser3" x="2" y="848" />
 		<e:Group id="dpText0" x="20" y="258">
-			<e:BitmapLabel id="qsh0" horizontalCenter="0" text="l b" font="cnqshFnt_fnt" visible="false" />
-			<e:BitmapLabel id="zniao0" text="0" verticalCenter="0" x="20"  font="enznFnt_fnt" visible="false"/>
+			<e:BitmapLabel id="qsh0" horizontalCenter="0" text="l b x q" font="cnqshFnt_fnt" visible="false" />
+			<e:BitmapLabel id="zniao0" text="0" verticalCenter="0" x="20" font="cnznFnt_fnt"  visible="false"/>
 		</e:Group>
 		<e:Group id="dpText1" x="1360" y="30">
-			<e:BitmapLabel id="qsh1" text="l b" font="cnqshFnt_fnt" x="-50"  y="-10" visible="false"/>
-			<e:BitmapLabel id="zniao1" text="0" verticalCenter="0" x="110"  font="cnznFnt_fnt" visible="false"/>
+			<e:BitmapLabel id="qsh1" text="l b" font="cnqshFnt_fnt" x="-50" y="-10" visible="false" />
+			<e:BitmapLabel id="zniao1" text="0" verticalCenter="0" x="110" font="cnznFnt_fnt" />
 		</e:Group>
 		<e:Group id="dpText2" x="1655" y="258">
-			<e:BitmapLabel id="qsh2" text="l b" font="cnqshFnt_fnt"  x="0" visible="false"/>
-			<e:BitmapLabel id="zniao2" text="0" verticalCenter="0" x="125"  font="cnznFnt_fnt" visible="false"/>
+			<e:BitmapLabel id="qsh2" text="l b" font="cnqshFnt_fnt" x="0" visible="false" />
+			<e:BitmapLabel id="zniao2" text="0" verticalCenter="0" x="125" font="cnznFnt_fnt" visible="false" />
 		</e:Group>
 		<e:Group id="dpText3" x="20" y="810">
 			<e:BitmapLabel id="qsh3" horizontalCenter="0" text="l b" font="cnqshFnt_fnt" visible="false" />
-			<e:BitmapLabel id="zniao3" text="" font="cnznFnt_fnt" verticalCenter="0" x="20"  visible="false"/>
+			<e:BitmapLabel id="zniao3" text="" font="cnznFnt_fnt" verticalCenter="0" x="20" visible="false" />
 		</e:Group>
 	</e:Group>
 	<e:Group id="gGameInfo">
@@ -91,8 +91,8 @@
 			</e:layout>
 		</e:Group>
 	</e:Group>
-	<e:Image id="imgTHTip" source="gameIcon_tianhu_cn_png" horizontalCenter="0" bottom="250"  visible="false"/>
-	<e:Image id="imgTingTip" source="gameIcon_tip" y="710" x="26"  visible="false"/>
+	<e:Image id="imgTHTip" source="gameIcon_tianhu_cn_png" horizontalCenter="0" bottom="250" visible="false" />
+	<e:Image id="imgTingTip" source="gameIcon_tip" y="710" x="26" visible="false" />
 	<e:Group id="gTingTip" width="566" y="658" x="110" visible="false">
 		<e:Image source="gameCommbg_png" width="100%" />
 		<e:Group id="gTingCards" verticalCenter="0" horizontalCenter="0">

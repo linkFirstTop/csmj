@@ -21,7 +21,4 @@
 		<e:Label id="lbCoin" text="" size="26" textAlign="center" width="100%" height="100%" verticalAlign="middle"
 		         textColor="0xe2e0b6" />
 	</e:Group>
-	<!--<e:BitmapLabel id="lbCoinWinAnim" font="winCoinFnt_fnt" horizontalCenter="0" y="150" text="" />
-	<e:BitmapLabel id="lbCoinLoseAnim" font="loseCoinFnt_fnt" horizontalCenter="0" y="150" />
-	-->
 </e:Skin>

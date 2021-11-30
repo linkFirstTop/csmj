@@ -31,7 +31,6 @@ class Main extends eui.UILayer {
 
     private async runGame() {
         await this.loadUserinfo();
-
         RES.addEventListener(RES.ResourceEvent.GROUP_COMPLETE, this.onResourceLoadComplete, this);
         RES.addEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
         RES.addEventListener(RES.ResourceEvent.ITEM_LOAD_ERROR, this.onItemLoadError, this);
@@ -43,7 +42,7 @@ class Main extends eui.UILayer {
         this.domain = window.location.host;
         Global.token = egret.getOption("token");
         egret.ImageLoader.crossOrigin = "anonymous";
-        this.domain = "ts0068.com";
+        this.domain = "ts12316.com";
         // if(Global.token == ""){
         //     Global.token = "10_baoxue004";
         // }
@@ -69,9 +68,8 @@ class Main extends eui.UILayer {
 
             this.stage.addChild(ViewManager.ins);
             ViewManager.ins.switchToRoom();
-
             comm.DragonAnim.ins;
-
+    
             //通知消息
             this.stage.addChild(MessageUI.ins);
             MessageUI.ins.x = (GameConfig.curWidth() - 1173) / 2;
@@ -85,12 +83,18 @@ class Main extends eui.UILayer {
             RES.loadGroup("gameAnim_" + Global.language);
             return;
         }
+
         Global.baseURL = "https://" + this.domain + "/clientapi/API/";
         Global.gameHallURL = "https://" + this.domain + "/gamehall/index.html";
         Global.commURL = "https://" + this.domain + "/public/";
         Global.activeURL = "https://" + this.domain + "/jpgameapi/";
         let baseURL: string = "https://" + this.domain + "/clientapi/API/GetUserInfo";
         Global.setLanguage(1);
+        // //测试代码
+        // await this.loadResource();
+        // this.createGameScene();
+        // RES.loadGroup("gameAnim_" + Global.language);
+        // this.connectServer();
         BaseHttpRequest.sendRequestGetOnce(baseURL, this.getLanguageSet, this, "token=" + Global.token);
     }
     private async getLanguageSet(evt: egret.Event) {

@@ -3,28 +3,44 @@
         xmlns:w="http://ns.egret.com/wing" xmlns:game="game.*">
 	<w:Config id="170e687466e"></w:Config>
 	<!-- 操作按钮 -->
-	<e:Group id="gBtns" width="925" height="175" y="750" right="100">
+	<e:Group id="gBtns" width="925" height="175" y="750" right="100" visible="true">
 		<e:Image id="btnPeng" source="gameButton_peng_cn_png" />
 		<e:Image id="btnChi" source="gameButton_chi_cn_png" />
 		<e:Image id="btnGang" source="gameButton_gang_cn_png" />
 		<e:Image id="btnTing" source="gameButton_ting_cn_png" />
 		<e:Image id="btnHu" source="gameButton_hu_cn_png" />
+        <e:Image id="btnQishouHu" source="gameButton_hu_cn_png" />
 		<e:Image id="btnGuo" source="gameButton_guo_cn_png" />
-		<e:Image id="btnGangyao" source="gameButton_gang_yao_png" />
+		<!-- <e:Image id="btnGangyao" source="gameButton_gang_yao_png" /> -->
+		<e:Group id="GangyaoGroupAni" visible="true">
+		
+		</e:Group>
 	</e:Group>
 	<e:Group id="gCardBg" horizontalCenter="0" y="750" height="180">
-		<e:Image source="gameCommbg_png" width="100%" scale9Grid="54,20,324,121" height="180" />
+		<e:Image source="gameCommbg_png" width="100%" />
 		<e:Group id="gPGCards" verticalCenter="0" horizontalCenter="0">
 			<e:layout>
-				<!--<e:HorizontalLayout gap="30" />
+				<e:HorizontalLayout gap="30" />
+				<!--<e:TileLayout horizontalGap="30" requestedColumnCount="2" id="tileLayout" />
 				-->
-				<e:TileLayout horizontalGap="30" requestedColumnCount="2" id="tileLayout" />
 			</e:layout>
 		</e:Group>
 		<e:Group id="gTingCards" verticalCenter="0" horizontalCenter="0" visible="false">
 			<e:Group height="128">
 				<e:Image id="huIcon" source="gameIcon_hu_cn_png" verticalCenter="0" />
 			</e:Group>
+			<e:layout>
+				<e:HorizontalLayout gap="30" />
+			</e:layout>
+		</e:Group>
+	</e:Group>
+	<!-- 杠摇牌型 -->
+	<e:Group id="GangYaoGroup" horizontalCenter="0" verticalCenter="0" visible="false">
+		<e:Image source="gameCommbg_png" width="100%" height="196" />
+		<e:Group horizontalCenter="0" verticalCenter="0" id="GangyaoCards">
+			<game:BaseCardUI visible="false" />
+			<!--<game:BaseCardUI/>
+			-->
 			<e:layout>
 				<e:HorizontalLayout gap="30" />
 			</e:layout>

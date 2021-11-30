@@ -64,23 +64,23 @@ module room {
 			}
 			//this.nRoomID = data.roomID;
 			if (this.info.id > 3) {//高级馆以上
-				// this.imgItem.source = "roomItembg2_png";
+
 				this.lbBaseT.font = Global.language + "roomItemFnt0_fnt";
-				// this.lbTaiT.font = Global.language + "roomItemFnt0_fnt";
+
 				this.lbEnterT.font = Global.language + "roomItemFnt0_fnt";
 
 				this.lbBase.font = Global.language + "roomItemNumFnt0_fnt";
-				// this.lbTai.font = "roomItemFnt0_fnt";
+
 				this.lbEnter.font = Global.language + "roomItemNumFnt0_fnt";
 			} else {
-				// this.imgItem.source = "roomItembg1_png";
+
 
 				this.lbBaseT.font = Global.language + "roomItemFnt1_fnt";
-				// this.lbTaiT.font = Global.language + "roomItemFnt1_fnt";
+
 				this.lbEnterT.font = Global.language + "roomItemFnt1_fnt";
 
 				this.lbBase.font = Global.language + "roomItemNumFnt1_fnt";
-				// this.lbTai.font = "roomItemFnt0_fnt";
+
 				this.lbEnter.font = Global.language + "roomItemNumFnt1_fnt";
 			}
 			let str: string = "roomItem" + this.info.id;

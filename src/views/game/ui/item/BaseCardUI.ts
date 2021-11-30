@@ -9,20 +9,29 @@ module game {
 		}
 
 		private imgValue: eui.Image;
+		private gCards: eui.Group;
+
+
 
 		protected childrenCreated(): void {
 			super.childrenCreated();
 		}
 
-		public setCard(value: number): void {
+		public setCard(value: number, islight: boolean = false): void {
+			this.gCards.addChild(this.imgValue);
 			var strIndex: string;
 			if (value < 10) {
 				strIndex = "0" + value;
 			} else {
 				strIndex = "" + value;
 			}
-			// this.imgValue.source = "cardValue" + value;
+
 			this.imgValue.source = "cardValue00" + strIndex;
+			if (islight) {
+				let guangQuanBg: eui.Image = new eui.Image();
+				guangQuanBg.source = "guangquan_png";
+				this.gCards.addChild(guangQuanBg);
+			}
 		}
 	}
 }

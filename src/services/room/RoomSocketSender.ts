@@ -124,11 +124,49 @@ module room {
 			data.tableId = Global.tableId;
 			data.tableMapId = Global.tableMapId;
 			data.userId = Global.userId;
+		//	data.isGangYao=1;
 			// data.roundId = Global.round
 			let body = proto.ReqSendCard.encode(data).finish();
+			console.log("请求游戏的操作" + JSON.stringify(data));
 			Global.log("请求游戏的操作" + JSON.stringify(data));
 			RoomWebSocket.instance().SendMeseage(RoomProtocol.GF_REQ | RoomProtocol.DISCARD, body);
 		}
+			//请求起手胡操作
+			public ReqSendCardQiShou(cardsGroup: CardsGroupInfo): void {
+
+				var cardsArray: any[] = [];
+				var ObtainCardSit: number = 0;
+	
+				var ObtainCard;
+				// if (cardsGroup.obtainCard.CardID != 0) {
+				// 	ObtainCard = new proto.CardInfo();
+				// 	ObtainCard.CardID = cardsGroup.obtainCard.CardID;
+				// 	ObtainCardSit = cardsGroup.obtainCard.Sit;
+				// }
+				// for (var i: number = 0; i < cardsGroup.cards.length; i++) {
+				// 	var cardInfobody = new proto.CardInfo();
+				// 	cardInfobody.CardID = cardsGroup.cards[i].CardID;
+				// 	cardsArray.push(cardInfobody);
+				// }
+	
+				var cardsGroupbody = new proto.CardsGroup();
+				cardsGroupbody.Sit = Global.userSit;
+			    cardsGroupbody.Type = game.CardsGroupType.QISHOUHU;
+				cardsGroupbody.Cards = cardsArray;
+				cardsGroupbody.ObtainCard = ObtainCard;
+				cardsGroupbody.ObtainCardSit = ObtainCardSit;
+	
+				let data = new proto.ReqSendCard();
+				data.Card = cardsGroupbody;
+				data.tableId = Global.tableId;
+				data.tableMapId = Global.tableMapId;
+				data.userId = Global.userId;
+				// data.roundId = Global.round
+				let body = proto.ReqSendCard.encode(data).finish();
+				Global.log("请求游戏的操作" + JSON.stringify(data));
+				RoomWebSocket.instance().SendMeseage(RoomProtocol.GF_REQ | RoomProtocol.DISCARD, body);
+			}
+		
 		/*
 		*请求下一张牌
 		*/

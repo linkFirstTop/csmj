@@ -65,6 +65,11 @@ module game {
 		public static ACK_ALLGAMEEND: string = GameMessage.GAME_BASE + "ACK_ALLGAMEEND";
 		//抓鸟
 		public static ACK_GAMEZNAIO: string = GameMessage.GAME_BASE + "ACK_GAMEZNAIO";
+		//起手胡
+		public static NOT_GAMEQishouhu: string = GameMessage.GAME_BASE + "NOT_GAMEQishouhu";
+
+		//展示起手胡
+		public static ACK_GAMESHOWQISHOU: string = GameMessage.GAME_BASE + "ACK_GAMESHOWQISHOU";
 
 		//通知托管
 		public static NOT_CHAIR: string = GameMessage.GAME_BASE + "NOT_CHAIR";
