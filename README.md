@@ -1,3 +1,3 @@
-# TWMJ_Client
+# CSMJ_Client
 
-台湾麻将客户端
+长沙麻将客户端
