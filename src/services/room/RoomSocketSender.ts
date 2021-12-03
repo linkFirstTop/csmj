@@ -124,7 +124,6 @@ module room {
 			data.tableId = Global.tableId;
 			data.tableMapId = Global.tableMapId;
 			data.userId = Global.userId;
-		//	data.isGangYao=1;
 			// data.roundId = Global.round
 			let body = proto.ReqSendCard.encode(data).finish();
 			console.log("请求游戏的操作" + JSON.stringify(data));
@@ -138,17 +137,7 @@ module room {
 				var ObtainCardSit: number = 0;
 	
 				var ObtainCard;
-				// if (cardsGroup.obtainCard.CardID != 0) {
-				// 	ObtainCard = new proto.CardInfo();
-				// 	ObtainCard.CardID = cardsGroup.obtainCard.CardID;
-				// 	ObtainCardSit = cardsGroup.obtainCard.Sit;
-				// }
-				// for (var i: number = 0; i < cardsGroup.cards.length; i++) {
-				// 	var cardInfobody = new proto.CardInfo();
-				// 	cardInfobody.CardID = cardsGroup.cards[i].CardID;
-				// 	cardsArray.push(cardInfobody);
-				// }
-	
+		
 				var cardsGroupbody = new proto.CardsGroup();
 				cardsGroupbody.Sit = Global.userSit;
 			    cardsGroupbody.Type = game.CardsGroupType.QISHOUHU;

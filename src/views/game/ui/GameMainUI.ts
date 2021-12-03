@@ -32,8 +32,8 @@ module game {
 		private gTingCards: eui.Group;
 		private arrTingCards: Array<any> = [];
 		private btnContinue: eui.Image;
-		private zniaoGroup: eui.Group;
-		private znaioItemGroup: eui.Group;
+		public zniaoGroup: eui.Group;
+		public znaioItemGroup: eui.Group;
 
 		private trustText: eui.Image;
 		private huIcon: eui.Image;
@@ -500,27 +500,36 @@ module game {
 			for (let i: number = 0; i < 4; i++) {
 				this["gameUser" + i].showCurrentAnim(false);
 			}
-	
-			for (let i: number = 0; i < body.qishouhus.length; i++) {
-				let t ="";
-				for(let j:number =0;j<body.qishouhus[i].qishouType.length;j++){
-                    if(body.qishouhus[i].qishouType[j]==1){
-                        t+="b ";
-					}else if(body.qishouhus[i].qishouType[j]==2){
-						t+="x ";
-					}else if(body.qishouhus[i].qishouType[j]==3){
-						t+="l ";
-					}else if(body.qishouhus[i].qishouType[j]==4){
-						t+="q ";
+	        console.log(body.qishouhus);
+			for (let i: number = 0; i < 4; i++) {
+					
+				let t="";
+				for (let j: number = 0; j < body.qishouhus.length; j++) {
+					if(i==body.qishouhus[j].winners){
+						if(body.qishouhus[j].qishouType.indexOf(1)>-1 && t.indexOf("b")==-1){
+							t+="b ";
+						}
+						if(body.qishouhus[j].qishouType.indexOf(2)>-1 && t.indexOf("x")==-1){
+							t+="x ";
+						}
+						if(body.qishouhus[j].qishouType.indexOf(3)>-1 && t.indexOf("l")==-1){
+							t+="l ";
+						}
+						if(body.qishouhus[j].qishouType.indexOf(4)>-1 && t.indexOf("q")==-1){
+							t+="q ";
+						}
 					}
 				}
-				let p: number = Global.getUserPosition(body.qishouhus[i].winners);
-				this["qsh" +p].text=t;
-				this["qsh" +p].visible = true;
+				console.log(t);
+				if(t!=""){
+					let p: number = Global.getUserPosition(i);
+					this["qsh" +p].text=t;
+					this["qsh" +p].visible = true;
+				}
+				
 			}
 		}
 		public showQishouhu(): void {
-			console.log("收到起手胡通知 展示起手胡1");
 			this.gameOpt.visible = true;
 			this.gameOpt.showQishouhu();
 		}
@@ -530,7 +539,38 @@ module game {
 			 console.log("抓鸟结果" + JSON.stringify(body));
 			this.zniaoGroup.visible = true;
 			this.zniaoGroup.touchEnabled = false;
+			this.znaioItemGroup.removeChildren();
 			let state = 0;
+			if (body.stage == 7) {
+				let arr: Array<proto.CardInfo> = [];
+				let znValue: Array<number> = [];
+				let islight: boolean = true;//发光
+			
+				for (let i: number = 0; i < body.cardInfos.length; i++) {
+					let info: proto.CardInfo = body.cardInfos[i] as proto.CardInfo;
+					arr.push(info);
+					let cardValue: number = game.GameParmes.getCardID(info);
+					// console.log(cardValue);
+					if (cardValue < 10) {//万
+						znValue.push(cardValue);
+					} else if (cardValue >= 10 && cardValue < 19) {//条
+						znValue.push(cardValue - 9);
+					} else if (cardValue >= 19 && cardValue < 28) {//筒
+						znValue.push(cardValue - 18);
+					}
+					 let card: BaseHandCardUI = new BaseHandCardUI();
+					 card.setCard(3, i, cardValue, state, false);
+					//let card: game.BaseCardUI = new game.BaseCardUI();
+					//card.setCard(cardValue, islight);\
+					console.log(this.znaioItemGroup);
+					//card.setCard(1, islight);
+					this.znaioItemGroup.addChild(card);
+				//	game.GamePlayData.ClearHandCards(game.GamePlayData.getHandCards(info.Sit), [info], info.Sit);
+					this.userSendCard(info, true);
+					game.GamePlayData.AddCardPool(arr, arr[0].Sit);
+				}
+			
+			}
 			if (body.stage == 4) {
 				let arr: Array<proto.CardInfo> = [];
 				let znValue: Array<number> = [];

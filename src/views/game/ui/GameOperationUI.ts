@@ -40,7 +40,8 @@ module game {
 			if(this.btnGangyaoAo==null){
 				this.btnGangyaoAo = comm.DragonAnim.ins.getAnimByName("gy");
 			}
-
+			this.btnGangyaoAo.width=149;
+			this.btnGangyaoAo.height=150;
 		
 			this.GangyaoGroupAni.addChild(this.btnGangyaoAo);
 			//this.gBtns.addChild(this.btnGangyaoAo);
@@ -109,7 +110,7 @@ module game {
 				if (temp.type == 5) {
 					isPeng = true;
 				}
-				if (temp.type == 24) {
+				if (temp.type == 24 || temp.type == 26 ||temp.type == 27) {
 					isGangyao = true;
 				}
 				if (temp.type == 6 || temp.type == 7 || temp.type == 13) {
@@ -151,7 +152,8 @@ module game {
 				//this.arrTmp.unshift(this.btnGangyaoAo);
 				this.btnGangyaoAo.visible = true;
 				this.btnGangyaoAo.animation.play("gy", 0);
-				//this.btnGangyaoAo.x= 30;
+			//	this.arrTmp.unshift(this.GangyaoGroupAni);
+				//this.btnGangyaoAo.x= 100;
 				this.btnGangyaoAo.y= 72;
 			}
 			if (isPeng) {
@@ -186,9 +188,9 @@ module game {
 				let img: eui.Image = this.arrTmp[i];
 				let imgAi: dragonBones.EgretArmatureDisplay = this.arrTmp[i];
 				let imgGr: eui.Group = this.arrTmp[i];
-				img.x = this.arrPosition[4 - i];
-				imgAi.x = this.arrPosition[4 - i];
-				imgGr.x = this.arrPosition[4 - i];
+			
+				img.x =this.arrPosition[4 - i];
+			
 			}
 			
 		}
@@ -217,13 +219,17 @@ module game {
 			//this.GangYaoGroup.visible = true;
 			//let card: BaseHandCardUI = new BaseHandCardUI();
 			//杠摇
-			var arr: Array<CardsGroupInfo> = GamePlayData.GetChiPengGangHuGroup(CardsGroupType.GANGYAO);
+		
+			var arr: Array<CardsGroupInfo> = GamePlayData.GetChiPengGangHuGroup(CardsGroupType.MGANGYAO);
+			console.log(arr);
+			console.log(GamePlayData.Gangyao_Groups[0]);
 			if (arr.length == 1) {
 				room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gangyao_Groups[0]);
 				console.log("发送杠摇请求");
 				return;
 			}
 			this.isChi = false;
+			this.isGangYao = true;
 			this.showCardGroups(arr);
 		}
 		private onPeng(): void {
@@ -234,6 +240,7 @@ module game {
 		}
 		private onGang(): void {
 			this.initBtns();
+			console.log("点击普通杠");
 			var arr: Array<CardsGroupInfo> = GamePlayData.GetChiPengGangHuGroup(CardsGroupType.GANG);
 			if (arr.length == 1) {
 				room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gang_Groups[0]);
@@ -341,11 +348,14 @@ module game {
 
 		}
 		private isChi: boolean = false;
+		private isGangYao: boolean = false;
 		private onPGGroupTap(evt: egret.TouchEvent): void {
 			var index: number = Number(evt.target.name);
 			if (this.isChi == true) {
 				room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Chi_Groups[index]);
-			} else {
+			}else if (this.isGangYao == true){
+				room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gangyao_Groups[index]);
+			}else {
 				room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gang_Groups[index]);
 			}
 

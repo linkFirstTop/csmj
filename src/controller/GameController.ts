@@ -1,5 +1,6 @@
 module game {
 	export class GameController {
+		private gameUI: game.GameMainUI;
 		/**
 		 * 接收服务器下发的游戏规则消息
 		 * */
@@ -126,6 +127,7 @@ module game {
 					}
 					dataArray.push(card);
 					dataArray.push(false);
+				
 					GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_USER_SENDCARD, true, true, dataArray));
 					break;
 				case CardsGroupType.MOPLAY://抢杠胡
@@ -154,14 +156,6 @@ module game {
 					dataArray.push(card);
 					GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_USER_CHIPAI, true, true, dataArray));
 					break;
-				case CardsGroupType.GANGYAO://杠摇
-					Global.log("杠摇");
-					game.GamePlayData.SaveOperationSit(body.Card.Sit);
-					card = game.GamePlayData.AddChiPengGangCards(body.Card, body.Card.Sit);
-					dataArray.push(body.Card.Sit);
-					dataArray.push(card);
-					GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_USER_GANGYAOPAI, true, true, dataArray));
-					break;
 				case CardsGroupType.PENG://碰牌
 					Global.log("碰牌");
 					game.GamePlayData.SaveOperationSit(body.Card.Sit);
@@ -172,6 +166,17 @@ module game {
 					break;
 				case CardsGroupType.MINGGANG://明杠牌
 					Global.log("明杠牌");
+					game.GamePlayData.SaveOperationSit(body.Card.Sit);
+					card = game.GamePlayData.AddChiPengGangCards(body.Card, body.Card.Sit);
+
+					dataArray.push(body.Card.Sit);
+					dataArray.push(card);
+					dataArray.push(body.Card.ObtainCardSit);
+					//dataArray.push(body.gangCoin);
+					GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_USER_MINGGANGPAI, true, true, dataArray));
+					break;
+				case CardsGroupType.MGANGYAO://杠摇
+					Global.log("明杠摇");
 					game.GamePlayData.SaveOperationSit(body.Card.Sit);
 					card = game.GamePlayData.AddChiPengGangCards(body.Card, body.Card.Sit);
 
@@ -193,6 +198,18 @@ module game {
 					//dataArray.push(body.gangCoin);
 					GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_USER_ANGANGPAI, true, true, dataArray));
 					break;
+				case CardsGroupType.AGANGYAO://杠摇
+					Global.log("暗杠摇");
+					game.GamePlayData.SaveCurrentCard(0, -1);
+					game.GamePlayData.SaveOperationSit(body.Card.Sit);
+					card = game.GamePlayData.AddChiPengGangCards(body.Card, body.Card.Sit);
+
+					dataArray.push(body.Card.Sit);
+					dataArray.push(card);
+					dataArray.push(body.Card.ObtainCardSit);
+					//dataArray.push(body.gangCoin);
+					GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_USER_ANGANGYAO, true, true, dataArray));
+					break;
 				case CardsGroupType.BUGANG://补杠牌  先碰再杠
 					Global.log("补杠牌");
 					game.GamePlayData.SaveOperationSit(body.Card.Sit);
@@ -205,6 +222,18 @@ module game {
 					//dataArray.push(body.gangCoin);
 					GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_USER_BUGANGPAI, true, true, dataArray));
 					break;
+				case CardsGroupType.BGANGYAO://补杠摇
+					Global.log("补杠摇");
+					game.GamePlayData.SaveOperationSit(body.Card.Sit);
+					card = game.GamePlayData.AddChiPengGangCards(body.Card, body.Card.Sit);
+					game.GamePlayData.SaveCurrentCard(0, -1);
+
+					dataArray.push(body.Card.Sit);
+					dataArray.push(card);
+					dataArray.push(body.Card.ObtainCardSit);
+					//dataArray.push(body.gangCoin);
+					GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_USER_BUGANGPAI, true, true, dataArray));
+					break;	
 				case CardsGroupType.GANGMO://杠牌牌尾摸牌
 					Global.log("杠牌牌尾摸牌:" + body.Card.Sit);
 					game.GamePlayData.SetCardsWallIndex("Tail", 1);

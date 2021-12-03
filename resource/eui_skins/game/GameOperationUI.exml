@@ -12,7 +12,7 @@
         <e:Image id="btnQishouHu" source="gameButton_hu_cn_png" />
 		<e:Image id="btnGuo" source="gameButton_guo_cn_png" />
 		<!-- <e:Image id="btnGangyao" source="gameButton_gang_yao_png" /> -->
-		<e:Group id="GangyaoGroupAni" visible="true">
+		<e:Group id="GangyaoGroupAni" visible="true" height="150" width="150" left="120">
 		
 		</e:Group>
 	</e:Group>

@@ -376,7 +376,11 @@ module game {
 					return GamePlayData.Hu_Groups;
 				case CardsGroupType.CALL:
 					return GamePlayData.Call_Groups;
-				case CardsGroupType.GANGYAO:
+				case CardsGroupType.BGANGYAO:
+					return GamePlayData.Gangyao_Groups;
+				case CardsGroupType.MGANGYAO:
+					return GamePlayData.Gangyao_Groups;
+				case CardsGroupType.AGANGYAO:
 					return GamePlayData.Gangyao_Groups;
 				case CardsGroupType.QISHOUHU:
 					return GamePlayData.Gangyao_Groups;
@@ -443,7 +447,7 @@ module game {
 				if (temp.type == 5) {
 					this.Peng_Groups = this.CopyChiPengGangHu(this.Peng_Groups, temp.options);
 				}
-				if (temp.type == 24) {
+				if (temp.type == 24|| temp.type == 26 || temp.type == 27) {
 					this.Gangyao_Groups = this.CopyChiPengGangHu(this.Gangyao_Groups, temp.options);
 				}
 				if (temp.type == 6 || temp.type == 7 || temp.type == 13) {

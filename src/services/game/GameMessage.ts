@@ -162,14 +162,24 @@ module game {
 		 *服务器通知客户端暗杠牌
 			*/
 		public static ACK_USER_ANGANGPAI: string = GameMessage.CLIENT_BASE + "ACK_USER_ANGANGPAI";
-		/**
+				/**
 		 *服务器通知客户端补杠牌
 			*/
 		public static ACK_USER_BUGANGPAI: string = GameMessage.CLIENT_BASE + "ACK_USER_BUGANGPAI";
-		/**
-		 *服务器通知客户端杠摇牌
+				/**
+		 *服务器通知客户端暗杠摇牌
 			*/
-		public static ACK_USER_GANGYAOPAI: string = GameMessage.CLIENT_BASE + "ACK_USER_GANGYAOPAI";
+		public static ACK_USER_ANGANGYAO: string = GameMessage.CLIENT_BASE + "ACK_USER_ANGANGYAO";
+			/**
+		 *服务器通知客户端明杠摇牌
+			*/
+		public static ACK_USER_MINGGANGYAO: string = GameMessage.CLIENT_BASE + "ACK_USER_MINGGANGYAO";
+			/**
+		 *服务器通知客户端补杠摇牌
+			*/
+		public static ACK_USER_BUGANGYAO: string = GameMessage.CLIENT_BASE + "ACK_USER_BUGANGYAO";
+
+	
 		/**
 		 *服务器通知客户端“过牌”的操作
 			*/

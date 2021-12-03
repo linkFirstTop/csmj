@@ -17,7 +17,7 @@
 		</e:Group>
 		<e:Group id="dpText1" x="1360" y="30">
 			<e:BitmapLabel id="qsh1" text="l b" font="cnqshFnt_fnt" x="-50" y="-10" visible="false" />
-			<e:BitmapLabel id="zniao1" text="0" verticalCenter="0" x="110" font="cnznFnt_fnt" />
+			<e:BitmapLabel id="zniao1" text="0" verticalCenter="0" x="110" font="cnznFnt_fnt"   visible="false" />
 		</e:Group>
 		<e:Group id="dpText2" x="1655" y="258">
 			<e:BitmapLabel id="qsh2" text="l b" font="cnqshFnt_fnt" x="0" visible="false" />
