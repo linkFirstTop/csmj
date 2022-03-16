@@ -94,14 +94,12 @@ class ViewManager extends egret.DisplayObjectContainer {
 		}
 	}
 	public showRule(): void {
-		// if(this.ruleUI == null){
-		// 	this.ruleUI = new room.RoomRuleUI();
-		// }
-		// this.popLayer.addChild(this.ruleUI);
-		//	this.ruleUI.showUI();
+	
+		console.log("调用打开规则11");
 		try {
 			window["openActiveGame"](4);//打开帮助
 		} catch (error) { }
+		console.log("调用打开规则");
 	}
 
 	public switchToRoom(): void {

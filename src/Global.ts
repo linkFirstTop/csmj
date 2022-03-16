@@ -33,7 +33,7 @@ class Global {
 	public static gameTicket: string = "";
 	public static userId: number = 0;
 	/*游戏ID*/
-	public static gameID: number = 55;//11;//
+	public static gameID: number = 61;
 	/*加载资源时间*/
 	public static loadTime: number = 0;
 	/*是否需要返回大厅*/
@@ -490,10 +490,10 @@ class Global {
 			str = index + "万"
 		}
 		if (index >= 10 && index <= 18) {
-			str = (index - 9) + "条"
+			str = (index - 9) + "饼"
 		}
 		if (index >= 19 && index <= 27) {
-			str = (index - 18) + "饼"
+			str = (index - 18) + "条"
 		}
 		return str;
 	}

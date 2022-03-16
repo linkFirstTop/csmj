@@ -153,6 +153,9 @@ class Main extends eui.UILayer {
             this.loadingView = new LoadingUI();
             this.stage.addChild(this.loadingView);
             this.loadingView.initView();
+            try{
+                window["onLoadComplete"]();
+            }catch(e){}
             await RES.loadGroup("room", 0, this.loadingView);
             await RES.loadGroup("game_" + Global.language);
         }

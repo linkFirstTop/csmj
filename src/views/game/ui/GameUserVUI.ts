@@ -26,7 +26,7 @@ module game {
 
 		}
 		public setUserInfo(user: game.GameUserInfo): void {
-			// console.log(user);
+			console.log(user);
 			let strName: string = "";
 			if (game.GamePlayData.tingData[user.userSit] == true) {
 				this.imgTing.visible = true;
@@ -36,8 +36,19 @@ module game {
 
 			if (user.userShowName == "") {
 				strName = user.userName;
+				if(user.userName.length>7){
+					strName=user.userName.substring(0,5)+"..."
+					
+				}else{
+					strName = user.userName;
+				}
 			} else {
-				strName = user.userShowName;
+				if(user.userShowName.length>7){
+					strName=user.userShowName.substring(0,5)+"..."
+				}else{
+					strName = user.userShowName;
+				}
+				
 			}
 
 

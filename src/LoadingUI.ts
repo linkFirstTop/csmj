@@ -67,34 +67,25 @@ class LoadingUI extends egret.Sprite implements RES.PromiseTaskReporter {
         this.logoGroup.y = (GameConfig.curHeight() - 327) / 2 - 100;
         this.sprProgress = new egret.Sprite();
         this.addChild(this.sprProgress);
-
         var proBg: egret.Bitmap = GameUtils.createBitmapByName("loadprogressbg_png");
         this.sprProgress.addChild(proBg);
-
         this.bmpProgress = GameUtils.createBitmapByName("loadprogress_png");
         this.sprProgress.addChild(this.bmpProgress);
         this.bmpProgress.x = this.bmpProgress.y = 1;
-
         this.bmpMask = new eui.Rect(proBg.width, proBg.height, 0x000000);
         this.sprProgress.addChild(this.bmpMask);
         this.bmpMask.width = 0;
-
         this.bmpProgress.mask = this.bmpMask;
-
-
         this.sprProgress.x = 600;
         this.sprProgress.y = 700;
-
         this.lbProgress = new eui.Label();
         this.sprProgress.addChild(this.lbProgress);
         this.lbProgress.text = "0%";
         this.lbProgress.size = 36;
         this.lbProgress.x = (this.sprProgress.width - 50) / 2;
         this.lbProgress.y = 50;
-
-
         this.stage.addEventListener(egret.Event.RESIZE, this.onResize, this);
-
+  
     }
     private onResize(): void {
         this.imgbg.width = GameConfig.curWidth();

@@ -320,14 +320,13 @@ module game {
 
 
 		private onTimeUpdate():void{
-			console.log("定时启动");
 			for (let j: number = 0; j < 4; j++) {
 				this.updataHandsByPosition(j, 0);
 			}
 		}
 
 		private onTimeComplete():void{
-			console.log("定时完成 更新手牌");
+		
 		}
 		/*用于处理开始的发牌*/
 		private showHandCard(): void {
@@ -435,6 +434,7 @@ module game {
 			ghand.addChild(card);
 			let isQue: boolean = false;
 			let cardValue: number = game.GameParmes.getCardID(info);
+			
 			if (p == 3) {
 				if (cardValue > 0) {
 					let nHua: number = game.GameParmes.getHua(info);
@@ -628,6 +628,8 @@ module game {
 						card.x = i * itemCardWidth;
 						if (i == 13) {//自己出牌，断线回来
 							card.x = i * itemCardWidth + 20;
+						}else if((len==11&&i==10)||(len==8&&i==7)||(len==5&&i==4)||(len==2&&i==1)){
+							card.x = i * itemCardWidth + 20;
 						}
 						// if (i == len - 1 && index == 0) {
 						// 	card.x += 10;
@@ -781,19 +783,19 @@ module game {
 				for (let i = 0; i < nOptCount; i++) {//吃碰杠的创建
 					mc = this.createCPGItem(p, i, arrCards[i]);
 					if (this.gOtherCardD.numChildren > 0) {
-						mc.x = this.gOtherCardD.width + 50;
+						mc.x = this.gOtherCardD.numChildren*89*3 + 50;
 					}
 					this.gOtherCardD.addChild(mc);
 				}
 				if (b) {//断线续玩
-					this.gOtherCardD.x = 237;
+					this.gOtherCardD.x = -100;
 					this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).x += 15;
-					this.gOtherCardD.x = this.gHandCardD.x - 34 - this.gOtherCardD.width;//554
+					//this.gOtherCardD.x = this.gHandCardD.x - 34 - this.gOtherCardD.width;//554
 				} else {
-					this.gOtherCardD.x = 237;
+					this.gOtherCardD.x = -100;
 					this.gHandCardD.x += this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).width;//126
 					this.gHandCardD.getChildAt(this.gHandCardD.numChildren - 1).x += 15;
-					this.gOtherCardD.x = this.gHandCardD.x - 34 - this.gOtherCardD.width;//554
+					//this.gOtherCardD.x = this.gHandCardD.x - 34 - this.gOtherCardD.width;//554
 					// console.log("gOtherCardD的X坐标:" + this.gOtherCardD.x, "gHandCardD的x" + this.gHandCardD.x, "gOtherCardD宽 :" + this.gOtherCardD.width);
 				}
 			}
@@ -807,6 +809,8 @@ module game {
 			let isAnGang: boolean = false;
 			if (info.CardsGroupType == CardsGroupType.ANGANG) {
 				isAnGang = true;
+				console.log("暗杠"+info.cards.length);
+				
 			} else {
 				isAnGang = false;
 			}
@@ -939,7 +943,7 @@ module game {
 						if (p == 3) {
 							item.y = 24;
 						} else {
-							item.y = -20;
+							item.y = -40;
 						}
 						mc.addChild(item);
 					}

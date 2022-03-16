@@ -37,6 +37,7 @@ module room {
 		*请求进入房间
 		*/
 		public REQ_ROOMENTERROOM(roomData: any, isContinue: boolean = false, tableId: string = ""): void {
+			console.log("重连REQ_ROOMENTERROOM----");
 			let data = new proto.ReqEnterRoom();
 			data.userId = Global.userId;
 			data.roomId = roomData.id;
@@ -65,6 +66,7 @@ module room {
 		}
 		//请求进入牌桌
 		public ReqEnterTable(): void {
+			console.log("重连ReqEnterTable----");
 			let data = new proto.ReqEnterTable();
 			data.userId = Global.userId;
 			data.tableId = Global.tableId;

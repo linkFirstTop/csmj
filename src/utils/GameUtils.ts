@@ -172,29 +172,34 @@ class GameUtils {
 
         var copyStr: string = "";// str.substr(0,maxChar);
 
-        var fun: Function = function (item: string): Boolean {
+        // var fun: Function = function (item: string): Boolean {
 
-            var zh_char: Array<string> = item.match(/[\u4E00-\u9FA5\uf900-\ufa2d]/ig);
+        //     var zh_char: Array<string> = item.match(/[\u4E00-\u9FA5\uf900-\ufa2d]/ig);
 
-            if (zh_char != null && zh_char.length != 0) {
-                return true;
-            }
-            return false;
-        }
-        for (var i: number = 0; i < str.length; i++) {
-            var itemStr: string = str.charAt(i);
-            if (fun(itemStr)) {
-                step += 2;
-            } else {
-                step += 1;
-            }
-            if (step >= maxChar) {
-                copyStr = copyStr.slice(0, maxChar - 3);
-                copyStr += replaceText;
-                break;
-            }
+        //     if (zh_char != null && zh_char.length != 0) {
+        //         return true;
+        //     }
+        //     return false;
+        // }
+        // for (var i: number = 0; i < str.length; i++) {
+        //     var itemStr: string = str.charAt(i);
+        //     if (fun(itemStr)) {
+        //         step += 2;
+        //     } else {
+        //         step += 1;
+        //     }
+        //     if (step >= maxChar) {
+        //         copyStr = copyStr.slice(0, maxChar - 3);
+        //         copyStr += replaceText;
+        //         break;
+        //     }
 
-            copyStr += itemStr;
+        //     copyStr += itemStr;
+        // }
+        if(str.length>maxChar){
+            return str.substr(0,maxChar)+replaceText;
+        }else{
+            return str;
         }
         return copyStr;
     }

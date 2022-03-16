@@ -429,6 +429,7 @@ module game {
 			return handC;
 		}
 		private onClick(e: egret.TouchEvent): void {
+			console.log("点击开局发牌"+e.target.name);
 			if (e.target.name == "kai") {
 				this.parItem.visible = true;
 				return;

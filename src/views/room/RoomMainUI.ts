@@ -79,7 +79,7 @@ module room {
 			this.height = GameConfig.curHeight();
 		}
 		public updataUserInfo(): void {
-			this.lbName.text = GameUtils.ReplaceChar(GameUtils.getShowName(Global.userName), 13, "...");
+			this.lbName.text = GameUtils.ReplaceChar(GameUtils.getShowName(Global.userName), 10, "...");
 			this.lbCoin.text = ChipUtils.formatCoin(Global.gameCoin);
 			this.btnHall.scaleX = Global.isShowHall ? 1 : 0;
 			this.gBtns.right = Global.isShowHall ? 30 : -20;

@@ -144,6 +144,7 @@ module room {
 
 		//返回游戏列表
 		private ON_ACK_GAME_LIST(byte: egret.ByteArray): void {
+			console.log("重连ON_ACK_GAME_LIST----");
 			var body: proto.AckRoomList = proto.AckRoomList.decode(byte.bytes);
 			GDGame.Msg.ins.dispatchEvent(new egret.Event(RoomMessage.ON_GAME_LIST, true, true, body));
 			Global.roomData = body.roomList;

@@ -20,11 +20,11 @@ module game {
 				return ;
 			}
 			if(index >= 10 && index <= 18){
-				sound.SoundManager.getInstance().playEffect((index-9)+"b_mp3");
+				sound.SoundManager.getInstance().playEffect((index-9)+"t_mp3");
 				return ;
 			}
 			if(index >= 19 && index <= 27){
-				sound.SoundManager.getInstance().playEffect((index-18)+"t_mp3");
+				sound.SoundManager.getInstance().playEffect((index-18)+"b_mp3");
 				return ;
 			}
 			// var pszWind:Array<number>=[28, 30, 29, 31];//["东风", "南风", "西风", "北风"];

@@ -207,7 +207,7 @@ module game {
 		}
 		// 杠摇
 		private onGangyao(): void {
-			console.log("点击杠摇");
+		
 			this.initBtns();
 			// this.GangyaoGroupAni.visible = true;
 			// this.arrTmp.unshift(this.GangyaoGroupAni);
@@ -225,7 +225,7 @@ module game {
 			console.log(GamePlayData.Gangyao_Groups[0]);
 			if (arr.length == 1) {
 				room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gangyao_Groups[0]);
-				console.log("发送杠摇请求");
+		
 				return;
 			}
 			this.isChi = false;

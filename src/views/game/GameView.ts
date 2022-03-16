@@ -151,6 +151,7 @@ module game {
 		*骰子、手牌消息
 		*/
 		private ACK_GAME_DICEANDCARDS(): void {
+			console.log("ACK_GAME_DICEANDCARDS");
 			this.gameUI.initUser();
 			this.gameUI.initHandCard();
 			egret.setTimeout(function () {
@@ -201,7 +202,6 @@ module game {
 		 */
 		private ACK_USER_ZHUAPAI(evt: egret.Event): void {
 			var cardInfo: proto.CardInfo = evt.data[0] as proto.CardInfo;
-			console.log("关闭抓鸟面板");
 			//this.gameUI.znaioItemGroup.removeChildren();
 			this.gameUI.zniaoGroup.visible = false;
 			this.gameUI.getOneCard(cardInfo);
@@ -292,6 +292,7 @@ module game {
 			var nSit: number = evt.data[0];
 			var card: proto.CardInfo = evt.data[1];
 			this.gameUI.updataUserCPG(nSit, card);
+			
 			this.gameUI.playAnim("anGang", nSit);
 			var arrCoin: Array<number> = evt.data[3];
 			// this.gameUI.showCoinChange(arrCoin);

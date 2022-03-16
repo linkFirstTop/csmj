@@ -44,13 +44,13 @@ module game {
 				this.fangXiang = Global.language + "xi_" + this.fangXiang;
 				this.item.source = RES.getRes(this.fangXiang + "_2" + "_png");
 			} else if (str == "south") {
-
-				this.fangXiang = Global.language + "nan_" + this.fangXiang;
-				this.item.source = RES.getRes(this.fangXiang + "_2" + "_png");
-			} else if (str == "north") {
-
 				this.fangXiang = Global.language + "bei_" + this.fangXiang;
 				this.item.source = RES.getRes(this.fangXiang + "_2" + "_png");
+			
+			} else if (str == "north") {
+				this.fangXiang = Global.language + "nan_" + this.fangXiang;
+				this.item.source = RES.getRes(this.fangXiang + "_2" + "_png");
+			
 			}
 
 

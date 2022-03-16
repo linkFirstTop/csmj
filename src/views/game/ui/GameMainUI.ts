@@ -220,6 +220,7 @@ module game {
 		}
 		/*初始化四个玩家*/
 		public initUser(): void {
+			console.log("initUser");
 			this.isGaming = true;
 			let len: number = game.GameUserList.arrUserList.length;
 			for (let i: number = 0; i < len; i++) {
@@ -240,6 +241,7 @@ module game {
 			this.lbInfo.text = Global.dic["局号"] +": "+ Global.strGameGUID + " " + this.findRoomName();
 		}
 		public initPosition(): void {
+			console.log("initPosition");
 			let p: number = Global.getUserPosition(game.GameParmes.firstSit);
 			this.gamePosition.setPosition(p);
 		}
@@ -410,6 +412,7 @@ module game {
 
 			}
 			this.changeUserRight();
+			
 		}
 		public hideTingFlag(): void {
 			this.gameHand.showTingFlag(false, "");
@@ -436,6 +439,12 @@ module game {
 			this.gamePosition.startTime(GameParmes.chiPengGangSurplusTime);
 			this.gameOpt.visible = false;
 			this.changeUserRight();
+			egret.setTimeout(function(){
+				for (let j: number = 0; j < 4; j++) {
+					this.gameHand.updataHandsByPosition(j, 0);
+				}
+			},this,10);
+			
 		}
 		public onGameContinue(): void {
 			this.gameHand.createHandCard(true, 0);//还原手牌
@@ -536,7 +545,6 @@ module game {
 		//抓鸟
 		public showZhuaNiaoResult(body: proto.NotZaNiao) {
 			this["qsh0"].visible = this["qsh1"].visible = this["qsh2"].visible = this["qsh3"].visible = false;
-			 console.log("抓鸟结果" + JSON.stringify(body));
 			this.zniaoGroup.visible = true;
 			this.zniaoGroup.touchEnabled = false;
 			this.znaioItemGroup.removeChildren();
