@@ -1,2196 +1,459 @@
 type Long = protobuf.Long;
 // DO NOT EDIT! This is a generated file. Edit the JSDoc in src/*.js instead and run 'npm run types'.
 
-/** Namespace proto. */
-declare namespace proto {
+/** Namespace game. */
+declare namespace game {
 
-    /** Properties of a Heartbeat. */
-    interface IHeartbeat {
+    /** Properties of a ReqEnterGame. */
+    interface IReqEnterGame {
 
-        /** Heartbeat times */
-        times?: (number|Long|null);
+        /** ReqEnterGame GameID */
+        GameID: string;
+
+        /** ReqEnterGame UserName */
+        UserName?: (string|null);
+
+        /** ReqEnterGame ticket */
+        ticket?: (string|null);
     }
 
-    /** Represents a Heartbeat. */
-    class Heartbeat implements IHeartbeat {
+    /** Represents a ReqEnterGame. */
+    class ReqEnterGame implements IReqEnterGame {
 
         /**
-         * Constructs a new Heartbeat.
+         * Constructs a new ReqEnterGame.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IHeartbeat);
+        constructor(properties?: game.IReqEnterGame);
 
-        /** Heartbeat times. */
-        public times: (number|Long);
+        /** ReqEnterGame GameID. */
+        public GameID: string;
+
+        /** ReqEnterGame UserName. */
+        public UserName: string;
+
+        /** ReqEnterGame ticket. */
+        public ticket: string;
 
         /**
-         * Creates a new Heartbeat instance using the specified properties.
+         * Creates a new ReqEnterGame instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns Heartbeat instance
+         * @returns ReqEnterGame instance
          */
-        public static create(properties?: proto.IHeartbeat): proto.Heartbeat;
+        public static create(properties?: game.IReqEnterGame): game.ReqEnterGame;
 
         /**
-         * Encodes the specified Heartbeat message. Does not implicitly {@link proto.Heartbeat.verify|verify} messages.
-         * @param message Heartbeat message or plain object to encode
+         * Encodes the specified ReqEnterGame message. Does not implicitly {@link game.ReqEnterGame.verify|verify} messages.
+         * @param message ReqEnterGame message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IHeartbeat, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IReqEnterGame, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified Heartbeat message, length delimited. Does not implicitly {@link proto.Heartbeat.verify|verify} messages.
-         * @param message Heartbeat message or plain object to encode
+         * Encodes the specified ReqEnterGame message, length delimited. Does not implicitly {@link game.ReqEnterGame.verify|verify} messages.
+         * @param message ReqEnterGame message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IHeartbeat, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IReqEnterGame, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a Heartbeat message from the specified reader or buffer.
+         * Decodes a ReqEnterGame message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns Heartbeat
+         * @returns ReqEnterGame
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.Heartbeat;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.ReqEnterGame;
 
         /**
-         * Decodes a Heartbeat message from the specified reader or buffer, length delimited.
+         * Decodes a ReqEnterGame message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns Heartbeat
+         * @returns ReqEnterGame
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.Heartbeat;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.ReqEnterGame;
 
         /**
-         * Verifies a Heartbeat message.
+         * Verifies a ReqEnterGame message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a NotKick. */
-    interface INotKick {
+    /** Properties of an AckEnterGame. */
+    interface IAckEnterGame {
 
-        /** NotKick userId */
-        userId: (number|Long);
+        /** AckEnterGame Result */
+        Result: boolean;
 
-        /** NotKick code */
-        code: number;
+        /** AckEnterGame GameID */
+        GameID: string;
 
-        /** NotKick reason */
-        reason?: (string|null);
+        /** AckEnterGame ErrorID */
+        ErrorID: number;
+
+        /** AckEnterGame game_guid */
+        game_guid?: (string|null);
     }
 
-    /** Represents a NotKick. */
-    class NotKick implements INotKick {
+    /** Represents an AckEnterGame. */
+    class AckEnterGame implements IAckEnterGame {
 
         /**
-         * Constructs a new NotKick.
+         * Constructs a new AckEnterGame.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.INotKick);
+        constructor(properties?: game.IAckEnterGame);
 
-        /** NotKick userId. */
-        public userId: (number|Long);
+        /** AckEnterGame Result. */
+        public Result: boolean;
 
-        /** NotKick code. */
-        public code: number;
+        /** AckEnterGame GameID. */
+        public GameID: string;
 
-        /** NotKick reason. */
-        public reason: string;
+        /** AckEnterGame ErrorID. */
+        public ErrorID: number;
+
+        /** AckEnterGame game_guid. */
+        public game_guid: string;
 
         /**
-         * Creates a new NotKick instance using the specified properties.
+         * Creates a new AckEnterGame instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns NotKick instance
+         * @returns AckEnterGame instance
          */
-        public static create(properties?: proto.INotKick): proto.NotKick;
+        public static create(properties?: game.IAckEnterGame): game.AckEnterGame;
 
         /**
-         * Encodes the specified NotKick message. Does not implicitly {@link proto.NotKick.verify|verify} messages.
-         * @param message NotKick message or plain object to encode
+         * Encodes the specified AckEnterGame message. Does not implicitly {@link game.AckEnterGame.verify|verify} messages.
+         * @param message AckEnterGame message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.INotKick, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IAckEnterGame, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified NotKick message, length delimited. Does not implicitly {@link proto.NotKick.verify|verify} messages.
-         * @param message NotKick message or plain object to encode
+         * Encodes the specified AckEnterGame message, length delimited. Does not implicitly {@link game.AckEnterGame.verify|verify} messages.
+         * @param message AckEnterGame message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.INotKick, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IAckEnterGame, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a NotKick message from the specified reader or buffer.
+         * Decodes an AckEnterGame message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns NotKick
+         * @returns AckEnterGame
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotKick;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckEnterGame;
 
         /**
-         * Decodes a NotKick message from the specified reader or buffer, length delimited.
+         * Decodes an AckEnterGame message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns NotKick
+         * @returns AckEnterGame
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotKick;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckEnterGame;
 
         /**
-         * Verifies a NotKick message.
+         * Verifies an AckEnterGame message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a NotCurrencyChange. */
-    interface INotCurrencyChange {
+    /** Properties of an ErrorID. */
+    interface IErrorID {
 
-        /** NotCurrencyChange userId */
-        userId: (number|Long);
+        /** ErrorID PLATER_NOT_ENOUGH */
+        PLATER_NOT_ENOUGH: number;
 
-        /** NotCurrencyChange currencyType */
-        currencyType: number;
-
-        /** NotCurrencyChange changeValue */
-        changeValue: (number|Long);
-
-        /** NotCurrencyChange currentValue */
-        currentValue: (number|Long);
+        /** ErrorID GAMEID_IS_ERROR */
+        GAMEID_IS_ERROR: number;
     }
 
-    /** Represents a NotCurrencyChange. */
-    class NotCurrencyChange implements INotCurrencyChange {
+    /** Represents an ErrorID. */
+    class ErrorID implements IErrorID {
 
         /**
-         * Constructs a new NotCurrencyChange.
+         * Constructs a new ErrorID.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.INotCurrencyChange);
+        constructor(properties?: game.IErrorID);
 
-        /** NotCurrencyChange userId. */
-        public userId: (number|Long);
+        /** ErrorID PLATER_NOT_ENOUGH. */
+        public PLATER_NOT_ENOUGH: number;
 
-        /** NotCurrencyChange currencyType. */
-        public currencyType: number;
-
-        /** NotCurrencyChange changeValue. */
-        public changeValue: (number|Long);
-
-        /** NotCurrencyChange currentValue. */
-        public currentValue: (number|Long);
+        /** ErrorID GAMEID_IS_ERROR. */
+        public GAMEID_IS_ERROR: number;
 
         /**
-         * Creates a new NotCurrencyChange instance using the specified properties.
+         * Creates a new ErrorID instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns NotCurrencyChange instance
+         * @returns ErrorID instance
          */
-        public static create(properties?: proto.INotCurrencyChange): proto.NotCurrencyChange;
+        public static create(properties?: game.IErrorID): game.ErrorID;
 
         /**
-         * Encodes the specified NotCurrencyChange message. Does not implicitly {@link proto.NotCurrencyChange.verify|verify} messages.
-         * @param message NotCurrencyChange message or plain object to encode
+         * Encodes the specified ErrorID message. Does not implicitly {@link game.ErrorID.verify|verify} messages.
+         * @param message ErrorID message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.INotCurrencyChange, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IErrorID, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified NotCurrencyChange message, length delimited. Does not implicitly {@link proto.NotCurrencyChange.verify|verify} messages.
-         * @param message NotCurrencyChange message or plain object to encode
+         * Encodes the specified ErrorID message, length delimited. Does not implicitly {@link game.ErrorID.verify|verify} messages.
+         * @param message ErrorID message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.INotCurrencyChange, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IErrorID, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a NotCurrencyChange message from the specified reader or buffer.
+         * Decodes an ErrorID message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns NotCurrencyChange
+         * @returns ErrorID
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotCurrencyChange;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.ErrorID;
 
         /**
-         * Decodes a NotCurrencyChange message from the specified reader or buffer, length delimited.
+         * Decodes an ErrorID message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns NotCurrencyChange
+         * @returns ErrorID
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotCurrencyChange;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.ErrorID;
 
         /**
-         * Verifies a NotCurrencyChange message.
+         * Verifies an ErrorID message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a Server. */
-    interface IServer {
+    /** Properties of a ReqReadyGame. */
+    interface IReqReadyGame {
 
-        /** Server type */
-        type: number;
+        /** ReqReadyGame GameID */
+        GameID: string;
 
-        /** Server ip */
-        ip?: (string|null);
-
-        /** Server port */
-        port?: (number|null);
-
-        /** Server domain */
-        domain?: (string|null);
+        /** ReqReadyGame UserName */
+        UserName?: (string|null);
     }
 
-    /** Represents a Server. */
-    class Server implements IServer {
+    /** Represents a ReqReadyGame. */
+    class ReqReadyGame implements IReqReadyGame {
 
         /**
-         * Constructs a new Server.
+         * Constructs a new ReqReadyGame.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IServer);
+        constructor(properties?: game.IReqReadyGame);
 
-        /** Server type. */
-        public type: number;
+        /** ReqReadyGame GameID. */
+        public GameID: string;
 
-        /** Server ip. */
-        public ip: string;
-
-        /** Server port. */
-        public port: number;
-
-        /** Server domain. */
-        public domain: string;
+        /** ReqReadyGame UserName. */
+        public UserName: string;
 
         /**
-         * Creates a new Server instance using the specified properties.
+         * Creates a new ReqReadyGame instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns Server instance
+         * @returns ReqReadyGame instance
          */
-        public static create(properties?: proto.IServer): proto.Server;
+        public static create(properties?: game.IReqReadyGame): game.ReqReadyGame;
 
         /**
-         * Encodes the specified Server message. Does not implicitly {@link proto.Server.verify|verify} messages.
-         * @param message Server message or plain object to encode
+         * Encodes the specified ReqReadyGame message. Does not implicitly {@link game.ReqReadyGame.verify|verify} messages.
+         * @param message ReqReadyGame message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IServer, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IReqReadyGame, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified Server message, length delimited. Does not implicitly {@link proto.Server.verify|verify} messages.
-         * @param message Server message or plain object to encode
+         * Encodes the specified ReqReadyGame message, length delimited. Does not implicitly {@link game.ReqReadyGame.verify|verify} messages.
+         * @param message ReqReadyGame message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IServer, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IReqReadyGame, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a Server message from the specified reader or buffer.
+         * Decodes a ReqReadyGame message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns Server
+         * @returns ReqReadyGame
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.Server;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.ReqReadyGame;
 
         /**
-         * Decodes a Server message from the specified reader or buffer, length delimited.
+         * Decodes a ReqReadyGame message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns Server
+         * @returns ReqReadyGame
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.Server;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.ReqReadyGame;
 
         /**
-         * Verifies a Server message.
+         * Verifies a ReqReadyGame message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a KVPair. */
-    interface IKVPair {
+    /** Properties of an AckGameOver. */
+    interface IAckGameOver {
 
-        /** KVPair key */
-        key?: (number|Long|null);
-
-        /** KVPair lVal */
-        lVal?: (number|Long|null);
-
-        /** KVPair sVal */
-        sVal?: (string|null);
+        /** AckGameOver ErrorID */
+        ErrorID: number;
     }
 
-    /** Represents a KVPair. */
-    class KVPair implements IKVPair {
+    /** Represents an AckGameOver. */
+    class AckGameOver implements IAckGameOver {
 
         /**
-         * Constructs a new KVPair.
+         * Constructs a new AckGameOver.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IKVPair);
+        constructor(properties?: game.IAckGameOver);
 
-        /** KVPair key. */
-        public key: (number|Long);
-
-        /** KVPair lVal. */
-        public lVal: (number|Long);
-
-        /** KVPair sVal. */
-        public sVal: string;
+        /** AckGameOver ErrorID. */
+        public ErrorID: number;
 
         /**
-         * Creates a new KVPair instance using the specified properties.
+         * Creates a new AckGameOver instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns KVPair instance
+         * @returns AckGameOver instance
          */
-        public static create(properties?: proto.IKVPair): proto.KVPair;
+        public static create(properties?: game.IAckGameOver): game.AckGameOver;
 
         /**
-         * Encodes the specified KVPair message. Does not implicitly {@link proto.KVPair.verify|verify} messages.
-         * @param message KVPair message or plain object to encode
+         * Encodes the specified AckGameOver message. Does not implicitly {@link game.AckGameOver.verify|verify} messages.
+         * @param message AckGameOver message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IKVPair, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IAckGameOver, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified KVPair message, length delimited. Does not implicitly {@link proto.KVPair.verify|verify} messages.
-         * @param message KVPair message or plain object to encode
+         * Encodes the specified AckGameOver message, length delimited. Does not implicitly {@link game.AckGameOver.verify|verify} messages.
+         * @param message AckGameOver message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IKVPair, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IAckGameOver, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a KVPair message from the specified reader or buffer.
+         * Decodes an AckGameOver message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns KVPair
+         * @returns AckGameOver
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.KVPair;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckGameOver;
 
         /**
-         * Decodes a KVPair message from the specified reader or buffer, length delimited.
+         * Decodes an AckGameOver message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns KVPair
+         * @returns AckGameOver
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.KVPair;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckGameOver;
 
         /**
-         * Verifies a KVPair message.
+         * Verifies an AckGameOver message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a Countdown. */
-    interface ICountdown {
+    /** Properties of an AckPlayerList. */
+    interface IAckPlayerList {
 
-        /** Countdown playCard */
-        playCard: number;
-
-        /** Countdown guanpai */
-        guanpai: number;
+        /** AckPlayerList PlayerList */
+        PlayerList?: (game.IPlayerInfo[]|null);
     }
 
-    /** Represents a Countdown. */
-    class Countdown implements ICountdown {
+    /** Represents an AckPlayerList. */
+    class AckPlayerList implements IAckPlayerList {
 
         /**
-         * Constructs a new Countdown.
+         * Constructs a new AckPlayerList.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.ICountdown);
+        constructor(properties?: game.IAckPlayerList);
 
-        /** Countdown playCard. */
-        public playCard: number;
-
-        /** Countdown guanpai. */
-        public guanpai: number;
+        /** AckPlayerList PlayerList. */
+        public PlayerList: game.IPlayerInfo[];
 
         /**
-         * Creates a new Countdown instance using the specified properties.
+         * Creates a new AckPlayerList instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns Countdown instance
+         * @returns AckPlayerList instance
          */
-        public static create(properties?: proto.ICountdown): proto.Countdown;
+        public static create(properties?: game.IAckPlayerList): game.AckPlayerList;
 
         /**
-         * Encodes the specified Countdown message. Does not implicitly {@link proto.Countdown.verify|verify} messages.
-         * @param message Countdown message or plain object to encode
+         * Encodes the specified AckPlayerList message. Does not implicitly {@link game.AckPlayerList.verify|verify} messages.
+         * @param message AckPlayerList message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.ICountdown, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IAckPlayerList, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified Countdown message, length delimited. Does not implicitly {@link proto.Countdown.verify|verify} messages.
-         * @param message Countdown message or plain object to encode
+         * Encodes the specified AckPlayerList message, length delimited. Does not implicitly {@link game.AckPlayerList.verify|verify} messages.
+         * @param message AckPlayerList message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.ICountdown, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IAckPlayerList, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a Countdown message from the specified reader or buffer.
+         * Decodes an AckPlayerList message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns Countdown
+         * @returns AckPlayerList
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.Countdown;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckPlayerList;
 
         /**
-         * Decodes a Countdown message from the specified reader or buffer, length delimited.
+         * Decodes an AckPlayerList message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns Countdown
+         * @returns AckPlayerList
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.Countdown;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckPlayerList;
 
         /**
-         * Verifies a Countdown message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a Room. */
-    interface IRoom {
-
-        /** Room id */
-        id: number;
-
-        /** Room mapId */
-        mapId: (number|Long);
-
-        /** Room name */
-        name: string;
-
-        /** Room icon */
-        icon?: (string|null);
-
-        /** Room type */
-        type?: (number|null);
-
-        /** Room level */
-        level?: (number|null);
-
-        /** Room baseScore */
-        baseScore?: (number|Long|null);
-
-        /** Room limit */
-        limit?: ((number|Long)[]|null);
-
-        /** Room describes */
-        describes?: (string|null);
-
-        /** Room servers */
-        servers?: (proto.IServer[]|null);
-
-        /** Room taifen */
-        taifen?: (number|Long|null);
-    }
-
-    /** Represents a Room. */
-    class Room implements IRoom {
-
-        /**
-         * Constructs a new Room.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IRoom);
-
-        /** Room id. */
-        public id: number;
-
-        /** Room mapId. */
-        public mapId: (number|Long);
-
-        /** Room name. */
-        public name: string;
-
-        /** Room icon. */
-        public icon: string;
-
-        /** Room type. */
-        public type: number;
-
-        /** Room level. */
-        public level: number;
-
-        /** Room baseScore. */
-        public baseScore: (number|Long);
-
-        /** Room limit. */
-        public limit: (number|Long)[];
-
-        /** Room describes. */
-        public describes: string;
-
-        /** Room servers. */
-        public servers: proto.IServer[];
-
-        /** Room taifen. */
-        public taifen: (number|Long);
-
-        /**
-         * Creates a new Room instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns Room instance
-         */
-        public static create(properties?: proto.IRoom): proto.Room;
-
-        /**
-         * Encodes the specified Room message. Does not implicitly {@link proto.Room.verify|verify} messages.
-         * @param message Room message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IRoom, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified Room message, length delimited. Does not implicitly {@link proto.Room.verify|verify} messages.
-         * @param message Room message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IRoom, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a Room message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns Room
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.Room;
-
-        /**
-         * Decodes a Room message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns Room
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.Room;
-
-        /**
-         * Verifies a Room message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a User. */
-    interface IUser {
-
-        /** User userId */
-        userId: (number|Long);
-
-        /** User nickName */
-        nickName: string;
-
-        /** User avatar */
-        avatar?: (string|null);
-
-        /** User goldCoin */
-        goldCoin?: (number|Long|null);
-
-        /** User status */
-        status?: (number|null);
-    }
-
-    /** Represents a User. */
-    class User implements IUser {
-
-        /**
-         * Constructs a new User.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IUser);
-
-        /** User userId. */
-        public userId: (number|Long);
-
-        /** User nickName. */
-        public nickName: string;
-
-        /** User avatar. */
-        public avatar: string;
-
-        /** User goldCoin. */
-        public goldCoin: (number|Long);
-
-        /** User status. */
-        public status: number;
-
-        /**
-         * Creates a new User instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns User instance
-         */
-        public static create(properties?: proto.IUser): proto.User;
-
-        /**
-         * Encodes the specified User message. Does not implicitly {@link proto.User.verify|verify} messages.
-         * @param message User message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IUser, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified User message, length delimited. Does not implicitly {@link proto.User.verify|verify} messages.
-         * @param message User message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IUser, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a User message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns User
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.User;
-
-        /**
-         * Decodes a User message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns User
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.User;
-
-        /**
-         * Verifies a User message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a Chair. */
-    interface IChair {
-
-        /** Chair seatNo */
-        seatNo: number;
-
-        /** Chair user */
-        user?: (proto.IUser|null);
-
-        /** Chair status */
-        status?: (number|null);
-    }
-
-    /** Represents a Chair. */
-    class Chair implements IChair {
-
-        /**
-         * Constructs a new Chair.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IChair);
-
-        /** Chair seatNo. */
-        public seatNo: number;
-
-        /** Chair user. */
-        public user?: (proto.IUser|null);
-
-        /** Chair status. */
-        public status: number;
-
-        /**
-         * Creates a new Chair instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns Chair instance
-         */
-        public static create(properties?: proto.IChair): proto.Chair;
-
-        /**
-         * Encodes the specified Chair message. Does not implicitly {@link proto.Chair.verify|verify} messages.
-         * @param message Chair message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IChair, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified Chair message, length delimited. Does not implicitly {@link proto.Chair.verify|verify} messages.
-         * @param message Chair message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IChair, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a Chair message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns Chair
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.Chair;
-
-        /**
-         * Decodes a Chair message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns Chair
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.Chair;
-
-        /**
-         * Verifies a Chair message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a ReconnectPlayerInfo. */
-    interface IReconnectPlayerInfo {
-
-        /** ReconnectPlayerInfo seatNo */
-        seatNo: number;
-
-        /** ReconnectPlayerInfo cards */
-        cards?: (proto.ICardInfo[]|null);
-
-        /** ReconnectPlayerInfo discard */
-        discard?: (proto.ICardInfo[]|null);
-
-        /** ReconnectPlayerInfo position */
-        position?: (number|null);
-
-        /** ReconnectPlayerInfo huapai */
-        huapai?: (proto.ICardInfo[]|null);
-
-        /** ReconnectPlayerInfo patterns */
-        patterns?: (proto.ICardsGroup[]|null);
-
-        /** ReconnectPlayerInfo lastCard */
-        lastCard?: (proto.ICardInfo|null);
-
-        /** ReconnectPlayerInfo ting */
-        ting?: (number|null);
-    }
-
-    /** Represents a ReconnectPlayerInfo. */
-    class ReconnectPlayerInfo implements IReconnectPlayerInfo {
-
-        /**
-         * Constructs a new ReconnectPlayerInfo.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IReconnectPlayerInfo);
-
-        /** ReconnectPlayerInfo seatNo. */
-        public seatNo: number;
-
-        /** ReconnectPlayerInfo cards. */
-        public cards: proto.ICardInfo[];
-
-        /** ReconnectPlayerInfo discard. */
-        public discard: proto.ICardInfo[];
-
-        /** ReconnectPlayerInfo position. */
-        public position: number;
-
-        /** ReconnectPlayerInfo huapai. */
-        public huapai: proto.ICardInfo[];
-
-        /** ReconnectPlayerInfo patterns. */
-        public patterns: proto.ICardsGroup[];
-
-        /** ReconnectPlayerInfo lastCard. */
-        public lastCard?: (proto.ICardInfo|null);
-
-        /** ReconnectPlayerInfo ting. */
-        public ting: number;
-
-        /**
-         * Creates a new ReconnectPlayerInfo instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ReconnectPlayerInfo instance
-         */
-        public static create(properties?: proto.IReconnectPlayerInfo): proto.ReconnectPlayerInfo;
-
-        /**
-         * Encodes the specified ReconnectPlayerInfo message. Does not implicitly {@link proto.ReconnectPlayerInfo.verify|verify} messages.
-         * @param message ReconnectPlayerInfo message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IReconnectPlayerInfo, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ReconnectPlayerInfo message, length delimited. Does not implicitly {@link proto.ReconnectPlayerInfo.verify|verify} messages.
-         * @param message ReconnectPlayerInfo message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IReconnectPlayerInfo, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ReconnectPlayerInfo message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ReconnectPlayerInfo
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReconnectPlayerInfo;
-
-        /**
-         * Decodes a ReconnectPlayerInfo message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ReconnectPlayerInfo
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReconnectPlayerInfo;
-
-        /**
-         * Verifies a ReconnectPlayerInfo message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a MahjongPattern. */
-    interface IMahjongPattern {
-
-        /** MahjongPattern type */
-        type: number;
-
-        /** MahjongPattern cards */
-        cards?: (proto.ICardInfo[]|null);
-    }
-
-    /** Represents a MahjongPattern. */
-    class MahjongPattern implements IMahjongPattern {
-
-        /**
-         * Constructs a new MahjongPattern.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IMahjongPattern);
-
-        /** MahjongPattern type. */
-        public type: number;
-
-        /** MahjongPattern cards. */
-        public cards: proto.ICardInfo[];
-
-        /**
-         * Creates a new MahjongPattern instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns MahjongPattern instance
-         */
-        public static create(properties?: proto.IMahjongPattern): proto.MahjongPattern;
-
-        /**
-         * Encodes the specified MahjongPattern message. Does not implicitly {@link proto.MahjongPattern.verify|verify} messages.
-         * @param message MahjongPattern message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IMahjongPattern, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified MahjongPattern message, length delimited. Does not implicitly {@link proto.MahjongPattern.verify|verify} messages.
-         * @param message MahjongPattern message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IMahjongPattern, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a MahjongPattern message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns MahjongPattern
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.MahjongPattern;
-
-        /**
-         * Decodes a MahjongPattern message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns MahjongPattern
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.MahjongPattern;
-
-        /**
-         * Verifies a MahjongPattern message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a Table. */
-    interface ITable {
-
-        /** Table tableId */
-        tableId: string;
-
-        /** Table roomId */
-        roomId: number;
-
-        /** Table roomLevel */
-        roomLevel: number;
-
-        /** Table type */
-        type?: (number|null);
-
-        /** Table tableName */
-        tableName?: (string|null);
-
-        /** Table roundId */
-        roundId: string;
-
-        /** Table baseScore */
-        baseScore: (number|Long);
-
-        /** Table gamePhase */
-        gamePhase: number;
-
-        /** Table chairs */
-        chairs?: (proto.IChair[]|null);
-
-        /** Table countdown */
-        countdown: proto.ICountdown;
-    }
-
-    /** Represents a Table. */
-    class Table implements ITable {
-
-        /**
-         * Constructs a new Table.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.ITable);
-
-        /** Table tableId. */
-        public tableId: string;
-
-        /** Table roomId. */
-        public roomId: number;
-
-        /** Table roomLevel. */
-        public roomLevel: number;
-
-        /** Table type. */
-        public type: number;
-
-        /** Table tableName. */
-        public tableName: string;
-
-        /** Table roundId. */
-        public roundId: string;
-
-        /** Table baseScore. */
-        public baseScore: (number|Long);
-
-        /** Table gamePhase. */
-        public gamePhase: number;
-
-        /** Table chairs. */
-        public chairs: proto.IChair[];
-
-        /** Table countdown. */
-        public countdown: proto.ICountdown;
-
-        /**
-         * Creates a new Table instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns Table instance
-         */
-        public static create(properties?: proto.ITable): proto.Table;
-
-        /**
-         * Encodes the specified Table message. Does not implicitly {@link proto.Table.verify|verify} messages.
-         * @param message Table message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.ITable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified Table message, length delimited. Does not implicitly {@link proto.Table.verify|verify} messages.
-         * @param message Table message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.ITable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a Table message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns Table
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.Table;
-
-        /**
-         * Decodes a Table message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns Table
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.Table;
-
-        /**
-         * Verifies a Table message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a Player. */
-    interface IPlayer {
-
-        /** Player seatNo */
-        seatNo: number;
-
-        /** Player userId */
-        userId: (number|Long);
-
-        /** Player userType */
-        userType: number;
-
-        /** Player userName */
-        userName: string;
-
-        /** Player nickName */
-        nickName?: (string|null);
-
-        /** Player avatar */
-        avatar?: (string|null);
-
-        /** Player channel */
-        channel?: (string|null);
-
-        /** Player proxy */
-        proxy?: (string|null);
-
-        /** Player group */
-        group?: (string|null);
-
-        /** Player userIp */
-        userIp?: (string|null);
-
-        /** Player handCards */
-        handCards?: (number[]|null);
-
-        /** Player surplusCards */
-        surplusCards?: (number[]|null);
-
-        /** Player bombCount */
-        bombCount?: (number|null);
-
-        /** Player initChips */
-        initChips: (number|Long);
-
-        /** Player winChips */
-        winChips?: (number|Long|null);
-
-        /** Player endChips */
-        endChips?: (number|Long|null);
-    }
-
-    /** Represents a Player. */
-    class Player implements IPlayer {
-
-        /**
-         * Constructs a new Player.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IPlayer);
-
-        /** Player seatNo. */
-        public seatNo: number;
-
-        /** Player userId. */
-        public userId: (number|Long);
-
-        /** Player userType. */
-        public userType: number;
-
-        /** Player userName. */
-        public userName: string;
-
-        /** Player nickName. */
-        public nickName: string;
-
-        /** Player avatar. */
-        public avatar: string;
-
-        /** Player channel. */
-        public channel: string;
-
-        /** Player proxy. */
-        public proxy: string;
-
-        /** Player group. */
-        public group: string;
-
-        /** Player userIp. */
-        public userIp: string;
-
-        /** Player handCards. */
-        public handCards: number[];
-
-        /** Player surplusCards. */
-        public surplusCards: number[];
-
-        /** Player bombCount. */
-        public bombCount: number;
-
-        /** Player initChips. */
-        public initChips: (number|Long);
-
-        /** Player winChips. */
-        public winChips: (number|Long);
-
-        /** Player endChips. */
-        public endChips: (number|Long);
-
-        /**
-         * Creates a new Player instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns Player instance
-         */
-        public static create(properties?: proto.IPlayer): proto.Player;
-
-        /**
-         * Encodes the specified Player message. Does not implicitly {@link proto.Player.verify|verify} messages.
-         * @param message Player message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IPlayer, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified Player message, length delimited. Does not implicitly {@link proto.Player.verify|verify} messages.
-         * @param message Player message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IPlayer, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a Player message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns Player
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.Player;
-
-        /**
-         * Decodes a Player message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns Player
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.Player;
-
-        /**
-         * Verifies a Player message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of an Action. */
-    interface IAction {
-
-        /** Action type */
-        type: number;
-
-        /** Action seatNo */
-        seatNo?: (number|null);
-
-        /** Action data */
-        data?: (number[]|null);
-
-        /** Action timestamp */
-        timestamp?: (number|Long|null);
-    }
-
-    /** Represents an Action. */
-    class Action implements IAction {
-
-        /**
-         * Constructs a new Action.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IAction);
-
-        /** Action type. */
-        public type: number;
-
-        /** Action seatNo. */
-        public seatNo: number;
-
-        /** Action data. */
-        public data: number[];
-
-        /** Action timestamp. */
-        public timestamp: (number|Long);
-
-        /**
-         * Creates a new Action instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns Action instance
-         */
-        public static create(properties?: proto.IAction): proto.Action;
-
-        /**
-         * Encodes the specified Action message. Does not implicitly {@link proto.Action.verify|verify} messages.
-         * @param message Action message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IAction, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified Action message, length delimited. Does not implicitly {@link proto.Action.verify|verify} messages.
-         * @param message Action message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IAction, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes an Action message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns Action
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.Action;
-
-        /**
-         * Decodes an Action message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns Action
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.Action;
-
-        /**
-         * Verifies an Action message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a GameVCR. */
-    interface IGameVCR {
-
-        /** GameVCR roomId */
-        roomId: number;
-
-        /** GameVCR roomLevel */
-        roomLevel: number;
-
-        /** GameVCR type */
-        type?: (number|null);
-
-        /** GameVCR tableId */
-        tableId: string;
-
-        /** GameVCR roundId */
-        roundId: string;
-
-        /** GameVCR beginTime */
-        beginTime: (number|Long);
-
-        /** GameVCR endTime */
-        endTime: (number|Long);
-
-        /** GameVCR dealer */
-        dealer: number;
-
-        /** GameVCR baseScore */
-        baseScore?: (number|Long|null);
-
-        /** GameVCR players */
-        players?: (proto.IPlayer[]|null);
-
-        /** GameVCR actions */
-        actions?: (proto.IAction[]|null);
-    }
-
-    /** Represents a GameVCR. */
-    class GameVCR implements IGameVCR {
-
-        /**
-         * Constructs a new GameVCR.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IGameVCR);
-
-        /** GameVCR roomId. */
-        public roomId: number;
-
-        /** GameVCR roomLevel. */
-        public roomLevel: number;
-
-        /** GameVCR type. */
-        public type: number;
-
-        /** GameVCR tableId. */
-        public tableId: string;
-
-        /** GameVCR roundId. */
-        public roundId: string;
-
-        /** GameVCR beginTime. */
-        public beginTime: (number|Long);
-
-        /** GameVCR endTime. */
-        public endTime: (number|Long);
-
-        /** GameVCR dealer. */
-        public dealer: number;
-
-        /** GameVCR baseScore. */
-        public baseScore: (number|Long);
-
-        /** GameVCR players. */
-        public players: proto.IPlayer[];
-
-        /** GameVCR actions. */
-        public actions: proto.IAction[];
-
-        /**
-         * Creates a new GameVCR instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns GameVCR instance
-         */
-        public static create(properties?: proto.IGameVCR): proto.GameVCR;
-
-        /**
-         * Encodes the specified GameVCR message. Does not implicitly {@link proto.GameVCR.verify|verify} messages.
-         * @param message GameVCR message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IGameVCR, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified GameVCR message, length delimited. Does not implicitly {@link proto.GameVCR.verify|verify} messages.
-         * @param message GameVCR message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IGameVCR, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a GameVCR message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns GameVCR
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.GameVCR;
-
-        /**
-         * Decodes a GameVCR message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns GameVCR
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.GameVCR;
-
-        /**
-         * Verifies a GameVCR message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a CardInfo. */
-    interface ICardInfo {
-
-        /** CardInfo CardID */
-        CardID: number;
-
-        /** CardInfo Sit */
-        Sit?: (number|null);
-    }
-
-    /** Represents a CardInfo. */
-    class CardInfo implements ICardInfo {
-
-        /**
-         * Constructs a new CardInfo.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.ICardInfo);
-
-        /** CardInfo CardID. */
-        public CardID: number;
-
-        /** CardInfo Sit. */
-        public Sit: number;
-
-        /**
-         * Creates a new CardInfo instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns CardInfo instance
-         */
-        public static create(properties?: proto.ICardInfo): proto.CardInfo;
-
-        /**
-         * Encodes the specified CardInfo message. Does not implicitly {@link proto.CardInfo.verify|verify} messages.
-         * @param message CardInfo message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.ICardInfo, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified CardInfo message, length delimited. Does not implicitly {@link proto.CardInfo.verify|verify} messages.
-         * @param message CardInfo message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.ICardInfo, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a CardInfo message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns CardInfo
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.CardInfo;
-
-        /**
-         * Decodes a CardInfo message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns CardInfo
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.CardInfo;
-
-        /**
-         * Verifies a CardInfo message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a HandCards. */
-    interface IHandCards {
-
-        /** HandCards seat */
-        seat: number;
-
-        /** HandCards cards */
-        cards?: (proto.ICardInfo[]|null);
-
-        /** HandCards huCard */
-        huCard?: (proto.ICardInfo|null);
-    }
-
-    /** Represents a HandCards. */
-    class HandCards implements IHandCards {
-
-        /**
-         * Constructs a new HandCards.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IHandCards);
-
-        /** HandCards seat. */
-        public seat: number;
-
-        /** HandCards cards. */
-        public cards: proto.ICardInfo[];
-
-        /** HandCards huCard. */
-        public huCard?: (proto.ICardInfo|null);
-
-        /**
-         * Creates a new HandCards instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns HandCards instance
-         */
-        public static create(properties?: proto.IHandCards): proto.HandCards;
-
-        /**
-         * Encodes the specified HandCards message. Does not implicitly {@link proto.HandCards.verify|verify} messages.
-         * @param message HandCards message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IHandCards, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified HandCards message, length delimited. Does not implicitly {@link proto.HandCards.verify|verify} messages.
-         * @param message HandCards message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IHandCards, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a HandCards message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns HandCards
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.HandCards;
-
-        /**
-         * Decodes a HandCards message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns HandCards
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.HandCards;
-
-        /**
-         * Verifies a HandCards message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a CardsGroup. */
-    interface ICardsGroup {
-
-        /** CardsGroup Sit */
-        Sit: number;
-
-        /** CardsGroup Type */
-        Type: number;
-
-        /** CardsGroup Cards */
-        Cards?: (proto.ICardInfo[]|null);
-
-        /** CardsGroup ObtainCard */
-        ObtainCard?: (proto.ICardInfo|null);
-
-        /** CardsGroup ObtainCardSit */
-        ObtainCardSit?: (number|null);
-
-        /** CardsGroup Card2 */
-        Card2?: (proto.ICardInfo|null);
-    }
-
-    /** Represents a CardsGroup. */
-    class CardsGroup implements ICardsGroup {
-
-        /**
-         * Constructs a new CardsGroup.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.ICardsGroup);
-
-        /** CardsGroup Sit. */
-        public Sit: number;
-
-        /** CardsGroup Type. */
-        public Type: number;
-
-        /** CardsGroup Cards. */
-        public Cards: proto.ICardInfo[];
-
-        /** CardsGroup ObtainCard. */
-        public ObtainCard?: (proto.ICardInfo|null);
-
-        /** CardsGroup ObtainCardSit. */
-        public ObtainCardSit: number;
-
-        /** CardsGroup Card2. */
-        public Card2?: (proto.ICardInfo|null);
-
-        /**
-         * Creates a new CardsGroup instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns CardsGroup instance
-         */
-        public static create(properties?: proto.ICardsGroup): proto.CardsGroup;
-
-        /**
-         * Encodes the specified CardsGroup message. Does not implicitly {@link proto.CardsGroup.verify|verify} messages.
-         * @param message CardsGroup message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.ICardsGroup, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified CardsGroup message, length delimited. Does not implicitly {@link proto.CardsGroup.verify|verify} messages.
-         * @param message CardsGroup message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.ICardsGroup, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a CardsGroup message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns CardsGroup
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.CardsGroup;
-
-        /**
-         * Decodes a CardsGroup message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns CardsGroup
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.CardsGroup;
-
-        /**
-         * Verifies a CardsGroup message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a MahjongFanNumType. */
-    interface IMahjongFanNumType {
-
-        /** MahjongFanNumType FanNum */
-        FanNum: number;
-
-        /** MahjongFanNumType FanType */
-        FanType: number;
-
-        /** MahjongFanNumType Cards */
-        Cards?: (proto.ICardInfo[]|null);
-    }
-
-    /** Represents a MahjongFanNumType. */
-    class MahjongFanNumType implements IMahjongFanNumType {
-
-        /**
-         * Constructs a new MahjongFanNumType.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IMahjongFanNumType);
-
-        /** MahjongFanNumType FanNum. */
-        public FanNum: number;
-
-        /** MahjongFanNumType FanType. */
-        public FanType: number;
-
-        /** MahjongFanNumType Cards. */
-        public Cards: proto.ICardInfo[];
-
-        /**
-         * Creates a new MahjongFanNumType instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns MahjongFanNumType instance
-         */
-        public static create(properties?: proto.IMahjongFanNumType): proto.MahjongFanNumType;
-
-        /**
-         * Encodes the specified MahjongFanNumType message. Does not implicitly {@link proto.MahjongFanNumType.verify|verify} messages.
-         * @param message MahjongFanNumType message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IMahjongFanNumType, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified MahjongFanNumType message, length delimited. Does not implicitly {@link proto.MahjongFanNumType.verify|verify} messages.
-         * @param message MahjongFanNumType message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IMahjongFanNumType, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a MahjongFanNumType message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns MahjongFanNumType
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.MahjongFanNumType;
-
-        /**
-         * Decodes a MahjongFanNumType message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns MahjongFanNumType
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.MahjongFanNumType;
-
-        /**
-         * Verifies a MahjongFanNumType message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a TingCard. */
-    interface ITingCard {
-
-        /** TingCard FanType */
-        FanType: number;
-
-        /** TingCard CardIndex */
-        CardIndex: number;
-    }
-
-    /** Represents a TingCard. */
-    class TingCard implements ITingCard {
-
-        /**
-         * Constructs a new TingCard.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.ITingCard);
-
-        /** TingCard FanType. */
-        public FanType: number;
-
-        /** TingCard CardIndex. */
-        public CardIndex: number;
-
-        /**
-         * Creates a new TingCard instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns TingCard instance
-         */
-        public static create(properties?: proto.ITingCard): proto.TingCard;
-
-        /**
-         * Encodes the specified TingCard message. Does not implicitly {@link proto.TingCard.verify|verify} messages.
-         * @param message TingCard message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.ITingCard, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified TingCard message, length delimited. Does not implicitly {@link proto.TingCard.verify|verify} messages.
-         * @param message TingCard message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.ITingCard, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a TingCard message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns TingCard
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.TingCard;
-
-        /**
-         * Decodes a TingCard message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns TingCard
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.TingCard;
-
-        /**
-         * Verifies a TingCard message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a MahjongCallInfo. */
-    interface IMahjongCallInfo {
-
-        /** MahjongCallInfo ObtainCardIndex */
-        ObtainCardIndex: number;
-
-        /** MahjongCallInfo CallCards */
-        CallCards?: (proto.ITingCard[]|null);
-    }
-
-    /** Represents a MahjongCallInfo. */
-    class MahjongCallInfo implements IMahjongCallInfo {
-
-        /**
-         * Constructs a new MahjongCallInfo.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IMahjongCallInfo);
-
-        /** MahjongCallInfo ObtainCardIndex. */
-        public ObtainCardIndex: number;
-
-        /** MahjongCallInfo CallCards. */
-        public CallCards: proto.ITingCard[];
-
-        /**
-         * Creates a new MahjongCallInfo instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns MahjongCallInfo instance
-         */
-        public static create(properties?: proto.IMahjongCallInfo): proto.MahjongCallInfo;
-
-        /**
-         * Encodes the specified MahjongCallInfo message. Does not implicitly {@link proto.MahjongCallInfo.verify|verify} messages.
-         * @param message MahjongCallInfo message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IMahjongCallInfo, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified MahjongCallInfo message, length delimited. Does not implicitly {@link proto.MahjongCallInfo.verify|verify} messages.
-         * @param message MahjongCallInfo message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IMahjongCallInfo, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a MahjongCallInfo message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns MahjongCallInfo
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.MahjongCallInfo;
-
-        /**
-         * Decodes a MahjongCallInfo message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns MahjongCallInfo
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.MahjongCallInfo;
-
-        /**
-         * Verifies a MahjongCallInfo message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a PlayerResultInfo. */
-    interface IPlayerResultInfo {
-
-        /** PlayerResultInfo username */
-        username: string;
-
-        /** PlayerResultInfo seat */
-        seat?: (number|null);
-
-        /** PlayerResultInfo fantype */
-        fantype?: (number|null);
-
-        /** PlayerResultInfo wintype */
-        wintype?: (number|null);
-
-        /** PlayerResultInfo max_fan */
-        max_fan?: (number|null);
-
-        /** PlayerResultInfo gameCoin */
-        gameCoin?: (number|null);
-
-        /** PlayerResultInfo Coin */
-        Coin?: (number|null);
-
-        /** PlayerResultInfo feeCoin */
-        feeCoin?: (number|null);
-
-        /** PlayerResultInfo result_list_detail */
-        result_list_detail?: (proto.IScoreDescDetail[]|null);
-
-        /** PlayerResultInfo handCards */
-        handCards?: (proto.ICardsGroup[]|null);
-    }
-
-    /** Represents a PlayerResultInfo. */
-    class PlayerResultInfo implements IPlayerResultInfo {
-
-        /**
-         * Constructs a new PlayerResultInfo.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IPlayerResultInfo);
-
-        /** PlayerResultInfo username. */
-        public username: string;
-
-        /** PlayerResultInfo seat. */
-        public seat: number;
-
-        /** PlayerResultInfo fantype. */
-        public fantype: number;
-
-        /** PlayerResultInfo wintype. */
-        public wintype: number;
-
-        /** PlayerResultInfo max_fan. */
-        public max_fan: number;
-
-        /** PlayerResultInfo gameCoin. */
-        public gameCoin: number;
-
-        /** PlayerResultInfo Coin. */
-        public Coin: number;
-
-        /** PlayerResultInfo feeCoin. */
-        public feeCoin: number;
-
-        /** PlayerResultInfo result_list_detail. */
-        public result_list_detail: proto.IScoreDescDetail[];
-
-        /** PlayerResultInfo handCards. */
-        public handCards: proto.ICardsGroup[];
-
-        /**
-         * Creates a new PlayerResultInfo instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns PlayerResultInfo instance
-         */
-        public static create(properties?: proto.IPlayerResultInfo): proto.PlayerResultInfo;
-
-        /**
-         * Encodes the specified PlayerResultInfo message. Does not implicitly {@link proto.PlayerResultInfo.verify|verify} messages.
-         * @param message PlayerResultInfo message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IPlayerResultInfo, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified PlayerResultInfo message, length delimited. Does not implicitly {@link proto.PlayerResultInfo.verify|verify} messages.
-         * @param message PlayerResultInfo message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IPlayerResultInfo, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a PlayerResultInfo message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns PlayerResultInfo
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.PlayerResultInfo;
-
-        /**
-         * Decodes a PlayerResultInfo message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns PlayerResultInfo
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.PlayerResultInfo;
-
-        /**
-         * Verifies a PlayerResultInfo message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a ScoreDescDetail. */
-    interface IScoreDescDetail {
-
-        /** ScoreDescDetail type */
-        type?: (number|null);
-
-        /** ScoreDescDetail fannum */
-        fannum?: (number|null);
-
-        /** ScoreDescDetail score */
-        score?: (number|null);
-
-        /** ScoreDescDetail obtainsit */
-        obtainsit?: (number|null);
-
-        /** ScoreDescDetail selfseat */
-        selfseat?: (number|null);
-
-        /** ScoreDescDetail score_change */
-        score_change?: (number[]|null);
-
-        /** ScoreDescDetail fan_zhong */
-        fan_zhong?: (number[]|null);
-
-        /** ScoreDescDetail fan_num */
-        fan_num?: (number[]|null);
-
-        /** ScoreDescDetail huCardID */
-        huCardID?: (number|null);
-    }
-
-    /** Represents a ScoreDescDetail. */
-    class ScoreDescDetail implements IScoreDescDetail {
-
-        /**
-         * Constructs a new ScoreDescDetail.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IScoreDescDetail);
-
-        /** ScoreDescDetail type. */
-        public type: number;
-
-        /** ScoreDescDetail fannum. */
-        public fannum: number;
-
-        /** ScoreDescDetail score. */
-        public score: number;
-
-        /** ScoreDescDetail obtainsit. */
-        public obtainsit: number;
-
-        /** ScoreDescDetail selfseat. */
-        public selfseat: number;
-
-        /** ScoreDescDetail score_change. */
-        public score_change: number[];
-
-        /** ScoreDescDetail fan_zhong. */
-        public fan_zhong: number[];
-
-        /** ScoreDescDetail fan_num. */
-        public fan_num: number[];
-
-        /** ScoreDescDetail huCardID. */
-        public huCardID: number;
-
-        /**
-         * Creates a new ScoreDescDetail instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ScoreDescDetail instance
-         */
-        public static create(properties?: proto.IScoreDescDetail): proto.ScoreDescDetail;
-
-        /**
-         * Encodes the specified ScoreDescDetail message. Does not implicitly {@link proto.ScoreDescDetail.verify|verify} messages.
-         * @param message ScoreDescDetail message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IScoreDescDetail, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ScoreDescDetail message, length delimited. Does not implicitly {@link proto.ScoreDescDetail.verify|verify} messages.
-         * @param message ScoreDescDetail message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IScoreDescDetail, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ScoreDescDetail message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ScoreDescDetail
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ScoreDescDetail;
-
-        /**
-         * Decodes a ScoreDescDetail message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ScoreDescDetail
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ScoreDescDetail;
-
-        /**
-         * Verifies a ScoreDescDetail message.
+         * Verifies an AckPlayerList message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
@@ -2219,10 +482,10 @@ declare namespace proto {
         Coin?: (number|Long|null);
 
         /** PlayerInfo NowLevel */
-        NowLevel?: (proto.IRank|null);
+        NowLevel?: (game.IRank|null);
 
         /** PlayerInfo HisLevel */
-        HisLevel?: (proto.IRank|null);
+        HisLevel?: (game.IRank|null);
 
         /** PlayerInfo Stage */
         Stage?: (number|null);
@@ -2255,7 +518,7 @@ declare namespace proto {
         IsMember?: (boolean|null);
 
         /** PlayerInfo HistoryMaxLevel */
-        HistoryMaxLevel?: (proto.IRank|null);
+        HistoryMaxLevel?: (game.IRank|null);
 
         /** PlayerInfo Average_Rank */
         Average_Rank?: (number|null);
@@ -2310,7 +573,7 @@ declare namespace proto {
          * Constructs a new PlayerInfo.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IPlayerInfo);
+        constructor(properties?: game.IPlayerInfo);
 
         /** PlayerInfo UserName. */
         public UserName: string;
@@ -2331,10 +594,10 @@ declare namespace proto {
         public Coin: (number|Long);
 
         /** PlayerInfo NowLevel. */
-        public NowLevel?: (proto.IRank|null);
+        public NowLevel?: (game.IRank|null);
 
         /** PlayerInfo HisLevel. */
-        public HisLevel?: (proto.IRank|null);
+        public HisLevel?: (game.IRank|null);
 
         /** PlayerInfo Stage. */
         public Stage: number;
@@ -2367,7 +630,7 @@ declare namespace proto {
         public IsMember: boolean;
 
         /** PlayerInfo HistoryMaxLevel. */
-        public HistoryMaxLevel?: (proto.IRank|null);
+        public HistoryMaxLevel?: (game.IRank|null);
 
         /** PlayerInfo Average_Rank. */
         public Average_Rank: number;
@@ -2419,23 +682,23 @@ declare namespace proto {
          * @param [properties] Properties to set
          * @returns PlayerInfo instance
          */
-        public static create(properties?: proto.IPlayerInfo): proto.PlayerInfo;
+        public static create(properties?: game.IPlayerInfo): game.PlayerInfo;
 
         /**
-         * Encodes the specified PlayerInfo message. Does not implicitly {@link proto.PlayerInfo.verify|verify} messages.
+         * Encodes the specified PlayerInfo message. Does not implicitly {@link game.PlayerInfo.verify|verify} messages.
          * @param message PlayerInfo message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IPlayerInfo, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IPlayerInfo, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified PlayerInfo message, length delimited. Does not implicitly {@link proto.PlayerInfo.verify|verify} messages.
+         * Encodes the specified PlayerInfo message, length delimited. Does not implicitly {@link game.PlayerInfo.verify|verify} messages.
          * @param message PlayerInfo message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IPlayerInfo, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IPlayerInfo, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a PlayerInfo message from the specified reader or buffer.
@@ -2445,7 +708,7 @@ declare namespace proto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.PlayerInfo;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.PlayerInfo;
 
         /**
          * Decodes a PlayerInfo message from the specified reader or buffer, length delimited.
@@ -2454,7 +717,7 @@ declare namespace proto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.PlayerInfo;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.PlayerInfo;
 
         /**
          * Verifies a PlayerInfo message.
@@ -2481,7 +744,7 @@ declare namespace proto {
          * Constructs a new Rank.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IRank);
+        constructor(properties?: game.IRank);
 
         /** Rank duan. */
         public duan: number;
@@ -2494,23 +757,23 @@ declare namespace proto {
          * @param [properties] Properties to set
          * @returns Rank instance
          */
-        public static create(properties?: proto.IRank): proto.Rank;
+        public static create(properties?: game.IRank): game.Rank;
 
         /**
-         * Encodes the specified Rank message. Does not implicitly {@link proto.Rank.verify|verify} messages.
+         * Encodes the specified Rank message. Does not implicitly {@link game.Rank.verify|verify} messages.
          * @param message Rank message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IRank, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IRank, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified Rank message, length delimited. Does not implicitly {@link proto.Rank.verify|verify} messages.
+         * Encodes the specified Rank message, length delimited. Does not implicitly {@link game.Rank.verify|verify} messages.
          * @param message Rank message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IRank, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IRank, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes a Rank message from the specified reader or buffer.
@@ -2520,7 +783,7 @@ declare namespace proto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.Rank;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.Rank;
 
         /**
          * Decodes a Rank message from the specified reader or buffer, length delimited.
@@ -2529,7 +792,7 @@ declare namespace proto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.Rank;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.Rank;
 
         /**
          * Verifies a Rank message.
@@ -2539,2874 +802,651 @@ declare namespace proto {
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a Seat. */
-    interface ISeat {
+    /** Properties of an AckGameRule. */
+    interface IAckGameRule {
 
-        /** Seat seatNo */
-        seatNo: number;
+        /** AckGameRule FirstSit */
+        FirstSit: number;
 
-        /** Seat userId */
-        userId: (number|Long);
+        /** AckGameRule GameType */
+        GameType: number;
 
-        /** Seat type */
-        type?: (number|null);
+        /** AckGameRule Is_Next_ChiPengGangTime */
+        Is_Next_ChiPengGangTime: number;
 
-        /** Seat state */
-        state?: (number|null);
+        /** AckGameRule Not_Next_ChiPengGangTime */
+        Not_Next_ChiPengGangTime: number;
 
-        /** Seat userName */
-        userName?: (string|null);
+        /** AckGameRule HuTime */
+        HuTime: number;
 
-        /** Seat channel */
-        channel?: (string|null);
+        /** AckGameRule PlayTime */
+        PlayTime: number;
 
-        /** Seat proxy */
-        proxy?: (string|null);
+        /** AckGameRule DelayTime */
+        DelayTime: number;
 
-        /** Seat group */
-        group?: (string|null);
+        /** AckGameRule DelayRestrictions */
+        DelayRestrictions: number;
 
-        /** Seat nickName */
-        nickName?: (string|null);
+        /** AckGameRule Bureau */
+        Bureau: number;
 
-        /** Seat avatar */
-        avatar?: (string|null);
+        /** AckGameRule Ring */
+        Ring: number;
 
-        /** Seat chips */
-        chips: (number|Long);
+        /** AckGameRule PAIR */
+        PAIR: number;
 
-        /** Seat style */
-        style?: (number|null);
+        /** AckGameRule TrustRestrictions */
+        TrustRestrictions: number;
 
-        /** Seat ability */
-        ability?: (number|null);
+        /** AckGameRule FirstSendTime */
+        FirstSendTime: number;
 
-        /** Seat attributes */
-        attributes?: (number[]|null);
+        /** AckGameRule ChiPengGangSurplusTime */
+        ChiPengGangSurplusTime: number;
 
-        /** Seat money */
-        money?: (number|Long|null);
+        /** AckGameRule ArrangementCardsOverTime */
+        ArrangementCardsOverTime: number;
 
-        /** Seat curChips */
-        curChips?: (number|Long|null);
+        /** AckGameRule GoOnGaneTime */
+        GoOnGaneTime: number;
 
-        /** Seat kickOut */
-        kickOut?: (boolean|null);
+        /** AckGameRule HuanSanzhang */
+        HuanSanzhang?: (number|null);
 
-        /** Seat serviceMoney */
-        serviceMoney?: (number|Long|null);
+        /** AckGameRule dingque */
+        dingque?: (number|null);
     }
 
-    /** Represents a Seat. */
-    class Seat implements ISeat {
+    /** Represents an AckGameRule. */
+    class AckGameRule implements IAckGameRule {
 
         /**
-         * Constructs a new Seat.
+         * Constructs a new AckGameRule.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.ISeat);
+        constructor(properties?: game.IAckGameRule);
 
-        /** Seat seatNo. */
-        public seatNo: number;
+        /** AckGameRule FirstSit. */
+        public FirstSit: number;
 
-        /** Seat userId. */
-        public userId: (number|Long);
+        /** AckGameRule GameType. */
+        public GameType: number;
 
-        /** Seat type. */
-        public type: number;
+        /** AckGameRule Is_Next_ChiPengGangTime. */
+        public Is_Next_ChiPengGangTime: number;
 
-        /** Seat state. */
-        public state: number;
+        /** AckGameRule Not_Next_ChiPengGangTime. */
+        public Not_Next_ChiPengGangTime: number;
 
-        /** Seat userName. */
-        public userName: string;
+        /** AckGameRule HuTime. */
+        public HuTime: number;
 
-        /** Seat channel. */
-        public channel: string;
+        /** AckGameRule PlayTime. */
+        public PlayTime: number;
 
-        /** Seat proxy. */
-        public proxy: string;
+        /** AckGameRule DelayTime. */
+        public DelayTime: number;
 
-        /** Seat group. */
-        public group: string;
+        /** AckGameRule DelayRestrictions. */
+        public DelayRestrictions: number;
 
-        /** Seat nickName. */
-        public nickName: string;
+        /** AckGameRule Bureau. */
+        public Bureau: number;
 
-        /** Seat avatar. */
-        public avatar: string;
+        /** AckGameRule Ring. */
+        public Ring: number;
 
-        /** Seat chips. */
-        public chips: (number|Long);
+        /** AckGameRule PAIR. */
+        public PAIR: number;
 
-        /** Seat style. */
-        public style: number;
+        /** AckGameRule TrustRestrictions. */
+        public TrustRestrictions: number;
 
-        /** Seat ability. */
-        public ability: number;
+        /** AckGameRule FirstSendTime. */
+        public FirstSendTime: number;
 
-        /** Seat attributes. */
-        public attributes: number[];
+        /** AckGameRule ChiPengGangSurplusTime. */
+        public ChiPengGangSurplusTime: number;
 
-        /** Seat money. */
-        public money: (number|Long);
+        /** AckGameRule ArrangementCardsOverTime. */
+        public ArrangementCardsOverTime: number;
 
-        /** Seat curChips. */
-        public curChips: (number|Long);
+        /** AckGameRule GoOnGaneTime. */
+        public GoOnGaneTime: number;
 
-        /** Seat kickOut. */
-        public kickOut: boolean;
+        /** AckGameRule HuanSanzhang. */
+        public HuanSanzhang: number;
 
-        /** Seat serviceMoney. */
-        public serviceMoney: (number|Long);
+        /** AckGameRule dingque. */
+        public dingque: number;
 
         /**
-         * Creates a new Seat instance using the specified properties.
+         * Creates a new AckGameRule instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns Seat instance
+         * @returns AckGameRule instance
          */
-        public static create(properties?: proto.ISeat): proto.Seat;
+        public static create(properties?: game.IAckGameRule): game.AckGameRule;
 
         /**
-         * Encodes the specified Seat message. Does not implicitly {@link proto.Seat.verify|verify} messages.
-         * @param message Seat message or plain object to encode
+         * Encodes the specified AckGameRule message. Does not implicitly {@link game.AckGameRule.verify|verify} messages.
+         * @param message AckGameRule message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.ISeat, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IAckGameRule, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified Seat message, length delimited. Does not implicitly {@link proto.Seat.verify|verify} messages.
-         * @param message Seat message or plain object to encode
+         * Encodes the specified AckGameRule message, length delimited. Does not implicitly {@link game.AckGameRule.verify|verify} messages.
+         * @param message AckGameRule message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.ISeat, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IAckGameRule, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a Seat message from the specified reader or buffer.
+         * Decodes an AckGameRule message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns Seat
+         * @returns AckGameRule
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.Seat;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckGameRule;
 
         /**
-         * Decodes a Seat message from the specified reader or buffer, length delimited.
+         * Decodes an AckGameRule message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns Seat
+         * @returns AckGameRule
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.Seat;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckGameRule;
 
         /**
-         * Verifies a Seat message.
+         * Verifies an AckGameRule message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a RoomStatus. */
-    interface IRoomStatus {
+    /** Properties of an AckDiceAndCards. */
+    interface IAckDiceAndCards {
 
-        /** RoomStatus id */
-        id: number;
+        /** AckDiceAndCards FirstSit */
+        FirstSit: number;
 
-        /** RoomStatus playerCount */
-        playerCount: number;
+        /** AckDiceAndCards SecondSit */
+        SecondSit: number;
+
+        /** AckDiceAndCards FirstDice */
+        FirstDice: string;
+
+        /** AckDiceAndCards SecondDice */
+        SecondDice: string;
+
+        /** AckDiceAndCards FirstCardsIndexes */
+        FirstCardsIndexes: number;
+
+        /** AckDiceAndCards HandCards */
+        HandCards?: (game.ICardInfo[]|null);
+
+        /** AckDiceAndCards huan_san_zhang */
+        huan_san_zhang?: (game.ICardInfo[]|null);
     }
 
-    /** Represents a RoomStatus. */
-    class RoomStatus implements IRoomStatus {
+    /** Represents an AckDiceAndCards. */
+    class AckDiceAndCards implements IAckDiceAndCards {
 
         /**
-         * Constructs a new RoomStatus.
+         * Constructs a new AckDiceAndCards.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IRoomStatus);
+        constructor(properties?: game.IAckDiceAndCards);
 
-        /** RoomStatus id. */
-        public id: number;
+        /** AckDiceAndCards FirstSit. */
+        public FirstSit: number;
 
-        /** RoomStatus playerCount. */
-        public playerCount: number;
+        /** AckDiceAndCards SecondSit. */
+        public SecondSit: number;
+
+        /** AckDiceAndCards FirstDice. */
+        public FirstDice: string;
+
+        /** AckDiceAndCards SecondDice. */
+        public SecondDice: string;
+
+        /** AckDiceAndCards FirstCardsIndexes. */
+        public FirstCardsIndexes: number;
+
+        /** AckDiceAndCards HandCards. */
+        public HandCards: game.ICardInfo[];
+
+        /** AckDiceAndCards huan_san_zhang. */
+        public huan_san_zhang: game.ICardInfo[];
 
         /**
-         * Creates a new RoomStatus instance using the specified properties.
+         * Creates a new AckDiceAndCards instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns RoomStatus instance
+         * @returns AckDiceAndCards instance
          */
-        public static create(properties?: proto.IRoomStatus): proto.RoomStatus;
+        public static create(properties?: game.IAckDiceAndCards): game.AckDiceAndCards;
 
         /**
-         * Encodes the specified RoomStatus message. Does not implicitly {@link proto.RoomStatus.verify|verify} messages.
-         * @param message RoomStatus message or plain object to encode
+         * Encodes the specified AckDiceAndCards message. Does not implicitly {@link game.AckDiceAndCards.verify|verify} messages.
+         * @param message AckDiceAndCards message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IRoomStatus, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IAckDiceAndCards, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified RoomStatus message, length delimited. Does not implicitly {@link proto.RoomStatus.verify|verify} messages.
-         * @param message RoomStatus message or plain object to encode
+         * Encodes the specified AckDiceAndCards message, length delimited. Does not implicitly {@link game.AckDiceAndCards.verify|verify} messages.
+         * @param message AckDiceAndCards message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IRoomStatus, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IAckDiceAndCards, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a RoomStatus message from the specified reader or buffer.
+         * Decodes an AckDiceAndCards message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns RoomStatus
+         * @returns AckDiceAndCards
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.RoomStatus;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckDiceAndCards;
 
         /**
-         * Decodes a RoomStatus message from the specified reader or buffer, length delimited.
+         * Decodes an AckDiceAndCards message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns RoomStatus
+         * @returns AckDiceAndCards
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.RoomStatus;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckDiceAndCards;
 
         /**
-         * Verifies a RoomStatus message.
+         * Verifies an AckDiceAndCards message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a ReqLogin. */
-    interface IReqLogin {
+    /** Properties of a CardInfo. */
+    interface ICardInfo {
 
-        /** ReqLogin certType */
-        certType?: (number|null);
+        /** CardInfo CardID */
+        CardID: number;
 
-        /** ReqLogin cert */
-        cert?: (string|null);
-
-        /** ReqLogin nickName */
-        nickName?: (string|null);
-
-        /** ReqLogin avatar */
-        avatar?: (string|null);
-
-        /** ReqLogin channelId */
-        channelId?: (number|null);
-
-        /** ReqLogin kvList */
-        kvList?: (proto.IKVPair[]|null);
+        /** CardInfo Sit */
+        Sit?: (number|null);
     }
 
-    /** Represents a ReqLogin. */
-    class ReqLogin implements IReqLogin {
+    /** Represents a CardInfo. */
+    class CardInfo implements ICardInfo {
 
         /**
-         * Constructs a new ReqLogin.
+         * Constructs a new CardInfo.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IReqLogin);
+        constructor(properties?: game.ICardInfo);
 
-        /** ReqLogin certType. */
-        public certType: number;
+        /** CardInfo CardID. */
+        public CardID: number;
 
-        /** ReqLogin cert. */
-        public cert: string;
-
-        /** ReqLogin nickName. */
-        public nickName: string;
-
-        /** ReqLogin avatar. */
-        public avatar: string;
-
-        /** ReqLogin channelId. */
-        public channelId: number;
-
-        /** ReqLogin kvList. */
-        public kvList: proto.IKVPair[];
+        /** CardInfo Sit. */
+        public Sit: number;
 
         /**
-         * Creates a new ReqLogin instance using the specified properties.
+         * Creates a new CardInfo instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns ReqLogin instance
+         * @returns CardInfo instance
          */
-        public static create(properties?: proto.IReqLogin): proto.ReqLogin;
+        public static create(properties?: game.ICardInfo): game.CardInfo;
 
         /**
-         * Encodes the specified ReqLogin message. Does not implicitly {@link proto.ReqLogin.verify|verify} messages.
-         * @param message ReqLogin message or plain object to encode
+         * Encodes the specified CardInfo message. Does not implicitly {@link game.CardInfo.verify|verify} messages.
+         * @param message CardInfo message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IReqLogin, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.ICardInfo, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified ReqLogin message, length delimited. Does not implicitly {@link proto.ReqLogin.verify|verify} messages.
-         * @param message ReqLogin message or plain object to encode
+         * Encodes the specified CardInfo message, length delimited. Does not implicitly {@link game.CardInfo.verify|verify} messages.
+         * @param message CardInfo message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IReqLogin, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.ICardInfo, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a ReqLogin message from the specified reader or buffer.
+         * Decodes a CardInfo message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns ReqLogin
+         * @returns CardInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqLogin;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.CardInfo;
 
         /**
-         * Decodes a ReqLogin message from the specified reader or buffer, length delimited.
+         * Decodes a CardInfo message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns ReqLogin
+         * @returns CardInfo
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqLogin;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.CardInfo;
 
         /**
-         * Verifies a ReqLogin message.
+         * Verifies a CardInfo message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of an AckLogin. */
-    interface IAckLogin {
+    /** Properties of a ReqHandCardsOver. */
+    interface IReqHandCardsOver {
 
-        /** AckLogin result */
-        result: number;
-
-        /** AckLogin userId */
-        userId?: (number|Long|null);
-
-        /** AckLogin userName */
-        userName?: (string|null);
-
-        /** AckLogin nickName */
-        nickName?: (string|null);
-
-        /** AckLogin avatar */
-        avatar?: (string|null);
-
-        /** AckLogin goldCoin */
-        goldCoin?: (number|Long|null);
-
-        /** AckLogin diamond */
-        diamond?: (number|Long|null);
-
-        /** AckLogin roomId */
-        roomId?: (number|null);
-
-        /** AckLogin tableId */
-        tableId?: (string|null);
-
-        /** AckLogin properties */
-        properties?: (proto.IKVPair[]|null);
+        /** ReqHandCardsOver Sit */
+        Sit: number;
     }
 
-    /** Represents an AckLogin. */
-    class AckLogin implements IAckLogin {
+    /** Represents a ReqHandCardsOver. */
+    class ReqHandCardsOver implements IReqHandCardsOver {
 
         /**
-         * Constructs a new AckLogin.
+         * Constructs a new ReqHandCardsOver.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IAckLogin);
+        constructor(properties?: game.IReqHandCardsOver);
 
-        /** AckLogin result. */
-        public result: number;
-
-        /** AckLogin userId. */
-        public userId: (number|Long);
-
-        /** AckLogin userName. */
-        public userName: string;
-
-        /** AckLogin nickName. */
-        public nickName: string;
-
-        /** AckLogin avatar. */
-        public avatar: string;
-
-        /** AckLogin goldCoin. */
-        public goldCoin: (number|Long);
-
-        /** AckLogin diamond. */
-        public diamond: (number|Long);
-
-        /** AckLogin roomId. */
-        public roomId: number;
-
-        /** AckLogin tableId. */
-        public tableId: string;
-
-        /** AckLogin properties. */
-        public properties: proto.IKVPair[];
+        /** ReqHandCardsOver Sit. */
+        public Sit: number;
 
         /**
-         * Creates a new AckLogin instance using the specified properties.
+         * Creates a new ReqHandCardsOver instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns AckLogin instance
+         * @returns ReqHandCardsOver instance
          */
-        public static create(properties?: proto.IAckLogin): proto.AckLogin;
+        public static create(properties?: game.IReqHandCardsOver): game.ReqHandCardsOver;
 
         /**
-         * Encodes the specified AckLogin message. Does not implicitly {@link proto.AckLogin.verify|verify} messages.
-         * @param message AckLogin message or plain object to encode
+         * Encodes the specified ReqHandCardsOver message. Does not implicitly {@link game.ReqHandCardsOver.verify|verify} messages.
+         * @param message ReqHandCardsOver message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IAckLogin, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IReqHandCardsOver, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified AckLogin message, length delimited. Does not implicitly {@link proto.AckLogin.verify|verify} messages.
-         * @param message AckLogin message or plain object to encode
+         * Encodes the specified ReqHandCardsOver message, length delimited. Does not implicitly {@link game.ReqHandCardsOver.verify|verify} messages.
+         * @param message ReqHandCardsOver message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IAckLogin, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IReqHandCardsOver, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes an AckLogin message from the specified reader or buffer.
+         * Decodes a ReqHandCardsOver message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns AckLogin
+         * @returns ReqHandCardsOver
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckLogin;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.ReqHandCardsOver;
 
         /**
-         * Decodes an AckLogin message from the specified reader or buffer, length delimited.
+         * Decodes a ReqHandCardsOver message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns AckLogin
+         * @returns ReqHandCardsOver
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckLogin;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.ReqHandCardsOver;
 
         /**
-         * Verifies an AckLogin message.
+         * Verifies a ReqHandCardsOver message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a ReqQueryCoin. */
-    interface IReqQueryCoin {
+    /** Properties of an AckGameStage. */
+    interface IAckGameStage {
 
-        /** ReqQueryCoin userId */
-        userId: (number|Long);
+        /** AckGameStage Stage */
+        Stage: number;
+
+        /** AckGameStage gameguid */
+        gameguid?: (string|null);
     }
 
-    /** Represents a ReqQueryCoin. */
-    class ReqQueryCoin implements IReqQueryCoin {
+    /** Represents an AckGameStage. */
+    class AckGameStage implements IAckGameStage {
 
         /**
-         * Constructs a new ReqQueryCoin.
+         * Constructs a new AckGameStage.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IReqQueryCoin);
+        constructor(properties?: game.IAckGameStage);
 
-        /** ReqQueryCoin userId. */
-        public userId: (number|Long);
+        /** AckGameStage Stage. */
+        public Stage: number;
+
+        /** AckGameStage gameguid. */
+        public gameguid: string;
 
         /**
-         * Creates a new ReqQueryCoin instance using the specified properties.
+         * Creates a new AckGameStage instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns ReqQueryCoin instance
+         * @returns AckGameStage instance
          */
-        public static create(properties?: proto.IReqQueryCoin): proto.ReqQueryCoin;
+        public static create(properties?: game.IAckGameStage): game.AckGameStage;
 
         /**
-         * Encodes the specified ReqQueryCoin message. Does not implicitly {@link proto.ReqQueryCoin.verify|verify} messages.
-         * @param message ReqQueryCoin message or plain object to encode
+         * Encodes the specified AckGameStage message. Does not implicitly {@link game.AckGameStage.verify|verify} messages.
+         * @param message AckGameStage message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IReqQueryCoin, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IAckGameStage, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified ReqQueryCoin message, length delimited. Does not implicitly {@link proto.ReqQueryCoin.verify|verify} messages.
-         * @param message ReqQueryCoin message or plain object to encode
+         * Encodes the specified AckGameStage message, length delimited. Does not implicitly {@link game.AckGameStage.verify|verify} messages.
+         * @param message AckGameStage message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IReqQueryCoin, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IAckGameStage, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a ReqQueryCoin message from the specified reader or buffer.
+         * Decodes an AckGameStage message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns ReqQueryCoin
+         * @returns AckGameStage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqQueryCoin;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckGameStage;
 
         /**
-         * Decodes a ReqQueryCoin message from the specified reader or buffer, length delimited.
+         * Decodes an AckGameStage message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns ReqQueryCoin
+         * @returns AckGameStage
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqQueryCoin;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckGameStage;
 
         /**
-         * Verifies a ReqQueryCoin message.
+         * Verifies an AckGameStage message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of an AckQueryCoin. */
-    interface IAckQueryCoin {
+    /** Properties of a StageID. */
+    interface IStageID {
 
-        /** AckQueryCoin result */
-        result: number;
+        /** StageID STARGAME */
+        STARGAME: number;
 
-        /** AckQueryCoin userId */
-        userId: (number|Long);
+        /** StageID BUHUA */
+        BUHUA: number;
 
-        /** AckQueryCoin goldCoin */
-        goldCoin?: (number|Long|null);
+        /** StageID PLAYING */
+        PLAYING: number;
+
+        /** StageID GAMEOVER */
+        GAMEOVER: number;
     }
 
-    /** Represents an AckQueryCoin. */
-    class AckQueryCoin implements IAckQueryCoin {
+    /** Represents a StageID. */
+    class StageID implements IStageID {
 
         /**
-         * Constructs a new AckQueryCoin.
+         * Constructs a new StageID.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IAckQueryCoin);
+        constructor(properties?: game.IStageID);
 
-        /** AckQueryCoin result. */
-        public result: number;
+        /** StageID STARGAME. */
+        public STARGAME: number;
 
-        /** AckQueryCoin userId. */
-        public userId: (number|Long);
+        /** StageID BUHUA. */
+        public BUHUA: number;
 
-        /** AckQueryCoin goldCoin. */
-        public goldCoin: (number|Long);
+        /** StageID PLAYING. */
+        public PLAYING: number;
+
+        /** StageID GAMEOVER. */
+        public GAMEOVER: number;
 
         /**
-         * Creates a new AckQueryCoin instance using the specified properties.
+         * Creates a new StageID instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns AckQueryCoin instance
+         * @returns StageID instance
          */
-        public static create(properties?: proto.IAckQueryCoin): proto.AckQueryCoin;
+        public static create(properties?: game.IStageID): game.StageID;
 
         /**
-         * Encodes the specified AckQueryCoin message. Does not implicitly {@link proto.AckQueryCoin.verify|verify} messages.
-         * @param message AckQueryCoin message or plain object to encode
+         * Encodes the specified StageID message. Does not implicitly {@link game.StageID.verify|verify} messages.
+         * @param message StageID message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IAckQueryCoin, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IStageID, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified AckQueryCoin message, length delimited. Does not implicitly {@link proto.AckQueryCoin.verify|verify} messages.
-         * @param message AckQueryCoin message or plain object to encode
+         * Encodes the specified StageID message, length delimited. Does not implicitly {@link game.StageID.verify|verify} messages.
+         * @param message StageID message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IAckQueryCoin, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IStageID, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes an AckQueryCoin message from the specified reader or buffer.
+         * Decodes a StageID message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns AckQueryCoin
+         * @returns StageID
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckQueryCoin;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.StageID;
 
         /**
-         * Decodes an AckQueryCoin message from the specified reader or buffer, length delimited.
+         * Decodes a StageID message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns AckQueryCoin
+         * @returns StageID
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckQueryCoin;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.StageID;
 
         /**
-         * Verifies an AckQueryCoin message.
+         * Verifies a StageID message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a ReqRoomList. */
-    interface IReqRoomList {
+    /** Properties of a ReqSendCard. */
+    interface IReqSendCard {
 
-        /** ReqRoomList userId */
-        userId: (number|Long);
+        /** ReqSendCard Card */
+        Card: game.ICardsGroup;
     }
 
-    /** Represents a ReqRoomList. */
-    class ReqRoomList implements IReqRoomList {
+    /** Represents a ReqSendCard. */
+    class ReqSendCard implements IReqSendCard {
 
         /**
-         * Constructs a new ReqRoomList.
+         * Constructs a new ReqSendCard.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IReqRoomList);
+        constructor(properties?: game.IReqSendCard);
 
-        /** ReqRoomList userId. */
-        public userId: (number|Long);
+        /** ReqSendCard Card. */
+        public Card: game.ICardsGroup;
 
         /**
-         * Creates a new ReqRoomList instance using the specified properties.
+         * Creates a new ReqSendCard instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns ReqRoomList instance
+         * @returns ReqSendCard instance
          */
-        public static create(properties?: proto.IReqRoomList): proto.ReqRoomList;
+        public static create(properties?: game.IReqSendCard): game.ReqSendCard;
 
         /**
-         * Encodes the specified ReqRoomList message. Does not implicitly {@link proto.ReqRoomList.verify|verify} messages.
-         * @param message ReqRoomList message or plain object to encode
+         * Encodes the specified ReqSendCard message. Does not implicitly {@link game.ReqSendCard.verify|verify} messages.
+         * @param message ReqSendCard message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IReqRoomList, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IReqSendCard, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified ReqRoomList message, length delimited. Does not implicitly {@link proto.ReqRoomList.verify|verify} messages.
-         * @param message ReqRoomList message or plain object to encode
+         * Encodes the specified ReqSendCard message, length delimited. Does not implicitly {@link game.ReqSendCard.verify|verify} messages.
+         * @param message ReqSendCard message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IReqRoomList, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IReqSendCard, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a ReqRoomList message from the specified reader or buffer.
+         * Decodes a ReqSendCard message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns ReqRoomList
+         * @returns ReqSendCard
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqRoomList;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.ReqSendCard;
 
         /**
-         * Decodes a ReqRoomList message from the specified reader or buffer, length delimited.
+         * Decodes a ReqSendCard message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns ReqRoomList
+         * @returns ReqSendCard
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqRoomList;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.ReqSendCard;
 
         /**
-         * Verifies a ReqRoomList message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of an AckRoomList. */
-    interface IAckRoomList {
-
-        /** AckRoomList userId */
-        userId: (number|Long);
-
-        /** AckRoomList roomList */
-        roomList?: (proto.IRoom[]|null);
-
-        /** AckRoomList status */
-        status?: (proto.IRoomStatus[]|null);
-    }
-
-    /** Represents an AckRoomList. */
-    class AckRoomList implements IAckRoomList {
-
-        /**
-         * Constructs a new AckRoomList.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IAckRoomList);
-
-        /** AckRoomList userId. */
-        public userId: (number|Long);
-
-        /** AckRoomList roomList. */
-        public roomList: proto.IRoom[];
-
-        /** AckRoomList status. */
-        public status: proto.IRoomStatus[];
-
-        /**
-         * Creates a new AckRoomList instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns AckRoomList instance
-         */
-        public static create(properties?: proto.IAckRoomList): proto.AckRoomList;
-
-        /**
-         * Encodes the specified AckRoomList message. Does not implicitly {@link proto.AckRoomList.verify|verify} messages.
-         * @param message AckRoomList message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IAckRoomList, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified AckRoomList message, length delimited. Does not implicitly {@link proto.AckRoomList.verify|verify} messages.
-         * @param message AckRoomList message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IAckRoomList, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes an AckRoomList message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns AckRoomList
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckRoomList;
-
-        /**
-         * Decodes an AckRoomList message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns AckRoomList
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckRoomList;
-
-        /**
-         * Verifies an AckRoomList message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a ReqRoomStatus. */
-    interface IReqRoomStatus {
-
-        /** ReqRoomStatus userId */
-        userId: (number|Long);
-    }
-
-    /** Represents a ReqRoomStatus. */
-    class ReqRoomStatus implements IReqRoomStatus {
-
-        /**
-         * Constructs a new ReqRoomStatus.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IReqRoomStatus);
-
-        /** ReqRoomStatus userId. */
-        public userId: (number|Long);
-
-        /**
-         * Creates a new ReqRoomStatus instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ReqRoomStatus instance
-         */
-        public static create(properties?: proto.IReqRoomStatus): proto.ReqRoomStatus;
-
-        /**
-         * Encodes the specified ReqRoomStatus message. Does not implicitly {@link proto.ReqRoomStatus.verify|verify} messages.
-         * @param message ReqRoomStatus message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IReqRoomStatus, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ReqRoomStatus message, length delimited. Does not implicitly {@link proto.ReqRoomStatus.verify|verify} messages.
-         * @param message ReqRoomStatus message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IReqRoomStatus, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ReqRoomStatus message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ReqRoomStatus
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqRoomStatus;
-
-        /**
-         * Decodes a ReqRoomStatus message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ReqRoomStatus
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqRoomStatus;
-
-        /**
-         * Verifies a ReqRoomStatus message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of an AckRoomStatus. */
-    interface IAckRoomStatus {
-
-        /** AckRoomStatus userId */
-        userId: (number|Long);
-
-        /** AckRoomStatus status */
-        status?: (proto.IRoomStatus[]|null);
-    }
-
-    /** Represents an AckRoomStatus. */
-    class AckRoomStatus implements IAckRoomStatus {
-
-        /**
-         * Constructs a new AckRoomStatus.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IAckRoomStatus);
-
-        /** AckRoomStatus userId. */
-        public userId: (number|Long);
-
-        /** AckRoomStatus status. */
-        public status: proto.IRoomStatus[];
-
-        /**
-         * Creates a new AckRoomStatus instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns AckRoomStatus instance
-         */
-        public static create(properties?: proto.IAckRoomStatus): proto.AckRoomStatus;
-
-        /**
-         * Encodes the specified AckRoomStatus message. Does not implicitly {@link proto.AckRoomStatus.verify|verify} messages.
-         * @param message AckRoomStatus message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IAckRoomStatus, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified AckRoomStatus message, length delimited. Does not implicitly {@link proto.AckRoomStatus.verify|verify} messages.
-         * @param message AckRoomStatus message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IAckRoomStatus, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes an AckRoomStatus message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns AckRoomStatus
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckRoomStatus;
-
-        /**
-         * Decodes an AckRoomStatus message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns AckRoomStatus
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckRoomStatus;
-
-        /**
-         * Verifies an AckRoomStatus message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a ReqAccountAvailable. */
-    interface IReqAccountAvailable {
-
-        /** ReqAccountAvailable userId */
-        userId: (number|Long);
-    }
-
-    /** Represents a ReqAccountAvailable. */
-    class ReqAccountAvailable implements IReqAccountAvailable {
-
-        /**
-         * Constructs a new ReqAccountAvailable.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IReqAccountAvailable);
-
-        /** ReqAccountAvailable userId. */
-        public userId: (number|Long);
-
-        /**
-         * Creates a new ReqAccountAvailable instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ReqAccountAvailable instance
-         */
-        public static create(properties?: proto.IReqAccountAvailable): proto.ReqAccountAvailable;
-
-        /**
-         * Encodes the specified ReqAccountAvailable message. Does not implicitly {@link proto.ReqAccountAvailable.verify|verify} messages.
-         * @param message ReqAccountAvailable message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IReqAccountAvailable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ReqAccountAvailable message, length delimited. Does not implicitly {@link proto.ReqAccountAvailable.verify|verify} messages.
-         * @param message ReqAccountAvailable message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IReqAccountAvailable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ReqAccountAvailable message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ReqAccountAvailable
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqAccountAvailable;
-
-        /**
-         * Decodes a ReqAccountAvailable message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ReqAccountAvailable
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqAccountAvailable;
-
-        /**
-         * Verifies a ReqAccountAvailable message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of an AckAccountAvailable. */
-    interface IAckAccountAvailable {
-
-        /** AckAccountAvailable result */
-        result: number;
-
-        /** AckAccountAvailable userId */
-        userId: (number|Long);
-
-        /** AckAccountAvailable available */
-        available?: (number|null);
-
-        /** AckAccountAvailable goldCoin */
-        goldCoin?: (number|Long|null);
-    }
-
-    /** Represents an AckAccountAvailable. */
-    class AckAccountAvailable implements IAckAccountAvailable {
-
-        /**
-         * Constructs a new AckAccountAvailable.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IAckAccountAvailable);
-
-        /** AckAccountAvailable result. */
-        public result: number;
-
-        /** AckAccountAvailable userId. */
-        public userId: (number|Long);
-
-        /** AckAccountAvailable available. */
-        public available: number;
-
-        /** AckAccountAvailable goldCoin. */
-        public goldCoin: (number|Long);
-
-        /**
-         * Creates a new AckAccountAvailable instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns AckAccountAvailable instance
-         */
-        public static create(properties?: proto.IAckAccountAvailable): proto.AckAccountAvailable;
-
-        /**
-         * Encodes the specified AckAccountAvailable message. Does not implicitly {@link proto.AckAccountAvailable.verify|verify} messages.
-         * @param message AckAccountAvailable message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IAckAccountAvailable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified AckAccountAvailable message, length delimited. Does not implicitly {@link proto.AckAccountAvailable.verify|verify} messages.
-         * @param message AckAccountAvailable message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IAckAccountAvailable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes an AckAccountAvailable message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns AckAccountAvailable
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckAccountAvailable;
-
-        /**
-         * Decodes an AckAccountAvailable message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns AckAccountAvailable
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckAccountAvailable;
-
-        /**
-         * Verifies an AckAccountAvailable message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a ReqEnterRoom. */
-    interface IReqEnterRoom {
-
-        /** ReqEnterRoom userId */
-        userId: (number|Long);
-
-        /** ReqEnterRoom roomId */
-        roomId: number;
-
-        /** ReqEnterRoom mapId */
-        mapId: (number|Long);
-
-        /** ReqEnterRoom tableId */
-        tableId?: (string|null);
-
-        /** ReqEnterRoom goldCoin */
-        goldCoin?: (number|Long|null);
-
-        /** ReqEnterRoom type */
-        type?: (number|null);
-    }
-
-    /** Represents a ReqEnterRoom. */
-    class ReqEnterRoom implements IReqEnterRoom {
-
-        /**
-         * Constructs a new ReqEnterRoom.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IReqEnterRoom);
-
-        /** ReqEnterRoom userId. */
-        public userId: (number|Long);
-
-        /** ReqEnterRoom roomId. */
-        public roomId: number;
-
-        /** ReqEnterRoom mapId. */
-        public mapId: (number|Long);
-
-        /** ReqEnterRoom tableId. */
-        public tableId: string;
-
-        /** ReqEnterRoom goldCoin. */
-        public goldCoin: (number|Long);
-
-        /** ReqEnterRoom type. */
-        public type: number;
-
-        /**
-         * Creates a new ReqEnterRoom instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ReqEnterRoom instance
-         */
-        public static create(properties?: proto.IReqEnterRoom): proto.ReqEnterRoom;
-
-        /**
-         * Encodes the specified ReqEnterRoom message. Does not implicitly {@link proto.ReqEnterRoom.verify|verify} messages.
-         * @param message ReqEnterRoom message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IReqEnterRoom, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ReqEnterRoom message, length delimited. Does not implicitly {@link proto.ReqEnterRoom.verify|verify} messages.
-         * @param message ReqEnterRoom message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IReqEnterRoom, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ReqEnterRoom message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ReqEnterRoom
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqEnterRoom;
-
-        /**
-         * Decodes a ReqEnterRoom message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ReqEnterRoom
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqEnterRoom;
-
-        /**
-         * Verifies a ReqEnterRoom message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of an AckEnterRoom. */
-    interface IAckEnterRoom {
-
-        /** AckEnterRoom result */
-        result: number;
-
-        /** AckEnterRoom userId */
-        userId: (number|Long);
-
-        /** AckEnterRoom roomId */
-        roomId: number;
-
-        /** AckEnterRoom tableId */
-        tableId?: (string|null);
-
-        /** AckEnterRoom tableMapId */
-        tableMapId?: (number|Long|null);
-
-        /** AckEnterRoom server */
-        server?: (proto.IServer|null);
-
-        /** AckEnterRoom type */
-        type?: (number|null);
-
-        /** AckEnterRoom goldCoin */
-        goldCoin?: (number|Long|null);
-    }
-
-    /** Represents an AckEnterRoom. */
-    class AckEnterRoom implements IAckEnterRoom {
-
-        /**
-         * Constructs a new AckEnterRoom.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IAckEnterRoom);
-
-        /** AckEnterRoom result. */
-        public result: number;
-
-        /** AckEnterRoom userId. */
-        public userId: (number|Long);
-
-        /** AckEnterRoom roomId. */
-        public roomId: number;
-
-        /** AckEnterRoom tableId. */
-        public tableId: string;
-
-        /** AckEnterRoom tableMapId. */
-        public tableMapId: (number|Long);
-
-        /** AckEnterRoom server. */
-        public server?: (proto.IServer|null);
-
-        /** AckEnterRoom type. */
-        public type: number;
-
-        /** AckEnterRoom goldCoin. */
-        public goldCoin: (number|Long);
-
-        /**
-         * Creates a new AckEnterRoom instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns AckEnterRoom instance
-         */
-        public static create(properties?: proto.IAckEnterRoom): proto.AckEnterRoom;
-
-        /**
-         * Encodes the specified AckEnterRoom message. Does not implicitly {@link proto.AckEnterRoom.verify|verify} messages.
-         * @param message AckEnterRoom message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IAckEnterRoom, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified AckEnterRoom message, length delimited. Does not implicitly {@link proto.AckEnterRoom.verify|verify} messages.
-         * @param message AckEnterRoom message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IAckEnterRoom, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes an AckEnterRoom message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns AckEnterRoom
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckEnterRoom;
-
-        /**
-         * Decodes an AckEnterRoom message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns AckEnterRoom
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckEnterRoom;
-
-        /**
-         * Verifies an AckEnterRoom message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a ReqLeaveRoom. */
-    interface IReqLeaveRoom {
-
-        /** ReqLeaveRoom userId */
-        userId: (number|Long);
-
-        /** ReqLeaveRoom roomId */
-        roomId: number;
-
-        /** ReqLeaveRoom mapId */
-        mapId: (number|Long);
-
-        /** ReqLeaveRoom tableId */
-        tableId?: (string|null);
-    }
-
-    /** Represents a ReqLeaveRoom. */
-    class ReqLeaveRoom implements IReqLeaveRoom {
-
-        /**
-         * Constructs a new ReqLeaveRoom.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IReqLeaveRoom);
-
-        /** ReqLeaveRoom userId. */
-        public userId: (number|Long);
-
-        /** ReqLeaveRoom roomId. */
-        public roomId: number;
-
-        /** ReqLeaveRoom mapId. */
-        public mapId: (number|Long);
-
-        /** ReqLeaveRoom tableId. */
-        public tableId: string;
-
-        /**
-         * Creates a new ReqLeaveRoom instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ReqLeaveRoom instance
-         */
-        public static create(properties?: proto.IReqLeaveRoom): proto.ReqLeaveRoom;
-
-        /**
-         * Encodes the specified ReqLeaveRoom message. Does not implicitly {@link proto.ReqLeaveRoom.verify|verify} messages.
-         * @param message ReqLeaveRoom message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IReqLeaveRoom, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ReqLeaveRoom message, length delimited. Does not implicitly {@link proto.ReqLeaveRoom.verify|verify} messages.
-         * @param message ReqLeaveRoom message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IReqLeaveRoom, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ReqLeaveRoom message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ReqLeaveRoom
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqLeaveRoom;
-
-        /**
-         * Decodes a ReqLeaveRoom message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ReqLeaveRoom
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqLeaveRoom;
-
-        /**
-         * Verifies a ReqLeaveRoom message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of an AckLeaveRoom. */
-    interface IAckLeaveRoom {
-
-        /** AckLeaveRoom result */
-        result: number;
-
-        /** AckLeaveRoom userId */
-        userId: (number|Long);
-
-        /** AckLeaveRoom roomId */
-        roomId: number;
-    }
-
-    /** Represents an AckLeaveRoom. */
-    class AckLeaveRoom implements IAckLeaveRoom {
-
-        /**
-         * Constructs a new AckLeaveRoom.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IAckLeaveRoom);
-
-        /** AckLeaveRoom result. */
-        public result: number;
-
-        /** AckLeaveRoom userId. */
-        public userId: (number|Long);
-
-        /** AckLeaveRoom roomId. */
-        public roomId: number;
-
-        /**
-         * Creates a new AckLeaveRoom instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns AckLeaveRoom instance
-         */
-        public static create(properties?: proto.IAckLeaveRoom): proto.AckLeaveRoom;
-
-        /**
-         * Encodes the specified AckLeaveRoom message. Does not implicitly {@link proto.AckLeaveRoom.verify|verify} messages.
-         * @param message AckLeaveRoom message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IAckLeaveRoom, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified AckLeaveRoom message, length delimited. Does not implicitly {@link proto.AckLeaveRoom.verify|verify} messages.
-         * @param message AckLeaveRoom message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IAckLeaveRoom, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes an AckLeaveRoom message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns AckLeaveRoom
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckLeaveRoom;
-
-        /**
-         * Decodes an AckLeaveRoom message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns AckLeaveRoom
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckLeaveRoom;
-
-        /**
-         * Verifies an AckLeaveRoom message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a NotEnterTable. */
-    interface INotEnterTable {
-
-        /** NotEnterTable roomId */
-        roomId: number;
-
-        /** NotEnterTable tableId */
-        tableId: string;
-
-        /** NotEnterTable tableMapId */
-        tableMapId: (number|Long);
-    }
-
-    /** Represents a NotEnterTable. */
-    class NotEnterTable implements INotEnterTable {
-
-        /**
-         * Constructs a new NotEnterTable.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.INotEnterTable);
-
-        /** NotEnterTable roomId. */
-        public roomId: number;
-
-        /** NotEnterTable tableId. */
-        public tableId: string;
-
-        /** NotEnterTable tableMapId. */
-        public tableMapId: (number|Long);
-
-        /**
-         * Creates a new NotEnterTable instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns NotEnterTable instance
-         */
-        public static create(properties?: proto.INotEnterTable): proto.NotEnterTable;
-
-        /**
-         * Encodes the specified NotEnterTable message. Does not implicitly {@link proto.NotEnterTable.verify|verify} messages.
-         * @param message NotEnterTable message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.INotEnterTable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified NotEnterTable message, length delimited. Does not implicitly {@link proto.NotEnterTable.verify|verify} messages.
-         * @param message NotEnterTable message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.INotEnterTable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a NotEnterTable message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns NotEnterTable
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotEnterTable;
-
-        /**
-         * Decodes a NotEnterTable message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns NotEnterTable
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotEnterTable;
-
-        /**
-         * Verifies a NotEnterTable message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a ResultRecord. */
-    interface IResultRecord {
-
-        /** ResultRecord seatNo */
-        seatNo: number;
-
-        /** ResultRecord nickName */
-        nickName: string;
-
-        /** ResultRecord winChips */
-        winChips?: (number|Long|null);
-
-        /** ResultRecord surplusCards */
-        surplusCards?: (number|null);
-
-        /** ResultRecord bombCount */
-        bombCount?: (number|null);
-
-        /** ResultRecord allOff */
-        allOff?: (number|null);
-    }
-
-    /** Represents a ResultRecord. */
-    class ResultRecord implements IResultRecord {
-
-        /**
-         * Constructs a new ResultRecord.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IResultRecord);
-
-        /** ResultRecord seatNo. */
-        public seatNo: number;
-
-        /** ResultRecord nickName. */
-        public nickName: string;
-
-        /** ResultRecord winChips. */
-        public winChips: (number|Long);
-
-        /** ResultRecord surplusCards. */
-        public surplusCards: number;
-
-        /** ResultRecord bombCount. */
-        public bombCount: number;
-
-        /** ResultRecord allOff. */
-        public allOff: number;
-
-        /**
-         * Creates a new ResultRecord instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ResultRecord instance
-         */
-        public static create(properties?: proto.IResultRecord): proto.ResultRecord;
-
-        /**
-         * Encodes the specified ResultRecord message. Does not implicitly {@link proto.ResultRecord.verify|verify} messages.
-         * @param message ResultRecord message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IResultRecord, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ResultRecord message, length delimited. Does not implicitly {@link proto.ResultRecord.verify|verify} messages.
-         * @param message ResultRecord message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IResultRecord, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ResultRecord message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ResultRecord
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ResultRecord;
-
-        /**
-         * Decodes a ResultRecord message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ResultRecord
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ResultRecord;
-
-        /**
-         * Verifies a ResultRecord message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a ReqPlayingRecord. */
-    interface IReqPlayingRecord {
-
-        /** ReqPlayingRecord userId */
-        userId: (number|Long);
-
-        /** ReqPlayingRecord roundId */
-        roundId: string;
-
-        /** ReqPlayingRecord orderId */
-        orderId?: (string|null);
-
-        /** ReqPlayingRecord createTime */
-        createTime: (number|Long);
-    }
-
-    /** Represents a ReqPlayingRecord. */
-    class ReqPlayingRecord implements IReqPlayingRecord {
-
-        /**
-         * Constructs a new ReqPlayingRecord.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IReqPlayingRecord);
-
-        /** ReqPlayingRecord userId. */
-        public userId: (number|Long);
-
-        /** ReqPlayingRecord roundId. */
-        public roundId: string;
-
-        /** ReqPlayingRecord orderId. */
-        public orderId: string;
-
-        /** ReqPlayingRecord createTime. */
-        public createTime: (number|Long);
-
-        /**
-         * Creates a new ReqPlayingRecord instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ReqPlayingRecord instance
-         */
-        public static create(properties?: proto.IReqPlayingRecord): proto.ReqPlayingRecord;
-
-        /**
-         * Encodes the specified ReqPlayingRecord message. Does not implicitly {@link proto.ReqPlayingRecord.verify|verify} messages.
-         * @param message ReqPlayingRecord message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IReqPlayingRecord, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ReqPlayingRecord message, length delimited. Does not implicitly {@link proto.ReqPlayingRecord.verify|verify} messages.
-         * @param message ReqPlayingRecord message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IReqPlayingRecord, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ReqPlayingRecord message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ReqPlayingRecord
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqPlayingRecord;
-
-        /**
-         * Decodes a ReqPlayingRecord message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ReqPlayingRecord
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqPlayingRecord;
-
-        /**
-         * Verifies a ReqPlayingRecord message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of an AckPlayingRecord. */
-    interface IAckPlayingRecord {
-
-        /** AckPlayingRecord result */
-        result: number;
-
-        /** AckPlayingRecord userId */
-        userId: (number|Long);
-
-        /** AckPlayingRecord roundId */
-        roundId: string;
-
-        /** AckPlayingRecord baseScore */
-        baseScore?: (number|null);
-
-        /** AckPlayingRecord records */
-        records?: (proto.IResultRecord[]|null);
-    }
-
-    /** Represents an AckPlayingRecord. */
-    class AckPlayingRecord implements IAckPlayingRecord {
-
-        /**
-         * Constructs a new AckPlayingRecord.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IAckPlayingRecord);
-
-        /** AckPlayingRecord result. */
-        public result: number;
-
-        /** AckPlayingRecord userId. */
-        public userId: (number|Long);
-
-        /** AckPlayingRecord roundId. */
-        public roundId: string;
-
-        /** AckPlayingRecord baseScore. */
-        public baseScore: number;
-
-        /** AckPlayingRecord records. */
-        public records: proto.IResultRecord[];
-
-        /**
-         * Creates a new AckPlayingRecord instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns AckPlayingRecord instance
-         */
-        public static create(properties?: proto.IAckPlayingRecord): proto.AckPlayingRecord;
-
-        /**
-         * Encodes the specified AckPlayingRecord message. Does not implicitly {@link proto.AckPlayingRecord.verify|verify} messages.
-         * @param message AckPlayingRecord message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IAckPlayingRecord, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified AckPlayingRecord message, length delimited. Does not implicitly {@link proto.AckPlayingRecord.verify|verify} messages.
-         * @param message AckPlayingRecord message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IAckPlayingRecord, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes an AckPlayingRecord message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns AckPlayingRecord
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckPlayingRecord;
-
-        /**
-         * Decodes an AckPlayingRecord message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns AckPlayingRecord
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckPlayingRecord;
-
-        /**
-         * Verifies an AckPlayingRecord message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a ReqEnterTable. */
-    interface IReqEnterTable {
-
-        /** ReqEnterTable userId */
-        userId: (number|Long);
-
-        /** ReqEnterTable tableId */
-        tableId: string;
-
-        /** ReqEnterTable tableMapId */
-        tableMapId: (number|Long);
-
-        /** ReqEnterTable goldCoin */
-        goldCoin?: (number|Long|null);
-
-        /** ReqEnterTable seatNo */
-        seatNo?: (number|null);
-    }
-
-    /** Represents a ReqEnterTable. */
-    class ReqEnterTable implements IReqEnterTable {
-
-        /**
-         * Constructs a new ReqEnterTable.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IReqEnterTable);
-
-        /** ReqEnterTable userId. */
-        public userId: (number|Long);
-
-        /** ReqEnterTable tableId. */
-        public tableId: string;
-
-        /** ReqEnterTable tableMapId. */
-        public tableMapId: (number|Long);
-
-        /** ReqEnterTable goldCoin. */
-        public goldCoin: (number|Long);
-
-        /** ReqEnterTable seatNo. */
-        public seatNo: number;
-
-        /**
-         * Creates a new ReqEnterTable instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ReqEnterTable instance
-         */
-        public static create(properties?: proto.IReqEnterTable): proto.ReqEnterTable;
-
-        /**
-         * Encodes the specified ReqEnterTable message. Does not implicitly {@link proto.ReqEnterTable.verify|verify} messages.
-         * @param message ReqEnterTable message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IReqEnterTable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ReqEnterTable message, length delimited. Does not implicitly {@link proto.ReqEnterTable.verify|verify} messages.
-         * @param message ReqEnterTable message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IReqEnterTable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ReqEnterTable message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ReqEnterTable
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqEnterTable;
-
-        /**
-         * Decodes a ReqEnterTable message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ReqEnterTable
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqEnterTable;
-
-        /**
-         * Verifies a ReqEnterTable message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of an AckEnterTable. */
-    interface IAckEnterTable {
-
-        /** AckEnterTable result */
-        result: number;
-
-        /** AckEnterTable userId */
-        userId: (number|Long);
-
-        /** AckEnterTable tableId */
-        tableId: string;
-
-        /** AckEnterTable seatNo */
-        seatNo?: (number|null);
-
-        /** AckEnterTable table */
-        table?: (proto.ITable|null);
-
-        /** AckEnterTable stage */
-        stage?: (number|null);
-
-        /** AckEnterTable remainingSeconds */
-        remainingSeconds?: (number|null);
-
-        /** AckEnterTable info */
-        info?: (proto.IReconnectionInfo|null);
-
-        /** AckEnterTable countdown */
-        countdown?: (proto.ICountdown|null);
-
-        /** AckEnterTable roundId */
-        roundId?: (string|null);
-    }
-
-    /** Represents an AckEnterTable. */
-    class AckEnterTable implements IAckEnterTable {
-
-        /**
-         * Constructs a new AckEnterTable.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IAckEnterTable);
-
-        /** AckEnterTable result. */
-        public result: number;
-
-        /** AckEnterTable userId. */
-        public userId: (number|Long);
-
-        /** AckEnterTable tableId. */
-        public tableId: string;
-
-        /** AckEnterTable seatNo. */
-        public seatNo: number;
-
-        /** AckEnterTable table. */
-        public table?: (proto.ITable|null);
-
-        /** AckEnterTable stage. */
-        public stage: number;
-
-        /** AckEnterTable remainingSeconds. */
-        public remainingSeconds: number;
-
-        /** AckEnterTable info. */
-        public info?: (proto.IReconnectionInfo|null);
-
-        /** AckEnterTable countdown. */
-        public countdown?: (proto.ICountdown|null);
-
-        /** AckEnterTable roundId. */
-        public roundId: string;
-
-        /**
-         * Creates a new AckEnterTable instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns AckEnterTable instance
-         */
-        public static create(properties?: proto.IAckEnterTable): proto.AckEnterTable;
-
-        /**
-         * Encodes the specified AckEnterTable message. Does not implicitly {@link proto.AckEnterTable.verify|verify} messages.
-         * @param message AckEnterTable message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IAckEnterTable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified AckEnterTable message, length delimited. Does not implicitly {@link proto.AckEnterTable.verify|verify} messages.
-         * @param message AckEnterTable message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IAckEnterTable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes an AckEnterTable message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns AckEnterTable
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckEnterTable;
-
-        /**
-         * Decodes an AckEnterTable message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns AckEnterTable
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckEnterTable;
-
-        /**
-         * Verifies an AckEnterTable message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a ReconnectionInfo. */
-    interface IReconnectionInfo {
-
-        /** ReconnectionInfo players */
-        players?: (proto.IReconnectPlayerInfo[]|null);
-
-        /** ReconnectionInfo currentActionSeat */
-        currentActionSeat?: (number|null);
-
-        /** ReconnectionInfo operations */
-        operations?: (proto.INotUserOperation|null);
-
-        /** ReconnectionInfo banker */
-        banker?: (number|null);
-
-        /** ReconnectionInfo trust */
-        trust?: (number|null);
-    }
-
-    /** Represents a ReconnectionInfo. */
-    class ReconnectionInfo implements IReconnectionInfo {
-
-        /**
-         * Constructs a new ReconnectionInfo.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IReconnectionInfo);
-
-        /** ReconnectionInfo players. */
-        public players: proto.IReconnectPlayerInfo[];
-
-        /** ReconnectionInfo currentActionSeat. */
-        public currentActionSeat: number;
-
-        /** ReconnectionInfo operations. */
-        public operations?: (proto.INotUserOperation|null);
-
-        /** ReconnectionInfo banker. */
-        public banker: number;
-
-        /** ReconnectionInfo trust. */
-        public trust: number;
-
-        /**
-         * Creates a new ReconnectionInfo instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ReconnectionInfo instance
-         */
-        public static create(properties?: proto.IReconnectionInfo): proto.ReconnectionInfo;
-
-        /**
-         * Encodes the specified ReconnectionInfo message. Does not implicitly {@link proto.ReconnectionInfo.verify|verify} messages.
-         * @param message ReconnectionInfo message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IReconnectionInfo, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ReconnectionInfo message, length delimited. Does not implicitly {@link proto.ReconnectionInfo.verify|verify} messages.
-         * @param message ReconnectionInfo message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IReconnectionInfo, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ReconnectionInfo message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ReconnectionInfo
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReconnectionInfo;
-
-        /**
-         * Decodes a ReconnectionInfo message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ReconnectionInfo
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReconnectionInfo;
-
-        /**
-         * Verifies a ReconnectionInfo message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a ReqLeaveTable. */
-    interface IReqLeaveTable {
-
-        /** ReqLeaveTable userId */
-        userId: (number|Long);
-
-        /** ReqLeaveTable tableId */
-        tableId: string;
-
-        /** ReqLeaveTable tableMapId */
-        tableMapId: (number|Long);
-
-        /** ReqLeaveTable roundId */
-        roundId: string;
-    }
-
-    /** Represents a ReqLeaveTable. */
-    class ReqLeaveTable implements IReqLeaveTable {
-
-        /**
-         * Constructs a new ReqLeaveTable.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IReqLeaveTable);
-
-        /** ReqLeaveTable userId. */
-        public userId: (number|Long);
-
-        /** ReqLeaveTable tableId. */
-        public tableId: string;
-
-        /** ReqLeaveTable tableMapId. */
-        public tableMapId: (number|Long);
-
-        /** ReqLeaveTable roundId. */
-        public roundId: string;
-
-        /**
-         * Creates a new ReqLeaveTable instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ReqLeaveTable instance
-         */
-        public static create(properties?: proto.IReqLeaveTable): proto.ReqLeaveTable;
-
-        /**
-         * Encodes the specified ReqLeaveTable message. Does not implicitly {@link proto.ReqLeaveTable.verify|verify} messages.
-         * @param message ReqLeaveTable message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IReqLeaveTable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ReqLeaveTable message, length delimited. Does not implicitly {@link proto.ReqLeaveTable.verify|verify} messages.
-         * @param message ReqLeaveTable message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IReqLeaveTable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ReqLeaveTable message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ReqLeaveTable
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqLeaveTable;
-
-        /**
-         * Decodes a ReqLeaveTable message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ReqLeaveTable
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqLeaveTable;
-
-        /**
-         * Verifies a ReqLeaveTable message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of an AckLeaveTable. */
-    interface IAckLeaveTable {
-
-        /** AckLeaveTable result */
-        result: number;
-
-        /** AckLeaveTable userId */
-        userId: (number|Long);
-
-        /** AckLeaveTable tableId */
-        tableId: string;
-    }
-
-    /** Represents an AckLeaveTable. */
-    class AckLeaveTable implements IAckLeaveTable {
-
-        /**
-         * Constructs a new AckLeaveTable.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IAckLeaveTable);
-
-        /** AckLeaveTable result. */
-        public result: number;
-
-        /** AckLeaveTable userId. */
-        public userId: (number|Long);
-
-        /** AckLeaveTable tableId. */
-        public tableId: string;
-
-        /**
-         * Creates a new AckLeaveTable instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns AckLeaveTable instance
-         */
-        public static create(properties?: proto.IAckLeaveTable): proto.AckLeaveTable;
-
-        /**
-         * Encodes the specified AckLeaveTable message. Does not implicitly {@link proto.AckLeaveTable.verify|verify} messages.
-         * @param message AckLeaveTable message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IAckLeaveTable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified AckLeaveTable message, length delimited. Does not implicitly {@link proto.AckLeaveTable.verify|verify} messages.
-         * @param message AckLeaveTable message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IAckLeaveTable, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes an AckLeaveTable message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns AckLeaveTable
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckLeaveTable;
-
-        /**
-         * Decodes an AckLeaveTable message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns AckLeaveTable
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckLeaveTable;
-
-        /**
-         * Verifies an AckLeaveTable message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a ReqReady. */
-    interface IReqReady {
-
-        /** ReqReady tableId */
-        tableId: string;
-
-        /** ReqReady tableMapId */
-        tableMapId: (number|Long);
-
-        /** ReqReady seatNo */
-        seatNo: number;
-
-        /** ReqReady userId */
-        userId: (number|Long);
-
-        /** ReqReady status */
-        status: number;
-
-        /** ReqReady roundId */
-        roundId: string;
-    }
-
-    /** Represents a ReqReady. */
-    class ReqReady implements IReqReady {
-
-        /**
-         * Constructs a new ReqReady.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IReqReady);
-
-        /** ReqReady tableId. */
-        public tableId: string;
-
-        /** ReqReady tableMapId. */
-        public tableMapId: (number|Long);
-
-        /** ReqReady seatNo. */
-        public seatNo: number;
-
-        /** ReqReady userId. */
-        public userId: (number|Long);
-
-        /** ReqReady status. */
-        public status: number;
-
-        /** ReqReady roundId. */
-        public roundId: string;
-
-        /**
-         * Creates a new ReqReady instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ReqReady instance
-         */
-        public static create(properties?: proto.IReqReady): proto.ReqReady;
-
-        /**
-         * Encodes the specified ReqReady message. Does not implicitly {@link proto.ReqReady.verify|verify} messages.
-         * @param message ReqReady message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IReqReady, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ReqReady message, length delimited. Does not implicitly {@link proto.ReqReady.verify|verify} messages.
-         * @param message ReqReady message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IReqReady, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ReqReady message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ReqReady
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqReady;
-
-        /**
-         * Decodes a ReqReady message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ReqReady
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqReady;
-
-        /**
-         * Verifies a ReqReady message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of an AckReady. */
-    interface IAckReady {
-
-        /** AckReady result */
-        result: number;
-
-        /** AckReady seatNo */
-        seatNo: number;
-
-        /** AckReady userId */
-        userId: (number|Long);
-
-        /** AckReady tableId */
-        tableId: string;
-
-        /** AckReady status */
-        status: number;
-    }
-
-    /** Represents an AckReady. */
-    class AckReady implements IAckReady {
-
-        /**
-         * Constructs a new AckReady.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IAckReady);
-
-        /** AckReady result. */
-        public result: number;
-
-        /** AckReady seatNo. */
-        public seatNo: number;
-
-        /** AckReady userId. */
-        public userId: (number|Long);
-
-        /** AckReady tableId. */
-        public tableId: string;
-
-        /** AckReady status. */
-        public status: number;
-
-        /**
-         * Creates a new AckReady instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns AckReady instance
-         */
-        public static create(properties?: proto.IAckReady): proto.AckReady;
-
-        /**
-         * Encodes the specified AckReady message. Does not implicitly {@link proto.AckReady.verify|verify} messages.
-         * @param message AckReady message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IAckReady, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified AckReady message, length delimited. Does not implicitly {@link proto.AckReady.verify|verify} messages.
-         * @param message AckReady message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IAckReady, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes an AckReady message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns AckReady
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckReady;
-
-        /**
-         * Decodes an AckReady message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns AckReady
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckReady;
-
-        /**
-         * Verifies an AckReady message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a NotChairStatus. */
-    interface INotChairStatus {
-
-        /** NotChairStatus tableId */
-        tableId: string;
-
-        /** NotChairStatus type */
-        type: number;
-
-        /** NotChairStatus chair */
-        chair?: (proto.IChair|null);
-    }
-
-    /** Represents a NotChairStatus. */
-    class NotChairStatus implements INotChairStatus {
-
-        /**
-         * Constructs a new NotChairStatus.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.INotChairStatus);
-
-        /** NotChairStatus tableId. */
-        public tableId: string;
-
-        /** NotChairStatus type. */
-        public type: number;
-
-        /** NotChairStatus chair. */
-        public chair?: (proto.IChair|null);
-
-        /**
-         * Creates a new NotChairStatus instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns NotChairStatus instance
-         */
-        public static create(properties?: proto.INotChairStatus): proto.NotChairStatus;
-
-        /**
-         * Encodes the specified NotChairStatus message. Does not implicitly {@link proto.NotChairStatus.verify|verify} messages.
-         * @param message NotChairStatus message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.INotChairStatus, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified NotChairStatus message, length delimited. Does not implicitly {@link proto.NotChairStatus.verify|verify} messages.
-         * @param message NotChairStatus message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.INotChairStatus, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a NotChairStatus message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns NotChairStatus
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotChairStatus;
-
-        /**
-         * Decodes a NotChairStatus message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns NotChairStatus
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotChairStatus;
-
-        /**
-         * Verifies a NotChairStatus message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a NotCards. */
-    interface INotCards {
-
-        /** NotCards HandCards */
-        HandCards: proto.IHandCards;
-
-        /** NotCards banker */
-        banker: number;
-
-        /** NotCards leftCardsNum */
-        leftCardsNum: number;
-
-        /** NotCards stage */
-        stage: number;
-    }
-
-    /** Represents a NotCards. */
-    class NotCards implements INotCards {
-
-        /**
-         * Constructs a new NotCards.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.INotCards);
-
-        /** NotCards HandCards. */
-        public HandCards: proto.IHandCards;
-
-        /** NotCards banker. */
-        public banker: number;
-
-        /** NotCards leftCardsNum. */
-        public leftCardsNum: number;
-
-        /** NotCards stage. */
-        public stage: number;
-
-        /**
-         * Creates a new NotCards instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns NotCards instance
-         */
-        public static create(properties?: proto.INotCards): proto.NotCards;
-
-        /**
-         * Encodes the specified NotCards message. Does not implicitly {@link proto.NotCards.verify|verify} messages.
-         * @param message NotCards message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.INotCards, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified NotCards message, length delimited. Does not implicitly {@link proto.NotCards.verify|verify} messages.
-         * @param message NotCards message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.INotCards, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a NotCards message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns NotCards
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotCards;
-
-        /**
-         * Decodes a NotCards message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns NotCards
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotCards;
-
-        /**
-         * Verifies a NotCards message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a NotBuhua. */
-    interface INotBuhua {
-
-        /** NotBuhua seatNo */
-        seatNo: number;
-
-        /** NotBuhua huapai */
-        huapai?: (number[]|null);
-
-        /** NotBuhua leftCardsNum */
-        leftCardsNum: number;
-
-        /** NotBuhua bupai */
-        bupai?: (number[]|null);
-    }
-
-    /** Represents a NotBuhua. */
-    class NotBuhua implements INotBuhua {
-
-        /**
-         * Constructs a new NotBuhua.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.INotBuhua);
-
-        /** NotBuhua seatNo. */
-        public seatNo: number;
-
-        /** NotBuhua huapai. */
-        public huapai: number[];
-
-        /** NotBuhua leftCardsNum. */
-        public leftCardsNum: number;
-
-        /** NotBuhua bupai. */
-        public bupai: number[];
-
-        /**
-         * Creates a new NotBuhua instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns NotBuhua instance
-         */
-        public static create(properties?: proto.INotBuhua): proto.NotBuhua;
-
-        /**
-         * Encodes the specified NotBuhua message. Does not implicitly {@link proto.NotBuhua.verify|verify} messages.
-         * @param message NotBuhua message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.INotBuhua, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified NotBuhua message, length delimited. Does not implicitly {@link proto.NotBuhua.verify|verify} messages.
-         * @param message NotBuhua message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.INotBuhua, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a NotBuhua message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns NotBuhua
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotBuhua;
-
-        /**
-         * Decodes a NotBuhua message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns NotBuhua
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotBuhua;
-
-        /**
-         * Verifies a NotBuhua message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a NotZaNiao. */
-    interface INotZaNiao {
-
-        /** NotZaNiao stage */
-        stage: number;
-
-        /** NotZaNiao cardInfos */
-        cardInfos?: (proto.ICardInfo[]|null);
-    }
-
-    /** Represents a NotZaNiao. */
-    class NotZaNiao implements INotZaNiao {
-
-        /**
-         * Constructs a new NotZaNiao.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.INotZaNiao);
-
-        /** NotZaNiao stage. */
-        public stage: number;
-
-        /** NotZaNiao cardInfos. */
-        public cardInfos: proto.ICardInfo[];
-
-        /**
-         * Creates a new NotZaNiao instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns NotZaNiao instance
-         */
-        public static create(properties?: proto.INotZaNiao): proto.NotZaNiao;
-
-        /**
-         * Encodes the specified NotZaNiao message. Does not implicitly {@link proto.NotZaNiao.verify|verify} messages.
-         * @param message NotZaNiao message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.INotZaNiao, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified NotZaNiao message, length delimited. Does not implicitly {@link proto.NotZaNiao.verify|verify} messages.
-         * @param message NotZaNiao message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.INotZaNiao, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a NotZaNiao message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns NotZaNiao
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotZaNiao;
-
-        /**
-         * Decodes a NotZaNiao message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns NotZaNiao
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotZaNiao;
-
-        /**
-         * Verifies a NotZaNiao message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a NotBuhuaEnds. */
-    interface INotBuhuaEnds {
-
-        /** NotBuhuaEnds stage */
-        stage: number;
-    }
-
-    /** Represents a NotBuhuaEnds. */
-    class NotBuhuaEnds implements INotBuhuaEnds {
-
-        /**
-         * Constructs a new NotBuhuaEnds.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.INotBuhuaEnds);
-
-        /** NotBuhuaEnds stage. */
-        public stage: number;
-
-        /**
-         * Creates a new NotBuhuaEnds instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns NotBuhuaEnds instance
-         */
-        public static create(properties?: proto.INotBuhuaEnds): proto.NotBuhuaEnds;
-
-        /**
-         * Encodes the specified NotBuhuaEnds message. Does not implicitly {@link proto.NotBuhuaEnds.verify|verify} messages.
-         * @param message NotBuhuaEnds message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.INotBuhuaEnds, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified NotBuhuaEnds message, length delimited. Does not implicitly {@link proto.NotBuhuaEnds.verify|verify} messages.
-         * @param message NotBuhuaEnds message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.INotBuhuaEnds, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a NotBuhuaEnds message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns NotBuhuaEnds
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotBuhuaEnds;
-
-        /**
-         * Decodes a NotBuhuaEnds message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns NotBuhuaEnds
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotBuhuaEnds;
-
-        /**
-         * Verifies a NotBuhuaEnds message.
+         * Verifies a ReqSendCard message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
@@ -5466,7 +1506,7 @@ declare namespace proto {
          * Constructs a new OperationType.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IOperationType);
+        constructor(properties?: game.IOperationType);
 
         /** OperationType CATCH. */
         public CATCH: number;
@@ -5515,23 +1555,23 @@ declare namespace proto {
          * @param [properties] Properties to set
          * @returns OperationType instance
          */
-        public static create(properties?: proto.IOperationType): proto.OperationType;
+        public static create(properties?: game.IOperationType): game.OperationType;
 
         /**
-         * Encodes the specified OperationType message. Does not implicitly {@link proto.OperationType.verify|verify} messages.
+         * Encodes the specified OperationType message. Does not implicitly {@link game.OperationType.verify|verify} messages.
          * @param message OperationType message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IOperationType, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IOperationType, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified OperationType message, length delimited. Does not implicitly {@link proto.OperationType.verify|verify} messages.
+         * Encodes the specified OperationType message, length delimited. Does not implicitly {@link game.OperationType.verify|verify} messages.
          * @param message OperationType message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IOperationType, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IOperationType, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes an OperationType message from the specified reader or buffer.
@@ -5541,7 +1581,7 @@ declare namespace proto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.OperationType;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.OperationType;
 
         /**
          * Decodes an OperationType message from the specified reader or buffer, length delimited.
@@ -5550,7 +1590,7 @@ declare namespace proto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.OperationType;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.OperationType;
 
         /**
          * Verifies an OperationType message.
@@ -5560,110 +1600,14 @@ declare namespace proto {
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a ReqSendCard. */
-    interface IReqSendCard {
-
-        /** ReqSendCard tableId */
-        tableId: string;
-
-        /** ReqSendCard tableMapId */
-        tableMapId: (number|Long);
-
-        /** ReqSendCard userId */
-        userId: (number|Long);
-
-        /** ReqSendCard Card */
-        Card: proto.ICardsGroup;
-
-        /** ReqSendCard roundId */
-        roundId: string;
-    }
-
-    /** Represents a ReqSendCard. */
-    class ReqSendCard implements IReqSendCard {
-
-        /**
-         * Constructs a new ReqSendCard.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IReqSendCard);
-
-        /** ReqSendCard tableId. */
-        public tableId: string;
-
-        /** ReqSendCard tableMapId. */
-        public tableMapId: (number|Long);
-
-        /** ReqSendCard userId. */
-        public userId: (number|Long);
-
-        /** ReqSendCard Card. */
-        public Card: proto.ICardsGroup;
-
-        /** ReqSendCard roundId. */
-        public roundId: string;
-
-        /**
-         * Creates a new ReqSendCard instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ReqSendCard instance
-         */
-        public static create(properties?: proto.IReqSendCard): proto.ReqSendCard;
-
-        /**
-         * Encodes the specified ReqSendCard message. Does not implicitly {@link proto.ReqSendCard.verify|verify} messages.
-         * @param message ReqSendCard message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IReqSendCard, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ReqSendCard message, length delimited. Does not implicitly {@link proto.ReqSendCard.verify|verify} messages.
-         * @param message ReqSendCard message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IReqSendCard, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ReqSendCard message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ReqSendCard
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqSendCard;
-
-        /**
-         * Decodes a ReqSendCard message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ReqSendCard
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqSendCard;
-
-        /**
-         * Verifies a ReqSendCard message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
     /** Properties of an AckSendCard. */
     interface IAckSendCard {
 
-        /** AckSendCard result */
-        result: number;
+        /** AckSendCard Card */
+        Card: game.ICardsGroup;
 
-        /** AckSendCard userId */
-        userId: (number|Long);
-
-        /** AckSendCard tableId */
-        tableId: string;
+        /** AckSendCard gangCoin */
+        gangCoin?: (number[]|null);
     }
 
     /** Represents an AckSendCard. */
@@ -5673,39 +1617,36 @@ declare namespace proto {
          * Constructs a new AckSendCard.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IAckSendCard);
+        constructor(properties?: game.IAckSendCard);
 
-        /** AckSendCard result. */
-        public result: number;
+        /** AckSendCard Card. */
+        public Card: game.ICardsGroup;
 
-        /** AckSendCard userId. */
-        public userId: (number|Long);
-
-        /** AckSendCard tableId. */
-        public tableId: string;
+        /** AckSendCard gangCoin. */
+        public gangCoin: number[];
 
         /**
          * Creates a new AckSendCard instance using the specified properties.
          * @param [properties] Properties to set
          * @returns AckSendCard instance
          */
-        public static create(properties?: proto.IAckSendCard): proto.AckSendCard;
+        public static create(properties?: game.IAckSendCard): game.AckSendCard;
 
         /**
-         * Encodes the specified AckSendCard message. Does not implicitly {@link proto.AckSendCard.verify|verify} messages.
+         * Encodes the specified AckSendCard message. Does not implicitly {@link game.AckSendCard.verify|verify} messages.
          * @param message AckSendCard message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IAckSendCard, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IAckSendCard, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified AckSendCard message, length delimited. Does not implicitly {@link proto.AckSendCard.verify|verify} messages.
+         * Encodes the specified AckSendCard message, length delimited. Does not implicitly {@link game.AckSendCard.verify|verify} messages.
          * @param message AckSendCard message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IAckSendCard, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IAckSendCard, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
          * Decodes an AckSendCard message from the specified reader or buffer.
@@ -5715,7 +1656,7 @@ declare namespace proto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckSendCard;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckSendCard;
 
         /**
          * Decodes an AckSendCard message from the specified reader or buffer, length delimited.
@@ -5724,7 +1665,7 @@ declare namespace proto {
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckSendCard;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckSendCard;
 
         /**
          * Verifies an AckSendCard message.
@@ -5734,1524 +1675,3432 @@ declare namespace proto {
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a NotSendCard. */
-    interface INotSendCard {
+    /** Properties of an AckUserOperation. */
+    interface IAckUserOperation {
 
-        /** NotSendCard Card */
-        Card: proto.ICardsGroup;
+        /** AckUserOperation Sit */
+        Sit: number;
+
+        /** AckUserOperation Chi */
+        Chi: boolean;
+
+        /** AckUserOperation ChiCards */
+        ChiCards?: (game.ICardsGroup[]|null);
+
+        /** AckUserOperation Peng */
+        Peng: boolean;
+
+        /** AckUserOperation PengCards */
+        PengCards?: (game.ICardsGroup[]|null);
+
+        /** AckUserOperation Gang */
+        Gang: boolean;
+
+        /** AckUserOperation GangCards */
+        GangCards?: (game.ICardsGroup[]|null);
+
+        /** AckUserOperation Hu */
+        Hu: boolean;
+
+        /** AckUserOperation HuCards */
+        HuCards?: (game.ICardsGroup[]|null);
+
+        /** AckUserOperation Call */
+        Call: boolean;
+
+        /** AckUserOperation CallCards */
+        CallCards?: (game.IMahjongCallInfo[]|null);
     }
 
-    /** Represents a NotSendCard. */
-    class NotSendCard implements INotSendCard {
+    /** Represents an AckUserOperation. */
+    class AckUserOperation implements IAckUserOperation {
 
         /**
-         * Constructs a new NotSendCard.
+         * Constructs a new AckUserOperation.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.INotSendCard);
+        constructor(properties?: game.IAckUserOperation);
 
-        /** NotSendCard Card. */
-        public Card: proto.ICardsGroup;
+        /** AckUserOperation Sit. */
+        public Sit: number;
+
+        /** AckUserOperation Chi. */
+        public Chi: boolean;
+
+        /** AckUserOperation ChiCards. */
+        public ChiCards: game.ICardsGroup[];
+
+        /** AckUserOperation Peng. */
+        public Peng: boolean;
+
+        /** AckUserOperation PengCards. */
+        public PengCards: game.ICardsGroup[];
+
+        /** AckUserOperation Gang. */
+        public Gang: boolean;
+
+        /** AckUserOperation GangCards. */
+        public GangCards: game.ICardsGroup[];
+
+        /** AckUserOperation Hu. */
+        public Hu: boolean;
+
+        /** AckUserOperation HuCards. */
+        public HuCards: game.ICardsGroup[];
+
+        /** AckUserOperation Call. */
+        public Call: boolean;
+
+        /** AckUserOperation CallCards. */
+        public CallCards: game.IMahjongCallInfo[];
 
         /**
-         * Creates a new NotSendCard instance using the specified properties.
+         * Creates a new AckUserOperation instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns NotSendCard instance
+         * @returns AckUserOperation instance
          */
-        public static create(properties?: proto.INotSendCard): proto.NotSendCard;
+        public static create(properties?: game.IAckUserOperation): game.AckUserOperation;
 
         /**
-         * Encodes the specified NotSendCard message. Does not implicitly {@link proto.NotSendCard.verify|verify} messages.
-         * @param message NotSendCard message or plain object to encode
+         * Encodes the specified AckUserOperation message. Does not implicitly {@link game.AckUserOperation.verify|verify} messages.
+         * @param message AckUserOperation message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.INotSendCard, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IAckUserOperation, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified NotSendCard message, length delimited. Does not implicitly {@link proto.NotSendCard.verify|verify} messages.
-         * @param message NotSendCard message or plain object to encode
+         * Encodes the specified AckUserOperation message, length delimited. Does not implicitly {@link game.AckUserOperation.verify|verify} messages.
+         * @param message AckUserOperation message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.INotSendCard, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IAckUserOperation, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a NotSendCard message from the specified reader or buffer.
+         * Decodes an AckUserOperation message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns NotSendCard
+         * @returns AckUserOperation
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotSendCard;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckUserOperation;
 
         /**
-         * Decodes a NotSendCard message from the specified reader or buffer, length delimited.
+         * Decodes an AckUserOperation message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns NotSendCard
+         * @returns AckUserOperation
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotSendCard;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckUserOperation;
 
         /**
-         * Verifies a NotSendCard message.
+         * Verifies an AckUserOperation message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a NotUserOperation. */
-    interface INotUserOperation {
+    /** Properties of a CardsGroup. */
+    interface ICardsGroup {
 
-        /** NotUserOperation operations */
-        operations?: (proto.IOperation[]|null);
+        /** CardsGroup Sit */
+        Sit: number;
 
-        /** NotUserOperation callCards */
-        callCards?: (proto.IMahjongCallInfo[]|null);
+        /** CardsGroup Type */
+        Type: number;
+
+        /** CardsGroup Cards */
+        Cards?: (game.ICardInfo[]|null);
+
+        /** CardsGroup ObtainCard */
+        ObtainCard?: (game.ICardInfo|null);
+
+        /** CardsGroup ObtainCardSit */
+        ObtainCardSit?: (number|null);
     }
 
-    /** Represents a NotUserOperation. */
-    class NotUserOperation implements INotUserOperation {
+    /** Represents a CardsGroup. */
+    class CardsGroup implements ICardsGroup {
 
         /**
-         * Constructs a new NotUserOperation.
+         * Constructs a new CardsGroup.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.INotUserOperation);
+        constructor(properties?: game.ICardsGroup);
 
-        /** NotUserOperation operations. */
-        public operations: proto.IOperation[];
+        /** CardsGroup Sit. */
+        public Sit: number;
 
-        /** NotUserOperation callCards. */
-        public callCards: proto.IMahjongCallInfo[];
+        /** CardsGroup Type. */
+        public Type: number;
+
+        /** CardsGroup Cards. */
+        public Cards: game.ICardInfo[];
+
+        /** CardsGroup ObtainCard. */
+        public ObtainCard?: (game.ICardInfo|null);
+
+        /** CardsGroup ObtainCardSit. */
+        public ObtainCardSit: number;
 
         /**
-         * Creates a new NotUserOperation instance using the specified properties.
+         * Creates a new CardsGroup instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns NotUserOperation instance
+         * @returns CardsGroup instance
          */
-        public static create(properties?: proto.INotUserOperation): proto.NotUserOperation;
+        public static create(properties?: game.ICardsGroup): game.CardsGroup;
 
         /**
-         * Encodes the specified NotUserOperation message. Does not implicitly {@link proto.NotUserOperation.verify|verify} messages.
-         * @param message NotUserOperation message or plain object to encode
+         * Encodes the specified CardsGroup message. Does not implicitly {@link game.CardsGroup.verify|verify} messages.
+         * @param message CardsGroup message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.INotUserOperation, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.ICardsGroup, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified NotUserOperation message, length delimited. Does not implicitly {@link proto.NotUserOperation.verify|verify} messages.
-         * @param message NotUserOperation message or plain object to encode
+         * Encodes the specified CardsGroup message, length delimited. Does not implicitly {@link game.CardsGroup.verify|verify} messages.
+         * @param message CardsGroup message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.INotUserOperation, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.ICardsGroup, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a NotUserOperation message from the specified reader or buffer.
+         * Decodes a CardsGroup message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns NotUserOperation
+         * @returns CardsGroup
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotUserOperation;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.CardsGroup;
 
         /**
-         * Decodes a NotUserOperation message from the specified reader or buffer, length delimited.
+         * Decodes a CardsGroup message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns NotUserOperation
+         * @returns CardsGroup
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotUserOperation;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.CardsGroup;
 
         /**
-         * Verifies a NotUserOperation message.
+         * Verifies a CardsGroup message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of an Operation. */
-    interface IOperation {
+    /** Properties of a MahjongFanNumType. */
+    interface IMahjongFanNumType {
 
-        /** Operation type */
-        type: number;
+        /** MahjongFanNumType FanNum */
+        FanNum: number;
 
-        /** Operation options */
-        options?: (proto.ICardsGroup[]|null);
+        /** MahjongFanNumType FanType */
+        FanType: number;
 
-        /** Operation canGangYao */
-        canGangYao?: (number|null);
+        /** MahjongFanNumType Cards */
+        Cards?: (game.ICardInfo[]|null);
     }
 
-    /** Represents an Operation. */
-    class Operation implements IOperation {
+    /** Represents a MahjongFanNumType. */
+    class MahjongFanNumType implements IMahjongFanNumType {
 
         /**
-         * Constructs a new Operation.
+         * Constructs a new MahjongFanNumType.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IOperation);
+        constructor(properties?: game.IMahjongFanNumType);
 
-        /** Operation type. */
-        public type: number;
+        /** MahjongFanNumType FanNum. */
+        public FanNum: number;
 
-        /** Operation options. */
-        public options: proto.ICardsGroup[];
+        /** MahjongFanNumType FanType. */
+        public FanType: number;
 
-        /** Operation canGangYao. */
-        public canGangYao: number;
+        /** MahjongFanNumType Cards. */
+        public Cards: game.ICardInfo[];
 
         /**
-         * Creates a new Operation instance using the specified properties.
+         * Creates a new MahjongFanNumType instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns Operation instance
+         * @returns MahjongFanNumType instance
          */
-        public static create(properties?: proto.IOperation): proto.Operation;
+        public static create(properties?: game.IMahjongFanNumType): game.MahjongFanNumType;
 
         /**
-         * Encodes the specified Operation message. Does not implicitly {@link proto.Operation.verify|verify} messages.
-         * @param message Operation message or plain object to encode
+         * Encodes the specified MahjongFanNumType message. Does not implicitly {@link game.MahjongFanNumType.verify|verify} messages.
+         * @param message MahjongFanNumType message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IOperation, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IMahjongFanNumType, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified Operation message, length delimited. Does not implicitly {@link proto.Operation.verify|verify} messages.
-         * @param message Operation message or plain object to encode
+         * Encodes the specified MahjongFanNumType message, length delimited. Does not implicitly {@link game.MahjongFanNumType.verify|verify} messages.
+         * @param message MahjongFanNumType message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IOperation, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IMahjongFanNumType, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes an Operation message from the specified reader or buffer.
+         * Decodes a MahjongFanNumType message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns Operation
+         * @returns MahjongFanNumType
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.Operation;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.MahjongFanNumType;
 
         /**
-         * Decodes an Operation message from the specified reader or buffer, length delimited.
+         * Decodes a MahjongFanNumType message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns Operation
+         * @returns MahjongFanNumType
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.Operation;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.MahjongFanNumType;
 
         /**
-         * Verifies an Operation message.
+         * Verifies a MahjongFanNumType message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a NotUserQishouhu. */
-    interface INotUserQishouhu {
+    /** Properties of a MahjongFanName. */
+    interface IMahjongFanName {
 
-        /** NotUserQishouhu qishouhus */
-        qishouhus?: (proto.IQishouhu[]|null);
+        /** MahjongFanName SSSBG */
+        SSSBG: number;
     }
 
-    /** Represents a NotUserQishouhu. */
-    class NotUserQishouhu implements INotUserQishouhu {
+    /** Represents a MahjongFanName. */
+    class MahjongFanName implements IMahjongFanName {
 
         /**
-         * Constructs a new NotUserQishouhu.
+         * Constructs a new MahjongFanName.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.INotUserQishouhu);
+        constructor(properties?: game.IMahjongFanName);
 
-        /** NotUserQishouhu qishouhus. */
-        public qishouhus: proto.IQishouhu[];
+        /** MahjongFanName SSSBG. */
+        public SSSBG: number;
 
         /**
-         * Creates a new NotUserQishouhu instance using the specified properties.
+         * Creates a new MahjongFanName instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns NotUserQishouhu instance
+         * @returns MahjongFanName instance
          */
-        public static create(properties?: proto.INotUserQishouhu): proto.NotUserQishouhu;
+        public static create(properties?: game.IMahjongFanName): game.MahjongFanName;
 
         /**
-         * Encodes the specified NotUserQishouhu message. Does not implicitly {@link proto.NotUserQishouhu.verify|verify} messages.
-         * @param message NotUserQishouhu message or plain object to encode
+         * Encodes the specified MahjongFanName message. Does not implicitly {@link game.MahjongFanName.verify|verify} messages.
+         * @param message MahjongFanName message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.INotUserQishouhu, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IMahjongFanName, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified NotUserQishouhu message, length delimited. Does not implicitly {@link proto.NotUserQishouhu.verify|verify} messages.
-         * @param message NotUserQishouhu message or plain object to encode
+         * Encodes the specified MahjongFanName message, length delimited. Does not implicitly {@link game.MahjongFanName.verify|verify} messages.
+         * @param message MahjongFanName message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.INotUserQishouhu, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IMahjongFanName, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a NotUserQishouhu message from the specified reader or buffer.
+         * Decodes a MahjongFanName message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns NotUserQishouhu
+         * @returns MahjongFanName
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotUserQishouhu;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.MahjongFanName;
 
         /**
-         * Decodes a NotUserQishouhu message from the specified reader or buffer, length delimited.
+         * Decodes a MahjongFanName message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns NotUserQishouhu
+         * @returns MahjongFanName
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotUserQishouhu;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.MahjongFanName;
 
         /**
-         * Verifies a NotUserQishouhu message.
+         * Verifies a MahjongFanName message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a Qishouhu. */
-    interface IQishouhu {
+    /** Properties of a ReqPlayerTrust. */
+    interface IReqPlayerTrust {
 
-        /** Qishouhu qishouType */
-        qishouType?: (number[]|null);
-
-        /** Qishouhu winners */
-        winners?: (number|null);
-
-        /** Qishouhu qishouFan */
-        qishouFan?: (number|null);
+        /** ReqPlayerTrust sit */
+        sit: number;
     }
 
-    /** Represents a Qishouhu. */
-    class Qishouhu implements IQishouhu {
+    /** Represents a ReqPlayerTrust. */
+    class ReqPlayerTrust implements IReqPlayerTrust {
 
         /**
-         * Constructs a new Qishouhu.
+         * Constructs a new ReqPlayerTrust.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IQishouhu);
+        constructor(properties?: game.IReqPlayerTrust);
 
-        /** Qishouhu qishouType. */
-        public qishouType: number[];
-
-        /** Qishouhu winners. */
-        public winners: number;
-
-        /** Qishouhu qishouFan. */
-        public qishouFan: number;
+        /** ReqPlayerTrust sit. */
+        public sit: number;
 
         /**
-         * Creates a new Qishouhu instance using the specified properties.
+         * Creates a new ReqPlayerTrust instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns Qishouhu instance
+         * @returns ReqPlayerTrust instance
          */
-        public static create(properties?: proto.IQishouhu): proto.Qishouhu;
+        public static create(properties?: game.IReqPlayerTrust): game.ReqPlayerTrust;
 
         /**
-         * Encodes the specified Qishouhu message. Does not implicitly {@link proto.Qishouhu.verify|verify} messages.
-         * @param message Qishouhu message or plain object to encode
+         * Encodes the specified ReqPlayerTrust message. Does not implicitly {@link game.ReqPlayerTrust.verify|verify} messages.
+         * @param message ReqPlayerTrust message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IQishouhu, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IReqPlayerTrust, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified Qishouhu message, length delimited. Does not implicitly {@link proto.Qishouhu.verify|verify} messages.
-         * @param message Qishouhu message or plain object to encode
+         * Encodes the specified ReqPlayerTrust message, length delimited. Does not implicitly {@link game.ReqPlayerTrust.verify|verify} messages.
+         * @param message ReqPlayerTrust message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IQishouhu, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IReqPlayerTrust, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a Qishouhu message from the specified reader or buffer.
+         * Decodes a ReqPlayerTrust message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns Qishouhu
+         * @returns ReqPlayerTrust
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.Qishouhu;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.ReqPlayerTrust;
 
         /**
-         * Decodes a Qishouhu message from the specified reader or buffer, length delimited.
+         * Decodes a ReqPlayerTrust message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns Qishouhu
+         * @returns ReqPlayerTrust
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.Qishouhu;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.ReqPlayerTrust;
 
         /**
-         * Verifies a Qishouhu message.
+         * Verifies a ReqPlayerTrust message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of an AckQishouhu. */
-    interface IAckQishouhu {
+    /** Properties of an AckPlayerTrust. */
+    interface IAckPlayerTrust {
 
-        /** AckQishouhu playerCards */
-        playerCards?: (proto.IHandCards[]|null);
+        /** AckPlayerTrust TrustNum */
+        TrustNum: number;
 
-        /** AckQishouhu qishouhus */
-        qishouhus?: (proto.IQishouhu[]|null);
+        /** AckPlayerTrust TrustSit */
+        TrustSit: number;
     }
 
-    /** Represents an AckQishouhu. */
-    class AckQishouhu implements IAckQishouhu {
+    /** Represents an AckPlayerTrust. */
+    class AckPlayerTrust implements IAckPlayerTrust {
 
         /**
-         * Constructs a new AckQishouhu.
+         * Constructs a new AckPlayerTrust.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IAckQishouhu);
+        constructor(properties?: game.IAckPlayerTrust);
 
-        /** AckQishouhu playerCards. */
-        public playerCards: proto.IHandCards[];
+        /** AckPlayerTrust TrustNum. */
+        public TrustNum: number;
 
-        /** AckQishouhu qishouhus. */
-        public qishouhus: proto.IQishouhu[];
+        /** AckPlayerTrust TrustSit. */
+        public TrustSit: number;
 
         /**
-         * Creates a new AckQishouhu instance using the specified properties.
+         * Creates a new AckPlayerTrust instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns AckQishouhu instance
+         * @returns AckPlayerTrust instance
          */
-        public static create(properties?: proto.IAckQishouhu): proto.AckQishouhu;
+        public static create(properties?: game.IAckPlayerTrust): game.AckPlayerTrust;
 
         /**
-         * Encodes the specified AckQishouhu message. Does not implicitly {@link proto.AckQishouhu.verify|verify} messages.
-         * @param message AckQishouhu message or plain object to encode
+         * Encodes the specified AckPlayerTrust message. Does not implicitly {@link game.AckPlayerTrust.verify|verify} messages.
+         * @param message AckPlayerTrust message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IAckQishouhu, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IAckPlayerTrust, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified AckQishouhu message, length delimited. Does not implicitly {@link proto.AckQishouhu.verify|verify} messages.
-         * @param message AckQishouhu message or plain object to encode
+         * Encodes the specified AckPlayerTrust message, length delimited. Does not implicitly {@link game.AckPlayerTrust.verify|verify} messages.
+         * @param message AckPlayerTrust message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IAckQishouhu, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IAckPlayerTrust, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes an AckQishouhu message from the specified reader or buffer.
+         * Decodes an AckPlayerTrust message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns AckQishouhu
+         * @returns AckPlayerTrust
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckQishouhu;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckPlayerTrust;
 
         /**
-         * Decodes an AckQishouhu message from the specified reader or buffer, length delimited.
+         * Decodes an AckPlayerTrust message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns AckQishouhu
+         * @returns AckPlayerTrust
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckQishouhu;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckPlayerTrust;
 
         /**
-         * Verifies an AckQishouhu message.
+         * Verifies an AckPlayerTrust message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a NotGameEnd. */
-    interface INotGameEnd {
+    /** Properties of a ReqPlayerRelieveTrust. */
+    interface IReqPlayerRelieveTrust {
 
-        /** NotGameEnd playerCards */
-        playerCards?: (proto.IHandCards[]|null);
-
-        /** NotGameEnd stage */
-        stage: number;
-
-        /** NotGameEnd result */
-        result?: (number|null);
-
-        /** NotGameEnd winner */
-        winner?: (number|null);
-
-        /** NotGameEnd huType */
-        huType?: (number|null);
+        /** ReqPlayerRelieveTrust Sit */
+        Sit: number;
     }
 
-    /** Represents a NotGameEnd. */
-    class NotGameEnd implements INotGameEnd {
+    /** Represents a ReqPlayerRelieveTrust. */
+    class ReqPlayerRelieveTrust implements IReqPlayerRelieveTrust {
 
         /**
-         * Constructs a new NotGameEnd.
+         * Constructs a new ReqPlayerRelieveTrust.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.INotGameEnd);
+        constructor(properties?: game.IReqPlayerRelieveTrust);
 
-        /** NotGameEnd playerCards. */
-        public playerCards: proto.IHandCards[];
-
-        /** NotGameEnd stage. */
-        public stage: number;
-
-        /** NotGameEnd result. */
-        public result: number;
-
-        /** NotGameEnd winner. */
-        public winner: number;
-
-        /** NotGameEnd huType. */
-        public huType: number;
+        /** ReqPlayerRelieveTrust Sit. */
+        public Sit: number;
 
         /**
-         * Creates a new NotGameEnd instance using the specified properties.
+         * Creates a new ReqPlayerRelieveTrust instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns NotGameEnd instance
+         * @returns ReqPlayerRelieveTrust instance
          */
-        public static create(properties?: proto.INotGameEnd): proto.NotGameEnd;
+        public static create(properties?: game.IReqPlayerRelieveTrust): game.ReqPlayerRelieveTrust;
 
         /**
-         * Encodes the specified NotGameEnd message. Does not implicitly {@link proto.NotGameEnd.verify|verify} messages.
-         * @param message NotGameEnd message or plain object to encode
+         * Encodes the specified ReqPlayerRelieveTrust message. Does not implicitly {@link game.ReqPlayerRelieveTrust.verify|verify} messages.
+         * @param message ReqPlayerRelieveTrust message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.INotGameEnd, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IReqPlayerRelieveTrust, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified NotGameEnd message, length delimited. Does not implicitly {@link proto.NotGameEnd.verify|verify} messages.
-         * @param message NotGameEnd message or plain object to encode
+         * Encodes the specified ReqPlayerRelieveTrust message, length delimited. Does not implicitly {@link game.ReqPlayerRelieveTrust.verify|verify} messages.
+         * @param message ReqPlayerRelieveTrust message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.INotGameEnd, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IReqPlayerRelieveTrust, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a NotGameEnd message from the specified reader or buffer.
+         * Decodes a ReqPlayerRelieveTrust message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns NotGameEnd
+         * @returns ReqPlayerRelieveTrust
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotGameEnd;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.ReqPlayerRelieveTrust;
 
         /**
-         * Decodes a NotGameEnd message from the specified reader or buffer, length delimited.
+         * Decodes a ReqPlayerRelieveTrust message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns NotGameEnd
+         * @returns ReqPlayerRelieveTrust
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotGameEnd;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.ReqPlayerRelieveTrust;
 
         /**
-         * Verifies a NotGameEnd message.
+         * Verifies a ReqPlayerRelieveTrust message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a NotGameResult. */
-    interface INotGameResult {
+    /** Properties of an AckPlayerRelieveTrust. */
+    interface IAckPlayerRelieveTrust {
 
-        /** NotGameResult tableId */
-        tableId: string;
+        /** AckPlayerRelieveTrust Sit */
+        Sit: number;
 
-        /** NotGameResult result */
-        result: number;
-
-        /** NotGameResult player */
-        player: proto.IPlayerGameResult;
-
-        /** NotGameResult others */
-        others?: (proto.IPlayerGameResult[]|null);
+        /** AckPlayerRelieveTrust RelieveTrustSit */
+        RelieveTrustSit: number;
     }
 
-    /** Represents a NotGameResult. */
-    class NotGameResult implements INotGameResult {
+    /** Represents an AckPlayerRelieveTrust. */
+    class AckPlayerRelieveTrust implements IAckPlayerRelieveTrust {
 
         /**
-         * Constructs a new NotGameResult.
+         * Constructs a new AckPlayerRelieveTrust.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.INotGameResult);
+        constructor(properties?: game.IAckPlayerRelieveTrust);
 
-        /** NotGameResult tableId. */
-        public tableId: string;
+        /** AckPlayerRelieveTrust Sit. */
+        public Sit: number;
 
-        /** NotGameResult result. */
-        public result: number;
-
-        /** NotGameResult player. */
-        public player: proto.IPlayerGameResult;
-
-        /** NotGameResult others. */
-        public others: proto.IPlayerGameResult[];
+        /** AckPlayerRelieveTrust RelieveTrustSit. */
+        public RelieveTrustSit: number;
 
         /**
-         * Creates a new NotGameResult instance using the specified properties.
+         * Creates a new AckPlayerRelieveTrust instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns NotGameResult instance
+         * @returns AckPlayerRelieveTrust instance
          */
-        public static create(properties?: proto.INotGameResult): proto.NotGameResult;
+        public static create(properties?: game.IAckPlayerRelieveTrust): game.AckPlayerRelieveTrust;
 
         /**
-         * Encodes the specified NotGameResult message. Does not implicitly {@link proto.NotGameResult.verify|verify} messages.
-         * @param message NotGameResult message or plain object to encode
+         * Encodes the specified AckPlayerRelieveTrust message. Does not implicitly {@link game.AckPlayerRelieveTrust.verify|verify} messages.
+         * @param message AckPlayerRelieveTrust message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.INotGameResult, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IAckPlayerRelieveTrust, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified NotGameResult message, length delimited. Does not implicitly {@link proto.NotGameResult.verify|verify} messages.
-         * @param message NotGameResult message or plain object to encode
+         * Encodes the specified AckPlayerRelieveTrust message, length delimited. Does not implicitly {@link game.AckPlayerRelieveTrust.verify|verify} messages.
+         * @param message AckPlayerRelieveTrust message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.INotGameResult, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IAckPlayerRelieveTrust, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a NotGameResult message from the specified reader or buffer.
+         * Decodes an AckPlayerRelieveTrust message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns NotGameResult
+         * @returns AckPlayerRelieveTrust
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotGameResult;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckPlayerRelieveTrust;
 
         /**
-         * Decodes a NotGameResult message from the specified reader or buffer, length delimited.
+         * Decodes an AckPlayerRelieveTrust message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns NotGameResult
+         * @returns AckPlayerRelieveTrust
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotGameResult;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckPlayerRelieveTrust;
 
         /**
-         * Verifies a NotGameResult message.
+         * Verifies an AckPlayerRelieveTrust message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a Fan. */
-    interface IFan {
+    /** Properties of a ReqGameDelay. */
+    interface IReqGameDelay {
 
-        /** Fan fanxing */
-        fanxing: number;
-
-        /** Fan taishu */
-        taishu: number;
+        /** ReqGameDelay Sit */
+        Sit: number;
     }
 
-    /** Represents a Fan. */
-    class Fan implements IFan {
+    /** Represents a ReqGameDelay. */
+    class ReqGameDelay implements IReqGameDelay {
 
         /**
-         * Constructs a new Fan.
+         * Constructs a new ReqGameDelay.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IFan);
+        constructor(properties?: game.IReqGameDelay);
 
-        /** Fan fanxing. */
-        public fanxing: number;
-
-        /** Fan taishu. */
-        public taishu: number;
+        /** ReqGameDelay Sit. */
+        public Sit: number;
 
         /**
-         * Creates a new Fan instance using the specified properties.
+         * Creates a new ReqGameDelay instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns Fan instance
+         * @returns ReqGameDelay instance
          */
-        public static create(properties?: proto.IFan): proto.Fan;
+        public static create(properties?: game.IReqGameDelay): game.ReqGameDelay;
 
         /**
-         * Encodes the specified Fan message. Does not implicitly {@link proto.Fan.verify|verify} messages.
-         * @param message Fan message or plain object to encode
+         * Encodes the specified ReqGameDelay message. Does not implicitly {@link game.ReqGameDelay.verify|verify} messages.
+         * @param message ReqGameDelay message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IFan, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IReqGameDelay, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified Fan message, length delimited. Does not implicitly {@link proto.Fan.verify|verify} messages.
-         * @param message Fan message or plain object to encode
+         * Encodes the specified ReqGameDelay message, length delimited. Does not implicitly {@link game.ReqGameDelay.verify|verify} messages.
+         * @param message ReqGameDelay message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IFan, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IReqGameDelay, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a Fan message from the specified reader or buffer.
+         * Decodes a ReqGameDelay message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns Fan
+         * @returns ReqGameDelay
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.Fan;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.ReqGameDelay;
 
         /**
-         * Decodes a Fan message from the specified reader or buffer, length delimited.
+         * Decodes a ReqGameDelay message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns Fan
+         * @returns ReqGameDelay
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.Fan;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.ReqGameDelay;
 
         /**
-         * Verifies a Fan message.
+         * Verifies a ReqGameDelay message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a PlayerGameResult. */
-    interface IPlayerGameResult {
+    /** Properties of an AckGameDelay. */
+    interface IAckGameDelay {
 
-        /** PlayerGameResult seat */
+        /** AckGameDelay Success */
+        Success: boolean;
+
+        /** AckGameDelay Sit */
+        Sit: number;
+    }
+
+    /** Represents an AckGameDelay. */
+    class AckGameDelay implements IAckGameDelay {
+
+        /**
+         * Constructs a new AckGameDelay.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IAckGameDelay);
+
+        /** AckGameDelay Success. */
+        public Success: boolean;
+
+        /** AckGameDelay Sit. */
+        public Sit: number;
+
+        /**
+         * Creates a new AckGameDelay instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AckGameDelay instance
+         */
+        public static create(properties?: game.IAckGameDelay): game.AckGameDelay;
+
+        /**
+         * Encodes the specified AckGameDelay message. Does not implicitly {@link game.AckGameDelay.verify|verify} messages.
+         * @param message AckGameDelay message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IAckGameDelay, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified AckGameDelay message, length delimited. Does not implicitly {@link game.AckGameDelay.verify|verify} messages.
+         * @param message AckGameDelay message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IAckGameDelay, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an AckGameDelay message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AckGameDelay
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckGameDelay;
+
+        /**
+         * Decodes an AckGameDelay message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AckGameDelay
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckGameDelay;
+
+        /**
+         * Verifies an AckGameDelay message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of an AckGameContinued. */
+    interface IAckGameContinued {
+
+        /** AckGameContinued FirstDice */
+        FirstDice: string;
+
+        /** AckGameContinued SecondDice */
+        SecondDice: string;
+
+        /** AckGameContinued BeginCardindex */
+        BeginCardindex: number;
+
+        /** AckGameContinued EndCardindex */
+        EndCardindex: number;
+
+        /** AckGameContinued CardPond */
+        CardPond?: (game.ICardPondInfo[]|null);
+
+        /** AckGameContinued HandCards */
+        HandCards?: (game.IPlayerHandCards[]|null);
+
+        /** AckGameContinued CurrentCard */
+        CurrentCard?: (game.ICardsGroup|null);
+
+        /** AckGameContinued CurrentSit */
+        CurrentSit: number;
+
+        /** AckGameContinued TrustNum */
+        TrustNum: number;
+
+        /** AckGameContinued DelayTimes */
+        DelayTimes: number;
+
+        /** AckGameContinued Stage */
+        Stage: number;
+
+        /** AckGameContinued IsMoPai */
+        IsMoPai?: (boolean|null);
+
+        /** AckGameContinued Card */
+        Card?: (game.ICardInfo|null);
+
+        /** AckGameContinued HistoryData */
+        HistoryData?: (game.IGameHistoryData[]|null);
+
+        /** AckGameContinued CuoHuSeat */
+        CuoHuSeat?: (number[]|null);
+
+        /** AckGameContinued PlayerState */
+        PlayerState?: (number[]|null);
+
+        /** AckGameContinued dingque_color */
+        dingque_color?: (number[]|null);
+
+        /** AckGameContinued huan_san_zhang */
+        huan_san_zhang?: (number|null);
+
+        /** AckGameContinued hupai0 */
+        hupai0?: (number[]|null);
+
+        /** AckGameContinued hupai1 */
+        hupai1?: (number[]|null);
+
+        /** AckGameContinued hupai2 */
+        hupai2?: (number[]|null);
+
+        /** AckGameContinued hupai3 */
+        hupai3?: (number[]|null);
+
+        /** AckGameContinued game_guid */
+        game_guid?: (string|null);
+
+        /** AckGameContinued hu_player */
+        hu_player?: (game.IHuSeq[]|null);
+
+        /** AckGameContinued CallCards */
+        CallCards?: (game.IMahjongCallInfo[]|null);
+    }
+
+    /** Represents an AckGameContinued. */
+    class AckGameContinued implements IAckGameContinued {
+
+        /**
+         * Constructs a new AckGameContinued.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IAckGameContinued);
+
+        /** AckGameContinued FirstDice. */
+        public FirstDice: string;
+
+        /** AckGameContinued SecondDice. */
+        public SecondDice: string;
+
+        /** AckGameContinued BeginCardindex. */
+        public BeginCardindex: number;
+
+        /** AckGameContinued EndCardindex. */
+        public EndCardindex: number;
+
+        /** AckGameContinued CardPond. */
+        public CardPond: game.ICardPondInfo[];
+
+        /** AckGameContinued HandCards. */
+        public HandCards: game.IPlayerHandCards[];
+
+        /** AckGameContinued CurrentCard. */
+        public CurrentCard?: (game.ICardsGroup|null);
+
+        /** AckGameContinued CurrentSit. */
+        public CurrentSit: number;
+
+        /** AckGameContinued TrustNum. */
+        public TrustNum: number;
+
+        /** AckGameContinued DelayTimes. */
+        public DelayTimes: number;
+
+        /** AckGameContinued Stage. */
+        public Stage: number;
+
+        /** AckGameContinued IsMoPai. */
+        public IsMoPai: boolean;
+
+        /** AckGameContinued Card. */
+        public Card?: (game.ICardInfo|null);
+
+        /** AckGameContinued HistoryData. */
+        public HistoryData: game.IGameHistoryData[];
+
+        /** AckGameContinued CuoHuSeat. */
+        public CuoHuSeat: number[];
+
+        /** AckGameContinued PlayerState. */
+        public PlayerState: number[];
+
+        /** AckGameContinued dingque_color. */
+        public dingque_color: number[];
+
+        /** AckGameContinued huan_san_zhang. */
+        public huan_san_zhang: number;
+
+        /** AckGameContinued hupai0. */
+        public hupai0: number[];
+
+        /** AckGameContinued hupai1. */
+        public hupai1: number[];
+
+        /** AckGameContinued hupai2. */
+        public hupai2: number[];
+
+        /** AckGameContinued hupai3. */
+        public hupai3: number[];
+
+        /** AckGameContinued game_guid. */
+        public game_guid: string;
+
+        /** AckGameContinued hu_player. */
+        public hu_player: game.IHuSeq[];
+
+        /** AckGameContinued CallCards. */
+        public CallCards: game.IMahjongCallInfo[];
+
+        /**
+         * Creates a new AckGameContinued instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AckGameContinued instance
+         */
+        public static create(properties?: game.IAckGameContinued): game.AckGameContinued;
+
+        /**
+         * Encodes the specified AckGameContinued message. Does not implicitly {@link game.AckGameContinued.verify|verify} messages.
+         * @param message AckGameContinued message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IAckGameContinued, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified AckGameContinued message, length delimited. Does not implicitly {@link game.AckGameContinued.verify|verify} messages.
+         * @param message AckGameContinued message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IAckGameContinued, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an AckGameContinued message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AckGameContinued
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckGameContinued;
+
+        /**
+         * Decodes an AckGameContinued message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AckGameContinued
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckGameContinued;
+
+        /**
+         * Verifies an AckGameContinued message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a HuSeq. */
+    interface IHuSeq {
+
+        /** HuSeq self_sit */
+        self_sit?: (number|null);
+
+        /** HuSeq pao_sit */
+        pao_sit?: (number|null);
+    }
+
+    /** Represents a HuSeq. */
+    class HuSeq implements IHuSeq {
+
+        /**
+         * Constructs a new HuSeq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IHuSeq);
+
+        /** HuSeq self_sit. */
+        public self_sit: number;
+
+        /** HuSeq pao_sit. */
+        public pao_sit: number;
+
+        /**
+         * Creates a new HuSeq instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns HuSeq instance
+         */
+        public static create(properties?: game.IHuSeq): game.HuSeq;
+
+        /**
+         * Encodes the specified HuSeq message. Does not implicitly {@link game.HuSeq.verify|verify} messages.
+         * @param message HuSeq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IHuSeq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified HuSeq message, length delimited. Does not implicitly {@link game.HuSeq.verify|verify} messages.
+         * @param message HuSeq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IHuSeq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a HuSeq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns HuSeq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.HuSeq;
+
+        /**
+         * Decodes a HuSeq message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns HuSeq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.HuSeq;
+
+        /**
+         * Verifies a HuSeq message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a GameHistoryData. */
+    interface IGameHistoryData {
+
+        /** GameHistoryData Cards */
+        Cards: game.IGameResultCards;
+
+        /** GameHistoryData ResultData */
+        ResultData?: (game.IGameResultIntegralCoin[]|null);
+
+        /** GameHistoryData CuoHuSeat */
+        CuoHuSeat?: (number[]|null);
+    }
+
+    /** Represents a GameHistoryData. */
+    class GameHistoryData implements IGameHistoryData {
+
+        /**
+         * Constructs a new GameHistoryData.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IGameHistoryData);
+
+        /** GameHistoryData Cards. */
+        public Cards: game.IGameResultCards;
+
+        /** GameHistoryData ResultData. */
+        public ResultData: game.IGameResultIntegralCoin[];
+
+        /** GameHistoryData CuoHuSeat. */
+        public CuoHuSeat: number[];
+
+        /**
+         * Creates a new GameHistoryData instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GameHistoryData instance
+         */
+        public static create(properties?: game.IGameHistoryData): game.GameHistoryData;
+
+        /**
+         * Encodes the specified GameHistoryData message. Does not implicitly {@link game.GameHistoryData.verify|verify} messages.
+         * @param message GameHistoryData message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IGameHistoryData, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified GameHistoryData message, length delimited. Does not implicitly {@link game.GameHistoryData.verify|verify} messages.
+         * @param message GameHistoryData message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IGameHistoryData, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a GameHistoryData message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GameHistoryData
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.GameHistoryData;
+
+        /**
+         * Decodes a GameHistoryData message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GameHistoryData
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.GameHistoryData;
+
+        /**
+         * Verifies a GameHistoryData message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a GameResultIntegralCoin. */
+    interface IGameResultIntegralCoin {
+
+        /** GameResultIntegralCoin UserName */
+        UserName: string;
+
+        /** GameResultIntegralCoin Integral */
+        Integral: number;
+
+        /** GameResultIntegralCoin Coin */
+        Coin: number;
+
+        /** GameResultIntegralCoin UserShowName */
+        UserShowName?: (string|null);
+    }
+
+    /** Represents a GameResultIntegralCoin. */
+    class GameResultIntegralCoin implements IGameResultIntegralCoin {
+
+        /**
+         * Constructs a new GameResultIntegralCoin.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IGameResultIntegralCoin);
+
+        /** GameResultIntegralCoin UserName. */
+        public UserName: string;
+
+        /** GameResultIntegralCoin Integral. */
+        public Integral: number;
+
+        /** GameResultIntegralCoin Coin. */
+        public Coin: number;
+
+        /** GameResultIntegralCoin UserShowName. */
+        public UserShowName: string;
+
+        /**
+         * Creates a new GameResultIntegralCoin instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GameResultIntegralCoin instance
+         */
+        public static create(properties?: game.IGameResultIntegralCoin): game.GameResultIntegralCoin;
+
+        /**
+         * Encodes the specified GameResultIntegralCoin message. Does not implicitly {@link game.GameResultIntegralCoin.verify|verify} messages.
+         * @param message GameResultIntegralCoin message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IGameResultIntegralCoin, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified GameResultIntegralCoin message, length delimited. Does not implicitly {@link game.GameResultIntegralCoin.verify|verify} messages.
+         * @param message GameResultIntegralCoin message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IGameResultIntegralCoin, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a GameResultIntegralCoin message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GameResultIntegralCoin
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.GameResultIntegralCoin;
+
+        /**
+         * Decodes a GameResultIntegralCoin message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GameResultIntegralCoin
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.GameResultIntegralCoin;
+
+        /**
+         * Verifies a GameResultIntegralCoin message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a GameResultCards. */
+    interface IGameResultCards {
+
+        /** GameResultCards Sit */
+        Sit: number;
+
+        /** GameResultCards Cards */
+        Cards?: (game.ICardsGroup[]|null);
+
+        /** GameResultCards Type */
+        Type?: (game.IMahjongFanNumType[]|null);
+
+        /** GameResultCards ObtainCard */
+        ObtainCard?: (game.ICardInfo|null);
+
+        /** GameResultCards ObtainCardSit */
+        ObtainCardSit?: (number|null);
+    }
+
+    /** Represents a GameResultCards. */
+    class GameResultCards implements IGameResultCards {
+
+        /**
+         * Constructs a new GameResultCards.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IGameResultCards);
+
+        /** GameResultCards Sit. */
+        public Sit: number;
+
+        /** GameResultCards Cards. */
+        public Cards: game.ICardsGroup[];
+
+        /** GameResultCards Type. */
+        public Type: game.IMahjongFanNumType[];
+
+        /** GameResultCards ObtainCard. */
+        public ObtainCard?: (game.ICardInfo|null);
+
+        /** GameResultCards ObtainCardSit. */
+        public ObtainCardSit: number;
+
+        /**
+         * Creates a new GameResultCards instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns GameResultCards instance
+         */
+        public static create(properties?: game.IGameResultCards): game.GameResultCards;
+
+        /**
+         * Encodes the specified GameResultCards message. Does not implicitly {@link game.GameResultCards.verify|verify} messages.
+         * @param message GameResultCards message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IGameResultCards, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified GameResultCards message, length delimited. Does not implicitly {@link game.GameResultCards.verify|verify} messages.
+         * @param message GameResultCards message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IGameResultCards, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a GameResultCards message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns GameResultCards
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.GameResultCards;
+
+        /**
+         * Decodes a GameResultCards message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns GameResultCards
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.GameResultCards;
+
+        /**
+         * Verifies a GameResultCards message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a PlayerHandCards. */
+    interface IPlayerHandCards {
+
+        /** PlayerHandCards Cards */
+        Cards?: (game.ICardsGroup[]|null);
+    }
+
+    /** Represents a PlayerHandCards. */
+    class PlayerHandCards implements IPlayerHandCards {
+
+        /**
+         * Constructs a new PlayerHandCards.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IPlayerHandCards);
+
+        /** PlayerHandCards Cards. */
+        public Cards: game.ICardsGroup[];
+
+        /**
+         * Creates a new PlayerHandCards instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns PlayerHandCards instance
+         */
+        public static create(properties?: game.IPlayerHandCards): game.PlayerHandCards;
+
+        /**
+         * Encodes the specified PlayerHandCards message. Does not implicitly {@link game.PlayerHandCards.verify|verify} messages.
+         * @param message PlayerHandCards message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IPlayerHandCards, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified PlayerHandCards message, length delimited. Does not implicitly {@link game.PlayerHandCards.verify|verify} messages.
+         * @param message PlayerHandCards message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IPlayerHandCards, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a PlayerHandCards message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns PlayerHandCards
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.PlayerHandCards;
+
+        /**
+         * Decodes a PlayerHandCards message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns PlayerHandCards
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.PlayerHandCards;
+
+        /**
+         * Verifies a PlayerHandCards message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a CardPondInfo. */
+    interface ICardPondInfo {
+
+        /** CardPondInfo Cards */
+        Cards?: (game.ICardInfo[]|null);
+    }
+
+    /** Represents a CardPondInfo. */
+    class CardPondInfo implements ICardPondInfo {
+
+        /**
+         * Constructs a new CardPondInfo.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.ICardPondInfo);
+
+        /** CardPondInfo Cards. */
+        public Cards: game.ICardInfo[];
+
+        /**
+         * Creates a new CardPondInfo instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CardPondInfo instance
+         */
+        public static create(properties?: game.ICardPondInfo): game.CardPondInfo;
+
+        /**
+         * Encodes the specified CardPondInfo message. Does not implicitly {@link game.CardPondInfo.verify|verify} messages.
+         * @param message CardPondInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.ICardPondInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified CardPondInfo message, length delimited. Does not implicitly {@link game.CardPondInfo.verify|verify} messages.
+         * @param message CardPondInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.ICardPondInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a CardPondInfo message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CardPondInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.CardPondInfo;
+
+        /**
+         * Decodes a CardPondInfo message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CardPondInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.CardPondInfo;
+
+        /**
+         * Verifies a CardPondInfo message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a DuxLiveTick. */
+    interface IDuxLiveTick {
+
+        /** DuxLiveTick time */
+        time: (number|Long);
+    }
+
+    /** Represents a DuxLiveTick. */
+    class DuxLiveTick implements IDuxLiveTick {
+
+        /**
+         * Constructs a new DuxLiveTick.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IDuxLiveTick);
+
+        /** DuxLiveTick time. */
+        public time: (number|Long);
+
+        /**
+         * Creates a new DuxLiveTick instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DuxLiveTick instance
+         */
+        public static create(properties?: game.IDuxLiveTick): game.DuxLiveTick;
+
+        /**
+         * Encodes the specified DuxLiveTick message. Does not implicitly {@link game.DuxLiveTick.verify|verify} messages.
+         * @param message DuxLiveTick message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IDuxLiveTick, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified DuxLiveTick message, length delimited. Does not implicitly {@link game.DuxLiveTick.verify|verify} messages.
+         * @param message DuxLiveTick message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IDuxLiveTick, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a DuxLiveTick message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DuxLiveTick
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.DuxLiveTick;
+
+        /**
+         * Decodes a DuxLiveTick message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DuxLiveTick
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.DuxLiveTick;
+
+        /**
+         * Verifies a DuxLiveTick message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a ReqMahJongSetOpenDoorTile. */
+    interface IReqMahJongSetOpenDoorTile {
+
+        /** ReqMahJongSetOpenDoorTile Sit */
+        Sit: number;
+
+        /** ReqMahJongSetOpenDoorTile CardsColor */
+        CardsColor?: (number[]|null);
+
+        /** ReqMahJongSetOpenDoorTile CardsValue */
+        CardsValue?: (number[]|null);
+    }
+
+    /** Represents a ReqMahJongSetOpenDoorTile. */
+    class ReqMahJongSetOpenDoorTile implements IReqMahJongSetOpenDoorTile {
+
+        /**
+         * Constructs a new ReqMahJongSetOpenDoorTile.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IReqMahJongSetOpenDoorTile);
+
+        /** ReqMahJongSetOpenDoorTile Sit. */
+        public Sit: number;
+
+        /** ReqMahJongSetOpenDoorTile CardsColor. */
+        public CardsColor: number[];
+
+        /** ReqMahJongSetOpenDoorTile CardsValue. */
+        public CardsValue: number[];
+
+        /**
+         * Creates a new ReqMahJongSetOpenDoorTile instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ReqMahJongSetOpenDoorTile instance
+         */
+        public static create(properties?: game.IReqMahJongSetOpenDoorTile): game.ReqMahJongSetOpenDoorTile;
+
+        /**
+         * Encodes the specified ReqMahJongSetOpenDoorTile message. Does not implicitly {@link game.ReqMahJongSetOpenDoorTile.verify|verify} messages.
+         * @param message ReqMahJongSetOpenDoorTile message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IReqMahJongSetOpenDoorTile, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified ReqMahJongSetOpenDoorTile message, length delimited. Does not implicitly {@link game.ReqMahJongSetOpenDoorTile.verify|verify} messages.
+         * @param message ReqMahJongSetOpenDoorTile message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IReqMahJongSetOpenDoorTile, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a ReqMahJongSetOpenDoorTile message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ReqMahJongSetOpenDoorTile
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.ReqMahJongSetOpenDoorTile;
+
+        /**
+         * Decodes a ReqMahJongSetOpenDoorTile message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ReqMahJongSetOpenDoorTile
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.ReqMahJongSetOpenDoorTile;
+
+        /**
+         * Verifies a ReqMahJongSetOpenDoorTile message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a ReqMahJongSetWallTile. */
+    interface IReqMahJongSetWallTile {
+
+        /** ReqMahJongSetWallTile Sit */
+        Sit: number;
+
+        /** ReqMahJongSetWallTile CardColor */
+        CardColor: number;
+
+        /** ReqMahJongSetWallTile CardValue */
+        CardValue: number;
+    }
+
+    /** Represents a ReqMahJongSetWallTile. */
+    class ReqMahJongSetWallTile implements IReqMahJongSetWallTile {
+
+        /**
+         * Constructs a new ReqMahJongSetWallTile.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IReqMahJongSetWallTile);
+
+        /** ReqMahJongSetWallTile Sit. */
+        public Sit: number;
+
+        /** ReqMahJongSetWallTile CardColor. */
+        public CardColor: number;
+
+        /** ReqMahJongSetWallTile CardValue. */
+        public CardValue: number;
+
+        /**
+         * Creates a new ReqMahJongSetWallTile instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ReqMahJongSetWallTile instance
+         */
+        public static create(properties?: game.IReqMahJongSetWallTile): game.ReqMahJongSetWallTile;
+
+        /**
+         * Encodes the specified ReqMahJongSetWallTile message. Does not implicitly {@link game.ReqMahJongSetWallTile.verify|verify} messages.
+         * @param message ReqMahJongSetWallTile message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IReqMahJongSetWallTile, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified ReqMahJongSetWallTile message, length delimited. Does not implicitly {@link game.ReqMahJongSetWallTile.verify|verify} messages.
+         * @param message ReqMahJongSetWallTile message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IReqMahJongSetWallTile, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a ReqMahJongSetWallTile message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ReqMahJongSetWallTile
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.ReqMahJongSetWallTile;
+
+        /**
+         * Decodes a ReqMahJongSetWallTile message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ReqMahJongSetWallTile
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.ReqMahJongSetWallTile;
+
+        /**
+         * Verifies a ReqMahJongSetWallTile message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of an AckWrongHu. */
+    interface IAckWrongHu {
+
+        /** AckWrongHu Sit */
+        Sit: number;
+
+        /** AckWrongHu Cards */
+        Cards?: (game.ICardsGroup[]|null);
+    }
+
+    /** Represents an AckWrongHu. */
+    class AckWrongHu implements IAckWrongHu {
+
+        /**
+         * Constructs a new AckWrongHu.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IAckWrongHu);
+
+        /** AckWrongHu Sit. */
+        public Sit: number;
+
+        /** AckWrongHu Cards. */
+        public Cards: game.ICardsGroup[];
+
+        /**
+         * Creates a new AckWrongHu instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AckWrongHu instance
+         */
+        public static create(properties?: game.IAckWrongHu): game.AckWrongHu;
+
+        /**
+         * Encodes the specified AckWrongHu message. Does not implicitly {@link game.AckWrongHu.verify|verify} messages.
+         * @param message AckWrongHu message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IAckWrongHu, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified AckWrongHu message, length delimited. Does not implicitly {@link game.AckWrongHu.verify|verify} messages.
+         * @param message AckWrongHu message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IAckWrongHu, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an AckWrongHu message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AckWrongHu
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckWrongHu;
+
+        /**
+         * Decodes an AckWrongHu message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AckWrongHu
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckWrongHu;
+
+        /**
+         * Verifies an AckWrongHu message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a RankResult. */
+    interface IRankResult {
+
+        /** RankResult tableId */
+        tableId: number;
+
+        /** RankResult playerResult */
+        playerResult?: (game.IRankResultPlayer[]|null);
+
+        /** RankResult Type */
+        Type: number;
+
+        /** RankResult starttime */
+        starttime: number;
+
+        /** RankResult endtime */
+        endtime: number;
+
+        /** RankResult paipuUrl */
+        paipuUrl: string;
+
+        /** RankResult societyID */
+        societyID?: (number|null);
+
+        /** RankResult roomID */
+        roomID?: (number|Long|null);
+
+        /** RankResult entercodeID */
+        entercodeID?: (Uint8Array|null);
+    }
+
+    /** Represents a RankResult. */
+    class RankResult implements IRankResult {
+
+        /**
+         * Constructs a new RankResult.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IRankResult);
+
+        /** RankResult tableId. */
+        public tableId: number;
+
+        /** RankResult playerResult. */
+        public playerResult: game.IRankResultPlayer[];
+
+        /** RankResult Type. */
+        public Type: number;
+
+        /** RankResult starttime. */
+        public starttime: number;
+
+        /** RankResult endtime. */
+        public endtime: number;
+
+        /** RankResult paipuUrl. */
+        public paipuUrl: string;
+
+        /** RankResult societyID. */
+        public societyID: number;
+
+        /** RankResult roomID. */
+        public roomID: (number|Long);
+
+        /** RankResult entercodeID. */
+        public entercodeID: Uint8Array;
+
+        /**
+         * Creates a new RankResult instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns RankResult instance
+         */
+        public static create(properties?: game.IRankResult): game.RankResult;
+
+        /**
+         * Encodes the specified RankResult message. Does not implicitly {@link game.RankResult.verify|verify} messages.
+         * @param message RankResult message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IRankResult, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified RankResult message, length delimited. Does not implicitly {@link game.RankResult.verify|verify} messages.
+         * @param message RankResult message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IRankResult, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a RankResult message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns RankResult
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.RankResult;
+
+        /**
+         * Decodes a RankResult message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns RankResult
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.RankResult;
+
+        /**
+         * Verifies a RankResult message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a RankResultPlayer. */
+    interface IRankResultPlayer {
+
+        /** RankResultPlayer userName */
+        userName: string;
+
+        /** RankResultPlayer showName */
+        showName: string;
+
+        /** RankResultPlayer gameCoin */
+        gameCoin: number;
+
+        /** RankResultPlayer huPai */
+        huPai?: (number|null);
+
+        /** RankResultPlayer dianPao */
+        dianPao?: (number|null);
+
+        /** RankResultPlayer ziMo */
+        ziMo?: (number|null);
+    }
+
+    /** Represents a RankResultPlayer. */
+    class RankResultPlayer implements IRankResultPlayer {
+
+        /**
+         * Constructs a new RankResultPlayer.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IRankResultPlayer);
+
+        /** RankResultPlayer userName. */
+        public userName: string;
+
+        /** RankResultPlayer showName. */
+        public showName: string;
+
+        /** RankResultPlayer gameCoin. */
+        public gameCoin: number;
+
+        /** RankResultPlayer huPai. */
+        public huPai: number;
+
+        /** RankResultPlayer dianPao. */
+        public dianPao: number;
+
+        /** RankResultPlayer ziMo. */
+        public ziMo: number;
+
+        /**
+         * Creates a new RankResultPlayer instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns RankResultPlayer instance
+         */
+        public static create(properties?: game.IRankResultPlayer): game.RankResultPlayer;
+
+        /**
+         * Encodes the specified RankResultPlayer message. Does not implicitly {@link game.RankResultPlayer.verify|verify} messages.
+         * @param message RankResultPlayer message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IRankResultPlayer, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified RankResultPlayer message, length delimited. Does not implicitly {@link game.RankResultPlayer.verify|verify} messages.
+         * @param message RankResultPlayer message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IRankResultPlayer, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a RankResultPlayer message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns RankResultPlayer
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.RankResultPlayer;
+
+        /**
+         * Decodes a RankResultPlayer message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns RankResultPlayer
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.RankResultPlayer;
+
+        /**
+         * Verifies a RankResultPlayer message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a DeleteTable. */
+    interface IDeleteTable {
+
+        /** DeleteTable RoleName */
+        RoleName: string;
+
+        /** DeleteTable showName */
+        showName: string;
+
+        /** DeleteTable NickName */
+        NickName: string;
+
+        /** DeleteTable RoomID */
+        RoomID: (number|Long);
+
+        /** DeleteTable seat */
         seat: number;
 
-        /** PlayerGameResult username */
-        username: string;
+        /** DeleteTable time */
+        time?: (number|Long|null);
 
-        /** PlayerGameResult isZhuang */
-        isZhuang: number;
-
-        /** PlayerGameResult money */
-        money: (number|Long);
-
-        /** PlayerGameResult position */
-        position: number;
-
-        /** PlayerGameResult isWin */
-        isWin?: (number|null);
-
-        /** PlayerGameResult chips */
-        chips?: (number|Long|null);
-
-        /** PlayerGameResult playerCards */
-        playerCards?: (proto.IHandCards[]|null);
-
-        /** PlayerGameResult fan */
-        fan?: (proto.IFan[]|null);
+        /** DeleteTable Operation */
+        Operation?: (number|null);
     }
 
-    /** Represents a PlayerGameResult. */
-    class PlayerGameResult implements IPlayerGameResult {
+    /** Represents a DeleteTable. */
+    class DeleteTable implements IDeleteTable {
 
         /**
-         * Constructs a new PlayerGameResult.
+         * Constructs a new DeleteTable.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IPlayerGameResult);
+        constructor(properties?: game.IDeleteTable);
 
-        /** PlayerGameResult seat. */
+        /** DeleteTable RoleName. */
+        public RoleName: string;
+
+        /** DeleteTable showName. */
+        public showName: string;
+
+        /** DeleteTable NickName. */
+        public NickName: string;
+
+        /** DeleteTable RoomID. */
+        public RoomID: (number|Long);
+
+        /** DeleteTable seat. */
         public seat: number;
 
-        /** PlayerGameResult username. */
+        /** DeleteTable time. */
+        public time: (number|Long);
+
+        /** DeleteTable Operation. */
+        public Operation: number;
+
+        /**
+         * Creates a new DeleteTable instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteTable instance
+         */
+        public static create(properties?: game.IDeleteTable): game.DeleteTable;
+
+        /**
+         * Encodes the specified DeleteTable message. Does not implicitly {@link game.DeleteTable.verify|verify} messages.
+         * @param message DeleteTable message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IDeleteTable, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteTable message, length delimited. Does not implicitly {@link game.DeleteTable.verify|verify} messages.
+         * @param message DeleteTable message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IDeleteTable, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a DeleteTable message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteTable
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.DeleteTable;
+
+        /**
+         * Decodes a DeleteTable message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteTable
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.DeleteTable;
+
+        /**
+         * Verifies a DeleteTable message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a DeleteVote. */
+    interface IDeleteVote {
+
+        /** DeleteVote RoleName */
+        RoleName: string;
+
+        /** DeleteVote showName */
+        showName: string;
+
+        /** DeleteVote NickName */
+        NickName: string;
+
+        /** DeleteVote RoomID */
+        RoomID: (number|Long);
+
+        /** DeleteVote seat */
+        seat: number;
+
+        /** DeleteVote isAgree */
+        isAgree: boolean;
+    }
+
+    /** Represents a DeleteVote. */
+    class DeleteVote implements IDeleteVote {
+
+        /**
+         * Constructs a new DeleteVote.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IDeleteVote);
+
+        /** DeleteVote RoleName. */
+        public RoleName: string;
+
+        /** DeleteVote showName. */
+        public showName: string;
+
+        /** DeleteVote NickName. */
+        public NickName: string;
+
+        /** DeleteVote RoomID. */
+        public RoomID: (number|Long);
+
+        /** DeleteVote seat. */
+        public seat: number;
+
+        /** DeleteVote isAgree. */
+        public isAgree: boolean;
+
+        /**
+         * Creates a new DeleteVote instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteVote instance
+         */
+        public static create(properties?: game.IDeleteVote): game.DeleteVote;
+
+        /**
+         * Encodes the specified DeleteVote message. Does not implicitly {@link game.DeleteVote.verify|verify} messages.
+         * @param message DeleteVote message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IDeleteVote, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteVote message, length delimited. Does not implicitly {@link game.DeleteVote.verify|verify} messages.
+         * @param message DeleteVote message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IDeleteVote, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a DeleteVote message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteVote
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.DeleteVote;
+
+        /**
+         * Decodes a DeleteVote message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteVote
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.DeleteVote;
+
+        /**
+         * Verifies a DeleteVote message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a OGNtcMessage. */
+    interface IOGNtcMessage {
+
+        /** OGNtcMessage result */
+        result: number;
+
+        /** OGNtcMessage msg */
+        msg: string;
+    }
+
+    /** Represents a OGNtcMessage. */
+    class OGNtcMessage implements IOGNtcMessage {
+
+        /**
+         * Constructs a new OGNtcMessage.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IOGNtcMessage);
+
+        /** OGNtcMessage result. */
+        public result: number;
+
+        /** OGNtcMessage msg. */
+        public msg: string;
+
+        /**
+         * Creates a new OGNtcMessage instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns OGNtcMessage instance
+         */
+        public static create(properties?: game.IOGNtcMessage): game.OGNtcMessage;
+
+        /**
+         * Encodes the specified OGNtcMessage message. Does not implicitly {@link game.OGNtcMessage.verify|verify} messages.
+         * @param message OGNtcMessage message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IOGNtcMessage, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified OGNtcMessage message, length delimited. Does not implicitly {@link game.OGNtcMessage.verify|verify} messages.
+         * @param message OGNtcMessage message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IOGNtcMessage, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a OGNtcMessage message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns OGNtcMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.OGNtcMessage;
+
+        /**
+         * Decodes a OGNtcMessage message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns OGNtcMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.OGNtcMessage;
+
+        /**
+         * Verifies a OGNtcMessage message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a OGNtcGameChatMessage. */
+    interface IOGNtcGameChatMessage {
+
+        /** OGNtcGameChatMessage sit */
+        sit: number;
+
+        /** OGNtcGameChatMessage type */
+        type: number;
+
+        /** OGNtcGameChatMessage msg */
+        msg?: (string|null);
+    }
+
+    /** Represents a OGNtcGameChatMessage. */
+    class OGNtcGameChatMessage implements IOGNtcGameChatMessage {
+
+        /**
+         * Constructs a new OGNtcGameChatMessage.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IOGNtcGameChatMessage);
+
+        /** OGNtcGameChatMessage sit. */
+        public sit: number;
+
+        /** OGNtcGameChatMessage type. */
+        public type: number;
+
+        /** OGNtcGameChatMessage msg. */
+        public msg: string;
+
+        /**
+         * Creates a new OGNtcGameChatMessage instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns OGNtcGameChatMessage instance
+         */
+        public static create(properties?: game.IOGNtcGameChatMessage): game.OGNtcGameChatMessage;
+
+        /**
+         * Encodes the specified OGNtcGameChatMessage message. Does not implicitly {@link game.OGNtcGameChatMessage.verify|verify} messages.
+         * @param message OGNtcGameChatMessage message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IOGNtcGameChatMessage, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified OGNtcGameChatMessage message, length delimited. Does not implicitly {@link game.OGNtcGameChatMessage.verify|verify} messages.
+         * @param message OGNtcGameChatMessage message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IOGNtcGameChatMessage, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a OGNtcGameChatMessage message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns OGNtcGameChatMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.OGNtcGameChatMessage;
+
+        /**
+         * Decodes a OGNtcGameChatMessage message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns OGNtcGameChatMessage
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.OGNtcGameChatMessage;
+
+        /**
+         * Verifies a OGNtcGameChatMessage message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a ReqHuanSanZhang. */
+    interface IReqHuanSanZhang {
+
+        /** ReqHuanSanZhang huan_san_zhang */
+        huan_san_zhang?: (game.ICardInfo[]|null);
+
+        /** ReqHuanSanZhang seat */
+        seat: number;
+    }
+
+    /** Represents a ReqHuanSanZhang. */
+    class ReqHuanSanZhang implements IReqHuanSanZhang {
+
+        /**
+         * Constructs a new ReqHuanSanZhang.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IReqHuanSanZhang);
+
+        /** ReqHuanSanZhang huan_san_zhang. */
+        public huan_san_zhang: game.ICardInfo[];
+
+        /** ReqHuanSanZhang seat. */
+        public seat: number;
+
+        /**
+         * Creates a new ReqHuanSanZhang instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ReqHuanSanZhang instance
+         */
+        public static create(properties?: game.IReqHuanSanZhang): game.ReqHuanSanZhang;
+
+        /**
+         * Encodes the specified ReqHuanSanZhang message. Does not implicitly {@link game.ReqHuanSanZhang.verify|verify} messages.
+         * @param message ReqHuanSanZhang message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IReqHuanSanZhang, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified ReqHuanSanZhang message, length delimited. Does not implicitly {@link game.ReqHuanSanZhang.verify|verify} messages.
+         * @param message ReqHuanSanZhang message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IReqHuanSanZhang, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a ReqHuanSanZhang message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ReqHuanSanZhang
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.ReqHuanSanZhang;
+
+        /**
+         * Decodes a ReqHuanSanZhang message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ReqHuanSanZhang
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.ReqHuanSanZhang;
+
+        /**
+         * Verifies a ReqHuanSanZhang message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of an AckHuanSanZhang. */
+    interface IAckHuanSanZhang {
+
+        /** AckHuanSanZhang huan_san_zhang */
+        huan_san_zhang?: (game.ICardInfo[]|null);
+
+        /** AckHuanSanZhang order */
+        order: number;
+
+        /** AckHuanSanZhang req_huan */
+        req_huan?: (game.ICardInfo[]|null);
+    }
+
+    /** Represents an AckHuanSanZhang. */
+    class AckHuanSanZhang implements IAckHuanSanZhang {
+
+        /**
+         * Constructs a new AckHuanSanZhang.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IAckHuanSanZhang);
+
+        /** AckHuanSanZhang huan_san_zhang. */
+        public huan_san_zhang: game.ICardInfo[];
+
+        /** AckHuanSanZhang order. */
+        public order: number;
+
+        /** AckHuanSanZhang req_huan. */
+        public req_huan: game.ICardInfo[];
+
+        /**
+         * Creates a new AckHuanSanZhang instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AckHuanSanZhang instance
+         */
+        public static create(properties?: game.IAckHuanSanZhang): game.AckHuanSanZhang;
+
+        /**
+         * Encodes the specified AckHuanSanZhang message. Does not implicitly {@link game.AckHuanSanZhang.verify|verify} messages.
+         * @param message AckHuanSanZhang message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IAckHuanSanZhang, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified AckHuanSanZhang message, length delimited. Does not implicitly {@link game.AckHuanSanZhang.verify|verify} messages.
+         * @param message AckHuanSanZhang message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IAckHuanSanZhang, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an AckHuanSanZhang message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AckHuanSanZhang
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckHuanSanZhang;
+
+        /**
+         * Decodes an AckHuanSanZhang message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AckHuanSanZhang
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckHuanSanZhang;
+
+        /**
+         * Verifies an AckHuanSanZhang message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a ReqHuanSanZhangEnd. */
+    interface IReqHuanSanZhangEnd {
+
+        /** ReqHuanSanZhangEnd username */
+        username: string;
+    }
+
+    /** Represents a ReqHuanSanZhangEnd. */
+    class ReqHuanSanZhangEnd implements IReqHuanSanZhangEnd {
+
+        /**
+         * Constructs a new ReqHuanSanZhangEnd.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IReqHuanSanZhangEnd);
+
+        /** ReqHuanSanZhangEnd username. */
         public username: string;
 
-        /** PlayerGameResult isZhuang. */
-        public isZhuang: number;
-
-        /** PlayerGameResult money. */
-        public money: (number|Long);
-
-        /** PlayerGameResult position. */
-        public position: number;
-
-        /** PlayerGameResult isWin. */
-        public isWin: number;
-
-        /** PlayerGameResult chips. */
-        public chips: (number|Long);
-
-        /** PlayerGameResult playerCards. */
-        public playerCards: proto.IHandCards[];
-
-        /** PlayerGameResult fan. */
-        public fan: proto.IFan[];
-
         /**
-         * Creates a new PlayerGameResult instance using the specified properties.
+         * Creates a new ReqHuanSanZhangEnd instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns PlayerGameResult instance
+         * @returns ReqHuanSanZhangEnd instance
          */
-        public static create(properties?: proto.IPlayerGameResult): proto.PlayerGameResult;
+        public static create(properties?: game.IReqHuanSanZhangEnd): game.ReqHuanSanZhangEnd;
 
         /**
-         * Encodes the specified PlayerGameResult message. Does not implicitly {@link proto.PlayerGameResult.verify|verify} messages.
-         * @param message PlayerGameResult message or plain object to encode
+         * Encodes the specified ReqHuanSanZhangEnd message. Does not implicitly {@link game.ReqHuanSanZhangEnd.verify|verify} messages.
+         * @param message ReqHuanSanZhangEnd message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IPlayerGameResult, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IReqHuanSanZhangEnd, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified PlayerGameResult message, length delimited. Does not implicitly {@link proto.PlayerGameResult.verify|verify} messages.
-         * @param message PlayerGameResult message or plain object to encode
+         * Encodes the specified ReqHuanSanZhangEnd message, length delimited. Does not implicitly {@link game.ReqHuanSanZhangEnd.verify|verify} messages.
+         * @param message ReqHuanSanZhangEnd message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IPlayerGameResult, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IReqHuanSanZhangEnd, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a PlayerGameResult message from the specified reader or buffer.
+         * Decodes a ReqHuanSanZhangEnd message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns PlayerGameResult
+         * @returns ReqHuanSanZhangEnd
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.PlayerGameResult;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.ReqHuanSanZhangEnd;
 
         /**
-         * Decodes a PlayerGameResult message from the specified reader or buffer, length delimited.
+         * Decodes a ReqHuanSanZhangEnd message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns PlayerGameResult
+         * @returns ReqHuanSanZhangEnd
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.PlayerGameResult;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.ReqHuanSanZhangEnd;
 
         /**
-         * Verifies a PlayerGameResult message.
+         * Verifies a ReqHuanSanZhangEnd message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a ReqChat. */
-    interface IReqChat {
+    /** Properties of a ReqDingQue. */
+    interface IReqDingQue {
 
-        /** ReqChat tableId */
-        tableId: string;
+        /** ReqDingQue dingque */
+        dingque: number;
 
-        /** ReqChat tableMapId */
-        tableMapId: (number|Long);
-
-        /** ReqChat roundId */
-        roundId: string;
-
-        /** ReqChat seatNo */
-        seatNo: number;
-
-        /** ReqChat userId */
-        userId: (number|Long);
-
-        /** ReqChat type */
-        type: number;
-
-        /** ReqChat content */
-        content: string;
-
-        /** ReqChat through */
-        through?: (string|null);
+        /** ReqDingQue seat */
+        seat: number;
     }
 
-    /** Represents a ReqChat. */
-    class ReqChat implements IReqChat {
+    /** Represents a ReqDingQue. */
+    class ReqDingQue implements IReqDingQue {
 
         /**
-         * Constructs a new ReqChat.
+         * Constructs a new ReqDingQue.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IReqChat);
+        constructor(properties?: game.IReqDingQue);
 
-        /** ReqChat tableId. */
-        public tableId: string;
+        /** ReqDingQue dingque. */
+        public dingque: number;
 
-        /** ReqChat tableMapId. */
-        public tableMapId: (number|Long);
+        /** ReqDingQue seat. */
+        public seat: number;
 
-        /** ReqChat roundId. */
-        public roundId: string;
+        /**
+         * Creates a new ReqDingQue instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ReqDingQue instance
+         */
+        public static create(properties?: game.IReqDingQue): game.ReqDingQue;
 
-        /** ReqChat seatNo. */
-        public seatNo: number;
+        /**
+         * Encodes the specified ReqDingQue message. Does not implicitly {@link game.ReqDingQue.verify|verify} messages.
+         * @param message ReqDingQue message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IReqDingQue, writer?: protobuf.Writer): protobuf.Writer;
 
-        /** ReqChat userId. */
-        public userId: (number|Long);
+        /**
+         * Encodes the specified ReqDingQue message, length delimited. Does not implicitly {@link game.ReqDingQue.verify|verify} messages.
+         * @param message ReqDingQue message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IReqDingQue, writer?: protobuf.Writer): protobuf.Writer;
 
-        /** ReqChat type. */
+        /**
+         * Decodes a ReqDingQue message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ReqDingQue
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.ReqDingQue;
+
+        /**
+         * Decodes a ReqDingQue message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ReqDingQue
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.ReqDingQue;
+
+        /**
+         * Verifies a ReqDingQue message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of an AckDingQue. */
+    interface IAckDingQue {
+
+        /** AckDingQue dingque */
+        dingque?: (number[]|null);
+    }
+
+    /** Represents an AckDingQue. */
+    class AckDingQue implements IAckDingQue {
+
+        /**
+         * Constructs a new AckDingQue.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IAckDingQue);
+
+        /** AckDingQue dingque. */
+        public dingque: number[];
+
+        /**
+         * Creates a new AckDingQue instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AckDingQue instance
+         */
+        public static create(properties?: game.IAckDingQue): game.AckDingQue;
+
+        /**
+         * Encodes the specified AckDingQue message. Does not implicitly {@link game.AckDingQue.verify|verify} messages.
+         * @param message AckDingQue message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IAckDingQue, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified AckDingQue message, length delimited. Does not implicitly {@link game.AckDingQue.verify|verify} messages.
+         * @param message AckDingQue message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IAckDingQue, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an AckDingQue message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AckDingQue
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckDingQue;
+
+        /**
+         * Decodes an AckDingQue message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AckDingQue
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckDingQue;
+
+        /**
+         * Verifies an AckDingQue message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of an AckGameStatus. */
+    interface IAckGameStatus {
+
+        /** AckGameStatus nstatus */
+        nstatus?: (number[]|null);
+    }
+
+    /** Represents an AckGameStatus. */
+    class AckGameStatus implements IAckGameStatus {
+
+        /**
+         * Constructs a new AckGameStatus.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IAckGameStatus);
+
+        /** AckGameStatus nstatus. */
+        public nstatus: number[];
+
+        /**
+         * Creates a new AckGameStatus instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AckGameStatus instance
+         */
+        public static create(properties?: game.IAckGameStatus): game.AckGameStatus;
+
+        /**
+         * Encodes the specified AckGameStatus message. Does not implicitly {@link game.AckGameStatus.verify|verify} messages.
+         * @param message AckGameStatus message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IAckGameStatus, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified AckGameStatus message, length delimited. Does not implicitly {@link game.AckGameStatus.verify|verify} messages.
+         * @param message AckGameStatus message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IAckGameStatus, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an AckGameStatus message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AckGameStatus
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckGameStatus;
+
+        /**
+         * Decodes an AckGameStatus message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AckGameStatus
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckGameStatus;
+
+        /**
+         * Verifies an AckGameStatus message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a TingCard. */
+    interface ITingCard {
+
+        /** TingCard FanType */
+        FanType: number;
+
+        /** TingCard CardIndex */
+        CardIndex: number;
+    }
+
+    /** Represents a TingCard. */
+    class TingCard implements ITingCard {
+
+        /**
+         * Constructs a new TingCard.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.ITingCard);
+
+        /** TingCard FanType. */
+        public FanType: number;
+
+        /** TingCard CardIndex. */
+        public CardIndex: number;
+
+        /**
+         * Creates a new TingCard instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns TingCard instance
+         */
+        public static create(properties?: game.ITingCard): game.TingCard;
+
+        /**
+         * Encodes the specified TingCard message. Does not implicitly {@link game.TingCard.verify|verify} messages.
+         * @param message TingCard message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.ITingCard, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified TingCard message, length delimited. Does not implicitly {@link game.TingCard.verify|verify} messages.
+         * @param message TingCard message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.ITingCard, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a TingCard message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns TingCard
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.TingCard;
+
+        /**
+         * Decodes a TingCard message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns TingCard
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.TingCard;
+
+        /**
+         * Verifies a TingCard message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a MahjongCallInfo. */
+    interface IMahjongCallInfo {
+
+        /** MahjongCallInfo ObtainCardIndex */
+        ObtainCardIndex: number;
+
+        /** MahjongCallInfo CallCards */
+        CallCards?: (game.ITingCard[]|null);
+    }
+
+    /** Represents a MahjongCallInfo. */
+    class MahjongCallInfo implements IMahjongCallInfo {
+
+        /**
+         * Constructs a new MahjongCallInfo.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IMahjongCallInfo);
+
+        /** MahjongCallInfo ObtainCardIndex. */
+        public ObtainCardIndex: number;
+
+        /** MahjongCallInfo CallCards. */
+        public CallCards: game.ITingCard[];
+
+        /**
+         * Creates a new MahjongCallInfo instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns MahjongCallInfo instance
+         */
+        public static create(properties?: game.IMahjongCallInfo): game.MahjongCallInfo;
+
+        /**
+         * Encodes the specified MahjongCallInfo message. Does not implicitly {@link game.MahjongCallInfo.verify|verify} messages.
+         * @param message MahjongCallInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IMahjongCallInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified MahjongCallInfo message, length delimited. Does not implicitly {@link game.MahjongCallInfo.verify|verify} messages.
+         * @param message MahjongCallInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IMahjongCallInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a MahjongCallInfo message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MahjongCallInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.MahjongCallInfo;
+
+        /**
+         * Decodes a MahjongCallInfo message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MahjongCallInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.MahjongCallInfo;
+
+        /**
+         * Verifies a MahjongCallInfo message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of an AckGameResult. */
+    interface IAckGameResult {
+
+        /** AckGameResult tableGuid */
+        tableGuid?: (string|null);
+
+        /** AckGameResult IsOver */
+        IsOver?: (number|null);
+
+        /** AckGameResult playerInfo */
+        playerInfo?: (game.IPlayerResultInfo[]|null);
+    }
+
+    /** Represents an AckGameResult. */
+    class AckGameResult implements IAckGameResult {
+
+        /**
+         * Constructs a new AckGameResult.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IAckGameResult);
+
+        /** AckGameResult tableGuid. */
+        public tableGuid: string;
+
+        /** AckGameResult IsOver. */
+        public IsOver: number;
+
+        /** AckGameResult playerInfo. */
+        public playerInfo: game.IPlayerResultInfo[];
+
+        /**
+         * Creates a new AckGameResult instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AckGameResult instance
+         */
+        public static create(properties?: game.IAckGameResult): game.AckGameResult;
+
+        /**
+         * Encodes the specified AckGameResult message. Does not implicitly {@link game.AckGameResult.verify|verify} messages.
+         * @param message AckGameResult message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IAckGameResult, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified AckGameResult message, length delimited. Does not implicitly {@link game.AckGameResult.verify|verify} messages.
+         * @param message AckGameResult message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IAckGameResult, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an AckGameResult message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AckGameResult
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.AckGameResult;
+
+        /**
+         * Decodes an AckGameResult message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AckGameResult
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.AckGameResult;
+
+        /**
+         * Verifies an AckGameResult message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a PlayerResultInfo. */
+    interface IPlayerResultInfo {
+
+        /** PlayerResultInfo username */
+        username: string;
+
+        /** PlayerResultInfo seat */
+        seat?: (number|null);
+
+        /** PlayerResultInfo fantype */
+        fantype?: (number|null);
+
+        /** PlayerResultInfo wintype */
+        wintype?: (number|null);
+
+        /** PlayerResultInfo max_fan */
+        max_fan?: (number|null);
+
+        /** PlayerResultInfo gameCoin */
+        gameCoin?: (number|null);
+
+        /** PlayerResultInfo Coin */
+        Coin?: (number|null);
+
+        /** PlayerResultInfo feeCoin */
+        feeCoin?: (number|null);
+
+        /** PlayerResultInfo result_list_detail */
+        result_list_detail?: (game.IScoreDescDetail[]|null);
+
+        /** PlayerResultInfo handCards */
+        handCards?: (game.ICardsGroup[]|null);
+    }
+
+    /** Represents a PlayerResultInfo. */
+    class PlayerResultInfo implements IPlayerResultInfo {
+
+        /**
+         * Constructs a new PlayerResultInfo.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IPlayerResultInfo);
+
+        /** PlayerResultInfo username. */
+        public username: string;
+
+        /** PlayerResultInfo seat. */
+        public seat: number;
+
+        /** PlayerResultInfo fantype. */
+        public fantype: number;
+
+        /** PlayerResultInfo wintype. */
+        public wintype: number;
+
+        /** PlayerResultInfo max_fan. */
+        public max_fan: number;
+
+        /** PlayerResultInfo gameCoin. */
+        public gameCoin: number;
+
+        /** PlayerResultInfo Coin. */
+        public Coin: number;
+
+        /** PlayerResultInfo feeCoin. */
+        public feeCoin: number;
+
+        /** PlayerResultInfo result_list_detail. */
+        public result_list_detail: game.IScoreDescDetail[];
+
+        /** PlayerResultInfo handCards. */
+        public handCards: game.ICardsGroup[];
+
+        /**
+         * Creates a new PlayerResultInfo instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns PlayerResultInfo instance
+         */
+        public static create(properties?: game.IPlayerResultInfo): game.PlayerResultInfo;
+
+        /**
+         * Encodes the specified PlayerResultInfo message. Does not implicitly {@link game.PlayerResultInfo.verify|verify} messages.
+         * @param message PlayerResultInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: game.IPlayerResultInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified PlayerResultInfo message, length delimited. Does not implicitly {@link game.PlayerResultInfo.verify|verify} messages.
+         * @param message PlayerResultInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: game.IPlayerResultInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a PlayerResultInfo message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns PlayerResultInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.PlayerResultInfo;
+
+        /**
+         * Decodes a PlayerResultInfo message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns PlayerResultInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.PlayerResultInfo;
+
+        /**
+         * Verifies a PlayerResultInfo message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a ScoreDescDetail. */
+    interface IScoreDescDetail {
+
+        /** ScoreDescDetail type */
+        type?: (number|null);
+
+        /** ScoreDescDetail fannum */
+        fannum?: (number|null);
+
+        /** ScoreDescDetail score */
+        score?: (number|null);
+
+        /** ScoreDescDetail obtainsit */
+        obtainsit?: (number|null);
+
+        /** ScoreDescDetail selfseat */
+        selfseat?: (number|null);
+
+        /** ScoreDescDetail score_change */
+        score_change?: (number[]|null);
+
+        /** ScoreDescDetail fan_zhong */
+        fan_zhong?: (number[]|null);
+
+        /** ScoreDescDetail fan_num */
+        fan_num?: (number[]|null);
+
+        /** ScoreDescDetail huCardID */
+        huCardID?: (number|null);
+    }
+
+    /** Represents a ScoreDescDetail. */
+    class ScoreDescDetail implements IScoreDescDetail {
+
+        /**
+         * Constructs a new ScoreDescDetail.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: game.IScoreDescDetail);
+
+        /** ScoreDescDetail type. */
         public type: number;
 
-        /** ReqChat content. */
-        public content: string;
+        /** ScoreDescDetail fannum. */
+        public fannum: number;
 
-        /** ReqChat through. */
-        public through: string;
+        /** ScoreDescDetail score. */
+        public score: number;
+
+        /** ScoreDescDetail obtainsit. */
+        public obtainsit: number;
+
+        /** ScoreDescDetail selfseat. */
+        public selfseat: number;
+
+        /** ScoreDescDetail score_change. */
+        public score_change: number[];
+
+        /** ScoreDescDetail fan_zhong. */
+        public fan_zhong: number[];
+
+        /** ScoreDescDetail fan_num. */
+        public fan_num: number[];
+
+        /** ScoreDescDetail huCardID. */
+        public huCardID: number;
 
         /**
-         * Creates a new ReqChat instance using the specified properties.
+         * Creates a new ScoreDescDetail instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns ReqChat instance
+         * @returns ScoreDescDetail instance
          */
-        public static create(properties?: proto.IReqChat): proto.ReqChat;
+        public static create(properties?: game.IScoreDescDetail): game.ScoreDescDetail;
 
         /**
-         * Encodes the specified ReqChat message. Does not implicitly {@link proto.ReqChat.verify|verify} messages.
-         * @param message ReqChat message or plain object to encode
+         * Encodes the specified ScoreDescDetail message. Does not implicitly {@link game.ScoreDescDetail.verify|verify} messages.
+         * @param message ScoreDescDetail message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IReqChat, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IScoreDescDetail, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified ReqChat message, length delimited. Does not implicitly {@link proto.ReqChat.verify|verify} messages.
-         * @param message ReqChat message or plain object to encode
+         * Encodes the specified ScoreDescDetail message, length delimited. Does not implicitly {@link game.ScoreDescDetail.verify|verify} messages.
+         * @param message ScoreDescDetail message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IReqChat, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IScoreDescDetail, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a ReqChat message from the specified reader or buffer.
+         * Decodes a ScoreDescDetail message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns ReqChat
+         * @returns ScoreDescDetail
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqChat;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.ScoreDescDetail;
 
         /**
-         * Decodes a ReqChat message from the specified reader or buffer, length delimited.
+         * Decodes a ScoreDescDetail message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns ReqChat
+         * @returns ScoreDescDetail
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqChat;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.ScoreDescDetail;
 
         /**
-         * Verifies a ReqChat message.
+         * Verifies a ScoreDescDetail message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a NotChat. */
-    interface INotChat {
+    /** Properties of a HuResultAck. */
+    interface IHuResultAck {
 
-        /** NotChat tableId */
-        tableId: string;
-
-        /** NotChat roundId */
-        roundId: string;
-
-        /** NotChat seatNo */
-        seatNo: number;
-
-        /** NotChat type */
-        type: number;
-
-        /** NotChat content */
-        content: string;
-
-        /** NotChat through */
-        through?: (string|null);
+        /** HuResultAck hulist */
+        hulist?: (game.IHuData[]|null);
     }
 
-    /** Represents a NotChat. */
-    class NotChat implements INotChat {
+    /** Represents a HuResultAck. */
+    class HuResultAck implements IHuResultAck {
 
         /**
-         * Constructs a new NotChat.
+         * Constructs a new HuResultAck.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.INotChat);
+        constructor(properties?: game.IHuResultAck);
 
-        /** NotChat tableId. */
-        public tableId: string;
-
-        /** NotChat roundId. */
-        public roundId: string;
-
-        /** NotChat seatNo. */
-        public seatNo: number;
-
-        /** NotChat type. */
-        public type: number;
-
-        /** NotChat content. */
-        public content: string;
-
-        /** NotChat through. */
-        public through: string;
+        /** HuResultAck hulist. */
+        public hulist: game.IHuData[];
 
         /**
-         * Creates a new NotChat instance using the specified properties.
+         * Creates a new HuResultAck instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns NotChat instance
+         * @returns HuResultAck instance
          */
-        public static create(properties?: proto.INotChat): proto.NotChat;
+        public static create(properties?: game.IHuResultAck): game.HuResultAck;
 
         /**
-         * Encodes the specified NotChat message. Does not implicitly {@link proto.NotChat.verify|verify} messages.
-         * @param message NotChat message or plain object to encode
+         * Encodes the specified HuResultAck message. Does not implicitly {@link game.HuResultAck.verify|verify} messages.
+         * @param message HuResultAck message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.INotChat, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IHuResultAck, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified NotChat message, length delimited. Does not implicitly {@link proto.NotChat.verify|verify} messages.
-         * @param message NotChat message or plain object to encode
+         * Encodes the specified HuResultAck message, length delimited. Does not implicitly {@link game.HuResultAck.verify|verify} messages.
+         * @param message HuResultAck message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.INotChat, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IHuResultAck, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a NotChat message from the specified reader or buffer.
+         * Decodes a HuResultAck message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns NotChat
+         * @returns HuResultAck
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.NotChat;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.HuResultAck;
 
         /**
-         * Decodes a NotChat message from the specified reader or buffer, length delimited.
+         * Decodes a HuResultAck message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns NotChat
+         * @returns HuResultAck
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.NotChat;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.HuResultAck;
 
         /**
-         * Verifies a NotChat message.
+         * Verifies a HuResultAck message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
         public static verify(message: { [k: string]: any }): (string|null);
     }
 
-    /** Properties of a ReqAppointCards. */
-    interface IReqAppointCards {
+    /** Properties of a HuData. */
+    interface IHuData {
 
-        /** ReqAppointCards tableMapId */
-        tableMapId: (number|Long);
+        /** HuData username */
+        username: string;
 
-        /** ReqAppointCards userId */
-        userId: (number|Long);
+        /** HuData seat */
+        seat?: (number|null);
 
-        /** ReqAppointCards banker */
-        banker: number;
-
-        /** ReqAppointCards handCards */
-        handCards?: (proto.IHandCards[]|null);
+        /** HuData huInfo */
+        huInfo?: (game.IScoreDescDetail|null);
     }
 
-    /** Represents a ReqAppointCards. */
-    class ReqAppointCards implements IReqAppointCards {
+    /** Represents a HuData. */
+    class HuData implements IHuData {
 
         /**
-         * Constructs a new ReqAppointCards.
+         * Constructs a new HuData.
          * @param [properties] Properties to set
          */
-        constructor(properties?: proto.IReqAppointCards);
+        constructor(properties?: game.IHuData);
 
-        /** ReqAppointCards tableMapId. */
-        public tableMapId: (number|Long);
+        /** HuData username. */
+        public username: string;
 
-        /** ReqAppointCards userId. */
-        public userId: (number|Long);
+        /** HuData seat. */
+        public seat: number;
 
-        /** ReqAppointCards banker. */
-        public banker: number;
-
-        /** ReqAppointCards handCards. */
-        public handCards: proto.IHandCards[];
+        /** HuData huInfo. */
+        public huInfo?: (game.IScoreDescDetail|null);
 
         /**
-         * Creates a new ReqAppointCards instance using the specified properties.
+         * Creates a new HuData instance using the specified properties.
          * @param [properties] Properties to set
-         * @returns ReqAppointCards instance
+         * @returns HuData instance
          */
-        public static create(properties?: proto.IReqAppointCards): proto.ReqAppointCards;
+        public static create(properties?: game.IHuData): game.HuData;
 
         /**
-         * Encodes the specified ReqAppointCards message. Does not implicitly {@link proto.ReqAppointCards.verify|verify} messages.
-         * @param message ReqAppointCards message or plain object to encode
+         * Encodes the specified HuData message. Does not implicitly {@link game.HuData.verify|verify} messages.
+         * @param message HuData message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encode(message: proto.IReqAppointCards, writer?: protobuf.Writer): protobuf.Writer;
+        public static encode(message: game.IHuData, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Encodes the specified ReqAppointCards message, length delimited. Does not implicitly {@link proto.ReqAppointCards.verify|verify} messages.
-         * @param message ReqAppointCards message or plain object to encode
+         * Encodes the specified HuData message, length delimited. Does not implicitly {@link game.HuData.verify|verify} messages.
+         * @param message HuData message or plain object to encode
          * @param [writer] Writer to encode to
          * @returns Writer
          */
-        public static encodeDelimited(message: proto.IReqAppointCards, writer?: protobuf.Writer): protobuf.Writer;
+        public static encodeDelimited(message: game.IHuData, writer?: protobuf.Writer): protobuf.Writer;
 
         /**
-         * Decodes a ReqAppointCards message from the specified reader or buffer.
+         * Decodes a HuData message from the specified reader or buffer.
          * @param reader Reader or buffer to decode from
          * @param [length] Message length if known beforehand
-         * @returns ReqAppointCards
+         * @returns HuData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqAppointCards;
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): game.HuData;
 
         /**
-         * Decodes a ReqAppointCards message from the specified reader or buffer, length delimited.
+         * Decodes a HuData message from the specified reader or buffer, length delimited.
          * @param reader Reader or buffer to decode from
-         * @returns ReqAppointCards
+         * @returns HuData
          * @throws {Error} If the payload is not a reader or valid buffer
          * @throws {protobuf.util.ProtocolError} If required fields are missing
          */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqAppointCards;
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): game.HuData;
 
         /**
-         * Verifies a ReqAppointCards message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of an AckAppointCards. */
-    interface IAckAppointCards {
-
-        /** AckAppointCards result */
-        result: number;
-
-        /** AckAppointCards userId */
-        userId: (number|Long);
-    }
-
-    /** Represents an AckAppointCards. */
-    class AckAppointCards implements IAckAppointCards {
-
-        /**
-         * Constructs a new AckAppointCards.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IAckAppointCards);
-
-        /** AckAppointCards result. */
-        public result: number;
-
-        /** AckAppointCards userId. */
-        public userId: (number|Long);
-
-        /**
-         * Creates a new AckAppointCards instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns AckAppointCards instance
-         */
-        public static create(properties?: proto.IAckAppointCards): proto.AckAppointCards;
-
-        /**
-         * Encodes the specified AckAppointCards message. Does not implicitly {@link proto.AckAppointCards.verify|verify} messages.
-         * @param message AckAppointCards message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IAckAppointCards, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified AckAppointCards message, length delimited. Does not implicitly {@link proto.AckAppointCards.verify|verify} messages.
-         * @param message AckAppointCards message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IAckAppointCards, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes an AckAppointCards message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns AckAppointCards
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckAppointCards;
-
-        /**
-         * Decodes an AckAppointCards message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns AckAppointCards
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckAppointCards;
-
-        /**
-         * Verifies an AckAppointCards message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a ReqAppointNextCard. */
-    interface IReqAppointNextCard {
-
-        /** ReqAppointNextCard tableId */
-        tableId: string;
-
-        /** ReqAppointNextCard tableMapId */
-        tableMapId: (number|Long);
-
-        /** ReqAppointNextCard userId */
-        userId: (number|Long);
-
-        /** ReqAppointNextCard cards */
-        cards?: (proto.ICardInfo[]|null);
-    }
-
-    /** Represents a ReqAppointNextCard. */
-    class ReqAppointNextCard implements IReqAppointNextCard {
-
-        /**
-         * Constructs a new ReqAppointNextCard.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IReqAppointNextCard);
-
-        /** ReqAppointNextCard tableId. */
-        public tableId: string;
-
-        /** ReqAppointNextCard tableMapId. */
-        public tableMapId: (number|Long);
-
-        /** ReqAppointNextCard userId. */
-        public userId: (number|Long);
-
-        /** ReqAppointNextCard cards. */
-        public cards: proto.ICardInfo[];
-
-        /**
-         * Creates a new ReqAppointNextCard instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ReqAppointNextCard instance
-         */
-        public static create(properties?: proto.IReqAppointNextCard): proto.ReqAppointNextCard;
-
-        /**
-         * Encodes the specified ReqAppointNextCard message. Does not implicitly {@link proto.ReqAppointNextCard.verify|verify} messages.
-         * @param message ReqAppointNextCard message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IReqAppointNextCard, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ReqAppointNextCard message, length delimited. Does not implicitly {@link proto.ReqAppointNextCard.verify|verify} messages.
-         * @param message ReqAppointNextCard message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IReqAppointNextCard, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ReqAppointNextCard message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ReqAppointNextCard
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqAppointNextCard;
-
-        /**
-         * Decodes a ReqAppointNextCard message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ReqAppointNextCard
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqAppointNextCard;
-
-        /**
-         * Verifies a ReqAppointNextCard message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of an AckAppointNextCard. */
-    interface IAckAppointNextCard {
-
-        /** AckAppointNextCard result */
-        result: number;
-
-        /** AckAppointNextCard userId */
-        userId: (number|Long);
-    }
-
-    /** Represents an AckAppointNextCard. */
-    class AckAppointNextCard implements IAckAppointNextCard {
-
-        /**
-         * Constructs a new AckAppointNextCard.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IAckAppointNextCard);
-
-        /** AckAppointNextCard result. */
-        public result: number;
-
-        /** AckAppointNextCard userId. */
-        public userId: (number|Long);
-
-        /**
-         * Creates a new AckAppointNextCard instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns AckAppointNextCard instance
-         */
-        public static create(properties?: proto.IAckAppointNextCard): proto.AckAppointNextCard;
-
-        /**
-         * Encodes the specified AckAppointNextCard message. Does not implicitly {@link proto.AckAppointNextCard.verify|verify} messages.
-         * @param message AckAppointNextCard message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IAckAppointNextCard, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified AckAppointNextCard message, length delimited. Does not implicitly {@link proto.AckAppointNextCard.verify|verify} messages.
-         * @param message AckAppointNextCard message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IAckAppointNextCard, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes an AckAppointNextCard message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns AckAppointNextCard
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckAppointNextCard;
-
-        /**
-         * Decodes an AckAppointNextCard message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns AckAppointNextCard
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckAppointNextCard;
-
-        /**
-         * Verifies an AckAppointNextCard message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a ReqTrust. */
-    interface IReqTrust {
-
-        /** ReqTrust userId */
-        userId: (number|Long);
-
-        /** ReqTrust tableId */
-        tableId: string;
-
-        /** ReqTrust tableMapId */
-        tableMapId: (number|Long);
-
-        /** ReqTrust type */
-        type: (number|Long);
-    }
-
-    /** Represents a ReqTrust. */
-    class ReqTrust implements IReqTrust {
-
-        /**
-         * Constructs a new ReqTrust.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IReqTrust);
-
-        /** ReqTrust userId. */
-        public userId: (number|Long);
-
-        /** ReqTrust tableId. */
-        public tableId: string;
-
-        /** ReqTrust tableMapId. */
-        public tableMapId: (number|Long);
-
-        /** ReqTrust type. */
-        public type: (number|Long);
-
-        /**
-         * Creates a new ReqTrust instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns ReqTrust instance
-         */
-        public static create(properties?: proto.IReqTrust): proto.ReqTrust;
-
-        /**
-         * Encodes the specified ReqTrust message. Does not implicitly {@link proto.ReqTrust.verify|verify} messages.
-         * @param message ReqTrust message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IReqTrust, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified ReqTrust message, length delimited. Does not implicitly {@link proto.ReqTrust.verify|verify} messages.
-         * @param message ReqTrust message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IReqTrust, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a ReqTrust message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns ReqTrust
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.ReqTrust;
-
-        /**
-         * Decodes a ReqTrust message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns ReqTrust
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.ReqTrust;
-
-        /**
-         * Verifies a ReqTrust message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of an AckTrust. */
-    interface IAckTrust {
-
-        /** AckTrust result */
-        result: number;
-
-        /** AckTrust userId */
-        userId: (number|Long);
-
-        /** AckTrust tableId */
-        tableId: string;
-    }
-
-    /** Represents an AckTrust. */
-    class AckTrust implements IAckTrust {
-
-        /**
-         * Constructs a new AckTrust.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: proto.IAckTrust);
-
-        /** AckTrust result. */
-        public result: number;
-
-        /** AckTrust userId. */
-        public userId: (number|Long);
-
-        /** AckTrust tableId. */
-        public tableId: string;
-
-        /**
-         * Creates a new AckTrust instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns AckTrust instance
-         */
-        public static create(properties?: proto.IAckTrust): proto.AckTrust;
-
-        /**
-         * Encodes the specified AckTrust message. Does not implicitly {@link proto.AckTrust.verify|verify} messages.
-         * @param message AckTrust message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: proto.IAckTrust, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified AckTrust message, length delimited. Does not implicitly {@link proto.AckTrust.verify|verify} messages.
-         * @param message AckTrust message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: proto.IAckTrust, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes an AckTrust message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns AckTrust
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): proto.AckTrust;
-
-        /**
-         * Decodes an AckTrust message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns AckTrust
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): proto.AckTrust;
-
-        /**
-         * Verifies an AckTrust message.
+         * Verifies a HuData message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
@@ -7754,6 +5603,2936 @@ declare namespace message {
 
         /**
          * Verifies a NotifyMsgNtc message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+}
+
+/** Namespace room. */
+declare namespace room {
+
+    /** Properties of a VGHeartBeatReq. */
+    interface IVGHeartBeatReq {
+
+        /** VGHeartBeatReq time */
+        time?: (number|Long|null);
+    }
+
+    /** Represents a VGHeartBeatReq. */
+    class VGHeartBeatReq implements IVGHeartBeatReq {
+
+        /**
+         * Constructs a new VGHeartBeatReq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGHeartBeatReq);
+
+        /** VGHeartBeatReq time. */
+        public time: (number|Long);
+
+        /**
+         * Creates a new VGHeartBeatReq instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGHeartBeatReq instance
+         */
+        public static create(properties?: room.IVGHeartBeatReq): room.VGHeartBeatReq;
+
+        /**
+         * Encodes the specified VGHeartBeatReq message. Does not implicitly {@link room.VGHeartBeatReq.verify|verify} messages.
+         * @param message VGHeartBeatReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGHeartBeatReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGHeartBeatReq message, length delimited. Does not implicitly {@link room.VGHeartBeatReq.verify|verify} messages.
+         * @param message VGHeartBeatReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGHeartBeatReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGHeartBeatReq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGHeartBeatReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGHeartBeatReq;
+
+        /**
+         * Decodes a VGHeartBeatReq message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGHeartBeatReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGHeartBeatReq;
+
+        /**
+         * Verifies a VGHeartBeatReq message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGHeartBeatAck. */
+    interface IVGHeartBeatAck {
+
+        /** VGHeartBeatAck time */
+        time?: (number|Long|null);
+    }
+
+    /** Represents a VGHeartBeatAck. */
+    class VGHeartBeatAck implements IVGHeartBeatAck {
+
+        /**
+         * Constructs a new VGHeartBeatAck.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGHeartBeatAck);
+
+        /** VGHeartBeatAck time. */
+        public time: (number|Long);
+
+        /**
+         * Creates a new VGHeartBeatAck instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGHeartBeatAck instance
+         */
+        public static create(properties?: room.IVGHeartBeatAck): room.VGHeartBeatAck;
+
+        /**
+         * Encodes the specified VGHeartBeatAck message. Does not implicitly {@link room.VGHeartBeatAck.verify|verify} messages.
+         * @param message VGHeartBeatAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGHeartBeatAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGHeartBeatAck message, length delimited. Does not implicitly {@link room.VGHeartBeatAck.verify|verify} messages.
+         * @param message VGHeartBeatAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGHeartBeatAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGHeartBeatAck message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGHeartBeatAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGHeartBeatAck;
+
+        /**
+         * Decodes a VGHeartBeatAck message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGHeartBeatAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGHeartBeatAck;
+
+        /**
+         * Verifies a VGHeartBeatAck message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGLoginReq. */
+    interface IVGLoginReq {
+
+        /** VGLoginReq ticket */
+        ticket?: (string|null);
+    }
+
+    /** Represents a VGLoginReq. */
+    class VGLoginReq implements IVGLoginReq {
+
+        /**
+         * Constructs a new VGLoginReq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGLoginReq);
+
+        /** VGLoginReq ticket. */
+        public ticket: string;
+
+        /**
+         * Creates a new VGLoginReq instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGLoginReq instance
+         */
+        public static create(properties?: room.IVGLoginReq): room.VGLoginReq;
+
+        /**
+         * Encodes the specified VGLoginReq message. Does not implicitly {@link room.VGLoginReq.verify|verify} messages.
+         * @param message VGLoginReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGLoginReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGLoginReq message, length delimited. Does not implicitly {@link room.VGLoginReq.verify|verify} messages.
+         * @param message VGLoginReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGLoginReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGLoginReq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGLoginReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGLoginReq;
+
+        /**
+         * Decodes a VGLoginReq message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGLoginReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGLoginReq;
+
+        /**
+         * Verifies a VGLoginReq message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGLoginAck. */
+    interface IVGLoginAck {
+
+        /** VGLoginAck result */
+        result?: (number|null);
+
+        /** VGLoginAck userInfo */
+        userInfo?: (room.IVGUserInfo|null);
+    }
+
+    /** Represents a VGLoginAck. */
+    class VGLoginAck implements IVGLoginAck {
+
+        /**
+         * Constructs a new VGLoginAck.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGLoginAck);
+
+        /** VGLoginAck result. */
+        public result: number;
+
+        /** VGLoginAck userInfo. */
+        public userInfo?: (room.IVGUserInfo|null);
+
+        /**
+         * Creates a new VGLoginAck instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGLoginAck instance
+         */
+        public static create(properties?: room.IVGLoginAck): room.VGLoginAck;
+
+        /**
+         * Encodes the specified VGLoginAck message. Does not implicitly {@link room.VGLoginAck.verify|verify} messages.
+         * @param message VGLoginAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGLoginAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGLoginAck message, length delimited. Does not implicitly {@link room.VGLoginAck.verify|verify} messages.
+         * @param message VGLoginAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGLoginAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGLoginAck message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGLoginAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGLoginAck;
+
+        /**
+         * Decodes a VGLoginAck message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGLoginAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGLoginAck;
+
+        /**
+         * Verifies a VGLoginAck message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGRoomListReq. */
+    interface IVGRoomListReq {
+
+        /** VGRoomListReq userName */
+        userName?: (string|null);
+    }
+
+    /** Represents a VGRoomListReq. */
+    class VGRoomListReq implements IVGRoomListReq {
+
+        /**
+         * Constructs a new VGRoomListReq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGRoomListReq);
+
+        /** VGRoomListReq userName. */
+        public userName: string;
+
+        /**
+         * Creates a new VGRoomListReq instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGRoomListReq instance
+         */
+        public static create(properties?: room.IVGRoomListReq): room.VGRoomListReq;
+
+        /**
+         * Encodes the specified VGRoomListReq message. Does not implicitly {@link room.VGRoomListReq.verify|verify} messages.
+         * @param message VGRoomListReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGRoomListReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGRoomListReq message, length delimited. Does not implicitly {@link room.VGRoomListReq.verify|verify} messages.
+         * @param message VGRoomListReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGRoomListReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGRoomListReq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGRoomListReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGRoomListReq;
+
+        /**
+         * Decodes a VGRoomListReq message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGRoomListReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGRoomListReq;
+
+        /**
+         * Verifies a VGRoomListReq message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGRoomListAck. */
+    interface IVGRoomListAck {
+
+        /** VGRoomListAck result */
+        result?: (number|null);
+
+        /** VGRoomListAck userName */
+        userName?: (string|null);
+
+        /** VGRoomListAck roomInfo */
+        roomInfo?: (room.IRoomItem[]|null);
+    }
+
+    /** Represents a VGRoomListAck. */
+    class VGRoomListAck implements IVGRoomListAck {
+
+        /**
+         * Constructs a new VGRoomListAck.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGRoomListAck);
+
+        /** VGRoomListAck result. */
+        public result: number;
+
+        /** VGRoomListAck userName. */
+        public userName: string;
+
+        /** VGRoomListAck roomInfo. */
+        public roomInfo: room.IRoomItem[];
+
+        /**
+         * Creates a new VGRoomListAck instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGRoomListAck instance
+         */
+        public static create(properties?: room.IVGRoomListAck): room.VGRoomListAck;
+
+        /**
+         * Encodes the specified VGRoomListAck message. Does not implicitly {@link room.VGRoomListAck.verify|verify} messages.
+         * @param message VGRoomListAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGRoomListAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGRoomListAck message, length delimited. Does not implicitly {@link room.VGRoomListAck.verify|verify} messages.
+         * @param message VGRoomListAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGRoomListAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGRoomListAck message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGRoomListAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGRoomListAck;
+
+        /**
+         * Decodes a VGRoomListAck message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGRoomListAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGRoomListAck;
+
+        /**
+         * Verifies a VGRoomListAck message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGSitDownReq. */
+    interface IVGSitDownReq {
+
+        /** VGSitDownReq userName */
+        userName?: (string|null);
+
+        /** VGSitDownReq userPos */
+        userPos?: (room.IVGUserPos|null);
+    }
+
+    /** Represents a VGSitDownReq. */
+    class VGSitDownReq implements IVGSitDownReq {
+
+        /**
+         * Constructs a new VGSitDownReq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGSitDownReq);
+
+        /** VGSitDownReq userName. */
+        public userName: string;
+
+        /** VGSitDownReq userPos. */
+        public userPos?: (room.IVGUserPos|null);
+
+        /**
+         * Creates a new VGSitDownReq instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGSitDownReq instance
+         */
+        public static create(properties?: room.IVGSitDownReq): room.VGSitDownReq;
+
+        /**
+         * Encodes the specified VGSitDownReq message. Does not implicitly {@link room.VGSitDownReq.verify|verify} messages.
+         * @param message VGSitDownReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGSitDownReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGSitDownReq message, length delimited. Does not implicitly {@link room.VGSitDownReq.verify|verify} messages.
+         * @param message VGSitDownReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGSitDownReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGSitDownReq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGSitDownReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGSitDownReq;
+
+        /**
+         * Decodes a VGSitDownReq message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGSitDownReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGSitDownReq;
+
+        /**
+         * Verifies a VGSitDownReq message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGSitDownAck. */
+    interface IVGSitDownAck {
+
+        /** VGSitDownAck result */
+        result?: (number|null);
+
+        /** VGSitDownAck userInfo */
+        userInfo?: (room.IVGUserInfo|null);
+    }
+
+    /** Represents a VGSitDownAck. */
+    class VGSitDownAck implements IVGSitDownAck {
+
+        /**
+         * Constructs a new VGSitDownAck.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGSitDownAck);
+
+        /** VGSitDownAck result. */
+        public result: number;
+
+        /** VGSitDownAck userInfo. */
+        public userInfo?: (room.IVGUserInfo|null);
+
+        /**
+         * Creates a new VGSitDownAck instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGSitDownAck instance
+         */
+        public static create(properties?: room.IVGSitDownAck): room.VGSitDownAck;
+
+        /**
+         * Encodes the specified VGSitDownAck message. Does not implicitly {@link room.VGSitDownAck.verify|verify} messages.
+         * @param message VGSitDownAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGSitDownAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGSitDownAck message, length delimited. Does not implicitly {@link room.VGSitDownAck.verify|verify} messages.
+         * @param message VGSitDownAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGSitDownAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGSitDownAck message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGSitDownAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGSitDownAck;
+
+        /**
+         * Decodes a VGSitDownAck message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGSitDownAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGSitDownAck;
+
+        /**
+         * Verifies a VGSitDownAck message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGSitUpReq. */
+    interface IVGSitUpReq {
+
+        /** VGSitUpReq userName */
+        userName?: (string|null);
+
+        /** VGSitUpReq userPos */
+        userPos?: (room.IVGUserPos|null);
+    }
+
+    /** Represents a VGSitUpReq. */
+    class VGSitUpReq implements IVGSitUpReq {
+
+        /**
+         * Constructs a new VGSitUpReq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGSitUpReq);
+
+        /** VGSitUpReq userName. */
+        public userName: string;
+
+        /** VGSitUpReq userPos. */
+        public userPos?: (room.IVGUserPos|null);
+
+        /**
+         * Creates a new VGSitUpReq instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGSitUpReq instance
+         */
+        public static create(properties?: room.IVGSitUpReq): room.VGSitUpReq;
+
+        /**
+         * Encodes the specified VGSitUpReq message. Does not implicitly {@link room.VGSitUpReq.verify|verify} messages.
+         * @param message VGSitUpReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGSitUpReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGSitUpReq message, length delimited. Does not implicitly {@link room.VGSitUpReq.verify|verify} messages.
+         * @param message VGSitUpReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGSitUpReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGSitUpReq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGSitUpReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGSitUpReq;
+
+        /**
+         * Decodes a VGSitUpReq message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGSitUpReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGSitUpReq;
+
+        /**
+         * Verifies a VGSitUpReq message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGSitUpAck. */
+    interface IVGSitUpAck {
+
+        /** VGSitUpAck result */
+        result?: (number|null);
+
+        /** VGSitUpAck userName */
+        userName?: (string|null);
+
+        /** VGSitUpAck userPos */
+        userPos?: (room.IVGUserPos|null);
+
+        /** VGSitUpAck userStatus */
+        userStatus?: (number|null);
+
+        /** VGSitUpAck reason */
+        reason?: (number|null);
+    }
+
+    /** Represents a VGSitUpAck. */
+    class VGSitUpAck implements IVGSitUpAck {
+
+        /**
+         * Constructs a new VGSitUpAck.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGSitUpAck);
+
+        /** VGSitUpAck result. */
+        public result: number;
+
+        /** VGSitUpAck userName. */
+        public userName: string;
+
+        /** VGSitUpAck userPos. */
+        public userPos?: (room.IVGUserPos|null);
+
+        /** VGSitUpAck userStatus. */
+        public userStatus: number;
+
+        /** VGSitUpAck reason. */
+        public reason: number;
+
+        /**
+         * Creates a new VGSitUpAck instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGSitUpAck instance
+         */
+        public static create(properties?: room.IVGSitUpAck): room.VGSitUpAck;
+
+        /**
+         * Encodes the specified VGSitUpAck message. Does not implicitly {@link room.VGSitUpAck.verify|verify} messages.
+         * @param message VGSitUpAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGSitUpAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGSitUpAck message, length delimited. Does not implicitly {@link room.VGSitUpAck.verify|verify} messages.
+         * @param message VGSitUpAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGSitUpAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGSitUpAck message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGSitUpAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGSitUpAck;
+
+        /**
+         * Decodes a VGSitUpAck message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGSitUpAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGSitUpAck;
+
+        /**
+         * Verifies a VGSitUpAck message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a ReqResetUserState. */
+    interface IReqResetUserState {
+
+        /** ReqResetUserState userName */
+        userName?: (string|null);
+    }
+
+    /** Represents a ReqResetUserState. */
+    class ReqResetUserState implements IReqResetUserState {
+
+        /**
+         * Constructs a new ReqResetUserState.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IReqResetUserState);
+
+        /** ReqResetUserState userName. */
+        public userName: string;
+
+        /**
+         * Creates a new ReqResetUserState instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ReqResetUserState instance
+         */
+        public static create(properties?: room.IReqResetUserState): room.ReqResetUserState;
+
+        /**
+         * Encodes the specified ReqResetUserState message. Does not implicitly {@link room.ReqResetUserState.verify|verify} messages.
+         * @param message ReqResetUserState message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IReqResetUserState, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified ReqResetUserState message, length delimited. Does not implicitly {@link room.ReqResetUserState.verify|verify} messages.
+         * @param message ReqResetUserState message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IReqResetUserState, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a ReqResetUserState message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ReqResetUserState
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.ReqResetUserState;
+
+        /**
+         * Decodes a ReqResetUserState message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ReqResetUserState
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.ReqResetUserState;
+
+        /**
+         * Verifies a ReqResetUserState message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of an AckResetUserState. */
+    interface IAckResetUserState {
+
+        /** AckResetUserState result */
+        result: number;
+
+        /** AckResetUserState userName */
+        userName?: (string|null);
+
+        /** AckResetUserState state */
+        state?: (number|null);
+    }
+
+    /** Represents an AckResetUserState. */
+    class AckResetUserState implements IAckResetUserState {
+
+        /**
+         * Constructs a new AckResetUserState.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IAckResetUserState);
+
+        /** AckResetUserState result. */
+        public result: number;
+
+        /** AckResetUserState userName. */
+        public userName: string;
+
+        /** AckResetUserState state. */
+        public state: number;
+
+        /**
+         * Creates a new AckResetUserState instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns AckResetUserState instance
+         */
+        public static create(properties?: room.IAckResetUserState): room.AckResetUserState;
+
+        /**
+         * Encodes the specified AckResetUserState message. Does not implicitly {@link room.AckResetUserState.verify|verify} messages.
+         * @param message AckResetUserState message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IAckResetUserState, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified AckResetUserState message, length delimited. Does not implicitly {@link room.AckResetUserState.verify|verify} messages.
+         * @param message AckResetUserState message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IAckResetUserState, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes an AckResetUserState message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns AckResetUserState
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.AckResetUserState;
+
+        /**
+         * Decodes an AckResetUserState message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns AckResetUserState
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.AckResetUserState;
+
+        /**
+         * Verifies an AckResetUserState message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a MJ_TingTileInfo. */
+    interface IMJ_TingTileInfo {
+
+        /** MJ_TingTileInfo callTile */
+        callTile?: (number|null);
+
+        /** MJ_TingTileInfo callTileCount */
+        callTileCount?: (number|null);
+
+        /** MJ_TingTileInfo fans */
+        fans?: (number|null);
+    }
+
+    /** Represents a MJ_TingTileInfo. */
+    class MJ_TingTileInfo implements IMJ_TingTileInfo {
+
+        /**
+         * Constructs a new MJ_TingTileInfo.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IMJ_TingTileInfo);
+
+        /** MJ_TingTileInfo callTile. */
+        public callTile: number;
+
+        /** MJ_TingTileInfo callTileCount. */
+        public callTileCount: number;
+
+        /** MJ_TingTileInfo fans. */
+        public fans: number;
+
+        /**
+         * Creates a new MJ_TingTileInfo instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns MJ_TingTileInfo instance
+         */
+        public static create(properties?: room.IMJ_TingTileInfo): room.MJ_TingTileInfo;
+
+        /**
+         * Encodes the specified MJ_TingTileInfo message. Does not implicitly {@link room.MJ_TingTileInfo.verify|verify} messages.
+         * @param message MJ_TingTileInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IMJ_TingTileInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified MJ_TingTileInfo message, length delimited. Does not implicitly {@link room.MJ_TingTileInfo.verify|verify} messages.
+         * @param message MJ_TingTileInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IMJ_TingTileInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a MJ_TingTileInfo message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MJ_TingTileInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.MJ_TingTileInfo;
+
+        /**
+         * Decodes a MJ_TingTileInfo message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MJ_TingTileInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.MJ_TingTileInfo;
+
+        /**
+         * Verifies a MJ_TingTileInfo message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a MJ_Operation. */
+    interface IMJ_Operation {
+
+        /** MJ_Operation operationType */
+        operationType?: (number|null);
+
+        /** MJ_Operation Tiles */
+        Tiles?: (number[]|null);
+
+        /** MJ_Operation ObtainTile */
+        ObtainTile?: (number|null);
+
+        /** MJ_Operation ObtainSeat */
+        ObtainSeat?: (number|null);
+
+        /** MJ_Operation tingTileInfo */
+        tingTileInfo?: (room.IMJ_TingTileInfo[]|null);
+
+        /** MJ_Operation maxFan */
+        maxFan?: (number|null);
+
+        /** MJ_Operation fans */
+        fans?: (room.IMJ_FanInfo[]|null);
+
+        /** MJ_Operation operationID */
+        operationID?: (number|null);
+    }
+
+    /** Represents a MJ_Operation. */
+    class MJ_Operation implements IMJ_Operation {
+
+        /**
+         * Constructs a new MJ_Operation.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IMJ_Operation);
+
+        /** MJ_Operation operationType. */
+        public operationType: number;
+
+        /** MJ_Operation Tiles. */
+        public Tiles: number[];
+
+        /** MJ_Operation ObtainTile. */
+        public ObtainTile: number;
+
+        /** MJ_Operation ObtainSeat. */
+        public ObtainSeat: number;
+
+        /** MJ_Operation tingTileInfo. */
+        public tingTileInfo: room.IMJ_TingTileInfo[];
+
+        /** MJ_Operation maxFan. */
+        public maxFan: number;
+
+        /** MJ_Operation fans. */
+        public fans: room.IMJ_FanInfo[];
+
+        /** MJ_Operation operationID. */
+        public operationID: number;
+
+        /**
+         * Creates a new MJ_Operation instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns MJ_Operation instance
+         */
+        public static create(properties?: room.IMJ_Operation): room.MJ_Operation;
+
+        /**
+         * Encodes the specified MJ_Operation message. Does not implicitly {@link room.MJ_Operation.verify|verify} messages.
+         * @param message MJ_Operation message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IMJ_Operation, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified MJ_Operation message, length delimited. Does not implicitly {@link room.MJ_Operation.verify|verify} messages.
+         * @param message MJ_Operation message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IMJ_Operation, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a MJ_Operation message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MJ_Operation
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.MJ_Operation;
+
+        /**
+         * Decodes a MJ_Operation message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MJ_Operation
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.MJ_Operation;
+
+        /**
+         * Verifies a MJ_Operation message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a MJ_TileSet. */
+    interface IMJ_TileSet {
+
+        /** MJ_TileSet Type */
+        Type: number;
+
+        /** MJ_TileSet Tiles */
+        Tiles?: (number[]|null);
+
+        /** MJ_TileSet ObtainTile */
+        ObtainTile?: (number|null);
+
+        /** MJ_TileSet ObtainSeat */
+        ObtainSeat?: (number|null);
+    }
+
+    /** Represents a MJ_TileSet. */
+    class MJ_TileSet implements IMJ_TileSet {
+
+        /**
+         * Constructs a new MJ_TileSet.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IMJ_TileSet);
+
+        /** MJ_TileSet Type. */
+        public Type: number;
+
+        /** MJ_TileSet Tiles. */
+        public Tiles: number[];
+
+        /** MJ_TileSet ObtainTile. */
+        public ObtainTile: number;
+
+        /** MJ_TileSet ObtainSeat. */
+        public ObtainSeat: number;
+
+        /**
+         * Creates a new MJ_TileSet instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns MJ_TileSet instance
+         */
+        public static create(properties?: room.IMJ_TileSet): room.MJ_TileSet;
+
+        /**
+         * Encodes the specified MJ_TileSet message. Does not implicitly {@link room.MJ_TileSet.verify|verify} messages.
+         * @param message MJ_TileSet message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IMJ_TileSet, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified MJ_TileSet message, length delimited. Does not implicitly {@link room.MJ_TileSet.verify|verify} messages.
+         * @param message MJ_TileSet message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IMJ_TileSet, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a MJ_TileSet message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MJ_TileSet
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.MJ_TileSet;
+
+        /**
+         * Decodes a MJ_TileSet message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MJ_TileSet
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.MJ_TileSet;
+
+        /**
+         * Verifies a MJ_TileSet message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a MJ_FanInfo. */
+    interface IMJ_FanInfo {
+
+        /** MJ_FanInfo type */
+        type?: (number|null);
+
+        /** MJ_FanInfo value */
+        value?: (number|null);
+    }
+
+    /** Represents a MJ_FanInfo. */
+    class MJ_FanInfo implements IMJ_FanInfo {
+
+        /**
+         * Constructs a new MJ_FanInfo.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IMJ_FanInfo);
+
+        /** MJ_FanInfo type. */
+        public type: number;
+
+        /** MJ_FanInfo value. */
+        public value: number;
+
+        /**
+         * Creates a new MJ_FanInfo instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns MJ_FanInfo instance
+         */
+        public static create(properties?: room.IMJ_FanInfo): room.MJ_FanInfo;
+
+        /**
+         * Encodes the specified MJ_FanInfo message. Does not implicitly {@link room.MJ_FanInfo.verify|verify} messages.
+         * @param message MJ_FanInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IMJ_FanInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified MJ_FanInfo message, length delimited. Does not implicitly {@link room.MJ_FanInfo.verify|verify} messages.
+         * @param message MJ_FanInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IMJ_FanInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a MJ_FanInfo message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MJ_FanInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.MJ_FanInfo;
+
+        /**
+         * Decodes a MJ_FanInfo message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MJ_FanInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.MJ_FanInfo;
+
+        /**
+         * Verifies a MJ_FanInfo message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a MJ_SettlementInfo. */
+    interface IMJ_SettlementInfo {
+
+        /** MJ_SettlementInfo type */
+        type?: (number|null);
+
+        /** MJ_SettlementInfo coinList */
+        coinList?: (number[]|null);
+    }
+
+    /** Represents a MJ_SettlementInfo. */
+    class MJ_SettlementInfo implements IMJ_SettlementInfo {
+
+        /**
+         * Constructs a new MJ_SettlementInfo.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IMJ_SettlementInfo);
+
+        /** MJ_SettlementInfo type. */
+        public type: number;
+
+        /** MJ_SettlementInfo coinList. */
+        public coinList: number[];
+
+        /**
+         * Creates a new MJ_SettlementInfo instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns MJ_SettlementInfo instance
+         */
+        public static create(properties?: room.IMJ_SettlementInfo): room.MJ_SettlementInfo;
+
+        /**
+         * Encodes the specified MJ_SettlementInfo message. Does not implicitly {@link room.MJ_SettlementInfo.verify|verify} messages.
+         * @param message MJ_SettlementInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IMJ_SettlementInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified MJ_SettlementInfo message, length delimited. Does not implicitly {@link room.MJ_SettlementInfo.verify|verify} messages.
+         * @param message MJ_SettlementInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IMJ_SettlementInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a MJ_SettlementInfo message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MJ_SettlementInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.MJ_SettlementInfo;
+
+        /**
+         * Decodes a MJ_SettlementInfo message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MJ_SettlementInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.MJ_SettlementInfo;
+
+        /**
+         * Verifies a MJ_SettlementInfo message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** MJ_PLAYERROLE enum. */
+    enum MJ_PLAYERROLE {
+        MJ_PR_BANKER = 0,
+        MJ_PR_PLAYER = 1
+    }
+
+    /** MJ_GAMESTATUS enum. */
+    enum MJ_GAMESTATUS {
+        MJ_GS_DF = 0,
+        MJ_GS_ANIM_KJ = 1,
+        MJ_GS_DP = 2,
+        MJ_GS_KJ = 3,
+        MJ_GS_FP = 4,
+        MJ_GS_XP = 5,
+        MJ_GS_JS = 6
+    }
+
+    /** USERSTATUS enum. */
+    enum USERSTATUS {
+        US_DEFAULT = 0,
+        US_SITUP = 1,
+        US_SITDOWN = 2,
+        US_GAMEING = 3
+    }
+
+    /** Properties of a RoomItem. */
+    interface IRoomItem {
+
+        /** RoomItem roomID */
+        roomID?: (number|null);
+
+        /** RoomItem name */
+        name?: (string|null);
+
+        /** RoomItem entry_min */
+        entry_min?: (number|null);
+
+        /** RoomItem entry_max */
+        entry_max?: (number|null);
+
+        /** RoomItem basic_bet */
+        basic_bet?: (number|null);
+
+        /** RoomItem kickout_min */
+        kickout_min?: (number|null);
+
+        /** RoomItem kickout_max */
+        kickout_max?: (number|null);
+
+        /** RoomItem service_fee */
+        service_fee?: (number|null);
+
+        /** RoomItem max_fan */
+        max_fan?: (number|null);
+
+        /** RoomItem state */
+        state?: (number|null);
+    }
+
+    /** Represents a RoomItem. */
+    class RoomItem implements IRoomItem {
+
+        /**
+         * Constructs a new RoomItem.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IRoomItem);
+
+        /** RoomItem roomID. */
+        public roomID: number;
+
+        /** RoomItem name. */
+        public name: string;
+
+        /** RoomItem entry_min. */
+        public entry_min: number;
+
+        /** RoomItem entry_max. */
+        public entry_max: number;
+
+        /** RoomItem basic_bet. */
+        public basic_bet: number;
+
+        /** RoomItem kickout_min. */
+        public kickout_min: number;
+
+        /** RoomItem kickout_max. */
+        public kickout_max: number;
+
+        /** RoomItem service_fee. */
+        public service_fee: number;
+
+        /** RoomItem max_fan. */
+        public max_fan: number;
+
+        /** RoomItem state. */
+        public state: number;
+
+        /**
+         * Creates a new RoomItem instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns RoomItem instance
+         */
+        public static create(properties?: room.IRoomItem): room.RoomItem;
+
+        /**
+         * Encodes the specified RoomItem message. Does not implicitly {@link room.RoomItem.verify|verify} messages.
+         * @param message RoomItem message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IRoomItem, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified RoomItem message, length delimited. Does not implicitly {@link room.RoomItem.verify|verify} messages.
+         * @param message RoomItem message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IRoomItem, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a RoomItem message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns RoomItem
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.RoomItem;
+
+        /**
+         * Decodes a RoomItem message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns RoomItem
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.RoomItem;
+
+        /**
+         * Verifies a RoomItem message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGUserInfo. */
+    interface IVGUserInfo {
+
+        /** VGUserInfo userName */
+        userName?: (string|null);
+
+        /** VGUserInfo showName */
+        showName?: (string|null);
+
+        /** VGUserInfo userPos */
+        userPos?: (room.IVGUserPos|null);
+
+        /** VGUserInfo status */
+        status?: (room.USERSTATUS|null);
+
+        /** VGUserInfo gameCoin */
+        gameCoin?: (number|Long|null);
+
+        /** VGUserInfo isManaged */
+        isManaged?: (number|null);
+
+        /** VGUserInfo role */
+        role?: (room.MJ_PLAYERROLE|null);
+
+        /** VGUserInfo dapiao */
+        dapiao?: (number|null);
+
+        /** VGUserInfo tileSets */
+        tileSets?: (room.IMJ_TileSet[]|null);
+
+        /** VGUserInfo isTing */
+        isTing?: (number|null);
+
+        /** VGUserInfo tingTileInfo */
+        tingTileInfo?: (room.IMJ_TingTileInfo[]|null);
+
+        /** VGUserInfo fan */
+        fan?: (room.IMJ_FanInfo[]|null);
+
+        /** VGUserInfo resultCoin */
+        resultCoin?: (number|Long|null);
+
+        /** VGUserInfo feeCoin */
+        feeCoin?: (number|null);
+    }
+
+    /** Represents a VGUserInfo. */
+    class VGUserInfo implements IVGUserInfo {
+
+        /**
+         * Constructs a new VGUserInfo.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGUserInfo);
+
+        /** VGUserInfo userName. */
+        public userName: string;
+
+        /** VGUserInfo showName. */
+        public showName: string;
+
+        /** VGUserInfo userPos. */
+        public userPos?: (room.IVGUserPos|null);
+
+        /** VGUserInfo status. */
+        public status: room.USERSTATUS;
+
+        /** VGUserInfo gameCoin. */
+        public gameCoin: (number|Long);
+
+        /** VGUserInfo isManaged. */
+        public isManaged: number;
+
+        /** VGUserInfo role. */
+        public role: room.MJ_PLAYERROLE;
+
+        /** VGUserInfo dapiao. */
+        public dapiao: number;
+
+        /** VGUserInfo tileSets. */
+        public tileSets: room.IMJ_TileSet[];
+
+        /** VGUserInfo isTing. */
+        public isTing: number;
+
+        /** VGUserInfo tingTileInfo. */
+        public tingTileInfo: room.IMJ_TingTileInfo[];
+
+        /** VGUserInfo fan. */
+        public fan: room.IMJ_FanInfo[];
+
+        /** VGUserInfo resultCoin. */
+        public resultCoin: (number|Long);
+
+        /** VGUserInfo feeCoin. */
+        public feeCoin: number;
+
+        /**
+         * Creates a new VGUserInfo instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGUserInfo instance
+         */
+        public static create(properties?: room.IVGUserInfo): room.VGUserInfo;
+
+        /**
+         * Encodes the specified VGUserInfo message. Does not implicitly {@link room.VGUserInfo.verify|verify} messages.
+         * @param message VGUserInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGUserInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGUserInfo message, length delimited. Does not implicitly {@link room.VGUserInfo.verify|verify} messages.
+         * @param message VGUserInfo message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGUserInfo, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGUserInfo message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGUserInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGUserInfo;
+
+        /**
+         * Decodes a VGUserInfo message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGUserInfo
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGUserInfo;
+
+        /**
+         * Verifies a VGUserInfo message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGUserPos. */
+    interface IVGUserPos {
+
+        /** VGUserPos roomID */
+        roomID?: (number|null);
+
+        /** VGUserPos tableID */
+        tableID?: (string|null);
+
+        /** VGUserPos seatID */
+        seatID?: (number|null);
+    }
+
+    /** Represents a VGUserPos. */
+    class VGUserPos implements IVGUserPos {
+
+        /**
+         * Constructs a new VGUserPos.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGUserPos);
+
+        /** VGUserPos roomID. */
+        public roomID: number;
+
+        /** VGUserPos tableID. */
+        public tableID: string;
+
+        /** VGUserPos seatID. */
+        public seatID: number;
+
+        /**
+         * Creates a new VGUserPos instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGUserPos instance
+         */
+        public static create(properties?: room.IVGUserPos): room.VGUserPos;
+
+        /**
+         * Encodes the specified VGUserPos message. Does not implicitly {@link room.VGUserPos.verify|verify} messages.
+         * @param message VGUserPos message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGUserPos, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGUserPos message, length delimited. Does not implicitly {@link room.VGUserPos.verify|verify} messages.
+         * @param message VGUserPos message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGUserPos, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGUserPos message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGUserPos
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGUserPos;
+
+        /**
+         * Decodes a VGUserPos message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGUserPos
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGUserPos;
+
+        /**
+         * Verifies a VGUserPos message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGGameStatusNtc. */
+    interface IVGGameStatusNtc {
+
+        /** VGGameStatusNtc status */
+        status?: (room.MJ_GAMESTATUS|null);
+
+        /** VGGameStatusNtc second */
+        second?: (number|null);
+
+        /** VGGameStatusNtc roomID */
+        roomID?: (number|null);
+
+        /** VGGameStatusNtc tableID */
+        tableID?: (string|null);
+    }
+
+    /** Represents a VGGameStatusNtc. */
+    class VGGameStatusNtc implements IVGGameStatusNtc {
+
+        /**
+         * Constructs a new VGGameStatusNtc.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGGameStatusNtc);
+
+        /** VGGameStatusNtc status. */
+        public status: room.MJ_GAMESTATUS;
+
+        /** VGGameStatusNtc second. */
+        public second: number;
+
+        /** VGGameStatusNtc roomID. */
+        public roomID: number;
+
+        /** VGGameStatusNtc tableID. */
+        public tableID: string;
+
+        /**
+         * Creates a new VGGameStatusNtc instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGGameStatusNtc instance
+         */
+        public static create(properties?: room.IVGGameStatusNtc): room.VGGameStatusNtc;
+
+        /**
+         * Encodes the specified VGGameStatusNtc message. Does not implicitly {@link room.VGGameStatusNtc.verify|verify} messages.
+         * @param message VGGameStatusNtc message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGGameStatusNtc, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGGameStatusNtc message, length delimited. Does not implicitly {@link room.VGGameStatusNtc.verify|verify} messages.
+         * @param message VGGameStatusNtc message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGGameStatusNtc, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGGameStatusNtc message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGGameStatusNtc
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGGameStatusNtc;
+
+        /**
+         * Decodes a VGGameStatusNtc message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGGameStatusNtc
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGGameStatusNtc;
+
+        /**
+         * Verifies a VGGameStatusNtc message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGSyncGameDataNtc. */
+    interface IVGSyncGameDataNtc {
+
+        /** VGSyncGameDataNtc roomID */
+        roomID?: (number|null);
+
+        /** VGSyncGameDataNtc tableID */
+        tableID?: (string|null);
+
+        /** VGSyncGameDataNtc status */
+        status?: (room.MJ_GAMESTATUS|null);
+
+        /** VGSyncGameDataNtc second */
+        second?: (number|null);
+
+        /** VGSyncGameDataNtc userInfos */
+        userInfos?: (room.IVGUserInfo[]|null);
+
+        /** VGSyncGameDataNtc roundGuid */
+        roundGuid?: (string|null);
+
+        /** VGSyncGameDataNtc remainCount */
+        remainCount?: (number|null);
+
+        /** VGSyncGameDataNtc settlementInfos */
+        settlementInfos?: (room.IMJ_SettlementInfo[]|null);
+    }
+
+    /** Represents a VGSyncGameDataNtc. */
+    class VGSyncGameDataNtc implements IVGSyncGameDataNtc {
+
+        /**
+         * Constructs a new VGSyncGameDataNtc.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGSyncGameDataNtc);
+
+        /** VGSyncGameDataNtc roomID. */
+        public roomID: number;
+
+        /** VGSyncGameDataNtc tableID. */
+        public tableID: string;
+
+        /** VGSyncGameDataNtc status. */
+        public status: room.MJ_GAMESTATUS;
+
+        /** VGSyncGameDataNtc second. */
+        public second: number;
+
+        /** VGSyncGameDataNtc userInfos. */
+        public userInfos: room.IVGUserInfo[];
+
+        /** VGSyncGameDataNtc roundGuid. */
+        public roundGuid: string;
+
+        /** VGSyncGameDataNtc remainCount. */
+        public remainCount: number;
+
+        /** VGSyncGameDataNtc settlementInfos. */
+        public settlementInfos: room.IMJ_SettlementInfo[];
+
+        /**
+         * Creates a new VGSyncGameDataNtc instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGSyncGameDataNtc instance
+         */
+        public static create(properties?: room.IVGSyncGameDataNtc): room.VGSyncGameDataNtc;
+
+        /**
+         * Encodes the specified VGSyncGameDataNtc message. Does not implicitly {@link room.VGSyncGameDataNtc.verify|verify} messages.
+         * @param message VGSyncGameDataNtc message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGSyncGameDataNtc, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGSyncGameDataNtc message, length delimited. Does not implicitly {@link room.VGSyncGameDataNtc.verify|verify} messages.
+         * @param message VGSyncGameDataNtc message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGSyncGameDataNtc, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGSyncGameDataNtc message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGSyncGameDataNtc
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGSyncGameDataNtc;
+
+        /**
+         * Decodes a VGSyncGameDataNtc message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGSyncGameDataNtc
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGSyncGameDataNtc;
+
+        /**
+         * Verifies a VGSyncGameDataNtc message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGGameStartNtc. */
+    interface IVGGameStartNtc {
+
+        /** VGGameStartNtc roundGuid */
+        roundGuid?: (string|null);
+
+        /** VGGameStartNtc userInfos */
+        userInfos?: (room.IVGUserInfo[]|null);
+
+        /** VGGameStartNtc dicePoint */
+        dicePoint?: (number[]|null);
+    }
+
+    /** Represents a VGGameStartNtc. */
+    class VGGameStartNtc implements IVGGameStartNtc {
+
+        /**
+         * Constructs a new VGGameStartNtc.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGGameStartNtc);
+
+        /** VGGameStartNtc roundGuid. */
+        public roundGuid: string;
+
+        /** VGGameStartNtc userInfos. */
+        public userInfos: room.IVGUserInfo[];
+
+        /** VGGameStartNtc dicePoint. */
+        public dicePoint: number[];
+
+        /**
+         * Creates a new VGGameStartNtc instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGGameStartNtc instance
+         */
+        public static create(properties?: room.IVGGameStartNtc): room.VGGameStartNtc;
+
+        /**
+         * Encodes the specified VGGameStartNtc message. Does not implicitly {@link room.VGGameStartNtc.verify|verify} messages.
+         * @param message VGGameStartNtc message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGGameStartNtc, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGGameStartNtc message, length delimited. Does not implicitly {@link room.VGGameStartNtc.verify|verify} messages.
+         * @param message VGGameStartNtc message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGGameStartNtc, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGGameStartNtc message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGGameStartNtc
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGGameStartNtc;
+
+        /**
+         * Decodes a VGGameStartNtc message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGGameStartNtc
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGGameStartNtc;
+
+        /**
+         * Verifies a VGGameStartNtc message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGGameSendCardNtc. */
+    interface IVGGameSendCardNtc {
+
+        /** VGGameSendCardNtc roundGuid */
+        roundGuid?: (string|null);
+
+        /** VGGameSendCardNtc userInfos */
+        userInfos?: (room.IVGUserInfo[]|null);
+
+        /** VGGameSendCardNtc remainCount */
+        remainCount?: (number|null);
+    }
+
+    /** Represents a VGGameSendCardNtc. */
+    class VGGameSendCardNtc implements IVGGameSendCardNtc {
+
+        /**
+         * Constructs a new VGGameSendCardNtc.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGGameSendCardNtc);
+
+        /** VGGameSendCardNtc roundGuid. */
+        public roundGuid: string;
+
+        /** VGGameSendCardNtc userInfos. */
+        public userInfos: room.IVGUserInfo[];
+
+        /** VGGameSendCardNtc remainCount. */
+        public remainCount: number;
+
+        /**
+         * Creates a new VGGameSendCardNtc instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGGameSendCardNtc instance
+         */
+        public static create(properties?: room.IVGGameSendCardNtc): room.VGGameSendCardNtc;
+
+        /**
+         * Encodes the specified VGGameSendCardNtc message. Does not implicitly {@link room.VGGameSendCardNtc.verify|verify} messages.
+         * @param message VGGameSendCardNtc message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGGameSendCardNtc, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGGameSendCardNtc message, length delimited. Does not implicitly {@link room.VGGameSendCardNtc.verify|verify} messages.
+         * @param message VGGameSendCardNtc message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGGameSendCardNtc, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGGameSendCardNtc message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGGameSendCardNtc
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGGameSendCardNtc;
+
+        /**
+         * Decodes a VGGameSendCardNtc message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGGameSendCardNtc
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGGameSendCardNtc;
+
+        /**
+         * Verifies a VGGameSendCardNtc message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGGameOperationNtc. */
+    interface IVGGameOperationNtc {
+
+        /** VGGameOperationNtc roundGuid */
+        roundGuid?: (string|null);
+
+        /** VGGameOperationNtc seatid */
+        seatid?: (number|null);
+
+        /** VGGameOperationNtc operation */
+        operation?: (room.IMJ_Operation[]|null);
+
+        /** VGGameOperationNtc second */
+        second?: (number|null);
+    }
+
+    /** Represents a VGGameOperationNtc. */
+    class VGGameOperationNtc implements IVGGameOperationNtc {
+
+        /**
+         * Constructs a new VGGameOperationNtc.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGGameOperationNtc);
+
+        /** VGGameOperationNtc roundGuid. */
+        public roundGuid: string;
+
+        /** VGGameOperationNtc seatid. */
+        public seatid: number;
+
+        /** VGGameOperationNtc operation. */
+        public operation: room.IMJ_Operation[];
+
+        /** VGGameOperationNtc second. */
+        public second: number;
+
+        /**
+         * Creates a new VGGameOperationNtc instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGGameOperationNtc instance
+         */
+        public static create(properties?: room.IVGGameOperationNtc): room.VGGameOperationNtc;
+
+        /**
+         * Encodes the specified VGGameOperationNtc message. Does not implicitly {@link room.VGGameOperationNtc.verify|verify} messages.
+         * @param message VGGameOperationNtc message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGGameOperationNtc, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGGameOperationNtc message, length delimited. Does not implicitly {@link room.VGGameOperationNtc.verify|verify} messages.
+         * @param message VGGameOperationNtc message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGGameOperationNtc, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGGameOperationNtc message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGGameOperationNtc
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGGameOperationNtc;
+
+        /**
+         * Decodes a VGGameOperationNtc message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGGameOperationNtc
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGGameOperationNtc;
+
+        /**
+         * Verifies a VGGameOperationNtc message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGGameResultNtc. */
+    interface IVGGameResultNtc {
+
+        /** VGGameResultNtc roomID */
+        roomID?: (number|null);
+
+        /** VGGameResultNtc tableID */
+        tableID?: (string|null);
+
+        /** VGGameResultNtc roundGuid */
+        roundGuid?: (string|null);
+
+        /** VGGameResultNtc userInfos */
+        userInfos?: (room.IVGUserInfo[]|null);
+
+        /** VGGameResultNtc settlementInfos */
+        settlementInfos?: (room.IMJ_SettlementInfo[]|null);
+    }
+
+    /** Represents a VGGameResultNtc. */
+    class VGGameResultNtc implements IVGGameResultNtc {
+
+        /**
+         * Constructs a new VGGameResultNtc.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGGameResultNtc);
+
+        /** VGGameResultNtc roomID. */
+        public roomID: number;
+
+        /** VGGameResultNtc tableID. */
+        public tableID: string;
+
+        /** VGGameResultNtc roundGuid. */
+        public roundGuid: string;
+
+        /** VGGameResultNtc userInfos. */
+        public userInfos: room.IVGUserInfo[];
+
+        /** VGGameResultNtc settlementInfos. */
+        public settlementInfos: room.IMJ_SettlementInfo[];
+
+        /**
+         * Creates a new VGGameResultNtc instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGGameResultNtc instance
+         */
+        public static create(properties?: room.IVGGameResultNtc): room.VGGameResultNtc;
+
+        /**
+         * Encodes the specified VGGameResultNtc message. Does not implicitly {@link room.VGGameResultNtc.verify|verify} messages.
+         * @param message VGGameResultNtc message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGGameResultNtc, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGGameResultNtc message, length delimited. Does not implicitly {@link room.VGGameResultNtc.verify|verify} messages.
+         * @param message VGGameResultNtc message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGGameResultNtc, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGGameResultNtc message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGGameResultNtc
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGGameResultNtc;
+
+        /**
+         * Decodes a VGGameResultNtc message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGGameResultNtc
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGGameResultNtc;
+
+        /**
+         * Verifies a VGGameResultNtc message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGUserDapiaoReq. */
+    interface IVGUserDapiaoReq {
+
+        /** VGUserDapiaoReq dapiao */
+        dapiao?: (number|null);
+    }
+
+    /** Represents a VGUserDapiaoReq. */
+    class VGUserDapiaoReq implements IVGUserDapiaoReq {
+
+        /**
+         * Constructs a new VGUserDapiaoReq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGUserDapiaoReq);
+
+        /** VGUserDapiaoReq dapiao. */
+        public dapiao: number;
+
+        /**
+         * Creates a new VGUserDapiaoReq instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGUserDapiaoReq instance
+         */
+        public static create(properties?: room.IVGUserDapiaoReq): room.VGUserDapiaoReq;
+
+        /**
+         * Encodes the specified VGUserDapiaoReq message. Does not implicitly {@link room.VGUserDapiaoReq.verify|verify} messages.
+         * @param message VGUserDapiaoReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGUserDapiaoReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGUserDapiaoReq message, length delimited. Does not implicitly {@link room.VGUserDapiaoReq.verify|verify} messages.
+         * @param message VGUserDapiaoReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGUserDapiaoReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGUserDapiaoReq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGUserDapiaoReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGUserDapiaoReq;
+
+        /**
+         * Decodes a VGUserDapiaoReq message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGUserDapiaoReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGUserDapiaoReq;
+
+        /**
+         * Verifies a VGUserDapiaoReq message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGUserDapiaoAck. */
+    interface IVGUserDapiaoAck {
+
+        /** VGUserDapiaoAck result */
+        result?: (number|null);
+
+        /** VGUserDapiaoAck userInfo */
+        userInfo?: (room.IVGUserInfo|null);
+    }
+
+    /** Represents a VGUserDapiaoAck. */
+    class VGUserDapiaoAck implements IVGUserDapiaoAck {
+
+        /**
+         * Constructs a new VGUserDapiaoAck.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGUserDapiaoAck);
+
+        /** VGUserDapiaoAck result. */
+        public result: number;
+
+        /** VGUserDapiaoAck userInfo. */
+        public userInfo?: (room.IVGUserInfo|null);
+
+        /**
+         * Creates a new VGUserDapiaoAck instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGUserDapiaoAck instance
+         */
+        public static create(properties?: room.IVGUserDapiaoAck): room.VGUserDapiaoAck;
+
+        /**
+         * Encodes the specified VGUserDapiaoAck message. Does not implicitly {@link room.VGUserDapiaoAck.verify|verify} messages.
+         * @param message VGUserDapiaoAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGUserDapiaoAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGUserDapiaoAck message, length delimited. Does not implicitly {@link room.VGUserDapiaoAck.verify|verify} messages.
+         * @param message VGUserDapiaoAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGUserDapiaoAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGUserDapiaoAck message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGUserDapiaoAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGUserDapiaoAck;
+
+        /**
+         * Decodes a VGUserDapiaoAck message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGUserDapiaoAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGUserDapiaoAck;
+
+        /**
+         * Verifies a VGUserDapiaoAck message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGUserOperationReq. */
+    interface IVGUserOperationReq {
+
+        /** VGUserOperationReq operation */
+        operation?: (room.IMJ_Operation|null);
+    }
+
+    /** Represents a VGUserOperationReq. */
+    class VGUserOperationReq implements IVGUserOperationReq {
+
+        /**
+         * Constructs a new VGUserOperationReq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGUserOperationReq);
+
+        /** VGUserOperationReq operation. */
+        public operation?: (room.IMJ_Operation|null);
+
+        /**
+         * Creates a new VGUserOperationReq instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGUserOperationReq instance
+         */
+        public static create(properties?: room.IVGUserOperationReq): room.VGUserOperationReq;
+
+        /**
+         * Encodes the specified VGUserOperationReq message. Does not implicitly {@link room.VGUserOperationReq.verify|verify} messages.
+         * @param message VGUserOperationReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGUserOperationReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGUserOperationReq message, length delimited. Does not implicitly {@link room.VGUserOperationReq.verify|verify} messages.
+         * @param message VGUserOperationReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGUserOperationReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGUserOperationReq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGUserOperationReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGUserOperationReq;
+
+        /**
+         * Decodes a VGUserOperationReq message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGUserOperationReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGUserOperationReq;
+
+        /**
+         * Verifies a VGUserOperationReq message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGUserOperationAck. */
+    interface IVGUserOperationAck {
+
+        /** VGUserOperationAck result */
+        result?: (number|null);
+
+        /** VGUserOperationAck seatID */
+        seatID?: (number|null);
+
+        /** VGUserOperationAck operation */
+        operation?: (room.IMJ_Operation|null);
+
+        /** VGUserOperationAck remainCount */
+        remainCount?: (number|null);
+
+        /** VGUserOperationAck userInfo */
+        userInfo?: (room.IVGUserInfo|null);
+    }
+
+    /** Represents a VGUserOperationAck. */
+    class VGUserOperationAck implements IVGUserOperationAck {
+
+        /**
+         * Constructs a new VGUserOperationAck.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGUserOperationAck);
+
+        /** VGUserOperationAck result. */
+        public result: number;
+
+        /** VGUserOperationAck seatID. */
+        public seatID: number;
+
+        /** VGUserOperationAck operation. */
+        public operation?: (room.IMJ_Operation|null);
+
+        /** VGUserOperationAck remainCount. */
+        public remainCount: number;
+
+        /** VGUserOperationAck userInfo. */
+        public userInfo?: (room.IVGUserInfo|null);
+
+        /**
+         * Creates a new VGUserOperationAck instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGUserOperationAck instance
+         */
+        public static create(properties?: room.IVGUserOperationAck): room.VGUserOperationAck;
+
+        /**
+         * Encodes the specified VGUserOperationAck message. Does not implicitly {@link room.VGUserOperationAck.verify|verify} messages.
+         * @param message VGUserOperationAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGUserOperationAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGUserOperationAck message, length delimited. Does not implicitly {@link room.VGUserOperationAck.verify|verify} messages.
+         * @param message VGUserOperationAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGUserOperationAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGUserOperationAck message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGUserOperationAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGUserOperationAck;
+
+        /**
+         * Decodes a VGUserOperationAck message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGUserOperationAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGUserOperationAck;
+
+        /**
+         * Verifies a VGUserOperationAck message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGUserManagedReq. */
+    interface IVGUserManagedReq {
+
+        /** VGUserManagedReq isManaged */
+        isManaged?: (number|null);
+    }
+
+    /** Represents a VGUserManagedReq. */
+    class VGUserManagedReq implements IVGUserManagedReq {
+
+        /**
+         * Constructs a new VGUserManagedReq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGUserManagedReq);
+
+        /** VGUserManagedReq isManaged. */
+        public isManaged: number;
+
+        /**
+         * Creates a new VGUserManagedReq instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGUserManagedReq instance
+         */
+        public static create(properties?: room.IVGUserManagedReq): room.VGUserManagedReq;
+
+        /**
+         * Encodes the specified VGUserManagedReq message. Does not implicitly {@link room.VGUserManagedReq.verify|verify} messages.
+         * @param message VGUserManagedReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGUserManagedReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGUserManagedReq message, length delimited. Does not implicitly {@link room.VGUserManagedReq.verify|verify} messages.
+         * @param message VGUserManagedReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGUserManagedReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGUserManagedReq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGUserManagedReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGUserManagedReq;
+
+        /**
+         * Decodes a VGUserManagedReq message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGUserManagedReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGUserManagedReq;
+
+        /**
+         * Verifies a VGUserManagedReq message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGUserManagedAck. */
+    interface IVGUserManagedAck {
+
+        /** VGUserManagedAck result */
+        result?: (number|null);
+
+        /** VGUserManagedAck isManaged */
+        isManaged?: (number|null);
+    }
+
+    /** Represents a VGUserManagedAck. */
+    class VGUserManagedAck implements IVGUserManagedAck {
+
+        /**
+         * Constructs a new VGUserManagedAck.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGUserManagedAck);
+
+        /** VGUserManagedAck result. */
+        public result: number;
+
+        /** VGUserManagedAck isManaged. */
+        public isManaged: number;
+
+        /**
+         * Creates a new VGUserManagedAck instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGUserManagedAck instance
+         */
+        public static create(properties?: room.IVGUserManagedAck): room.VGUserManagedAck;
+
+        /**
+         * Encodes the specified VGUserManagedAck message. Does not implicitly {@link room.VGUserManagedAck.verify|verify} messages.
+         * @param message VGUserManagedAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGUserManagedAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGUserManagedAck message, length delimited. Does not implicitly {@link room.VGUserManagedAck.verify|verify} messages.
+         * @param message VGUserManagedAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGUserManagedAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGUserManagedAck message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGUserManagedAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGUserManagedAck;
+
+        /**
+         * Decodes a VGUserManagedAck message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGUserManagedAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGUserManagedAck;
+
+        /**
+         * Verifies a VGUserManagedAck message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a VGUserChatMsg. */
+    interface IVGUserChatMsg {
+
+        /** VGUserChatMsg roomID */
+        roomID?: (number|null);
+
+        /** VGUserChatMsg tableID */
+        tableID?: (string|null);
+
+        /** VGUserChatMsg seatID */
+        seatID?: (number|null);
+
+        /** VGUserChatMsg userName */
+        userName?: (string|null);
+
+        /** VGUserChatMsg msg */
+        msg?: (string|null);
+    }
+
+    /** Represents a VGUserChatMsg. */
+    class VGUserChatMsg implements IVGUserChatMsg {
+
+        /**
+         * Constructs a new VGUserChatMsg.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IVGUserChatMsg);
+
+        /** VGUserChatMsg roomID. */
+        public roomID: number;
+
+        /** VGUserChatMsg tableID. */
+        public tableID: string;
+
+        /** VGUserChatMsg seatID. */
+        public seatID: number;
+
+        /** VGUserChatMsg userName. */
+        public userName: string;
+
+        /** VGUserChatMsg msg. */
+        public msg: string;
+
+        /**
+         * Creates a new VGUserChatMsg instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns VGUserChatMsg instance
+         */
+        public static create(properties?: room.IVGUserChatMsg): room.VGUserChatMsg;
+
+        /**
+         * Encodes the specified VGUserChatMsg message. Does not implicitly {@link room.VGUserChatMsg.verify|verify} messages.
+         * @param message VGUserChatMsg message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IVGUserChatMsg, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified VGUserChatMsg message, length delimited. Does not implicitly {@link room.VGUserChatMsg.verify|verify} messages.
+         * @param message VGUserChatMsg message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IVGUserChatMsg, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a VGUserChatMsg message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns VGUserChatMsg
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGUserChatMsg;
+
+        /**
+         * Decodes a VGUserChatMsg message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns VGUserChatMsg
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGUserChatMsg;
+
+        /**
+         * Verifies a VGUserChatMsg message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a MagicTilesReq. */
+    interface IMagicTilesReq {
+
+        /** MagicTilesReq tile */
+        tile?: (number|null);
+    }
+
+    /** Represents a MagicTilesReq. */
+    class MagicTilesReq implements IMagicTilesReq {
+
+        /**
+         * Constructs a new MagicTilesReq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IMagicTilesReq);
+
+        /** MagicTilesReq tile. */
+        public tile: number;
+
+        /**
+         * Creates a new MagicTilesReq instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns MagicTilesReq instance
+         */
+        public static create(properties?: room.IMagicTilesReq): room.MagicTilesReq;
+
+        /**
+         * Encodes the specified MagicTilesReq message. Does not implicitly {@link room.MagicTilesReq.verify|verify} messages.
+         * @param message MagicTilesReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IMagicTilesReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified MagicTilesReq message, length delimited. Does not implicitly {@link room.MagicTilesReq.verify|verify} messages.
+         * @param message MagicTilesReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IMagicTilesReq, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a MagicTilesReq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MagicTilesReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.MagicTilesReq;
+
+        /**
+         * Decodes a MagicTilesReq message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MagicTilesReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.MagicTilesReq;
+
+        /**
+         * Verifies a MagicTilesReq message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+    }
+
+    /** Properties of a MagicTilesAck. */
+    interface IMagicTilesAck {
+
+        /** MagicTilesAck tiles */
+        tiles?: (number[]|null);
+    }
+
+    /** Represents a MagicTilesAck. */
+    class MagicTilesAck implements IMagicTilesAck {
+
+        /**
+         * Constructs a new MagicTilesAck.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: room.IMagicTilesAck);
+
+        /** MagicTilesAck tiles. */
+        public tiles: number[];
+
+        /**
+         * Creates a new MagicTilesAck instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns MagicTilesAck instance
+         */
+        public static create(properties?: room.IMagicTilesAck): room.MagicTilesAck;
+
+        /**
+         * Encodes the specified MagicTilesAck message. Does not implicitly {@link room.MagicTilesAck.verify|verify} messages.
+         * @param message MagicTilesAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: room.IMagicTilesAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Encodes the specified MagicTilesAck message, length delimited. Does not implicitly {@link room.MagicTilesAck.verify|verify} messages.
+         * @param message MagicTilesAck message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: room.IMagicTilesAck, writer?: protobuf.Writer): protobuf.Writer;
+
+        /**
+         * Decodes a MagicTilesAck message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns MagicTilesAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.MagicTilesAck;
+
+        /**
+         * Decodes a MagicTilesAck message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns MagicTilesAck
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.MagicTilesAck;
+
+        /**
+         * Verifies a MagicTilesAck message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
