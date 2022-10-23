@@ -145,7 +145,7 @@ class ViewManager extends egret.DisplayObjectContainer {
 	public reTimeOut(): void {
 		egret.clearTimeout(this.outTimeNum);
 		this.outTimeNum = egret.setTimeout(function (arg): void {
-			room.RoomWebSocket.instance().onTimeOut();
+			//room.RoomWebSocket.instance().onTimeOut();
 		}, this, 10 * 60 * 1000);
 	}
 }

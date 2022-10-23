@@ -88,7 +88,7 @@ module game {
 					break;
 				}
 			}
-			GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_GAMERESULT, true, true, body));
+			//GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_GAMERESULT, true, true, body));
 		}
 
 		/**
@@ -96,14 +96,14 @@ module game {
 		 * */
 		public static AckGameResult(body: game.RankResult): void {
 		//	body.others.unshift(body.player);
-			GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.ACK_ALLGAMERESULT, true, true, body));
+			GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.VGID_GAME_GAMERESULT, true, true, body));
 		}
 
 
 		/**
 		 *断线续完同步消息 发完玩家列表和规则后下发此消息
 			* */
-		public static AckPlayerContinued(body: game.AckEnterTable): void {
+		public static AckPlayerContinued(body: any): void {
 			game.GamePlayData.M_C_P_G_sit = body.info.currentActionSeat;
 			if (game.GamePlayData.M_C_P_G_sit == -1) {
 				game.GamePlayData.M_C_P_G_sit = GameParmes.firstSit;
@@ -182,7 +182,7 @@ module game {
 
 			// }
 
-			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.ACK_GAMECONTINUED, true, true, is_Card));
+			//GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.ACK_GAMECONTINUED, true, true, is_Card));
 		}
 
 

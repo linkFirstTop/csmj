@@ -16,7 +16,7 @@ module game {
 		{
 			super.childrenCreated();
 		}
-		public setInfo(info:proto.Fan):void{
+		public setInfo(info:any):void{
 			let str:string = Global.getTypeName(info.fanxing);
 			this.lbInfo.text=str;
 			this.lbCoin.text=info.taishu+Global.dic["台"];

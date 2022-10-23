@@ -408,26 +408,26 @@ module game {
 			this.textSit3.restrict = "0-9,";
 			this.parItem.addChild(this.textSit3);
 		}
-		private strToCard(str: string): proto.HandCards {
-			var handC: proto.HandCards = new proto.HandCards();
-			var tempArr0: Array<string> = str.split(",");
-			handC.cards = [];
-			var tempC0: Array<proto.CardInfo> = [];
-			for (var i: number = 0; i <= tempArr0.length; i++) {
-				var cardId: number = parseInt("0x" + tempArr0[i]);
-				var cardInfo: proto.CardInfo = new proto.CardInfo();
-				cardInfo.CardID = cardId;
-				if (cardId != 0 && isNaN(cardId) == false) {
-					handC.cards.push(cardInfo);
-				} else {
-					console.log("");
+		// private strToCard(str: string): proto.HandCards {
+		// 	var handC: proto.HandCards = new proto.HandCards();
+		// 	var tempArr0: Array<string> = str.split(",");
+		// 	handC.cards = [];
+		// 	var tempC0: Array<proto.CardInfo> = [];
+		// 	for (var i: number = 0; i <= tempArr0.length; i++) {
+		// 		var cardId: number = parseInt("0x" + tempArr0[i]);
+		// 		var cardInfo: proto.CardInfo = new proto.CardInfo();
+		// 		cardInfo.CardID = cardId;
+		// 		if (cardId != 0 && isNaN(cardId) == false) {
+		// 			handC.cards.push(cardInfo);
+		// 		} else {
+		// 			console.log("");
 
-				}
+		// 		}
 
 
-			}
-			return handC;
-		}
+		// 	}
+		// 	return handC;
+		// }
 		private onClick(e: egret.TouchEvent): void {
 			console.log("点击开局发牌"+e.target.name);
 			if (e.target.name == "kai") {
@@ -445,40 +445,40 @@ module game {
 				// 	this.txtModel.text = "开局发牌";
 				// }
 				var zhuangSit: number = 0;
-				if (this.textFirstSit.text != "") {
-					zhuangSit = Number(this.textFirstSit.text);
-				}
-				var handCards: Array<proto.HandCards> = [];
-				var hand0: proto.HandCards = new proto.HandCards();
+				// if (this.textFirstSit.text != "") {
+				// 	zhuangSit = Number(this.textFirstSit.text);
+				// }
+				// var handCards: Array<proto.HandCards> = [];
+				// var hand0: proto.HandCards = new proto.HandCards();
 
-				if (this.textSit0.text != "") {
-					hand0 = this.strToCard(this.textSit0.text);
-					hand0.seat = 0;
+				// if (this.textSit0.text != "") {
+				// 	hand0 = this.strToCard(this.textSit0.text);
+				// 	hand0.seat = 0;
 
-				}
-				var hand1: proto.HandCards = new proto.HandCards();
+				// }
+				// var hand1: proto.HandCards = new proto.HandCards();
 
-				if (this.textSit1.text != "") {
-					hand1 = this.strToCard(this.textSit1.text);
-					hand1.seat = 1;
-				}
-				var hand2: proto.HandCards = new proto.HandCards();
+				// if (this.textSit1.text != "") {
+				// 	hand1 = this.strToCard(this.textSit1.text);
+				// 	hand1.seat = 1;
+				// }
+				// var hand2: proto.HandCards = new proto.HandCards();
 
-				if (this.textSit2.text != "") {
-					hand2 = this.strToCard(this.textSit2.text);
-					hand2.seat = 2;
-				}
-				var hand3: proto.HandCards = new proto.HandCards();
+				// if (this.textSit2.text != "") {
+				// 	hand2 = this.strToCard(this.textSit2.text);
+				// 	hand2.seat = 2;
+				// }
+				// var hand3: proto.HandCards = new proto.HandCards();
 
-				if (this.textSit3.text != "") {
-					hand3 = this.strToCard(this.textSit3.text);
-					hand3.seat = 3;
-				}
+				// if (this.textSit3.text != "") {
+				// 	hand3 = this.strToCard(this.textSit3.text);
+				// 	hand3.seat = 3;
+				// }
 
-				handCards.push(hand0);
-				handCards.push(hand1);
-				handCards.push(hand2);
-				handCards.push(hand3);
+				// handCards.push(hand0);
+				// handCards.push(hand1);
+				// handCards.push(hand2);
+				// handCards.push(hand3);
 				Global.zhuangSit = zhuangSit;
 				// Global.handCardsFP = handCards;
 				//room.RoomWebSocket.instance().roomSender.ReqZxiaPai(Global.zhuangSit,Global.handCardsFP);
@@ -495,7 +495,7 @@ module game {
 			}
 			let btn: egret.Sprite = e.target;
 
-			room.RoomWebSocket.instance().roomSender.ReqZhuaPai(Number(btn.name));
+			//room.RoomWebSocket.instance().roomSender.ReqZhuaPai(Number(btn.name));
 
 
 		}

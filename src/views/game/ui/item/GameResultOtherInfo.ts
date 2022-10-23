@@ -29,7 +29,7 @@ module game {
 			this.zhuangImg.source = "gameIcon_zhuang_" + Global.language + "_png";
 			this.icon_h.source = "gameResult_icon_htype_" + Global.language + "__png";
 		}
-		public setResult(info: proto.PlayerGameResult, type: number,hu: number): void {
+		public setResult(info: room.VGGameResultNtc, type: number,hu: number): void {
 			if(hu==1){
 				this.icon_h.visible = true;
 			}else{
@@ -44,41 +44,41 @@ module game {
 				this.gInfo.itemRendererSkinName.textColor = 0xE8ECFF;
 		
 			}
-			if (info.seat == Global.userSit) {
-				this.lbName.text = GameUtils.ReplaceChar(GameUtils.getShowName(Global.userName), 10, "...");
-				this.imgHead.source = Global.commURL + "head/iconHead" + Global.userHead + ".png";
-				// console.log(Global.commURL + "head/iconHead" + Global.userHead + ".png");
+			// if (info.seat == Global.userSit) {
+			// 	this.lbName.text = GameUtils.ReplaceChar(GameUtils.getShowName(Global.userName), 10, "...");
+			// 	this.imgHead.source = Global.commURL + "head/iconHead" + Global.userHead + ".png";
+			// 	// console.log(Global.commURL + "head/iconHead" + Global.userHead + ".png");
 
-				if (Number(info.money) >= 0) {
-					this.lbCoin.font = "resultWinGameFnt_fnt";
-					this.lbCoin.text = "+" + ChipUtils.formatCoin(Number(info.money));
-				} else {
-					this.lbCoin.font = "resultLoseGameFnt_fnt";
-					this.lbCoin.text = "-" + ChipUtils.formatCoin(-Number(info.money));
-				}
+			// 	if (Number(info.money) >= 0) {
+			// 		this.lbCoin.font = "resultWinGameFnt_fnt";
+			// 		this.lbCoin.text = "+" + ChipUtils.formatCoin(Number(info.money));
+			// 	} else {
+			// 		this.lbCoin.font = "resultLoseGameFnt_fnt";
+			// 		this.lbCoin.text = "-" + ChipUtils.formatCoin(-Number(info.money));
+			// 	}
 
-			} else {
-				this.lbName.text = GameUtils.getShowName(info.username);
-				if (Number(info.money) >= 0) {
-					this.lbCoin.font = "resultWinGameFnt_fnt";
-					this.lbCoin.text = "+" + ChipUtils.formatCoin(Number(info.money));
-				} else {
-					this.lbCoin.font = "resultLoseGameFnt_fnt";
-					this.lbCoin.text = "-" + ChipUtils.formatCoin(-Number(info.money));
-				}
-				this.imgHead.source = Global.commURL + "head/iconHead" + Global.getHeadByName(GameUtils.getShowName(info.username)) + ".png";
-				// console.log(info.username);
-				if (Global.getUserPosition(info.seat) == 2) {
-					this.imgHead.scaleX = -1;
-				}
-			}
-			if (info.seat == game.GameParmes.firstSit) {
-				this.zhuangImg.visible = true;
-			} else {
-				this.zhuangImg.visible = false;
-			}
+			// } else {
+			// 	this.lbName.text = GameUtils.getShowName(info.username);
+			// 	if (Number(info.money) >= 0) {
+			// 		this.lbCoin.font = "resultWinGameFnt_fnt";
+			// 		this.lbCoin.text = "+" + ChipUtils.formatCoin(Number(info.money));
+			// 	} else {
+			// 		this.lbCoin.font = "resultLoseGameFnt_fnt";
+			// 		this.lbCoin.text = "-" + ChipUtils.formatCoin(-Number(info.money));
+			// 	}
+			// 	this.imgHead.source = Global.commURL + "head/iconHead" + Global.getHeadByName(GameUtils.getShowName(info.username)) + ".png";
+			// 	// console.log(info.username);
+			// 	if (Global.getUserPosition(info.seat) == 2) {
+			// 		this.imgHead.scaleX = -1;
+			// 	}
+			// }
+			// if (info.seat == game.GameParmes.firstSit) {
+			// 	this.zhuangImg.visible = true;
+			// } else {
+			// 	this.zhuangImg.visible = false;
+			// }
 			// console.log(info.seat);
-			this.icon_f.source = "gameResult_icon_" + Global.getCurrentPositionName(info.seat) + "_" + Global.language + "_png";
+		//	this.icon_f.source = "gameResult_icon_" + Global.getCurrentPositionName(info.seat) + "_" + Global.language + "_png";
 
 		}
 		/*显示详细信息*/
@@ -95,7 +95,7 @@ module game {
 		
 			let znValue: Array<number> = [];
 			for (let i: number = 0; i < arr[0].cards.length; i++) {
-				let info: proto.CardInfo = arr[0].cards[i] as proto.CardInfo;
+				let info: game.CardInfo = arr[0].cards[i] as game.CardInfo;
 				let cardValue: number = game.GameParmes.getCardID(info);
 	
 				if (cardValue < 10) {//万

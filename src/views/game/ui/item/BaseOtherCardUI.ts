@@ -5,7 +5,7 @@ module game {
 		}
 		private imgBack: eui.Image = new eui.Image();
 		private imgCard: eui.Image = new eui.Image();
-		public cardInfo: proto.CardInfo;
+		public cardInfo: game.CardInfo;
 		/*p:方位 index:牌的索引 value:牌值 isAnGang:是否暗杠*/
 		public setCard(p: number, index: number, value: number, isAnGang: boolean): void {
 			let g: eui.Group = new eui.Group();

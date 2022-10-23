@@ -3,7 +3,7 @@ module game {
 		public constructor() {
 			super();
 		}
-		public cardInfo: proto.CardInfo;
+		public cardInfo: game.CardInfo;
 		public cardIndex: number = -1;
 		public isSelect: boolean = false;
 		public isTingFlag: boolean = false;

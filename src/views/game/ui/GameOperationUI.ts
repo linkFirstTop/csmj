@@ -102,35 +102,35 @@ module game {
 			var isGangyao: boolean = false;
 			var isQishouHu: boolean = false;
 			
-			console.log(data, data.operations);
-			for (var i: number = 0; i < data.operations.length; i++) {
-				var temp = data.operations[i];
-				if (temp.type == 4) {
-					isChi = true;
-				}
-				if (temp.type == 5) {
-					isPeng = true;
-				}
-				if (temp.type == 24 || temp.type == 26 ||temp.type == 27) {
-					isGangyao = true;
-				}
-				if (temp.type == 6 || temp.type == 7 || temp.type == 13) {
-					isGang = true;
+			//console.log(data, data.operations);
+			// for (var i: number = 0; i < data.operations.length; i++) {
+			// 	var temp = data.operations[i];
+			// 	if (temp.type == 4) {
+			// 		isChi = true;
+			// 	}
+			// 	if (temp.type == 5) {
+			// 		isPeng = true;
+			// 	}
+			// 	if (temp.type == 24 || temp.type == 26 ||temp.type == 27) {
+			// 		isGangyao = true;
+			// 	}
+			// 	if (temp.type == 6 || temp.type == 7 || temp.type == 13) {
+			// 		isGang = true;
 
-				}
-				if (temp.type == 8 || temp.type == 16) {
-					isHu = true;
-				}
-				if (temp.type == 16) {
-					istianHu = true;
-				}
-				if (temp.type == 25) {
-					isQishouHu = true;
-				}
-			}
-			if (data.callCards.length > 0) {
-				isTing = true;
-			}
+			// 	}
+			// 	if (temp.type == 8 || temp.type == 16) {
+			// 		isHu = true;
+			// 	}
+			// 	if (temp.type == 16) {
+			// 		istianHu = true;
+			// 	}
+			// 	if (temp.type == 25) {
+			// 		isQishouHu = true;
+			// 	}
+			// }
+			// if (data.callCards.length > 0) {
+			// 	isTing = true;
+			// }
 			console.log("isPeng:" + isPeng, "isGang:" + isGang, "isHu:" + isHu, "isTing:" + isTing, "isChi:" + isChi, "isGangyao:" + isGangyao);
 			if (isHu) {
 				this.arrTmp.unshift(this.btnHu);
@@ -225,7 +225,7 @@ module game {
 			console.log(arr);
 			console.log(GamePlayData.Gangyao_Groups[0]);
 			if (arr.length == 1) {
-				room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gangyao_Groups[0]);
+				//room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gangyao_Groups[0]);
 		
 				return;
 			}
@@ -236,7 +236,7 @@ module game {
 		private onPeng(): void {
 			this.initBtns();
 			let arr: Array<CardsGroupInfo> = GamePlayData.GetChiPengGangHuGroup(CardsGroupType.PENG);
-			room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Peng_Groups[0]);
+			//room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Peng_Groups[0]);
 
 		}
 		private onGang(): void {
@@ -244,7 +244,7 @@ module game {
 			console.log("点击普通杠");
 			var arr: Array<CardsGroupInfo> = GamePlayData.GetChiPengGangHuGroup(CardsGroupType.GANG);
 			if (arr.length == 1) {
-				room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gang_Groups[0]);
+				//room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gang_Groups[0]);
 
 				return;
 			}
@@ -265,7 +265,7 @@ module game {
 			let arr: Array<CardsGroupInfo> = GamePlayData.GetChiPengGangHuGroup(CardsGroupType.CHI);
 			if (arr.length == 1) {
 				this.initBtns();
-				room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Chi_Groups[0]);
+				//room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Chi_Groups[0]);
 				return;
 			}
 			this.isChi = true;
@@ -278,7 +278,7 @@ module game {
 			if (GameParmes.nHuType == 16) {//此时是天胡情况
 				this.dispatchEvent(new egret.Event("ShowTianHuFlag"));
 			} else {
-				room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Hu_Groups[0]);
+				//room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Hu_Groups[0]);
 
 			}
 			this.initBtns();
@@ -286,7 +286,7 @@ module game {
 		private onQishouHu(): void {
 			console.log("点击起手胡");
 			this.initBtns();
-			room.RoomWebSocket.instance().roomSender.ReqSendCardQiShou(GamePlayData.QiShouHu_Groups[0]);
+			//room.RoomWebSocket.instance().roomSender.ReqSendCardQiShou(GamePlayData.QiShouHu_Groups[0]);
 		}
 		private onGuo(): void {
 			this.initBtns();
@@ -302,7 +302,7 @@ module game {
 			var cardsGroup: CardsGroupInfo = new CardsGroupInfo();
 			cardsGroup.cardsit = Global.userSit;
 			cardsGroup.CardsGroupType = CardsGroupType.NO_OPERATION;
-			room.RoomWebSocket.instance().roomSender.ReqSendCard(cardsGroup);
+			//room.RoomWebSocket.instance().roomSender.ReqSendCard(cardsGroup);
 		}
 		/** 
 		 * @param arrGroup
@@ -351,13 +351,13 @@ module game {
 		private isGangYao: boolean = false;
 		private onPGGroupTap(evt: egret.TouchEvent): void {
 			var index: number = Number(evt.target.name);
-			if (this.isChi == true) {
-				room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Chi_Groups[index]);
-			}else if (this.isGangYao == true){
-				room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gangyao_Groups[index]);
-			}else {
-				room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gang_Groups[index]);
-			}
+			// if (this.isChi == true) {
+			// 	room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Chi_Groups[index]);
+			// }else if (this.isGangYao == true){
+			// 	room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gangyao_Groups[index]);
+			// }else {
+			// 	room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gang_Groups[index]);
+			// }
 
 
 		}

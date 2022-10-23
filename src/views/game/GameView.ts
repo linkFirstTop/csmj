@@ -579,7 +579,7 @@ module game {
 				// 	game.GamePlayData.ClearHandCards(game.GamePlayData.getHandCards(p), [card], nSit);
 				// }
 	
-				game.GamePlayData.ClearHandCards(p, [card], nSit);
+				//game.GamePlayData.ClearHandCards(p, [card], nSit);
 				const Cards = [card];
 				game.GamePlayData.AddCardPool(Cards, nSit);
 				if (nSit == Global.userSit) {
@@ -744,7 +744,7 @@ module game {
 					SoundModel.playEffect(SoundModel.LOSE);
 				}
 
-				this.checkHuInfo(opt, nSit);
+				//this.checkHuInfo(opt, nSit);
 			}
 
 			//过
