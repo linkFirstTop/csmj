@@ -1,12 +1,12 @@
 class CardsGroupInfo {
 	//牌组
-	public cards: Array<proto.CardInfo> = [];
+	public cards: Array<game.CardInfo> = [];
 	//牌组类型
 	public CardsGroupType: number = 0;
 	//牌组的归属人座位号
 	public cardsit: number = -1;
 	//吃碰杠胡的那一张牌
-	public obtainCard: proto.CardInfo = new proto.CardInfo();
+	public obtainCard: game.CardInfo = new game.CardInfo();
 	public constructor() {
 	}
 	public setCopyData(data: CardsGroupInfo): void {

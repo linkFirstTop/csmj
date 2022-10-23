@@ -4,19 +4,47 @@ module game {
 		}
 		public static arrUserList: Array<game.GameUserInfo> = [];
 		public static saveUserListInfo(arr: Array<any>): void {
+			console.log("==saveUserListInfo=", arr)
 			game.GameUserList.arrUserList = [];
 			for (let i: number = 0; i < arr.length; i++) {
-				let info = arr[i];
+				let info:room.IVGUserInfo = arr[i];
 				let user: game.GameUserInfo = new game.GameUserInfo();
-				user.userName = info.user.nickName;
-				user.userShowName = info.user.nickName;
-				user.userSit = info.seatNo;
-				user.userCoin = Number(info.user.goldCoin);
-				user.userImage = info.user.avatar;
+				user.userName = info.userName;
+				user.userShowName = info.showName;
+				user.userSit = info.userPos.seatID;
+				user.userCoin = Number(info.gameCoin);
+				user.userPos = info.userPos;
+				//user.userImage = info.user.avatar;
 				game.GameUserList.arrUserList.push(user);
 				if (user.userName == Global.userName) {
 					Global.userSit = user.userSit;
 				}
+			}
+		}
+
+
+		public static updateUserListInfo(arr: Array<room.IVGUserInfo>) {
+			for (let i: number = 0; i < arr.length; i++) {
+				let info = arr[i];
+				// console.log("====info",info)
+				let user: game.GameUserInfo = this.arrUserList[i];
+				if (!user) {
+					user = new game.GameUserInfo();
+					game.GameUserList.arrUserList.push(user);
+
+				}
+				user.userName = info.userName;
+				user.userShowName = info.showName;
+				user.userSit = info.userPos.seatID;
+				user.userCoin = Number(info.gameCoin);
+				user.userImage = "";
+				user.origin = info;
+
+				if (user.userName == Global.userName) {
+					Global.userSit = user.userSit;
+					// console.log("===在这个地方 给角色 座位 ID",Global.userSit)
+				}
+				user.init();
 			}
 		}
 		/**
@@ -25,6 +53,108 @@ module game {
 		public static getPlayerformSit(sit: number): game.GameUserInfo {
 			return game.GameUserList.arrUserList[sit];
 		}
+
+		/**
+		 * 获取自己的信息
+		 * @returns 
+		 */
+		public static getCurrentPlayerInfo(): game.GameUserInfo {
+			return game.GameUserList.arrUserList[2]
+		}
+
+		/**
+		 * 根据名称 查询自己的座位
+		 */
+		public static getUserSitByName(name:string) {
+			let sit = -1;
+			game.GameUserList.arrUserList.forEach((e:game.GameUserInfo)=>{
+				if(e.userName == name){
+					sit = e.userSit
+				}
+
+			})
+			return sit;
+		}
 	}
+
+	export enum RoomStatus {
+		/*
+		*默认状态什么都不处理
+		*/
+		MJ_GS_DF = 0,
+		//开局动画状态
+		MJ_GS_ANIM_KJ = 1,
+		//打漂状态
+		MJ_GS_DP      = 2,
+		//开局状态
+		MJ_GS_KJ      = 3,
+		//发牌状态
+		MJ_GS_FP = 4,
+		//行牌状态
+		MJ_GS_XP = 5,
+		//结算状态
+		MJ_GS_JS = 6,
+
+	}
+
+	export class RoomInfo {
+
+		private static _ins: RoomInfo;
+
+		public static get ins() {
+			if (!this._ins) {
+				this._ins = new RoomInfo();
+			}
+			return this._ins;
+		}
+
+		constructor() {
+			this.timer.addEventListener(egret.TimerEvent.TIMER, this.listenerUpdate, this);
+			this.timer.start();
+		}
+
+		private timer: egret.Timer = new egret.Timer(1000);
+
+
+		private _status: RoomStatus = RoomStatus.MJ_GS_DF;
+
+		private _lastStatus: RoomStatus = RoomStatus.MJ_GS_DF;
+
+		private _curStateEndTime: number = 0;
+
+		public ChangeStatus(value: RoomStatus, timer: number) {
+			GameParmes.gameStage = value;
+			if (this._status === value) {
+				return;
+			}
+			this._lastStatus = this._status;
+			this._status = value;
+			this._curStateEndTime = timer;
+			GDGame.Msg.ins.dispatchEventWith(game.GameMessage.VGID_GAME_GAMESTART);
+		}
+
+		public get status(): RoomStatus {
+			return this._status;
+		}
+
+		public get curStateEndTime(): number {
+			return this._curStateEndTime;
+		}
+
+		public get lastStatus(): RoomStatus {
+			return this._lastStatus;
+		}
+
+		private listenerUpdate() {
+			if (this._curStateEndTime <= 0) {
+				return;
+			}
+			this._curStateEndTime -= 1;
+		}
+
+
+
+	}
+
 }
 

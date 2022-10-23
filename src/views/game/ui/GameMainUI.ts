@@ -265,25 +265,7 @@ module game {
 			}
 
 		}
-		/*显示玩家的定缺*/
-		public onUserDingQue(): void {
-			let len: number = game.GameUserList.arrUserList.length;
-			for (let i: number = 0; i < len; i++) {
-				let user: game.GameUserInfo = game.GameUserList.arrUserList[i];
-				let p: number = Global.getUserPosition(user.userSit);
-				if (p == 2) {
-					this["gameUser" + p].setUserDQ(user.cardType, "left");
-				} else {
-					this["gameUser" + p].setUserDQ(user.cardType, "right");
-				}
-				if (Global.userSit == user.userSit) {
-					//重新排序自己的手牌
-					GamePlayData.SortHandCardQue(user.cardType);
-					this.gameHand.updataHandsByPosition(Global.userSit, 0, true);
-				}
-			}
-			// this.gameHSZ.initHSZ();
-		}
+
 		// public startHSZAndDQ(state:number):void{
 		// 	if(state == 1){//换三张提示
 		// 		this.gameHSZ.showHSZTips();
@@ -292,21 +274,7 @@ module game {
 		// 		this.gameHSZ.showDQTips();
 		// 	}
 
-		// }
-		// /*玩家换三张*/
-		// public onUserHSZ(data:game.AckHuanSanZhang):void{
-		// 	this.gameHSZ.showHSZAnim(data.order);
-		// }
-		private onHSZAnimComplete(): void {
-			this.gameHand.updataHandsByPosition(Global.userSit, 0);
-			this.gameHand.showHandCardAnim(GamePlayData.HSZGetCards);
-			//发送换三张结束
-			game.GameWebSocket.instance().gameSender.ReqHuanSanZhangEnd();
-		}
-		/*玩家点击了换三张的确定按钮*/
-		private onSendHSZCards(): void {
-			this.gameHand.adjustMyHandCard();
-		}
+
 		public showHuaCard(sit, CardID): void {
 			this.gameHand.showHuCard(sit, CardID, 0);
 		}
@@ -315,7 +283,7 @@ module game {
 			//this.gameHand.showHuCard(sit,huCardID,type);
 		}
 		/*玩家出牌*/
-		public userSendCard(card: proto.CardInfo, b: boolean): void {
+		public userSendCard(card: game.CardInfo, b: boolean): void {
 			this.gameOpt.visible = false;
 			this.gamePool.addCardToPool(card);
 			this.gameHand.updataHandsByPosition(card.Sit, 0);
@@ -330,8 +298,13 @@ module game {
 				}
 			}
 		}
+
+		public showRoomGUID(guid: string) {
+
+			//this.duyi.text = `${Global.dic["局号"]}:${guid}`;
+		}
 		/*显示吃碰杠等操作按钮*/
-		public onShowOpt(data: proto.NotUserOperation): void {
+		public onShowOpt(data:  Array<any>): void {
 			this.gameOpt.showOpt(data);//0 吃 1碰 2杠 3胡 4听
 			this.onCloseTingFlag();
 			this.gamePosition.startTime(GameParmes.chiPengGangSurplusTime);
@@ -387,12 +360,12 @@ module game {
 		}
 		/*取消托管*/
 		private onCancelTrust(): void {
-			room.RoomWebSocket.instance().roomSender.TRUST();
+			room.RoomWebSocket.instance().roomSender.ReqGamePlayerReleveTrustFun()
 		}
 		/**
 		 * @param card 得到的牌的信息
 		 */
-		public getOneCard(card: proto.CardInfo): void {
+		public getOneCard(card: game.CardInfo): void {
 			this.gameOpt.visible = false;
 			this.showWallCount();
 			//在打牌阶段得倒的牌不用刷新，把牌放在最右边
@@ -429,7 +402,7 @@ module game {
 		 * @param nSit 吃碰杠玩家座位号
 		 * 有玩家进行了吃碰杠操作ch
 		 */
-		public updataUserCPG(nSit: number, card: proto.CardInfo): void {
+		public updataUserCPG(nSit: number, card: game.CardInfo): void {
 			this.gameHand.updataHandsByPosition(nSit, 0);
 			this.gameHand.createCPGCard(nSit);
 			if (card.Sit != nSit) {//吃碰杠的牌的座位号和吃碰的人的座位号不等，牌池的牌消失
@@ -452,22 +425,9 @@ module game {
 			this.gamePool.reductionCardsPool();//还原牌池
 			this.gamePosition.setPosition(game.GamePlayData.M_C_P_G_sit);//还原方位
 			this.showGameInfo();
-			GameWebSocket.instance().gameSender.ReqGamePlayerReleveTrustFun();//解除托管
-			if (GameParmes.gameStage == GameStageType.PLAYING) {
-				this.onUserDingQue();
-			} else if (GameParmes.gameStage == GameStageType.CHANGE) {//换三张阶段
-				if (GameParmes.nHSZComplete == 1) {//0:没有换  1:已经换了
-					game.GameWebSocket.instance().gameSender.ReqHuanSanZhangEnd();//发送换三张结束
-				} else {
-					//this.startHSZAndDQ(1);
-				}
-			} else if (GameParmes.gameStage == GameStageType.DINGQUE) {//定缺阶段
-				if (GameParmes.arrDQState.length > 0 && GameParmes.arrDQState[0] == -1) {//没有定缺
-					//this.startHSZAndDQ(2);
-				} else {
-					this.onUserDingQue();
-				}
-			}
+
+			room.RoomWebSocket.instance().roomSender.ReqGamePlayerReleveTrustFun()
+	
 			//还原胡牌数据
 			for (let i: number = 0; i < GameParmes.onBreakPlayerHuCards.length; i++) {
 				let arr: Array<number> = GameParmes.onBreakPlayerHuCards[i];
@@ -499,147 +459,12 @@ module game {
 			}
 
 		}
-		public showSomeHandCard(body: proto.AckQishouhu): void {
-			this.imgTingTip.visible = false;
-			this.gTingTip.visible = false;
-			this.gameTrust.visible = false;
-			this.gameOpt.visible = false;
-			this.isGaming = false;
-			this.gameHand.showQishouHandCard(true, 1,body);//亮开部分手牌
-			for (let i: number = 0; i < 4; i++) {
-				this["gameUser" + i].showCurrentAnim(false);
-			}
-	        console.log(body.qishouhus);
-			for (let i: number = 0; i < 4; i++) {
-					
-				let t="";
-				for (let j: number = 0; j < body.qishouhus.length; j++) {
-					if(i==body.qishouhus[j].winners){
-						if(body.qishouhus[j].qishouType.indexOf(1)>-1 && t.indexOf("b")==-1){
-							t+="b ";
-						}
-						if(body.qishouhus[j].qishouType.indexOf(2)>-1 && t.indexOf("x")==-1){
-							t+="x ";
-						}
-						if(body.qishouhus[j].qishouType.indexOf(3)>-1 && t.indexOf("l")==-1){
-							t+="l ";
-						}
-						if(body.qishouhus[j].qishouType.indexOf(4)>-1 && t.indexOf("q")==-1){
-							t+="q ";
-						}
-					}
-				}
-				console.log(t);
-				if(t!=""){
-					let p: number = Global.getUserPosition(i);
-					this["qsh" +p].text=t;
-					this["qsh" +p].visible = true;
-				}
-				
-			}
-		}
+
 		public showQishouhu(): void {
 			this.gameOpt.visible = true;
 			this.gameOpt.showQishouhu();
 		}
-		//抓鸟
-		public showZhuaNiaoResult(body: proto.NotZaNiao) {
-			this["qsh0"].visible = this["qsh1"].visible = this["qsh2"].visible = this["qsh3"].visible = false;
-			this.zniaoGroup.visible = true;
-			this.zniaoGroup.touchEnabled = false;
-			this.znaioItemGroup.removeChildren();
-			let state = 0;
-			if (body.stage == 7) {
-				let arr: Array<proto.CardInfo> = [];
-				let znValue: Array<number> = [];
-				let islight: boolean = true;//发光
-			
-				for (let i: number = 0; i < body.cardInfos.length; i++) {
-					let info: proto.CardInfo = body.cardInfos[i] as proto.CardInfo;
-					arr.push(info);
-					let cardValue: number = game.GameParmes.getCardID(info);
-					// console.log(cardValue);
-					if (cardValue < 10) {//万
-						znValue.push(cardValue);
-					} else if (cardValue >= 10 && cardValue < 19) {//条
-						znValue.push(cardValue - 9);
-					} else if (cardValue >= 19 && cardValue < 28) {//筒
-						znValue.push(cardValue - 18);
-					}
-					 let card: BaseHandCardUI = new BaseHandCardUI();
-					 card.setCard(3, i, cardValue, state, false);
-					//let card: game.BaseCardUI = new game.BaseCardUI();
-					//card.setCard(cardValue, islight);\
-					console.log(this.znaioItemGroup);
-					//card.setCard(1, islight);
-					this.znaioItemGroup.addChild(card);
-				//	game.GamePlayData.ClearHandCards(game.GamePlayData.getHandCards(info.Sit), [info], info.Sit);
-					this.userSendCard(info, true);
-					game.GamePlayData.AddCardPool(arr, arr[0].Sit);
-				}
-			
-			}
-			if (body.stage == 4) {
-				let arr: Array<proto.CardInfo> = [];
-				let znValue: Array<number> = [];
-				let islight: boolean = true;//发光
-				for (let i: number = 0; i < body.cardInfos.length; i++) {
-					let info: proto.CardInfo = body.cardInfos[i] as proto.CardInfo;
-					arr.push(info);
-					let cardValue: number = game.GameParmes.getCardID(info);
-					// console.log(cardValue);
-					if (cardValue < 10) {//万
-						znValue.push(cardValue);
-					} else if (cardValue >= 10 && cardValue < 19) {//条
-						znValue.push(cardValue - 9);
-					} else if (cardValue >= 19 && cardValue < 28) {//筒
-						znValue.push(cardValue - 18);
-					}
-					 let card: BaseHandCardUI = new BaseHandCardUI();
-					 card.setCard(3, i, cardValue, state, false);
-					//let card: game.BaseCardUI = new game.BaseCardUI();
-					//card.setCard(cardValue, islight);\
-					console.log(this.znaioItemGroup);
-					//card.setCard(1, islight);
-					this.znaioItemGroup.addChild(card);
-				}
-				var zniaoCount3: number = 0;
-				var zniaoCount2: number = 0;
-				var zniaoCount1: number = 0;
-				var zniaoCount0: number = 0;
-				egret.setTimeout(function () {
-					// 	this.zniaoGroup.visible = false;
-					for (let i: number = 0; i < znValue.length; i++) {
-						if (znValue[i] == 1 || znValue[i] == 5 || znValue[i] == 9) {
-							zniaoCount3++;
-						} else if (znValue[i] == 2 || znValue[i] == 6) {
-							zniaoCount2++;
-						} else if (znValue[i] == 3 || znValue[i] == 7) {
-							zniaoCount1++;
-						} else if (znValue[i] == 4 || znValue[i] == 8) {
-							zniaoCount0++;
-						}
-					}
-					if (Global.language == "en") {
-						this["zniao0"].x = 0;
-						this["zniao1"].x = -10;
-						this["zniao2"].x = 20;
-						this["zniao3"].x = 0;
-					}
-					this["zniao3"].visible = this["zniao2"].visible = this["zniao1"].visible = this["zniao0"].visible = true;
-					this["zniao3"].font = this["zniao2"].font = this["zniao1"].font = this["zniao0"].font = Global.language + "znFnt_fnt";
-					this["zniao3"].text = zniaoCount3 + "";
-					this["zniao2"].text = zniaoCount2 + "";
-					this["zniao1"].text = zniaoCount1 + "";
-					this["zniao0"].text = zniaoCount0 + "";
 
-				}, this, 500);
-
-
-				console.log(znValue);
-			}
-
-		}
 		public setUserTing(sit: number): void {
 			let p: number = Global.getUserPosition(sit);
 			this["gameUser" + p].setTingType(true);

@@ -88,7 +88,8 @@ module game {
 			this.gTingCards.visible = false;
 			this.btnChi.visible = false;
 		}
-		public showOpt(data: proto.NotUserOperation): void {
+		public showOpt(data: Array<any>): void {
+			console.log("====data",data)
 
 			this.initBtns();
 			this.thisData = data;
@@ -302,7 +303,6 @@ module game {
 			cardsGroup.cardsit = Global.userSit;
 			cardsGroup.CardsGroupType = CardsGroupType.NO_OPERATION;
 			room.RoomWebSocket.instance().roomSender.ReqSendCard(cardsGroup);
-
 		}
 		/** 
 		 * @param arrGroup
@@ -334,7 +334,7 @@ module game {
 				g.name = "" + i;
 				g.touchChildren = false;
 				for (let j: number = 0; j < cardGroup.cards.length; j++) {
-					let card: proto.CardInfo = cardGroup.cards[j] as proto.CardInfo;
+					let card: game.CardInfo = cardGroup.cards[j] as game.CardInfo;
 					let item: game.BaseCardUI = new game.BaseCardUI();
 					g.addChild(item);
 					let cardValue: number = game.GameParmes.getCardID(card);

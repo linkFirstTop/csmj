@@ -1,199 +1,52 @@
 module game {
 	export class GameMessage {
 		public static GAME_BASE: string = "GAME_MSG_BASE";
-		public static CLIENT_BASE: string = "GAME_CLIENT_BASE";
+		public static VGID_CLIENT: string = "GAME_CLIENT_BASE";
 		/**
-		 *请求进入GameID创建的游戏服务
-			*/
-		public static REQ_ENTERGAME: string = GameMessage.GAME_BASE + "REQ_ENTERGAME";
-		/**
-		 *返回进入游戏服务的结果
-			*/
-		public static ACK_ENTERGAME: string = GameMessage.GAME_BASE + "ACK_ENTERGAME";
-		/**
-		 *请求游戏服务准备状态
-			*/
-		public static REQ_READYGAME: string = GameMessage.GAME_BASE + "REQ_READYGAME";
-		/**
-		 *返回游戏未开时突然结束的广播消息
-			*/
-		public static ACK_OVERGAME: string = GameMessage.GAME_BASE + "ACK_OVERGAME";
-		/**
-		 *下发游戏阶段消息
-			*/
-		public static ACK_GAMESTAGE: string = GameMessage.GAME_BASE + "ACK_GAMESTAGE";
-		/**
-		 *下发游戏玩家列表
-			*/
-		public static ACK_GAMEPLAYERLIST: string = GameMessage.GAME_BASE + "ACK_GAMEPLAYERLIST";
-		/**
-		 *下发游戏规则
-			*/
-		public static ACK_GAMERULE: string = GameMessage.GAME_BASE + "ACK_GAMERULE";
-		/**
-		 *接收服务器发送的色子和手牌
-			*/
-		public static ACK_GAMEDICEANDCARDS: string = GameMessage.GAME_BASE + "ACK_GAMEDICEANDCARDS";
-		/**
-		 *开牌后补花
-			*/
-		public static NotBuhua: string = GameMessage.GAME_BASE + "NotBuhua";
-		/*庄家开始出牌*/
-		public static ACK_GAME_STARTPLAYING: string = GameMessage.GAME_BASE + "ACK_GAME_STARTPLAYING";
-		/**
-		 *客户端请求服务器理牌结束
-			*/
-		public static REQ_GAMEHANDCARDSOVER: string = GameMessage.GAME_BASE + "REQ_GAMEHANDCARDSOVER";
 
-		/**
-		 *游戏中请求的操作
-			*/
-		public static REQ_GAMESENDCARD: string = GameMessage.GAME_BASE + "REQ_GAMESENDCARD";
-		/**
-		 *游戏中返回玩家的操作
-			*/
-		public static ACK_GAMESENDCARD: string = GameMessage.GAME_BASE + "ACK_GAMESENDCARD";
-		/**
-		 *服务器通知客户端能够进行操作的权限  比如能吃碰杠胡的显示
-			*/
-		public static ACK_GAMEUSEROPERATION: string = GameMessage.GAME_BASE + "ACK_GAMEUSEROPERATION";
-		/**
-		 *服务器通知客户端结果消息
-			*/
-		public static ACK_GAMERESULT: string = GameMessage.GAME_BASE + "ACK_GAMERESULT";
-		//结算亮牌
-		public static ACK_ALLGAMEEND: string = GameMessage.GAME_BASE + "ACK_ALLGAMEEND";
-		//抓鸟
-		public static ACK_GAMEZNAIO: string = GameMessage.GAME_BASE + "ACK_GAMEZNAIO";
-		//起手胡
-		public static NOT_GAMEQishouhu: string = GameMessage.GAME_BASE + "NOT_GAMEQishouhu";
 
-		//展示起手胡
-		public static ACK_GAMESHOWQISHOU: string = GameMessage.GAME_BASE + "ACK_GAMESHOWQISHOU";
+		public static VGID_GAME_GAMESTATUS: string = GameMessage.GAME_BASE + "VGID_GAME_GAMESTATUS";
+		public static VGID_GAME_SYNCGAMEDATA: string = GameMessage.GAME_BASE + "VGID_GAME_SYNCGAMEDATA";
+		public static VGID_GAME_GAMESTART: string = GameMessage.GAME_BASE + "VGID_GAME_GAMESTART";
+		
 
-		//通知托管
-		public static NOT_CHAIR: string = GameMessage.GAME_BASE + "NOT_CHAIR";
-		//全部结算
-		public static ACK_ALLGAMERESULT: string = GameMessage.GAME_BASE + "ACK_ALLGAMERESULT";
-		/**
-		 *客户端请求服务器托管
-			*/
-		public static REQ_GAMEPLAYERTRUST: string = GameMessage.GAME_BASE + "REQ_GAMEPLAYERTRUST";
+		/**游戏状态 */
+		public static VGID_GAME_GAMESTATUS: string = GameMessage.VGID_CLIENT + "VGID_GAME_GAMESTATUS";
+
+		
+
+
+		/**发牌信息 */
+		public static VGID_GAME_GAMESTART: string = GameMessage.VGID_CLIENT + "VGID_GAME_GAMESTART";
+
+		/**发牌信息 */
+		public static VGID_GAME_SENDCARD: string = GameMessage.VGID_CLIENT + "VGID_GAME_SENDCARD";
+
+	
+		public static VGID_GAME_GAMERESULT: string = GameMessage.VGID_CLIENT + "VGID_GAME_GAMERESULT";
+		/**行牌单播消息 */
+		public static VGID_GAME_OPERATION: string = GameMessage.VGID_CLIENT + "VGID_GAME_OPERATION";
+
+		/**行牌 应答 */
+	    public static VGID_USER_OPERATION: string = GameMessage.VGID_CLIENT + "VGID_USER_OPERATION";
+
 		/**
 		 *服务器通知客户端托管
-			*/
-		public static ACK_GAMEPLAYERTRUST: string = GameMessage.GAME_BASE + "ACK_GAMEPLAYERTRUST";
-		/**
-		 *客户端请求服务器解除托管
-			*/
-		public static REQ_GAMEPLAYERRELIEVETRUST: string = GameMessage.GAME_BASE + "REQ_GAMEPLAYERRELIEVETRUST";
-		/**
-		 *服务器通知客户端解除托管
-			*/
-		public static ACK_GAMEPLAYERRELIEVETRUST: string = GameMessage.GAME_BASE + "ACK_GAMEPLAYERRELIEVETRUST";
-		/**
-		 *客户端请求服务器延时操作
-			*/
-		public static REQ_GAMEDELAY: string = GameMessage.GAME_BASE + "REQ_GAMEDELAY";
-		/**
-		 *服务器通知客户端延时操作
-			*/
-		public static ACK_GAMEDELAY: string = GameMessage.GAME_BASE + "ACK_GAMEDELAY";
-		/**
-		 *断线续完同步消息 发完玩家列表和规则后下发此消息
-			*/
-		public static ACK_GAMECONTINUED: string = GameMessage.GAME_BASE + "ACK_GAMECONTINUED";
+		*/
+		public static VGID_USER_MANAGED: string = GameMessage.VGID_CLIENT + "VGID_USER_MANAGED";
 
 		/**
 		 *广播聊天
 		*/
-		public static ACK_GAME_CHAT: string = GameMessage.GAME_BASE + "ACK_GAME_CHAT";
-		/**
-		 *广播断线
-		*/
-		public static ACK_GAME_DISCONNECTED: string = GameMessage.GAME_BASE + "ACK_GAME_DISCONNECTED";
-		/**
-		 * GPS
-		 */
-		public static ACK_GAME_GPS: string = GameMessage.GAME_BASE + "ACK_GAME_GPS";
-		/**
-		 * 心跳
-		 */
-		public static OGID_DUXLIVETICK: string = GameMessage.GAME_BASE + "OGID_DUXLIVETICK";
+		public static VGID_USER_CHAT: string = GameMessage.VGID_CLIENT + "VGID_USER_CHAT";
 
-		//========================================client==========================================
-		/**
-		 *服务器通知客户端能够进行操作的权限  比如能吃碰杠胡的显示
-			*/
-		public static ACK_GAME_USEROPERATION: string = GameMessage.CLIENT_BASE + "ACK_GAME_USEROPERATION";
-		/**
-		 *服务器通知客户端抓拍
-			*/
-		public static ACK_USER_ZHUAPAI: string = GameMessage.CLIENT_BASE + "ACK_USER_ZHUAPAI";
-		/**
-		 *服务器通知客户端请求补花操作
-			*/
-		public static ACK_USER_SELECTBUHUA: string = GameMessage.CLIENT_BASE + "ACK_USER_SELECTBUHUA";
-		/**
-		 *服务器通知客户端牌尾摸牌（补花摸牌）
-			*/
-		public static ACK_USER_PAIWEIMOPAI: string = GameMessage.CLIENT_BASE + "ACK_USER_PAIWEIMOPAI";
-		/**
-		 *服务器通知客户端打牌操作
-			*/
-		public static ACK_USER_SENDCARD: string = GameMessage.CLIENT_BASE + "ACK_USER_SENDCARD";
-		/**
-		 *服务器通知客户端吃牌
-			*/
-		public static ACK_USER_CHIPAI: string = GameMessage.CLIENT_BASE + "ACK_USER_CHIPAI";
-		/**
-	 *服务器通知客户端听牌
-		*/
-		public static ACK_USER_TINGPAI: string = GameMessage.CLIENT_BASE + "ACK_USER_TINGPAI";
-		/**
-		 *服务器通知客户端碰牌
-			*/
-		public static ACK_USER_PENGPAI: string = GameMessage.CLIENT_BASE + "ACK_USER_PENGPAI";
-		/**
-		 *服务器通知客户端明杠牌
-			*/
-		public static ACK_USER_MINGGANGPAI: string = GameMessage.CLIENT_BASE + "ACK_USER_MINGGANGPAI";
-		/**
-		 *服务器通知客户端暗杠牌
-			*/
-		public static ACK_USER_ANGANGPAI: string = GameMessage.CLIENT_BASE + "ACK_USER_ANGANGPAI";
-				/**
-		 *服务器通知客户端补杠牌
-			*/
-		public static ACK_USER_BUGANGPAI: string = GameMessage.CLIENT_BASE + "ACK_USER_BUGANGPAI";
-				/**
-		 *服务器通知客户端暗杠摇牌
-			*/
-		public static ACK_USER_ANGANGYAO: string = GameMessage.CLIENT_BASE + "ACK_USER_ANGANGYAO";
-			/**
-		 *服务器通知客户端明杠摇牌
-			*/
-		public static ACK_USER_MINGGANGYAO: string = GameMessage.CLIENT_BASE + "ACK_USER_MINGGANGYAO";
-			/**
-		 *服务器通知客户端补杠摇牌
-			*/
-		public static ACK_USER_BUGANGYAO: string = GameMessage.CLIENT_BASE + "ACK_USER_BUGANGYAO";
 
-	
-		/**
-		 *服务器通知客户端“过牌”的操作
-			*/
-		public static ACK_GAME_NO_OPERATION: string = GameMessage.CLIENT_BASE + "ACK_GAME_NO_OPERATION";
-		/**
-		 *服务器通知客户端“听”的操作
-			*/
-		public static ACK_USER_TING: string = GameMessage.CLIENT_BASE + "ACK_USER_TING";
-		/*服务器通知客户端定缺*/
-		public static ACK_USER_DINGQUE: string = GameMessage.CLIENT_BASE + "ACK_USER_DINGQUE";
-		public static ACK_USER_DINGQUE_STATE: string = GameMessage.CLIENT_BASE + "ACK_USER_DINGQUE_STATE";
-		/*换三张*/
-		public static ACK_USER_HSZ: string = GameMessage.CLIENT_BASE + "ACK_USER_HSZ";
-		public static ACK_USER_HSZ_STATE: string = GameMessage.CLIENT_BASE + "ACK_USER_HSZ_STATE";
+		/**发牌器 */
+	    public static VGID_SERVICE_MAGICTILES: string = GameMessage.VGID_CLIENT + "VGID_SERVICE_MAGICTILES";
+
+
+
+
 	}
 
 }

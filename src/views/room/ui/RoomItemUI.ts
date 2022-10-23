@@ -57,8 +57,8 @@ module room {
 		public setItem(data: any): void {
 			this.info = data;
 			// this.lbTai.text = ChipUtils.formatCoin(Number(data.taifen), true);
-			this.lbBase.text = ChipUtils.formatCoin(Number(data.baseScore), true);//底分
-			this.lbEnter.text = ChipUtils.formatCoin((data.limit[0]), true);//准入
+			this.lbBase.text = ChipUtils.formatCoin(Number(data.basic_bet), true);//底分
+			this.lbEnter.text = ChipUtils.formatCoin((data.entry_min), true);//准入
 			if (Global.language == "en") {
 				this.lbEnter.x = 32;
 			}

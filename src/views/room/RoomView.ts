@@ -27,7 +27,8 @@ module room {
 		}
 		/*更新房间列表*/
 		private onUpdataRoomList(evt: egret.Event): void {
-			var arrList: Array<any> = evt.data.roomList;
+			console.log(" evt.data==", evt.data)
+			var arrList: Array<any> = evt.data.roomInfo;
 			this.roomUI.updataRoomList(arrList);
 		}
 		/*更新玩家信息*/

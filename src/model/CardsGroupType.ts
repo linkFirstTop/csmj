@@ -78,5 +78,21 @@ module game {
 		 * */
 		public static GANG: number = 17;
 
+		public static MJ_OperationType = {
+			MJ_OT_DRAW : 0,	//摸牌
+			MJ_OT_H_DISCARD : 1,	//手切，打出的是手中的牌，吃碰之后都是手切
+			MJ_OT_D_DISCARD : 2,	//摸切，打出的是刚摸到的牌
+			MJ_OT_L_CHOW : 3,	//左吃，吃的牌是最小点, 例如45吃3
+			MJ_OT_M_CHOW : 4,	//中吃，吃的牌是中间点，例如24吃3
+			MJ_OT_R_CHOW : 5,	//右吃，吃的牌是最大点，例如12吃3
+			MJ_OT_PONG : 6,	//碰
+			MJ_OT_C_KONG : 7,	//暗杠
+			MJ_OT_E_KONG : 8,	//直杠
+			MJ_OT_P_KONG : 9,	//补杠
+			MJ_OT_TING : 10,	//听
+			MJ_OT_WIN : 11,	//和
+			MJ_OT_PASS : 12,	//过
+	}
+
 	}
 }

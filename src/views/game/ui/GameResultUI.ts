@@ -44,7 +44,7 @@ module game {
 			}
 			this.alpha = this.alpha == 1 ? 0.2 : 1;
 		}
-		public showResult(body: proto.NotGameResult): void {
+		public showResult(body: any): void {
 			console.log("页面展示");
 			this.visible = true;
 			this.alpha = 1;
@@ -52,7 +52,7 @@ module game {
 			var sourceSelf: number = 0;//自己的得分
 			console.log(body);
 			for (let i: number = 0; i < 4; i++) {
-				let info: proto.PlayerGameResult = arr[i];
+				let info:any = arr[i];
 			
 				// console.log(body);
 				let p: number = Global.getUserPosition(info.seat);

@@ -22,7 +22,7 @@ module room {
 
 		private gItems: eui.Group;
 		private gRW: eui.Group;
-		private nRoomInfo: proto.Room;
+		private nRoomInfo: room.RoomItem;
 		private historyUI: room.HistoryUI;
 		private changeHeadUI: room.ChangeHeadUI;
 		private headBtn: eui.Group;
@@ -97,6 +97,7 @@ module room {
 			this.changeLanguage.showUI();
 		}
 		public updataRoomList(arrList: Array<any>): void {
+			console.log("==arrList=",arrList)
 			this.initAnim()
 			for (let i: number = 0; i < arrList.length; i++) {
 				let info: any = arrList[i];
@@ -112,21 +113,22 @@ module room {
 			this.showRoomAnim();
 		}
 		private onGameResLoad(): void {
-			if (this.nRoomInfo && this.nRoomInfo.id > 0) {
+			if (this.nRoomInfo && this.nRoomInfo.roomID > 0) {
 				Global.roomInfo = this.nRoomInfo;
-				room.RoomWebSocket.instance().roomSender.REQ_ROOMENTERROOM(this.nRoomInfo);
+				room.RoomWebSocket.instance().roomSender.REQ_ROOMENTERROOM(this.nRoomInfo.roomID);
 			}
 			if (Global.isContinue) {
 				room.RoomWebSocket.instance().roomSender.REQ_GAMECONTINUR();
 			}
 		}
 		private onItemClick(evt: egret.Event): void {
-			var body: proto.Room = evt.data;
+			const body: room.RoomItem = evt.data;
 			this.nRoomInfo = body;
+			const roomID = body.roomID;
 			//Global.myPos.roomID = evt.data;
 			if (Global.isGameLoad) {
 				Global.roomInfo = body;
-				room.RoomWebSocket.instance().roomSender.REQ_ROOMENTERROOM(body);
+				room.RoomWebSocket.instance().roomSender.REQ_ROOMENTERROOM(roomID);
 			} else {
 				ViewManager.ins.showWait("正在进入游戏中...");
 			}
@@ -139,12 +141,12 @@ module room {
 
 			this.gItems.right = -263;
 			egret.Tween.get(this.gItems).to({ right: 63 }, 1200, egret.Ease.elasticOut);
-			if (this.hotGame == null) {
-				this.hotGame = new HotGameUI();
-				this.addChild(this.hotGame);
-				this.hotGame.getGameList();
-				this.hotGame.y = 170;
-			}
+			// if (this.hotGame == null) {
+			// 	this.hotGame = new HotGameUI();
+			// 	this.addChild(this.hotGame);
+			// 	this.hotGame.getGameList();
+			// 	this.hotGame.y = 170;
+			// }
 		}
 		private initTopinfo(): void {
 			this.imgTopbg.source = Global.commURL + "/shareSheet/commHallTopbg.png";

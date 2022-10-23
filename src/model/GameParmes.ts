@@ -56,6 +56,13 @@ module game {
 			*/
 		public static nCurTrustCount: number = 0;
 
+		public static isCurTing : boolean = false;
+
+		/**
+		* 游戏轮
+		* **/
+		public static  gameTurn:number = 0;
+
 		/**
 		 *游戏打牌延时次数 
 			*/
@@ -146,18 +153,18 @@ module game {
 		}
 
 		//花色
-		public static getHua(card: proto.CardInfo): number {
+		public static getHua(card: game.CardInfo): number {
 			if (card.CardID == 0 || card.CardID == -1) return -1;//牌背
 			var hua: number = (card.CardID >> 8) & 0x0F;
 			return hua;
 		}
 		//牌值
-		public static getValue(card: proto.CardInfo): number {
+		public static getValue(card: game.CardInfo): number {
 			if (card.CardID == 0 || card.CardID == -1) return -1;//牌背
 			var value: number = (card.CardID >> 4) & 0x0F;
 			return value;
 		}
-		public static getCardID(card: proto.CardInfo): number {
+		public static getCardID(card: game.CardInfo): number {
 			//对应的帧数
 			var pszType: Array<number> = [1, 10, 19];//["万" , "条" , "饼"];
 			var pszWind: Array<number> = [28, 30, 29, 31];//["东风", "南风", "西风", "北风"];

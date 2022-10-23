@@ -134,11 +134,11 @@ module game {
 			}
 		}
 		/*创建手牌  state 0暗牌状态 1亮牌状态*/
-		public showQishouHandCard(isShow: boolean, state: number,body: proto.AckQishouhu): void {
+		public showQishouHandCard(isShow: boolean, state: number,): void {
 			for (let sit: number = 0; sit < 4; sit++) {
 				let p: number = Global.getUserPosition(sit);
 				let ghand: eui.Group = this.findHandGroup(p);
-				let arr: Array<proto.CardInfo> = this.copyHandCard(game.GamePlayData.getHandCards(sit));
+				let arr: Array<game.CardInfo> = this.copyHandCard(game.GamePlayData.getHandCards(sit));
 				this.clearSomeGroup(ghand,arr);
 				let index: number = 0;
 				let len: number = arr.length;
@@ -147,20 +147,14 @@ module game {
 				} else {
 					index = 1;
 				}
-				let temLiangArr: Array<proto.CardInfo> =new Array();
-				let temAnArr: Array<proto.CardInfo> =new Array();
-				let temAllArr: Array<proto.CardInfo> =new Array();
+				let temLiangArr: Array<game.CardInfo> =new Array();
+				let temAnArr: Array<game.CardInfo> =new Array();
+				let temAllArr: Array<game.CardInfo> =new Array();
 				for (var i: number = 0; i < len; i++) {
-					let info: proto.CardInfo = arr[i];
+					let info: game.CardInfo = arr[i];
 					let cardValue: number = game.GameParmes.getCardID(info);
 					state=0;
-					for (let kk: number = 0; kk < body.playerCards.length; kk++) {
-						for(let jj: number = 0; jj < body.playerCards[kk].cards.length; jj++){
-							if (body.playerCards[kk].seat == sit && body.playerCards[kk].cards[jj].CardID==cardValue) {
-								state=1;
-							}
-						}
-					}
+				
 					if (state==0){
                         temAnArr.push(info);
 					}else{
@@ -173,7 +167,7 @@ module game {
 				for (var i: number = 0; i < len; i++) {
 					let isQue: boolean = false;
 					//let info: proto.CardInfo = arr[i];
-					let info: proto.CardInfo = temAllArr[i];
+					let info: game.CardInfo = temAllArr[i];
 					let cardValue: number = game.GameParmes.getCardID(info);
 					if (cardValue > 0) {
 						let nHua: number = game.GameParmes.getHua(info);
@@ -182,13 +176,7 @@ module game {
 					    continue;
 					}
 					state=0;
-					for (let kk: number = 0; kk < body.playerCards.length; kk++) {
-						for(let jj: number = 0; jj < body.playerCards[kk].cards.length; jj++){
-							if (body.playerCards[kk].seat == sit && body.playerCards[kk].cards[jj].CardID==cardValue) {
-								state=1;
-							}
-						}
-					}
+			
 		
 					let card: BaseHandCardUI = new BaseHandCardUI();
 					ghand.addChild(card);
@@ -355,7 +343,7 @@ module game {
 		public showHuCard(sit: number, cardID: number, type: number): void {
 			let p: number = Global.getUserPosition(sit);
 			GamePlayData.CardsWall_Hua_Index++;
-			let card: proto.CardInfo = new proto.CardInfo();
+			let card: game.CardInfo = new game.CardInfo();
 			card.CardID = cardID;
 			card.Sit = sit;
 			let cardValue: number = game.GameParmes.getCardID(card);
@@ -426,9 +414,9 @@ module game {
 			}
 			item = null;
 		}
-		public getOneCard(info: proto.CardInfo): void {
+		public getOneCard(info: game.CardInfo): void {
 			let p: number = Global.getUserPosition(info.Sit);
-			let nQue: number = game.GameUserList.arrUserList[info.Sit].cardType;
+			// let nQue: number = game.GameUserList.arrUserList[info.Sit].cardType;
 			let ghand: eui.Group = this.findHandGroup(p);
 			let card: BaseHandCardUI = new BaseHandCardUI();
 			ghand.addChild(card);
@@ -438,9 +426,9 @@ module game {
 			if (p == 3) {
 				if (cardValue > 0) {
 					let nHua: number = game.GameParmes.getHua(info);
-					if (nHua == nQue) {
-						isQue = true;
-					}
+					// if (nHua == nQue) {
+					// 	isQue = true;
+					// }
 				}
 				//自动打牌
 				if (GameParmes.isHu) {
@@ -493,10 +481,26 @@ module game {
 				this.nAutoTime = -1;
 			}
 		}
-		private copyHandCard(arrTmp: Array<proto.CardInfo>): Array<proto.CardInfo> {
-			let arr: Array<proto.CardInfo> = [];
+		private copyHandCard(arrTmp: Array<CardInfo>): Array<CardInfo> {
+			// let arr: Array<proto.CardInfo> = [];
+			// for (let i: number = 0; i < arrTmp.length; i++) {
+			// 	let card: proto.CardInfo = new proto.CardInfo();
+			// 	card.CardID = arrTmp[i].CardID;
+			// 	card.Sit = arrTmp[i].Sit;
+			// 	arr.push(card);
+			// }
+			// return arr;
+
+			console.log("=arrTmp=",arrTmp)
+
+			if (!arrTmp) {
+				return
+			}
+
+			// console.log("=arrTmp==",arrTmp)
+			const arr: Array<CardInfo> = [];
 			for (let i: number = 0; i < arrTmp.length; i++) {
-				let card: proto.CardInfo = new proto.CardInfo();
+				const card: CardInfo = new CardInfo();
 				card.CardID = arrTmp[i].CardID;
 				card.Sit = arrTmp[i].Sit;
 				arr.push(card);
@@ -509,7 +513,8 @@ module game {
 			// let nQue:number = game.GameUserList.arrUserList[sit].cardType;
 			let ghand: eui.Group = this.findHandGroup(p);
 			//this.clearGroup(ghand);
-			let arr: Array<proto.CardInfo> = this.copyHandCard(game.GamePlayData.getHandCards(sit));
+			let arr: Array<CardInfo> = this.copyHandCard(game.GamePlayData.getHandCards(p));
+			console.log("===arr===",arr)
 			if(isQishou){
 				this.clearSomeGroup(ghand,arr);
 			}else{
@@ -524,7 +529,7 @@ module game {
 			}
 			for (var i: number = 0; i < len; i++) {
 				let isQue: boolean = false;
-				let info: proto.CardInfo = arr[i];
+				let info: game.CardInfo = arr[i];
 				let cardValue: number = game.GameParmes.getCardID(info);
 				if (cardValue > 0) {
 					let nHua: number = game.GameParmes.getHua(info);
@@ -672,25 +677,7 @@ module game {
 				}
 			}
 		}
-		/*调整自己手牌位置 换三张后的显示*/
-		public adjustMyHandCard(): void {
-			for (let j: number = 0; j < GamePlayData.HSZUserChoose.length; j++) {
-				for (let i: number = 0; i < this.gHandCardD.numChildren; i++) {
-					let item: BaseHandCardUI = this.gHandCardD.getChildAt(i) as BaseHandCardUI;
-					if (GamePlayData.HSZUserChoose[j].CardID == item.cardInfo.CardID) {
-						this.gHandCardD.removeChild(item);
-						break;
-					}
-				}
-			}
-			for (let i: number = 0; i < this.gHandCardD.numChildren; i++) {
-				let item: BaseHandCardUI = this.gHandCardD.getChildAt(i) as BaseHandCardUI;
-				item.x = i * 90;
-				item.y = 0;
-			}
-			this.gHandCardD.y = GameConfig.curHeight() - this.gHandCardD.height;
-			this.gHandCardD.x = (GameConfig.curWidth() - this.gHandCardD.width) / 2;
-		}
+
 		/*创建全部玩家的吃碰杠数据*/
 		public createAllCPG(b: boolean): void {
 			for (let i: number = 0; i < 4; i++) {
@@ -707,7 +694,7 @@ module game {
 				cardsgroup.obtainCard.Sit = tmp.obtainCard.Sit;
 				cardsgroup.obtainCard.CardID = tmp.obtainCard.CardID;
 				for (var j: number = 0; j < tmp.cards.length; j++) {
-					var card: proto.CardInfo = new proto.CardInfo();
+					var card: game.CardInfo = new game.CardInfo();
 					card.CardID = tmp.cards[j].CardID;
 					if (card.CardID == tmp.obtainCard.CardID) {
 						card.Sit = tmp.obtainCard.Sit;
@@ -817,7 +804,7 @@ module game {
 			// let gItem: eui.Group = new eui.Group();
 			g.addChild(mc);
 			for (let i: number = 0; i < info.cards.length; i++) {
-				var cardInfo: proto.CardInfo = info.cards[i];
+				var cardInfo: game.CardInfo = info.cards[i];
 				let cardValue: number = game.GameParmes.getCardID(info.cards[i]);
 				let item: BaseOtherCardUI = new BaseOtherCardUI();
 				item.cardInfo = info.cards[i];
@@ -958,38 +945,35 @@ module game {
 		/*点击了手牌*/
 		private onClickHandCard(evt: egret.Event): void {
 			let item: BaseHandCardUI = evt.data;
-			if (GameParmes.gameStage == GameStageType.CHANGE) {//换三张阶段
-				let index: number = this.arrHSZCards.indexOf(item);
-				if (index > -1) {
-					if (!item.isSelect) {
-						this.arrHSZCards.splice(index, 1);
-					}
-				} else {
-					if (item.isSelect) {
-						this.arrHSZCards.push(item);
-					}
-				}
 
-				if (this.arrHSZCards.length == 4) {
-					let popItem: BaseHandCardUI = this.arrHSZCards.shift();
-					popItem.onSelectCard();
-				}
-
-				GamePlayData.HSZUserChoose.length = 0;
-				for (let j: number = 0; j < this.arrHSZCards.length; j++) {
-					GamePlayData.HSZUserChoose.push((this.arrHSZCards[j] as BaseHandCardUI).cardInfo);
-				}
-			}
 			if (GameParmes.gameStage == GameStageType.PLAYING) {//出牌阶段
 				if (this.currentCard == item) {
 					if (game.GamePlayData.M_C_P_G_sit == Global.userSit) {
 						this.dispatchEvent(new egret.Event("ShowTingTip", true, true, { "isShowTing": item.isTingFlag, "index": item.cardIndex }));
-						var cardInfo: proto.CardInfo = new proto.CardInfo();
+						var cardInfo: game.CardInfo = new game.CardInfo();
 						cardInfo.CardID = item.cardInfo.CardID;
 						if (GameParmes.nHuType == 14 && item.isHuFlag) {//天胡处理
 							let info: CardsGroupInfo = GamePlayData.Hu_Groups[0];
 							info.obtainCard.CardID = item.cardInfo.CardID;
-							room.RoomWebSocket.instance().roomSender.ReqSendCard(info);
+							// room.RoomWebSocket.instance().roomSender.ReqSendCard(info);
+							const cardInfo: CardInfo = new CardInfo();
+							cardInfo.CardID = item.cardInfo.CardID;
+
+							const opt: room.MJ_Operation = new room.MJ_Operation()
+							opt.operationType = CardsGroupType.MJ_OperationType.MJ_OT_TING;//摸切
+							opt.Tiles = [item.cardInfo.CardID] //牌组  如果是出牌则数组中只有一张牌
+							opt.tingTileInfo = [{
+								callTile: item.cardInfo.CardID,	//听哪张牌
+								// optional	int32		callTileCount	= 2;	//听的这张牌还有几张
+								// optional	int32		fans			= 3;	//和这张牌有几番s
+							}]
+							room.RoomWebSocket.instance().roomSender.REQ_USEROPERATIONREQ(opt)
+							if (this.nAutoTime > -1) {
+								egret.clearTimeout(this.nAutoTime);
+								this.nAutoTime = -1;
+							}
+
+
 						} else {
 							GameController.ReqUserSendCard(cardInfo);
 							if (this.nAutoTime > -1) {
@@ -1164,7 +1148,7 @@ module game {
 				item = null;
 			}
 		}
-		private clearSomeGroup(g: eui.Group,p:  Array<proto.CardInfo>): void {
+		private clearSomeGroup(g: eui.Group,p:  Array<game.CardInfo>): void {
 			for(let i =0;i<p.length;i++){
 				if(p[i].CardID!=-1){
 					let item = g.removeChildAt(0);

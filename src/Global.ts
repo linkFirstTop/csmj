@@ -76,7 +76,7 @@ class Global {
 	public static isAnimLoad: boolean = false;
 
 	public static zhuangSit: number = 0;//发牌器首局座位号
-	public static handCardsFP: Array<proto.HandCards> = [];//发牌器的手牌
+	//public static handCardsFP: Array<proto.HandCards> = [];//发牌器的手牌
 	/*room公用的一些值*/
 	public static roomId: number = 0;
 	public static tableId: string = "";
@@ -463,7 +463,7 @@ class Global {
 	public static getUserPosition(nSeat: number): number {
 		var mySeat: number = Global.userSit;//跟据我自己的座位号确定其他玩家方位，自己永远在下方
 		if (mySeat > -1) {
-			var nSide: number = (3 + mySeat - nSeat) % 4;
+			var nSide: number = (4 + mySeat - nSeat) % 4;
 			return nSide;
 		}
 		return -1;

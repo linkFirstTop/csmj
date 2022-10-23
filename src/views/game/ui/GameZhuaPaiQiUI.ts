@@ -480,7 +480,7 @@ module game {
 				handCards.push(hand2);
 				handCards.push(hand3);
 				Global.zhuangSit = zhuangSit;
-				Global.handCardsFP = handCards;
+				// Global.handCardsFP = handCards;
 				//room.RoomWebSocket.instance().roomSender.ReqZxiaPai(Global.zhuangSit,Global.handCardsFP);
 				return;
 			} else if (e.target.name == "del") {

@@ -78,7 +78,7 @@ module game {
 		private createPool(): void {
 			for (let i: number = 0; i < 4; i++) {
 				for (let j: number = 0; j < 24; j++) {
-					let card: proto.CardInfo = new proto.CardInfo();
+					let card: game.CardInfo = new game.CardInfo();
 					card.CardID = 1;
 					card.Sit = i;
 					this.addCardToPool(card);
@@ -92,17 +92,17 @@ module game {
 		 */
 		public reductionCardsPool(): void {
 			for (var i: number = 0; i < 4; i++) {
-				var arrCards: Array<proto.CardInfo> = GamePlayData.getCardsPool(i);
+				var arrCards: Array<game.CardInfo> = GamePlayData.getCardsPool(i);
 				var num: number = arrCards.length;
 				for (var j: number = 0; j < num; j++) {
-					var cardInfo: proto.CardInfo = arrCards[j] as proto.CardInfo;
+					var cardInfo: game.CardInfo = arrCards[j] as game.CardInfo;
 					this.addCardToPool(cardInfo);
 				}
 			}
 
 		}
 		/*添加牌到牌池  card:CardInfo*/
-		public addCardToPool(card: proto.CardInfo): void {
+		public addCardToPool(card: game.CardInfo): void {
 			let p: number = Global.getUserPosition(card.Sit);
 			let g: eui.Group = this.findGroupByPosition(p);
 			let len: number = 0;
@@ -283,9 +283,9 @@ module game {
 		/*移除牌池里的牌*/
 		public removeCardToPool(sit: number): void {
 			let p: number = Global.getUserPosition(sit);
-			let arr: Array<proto.CardInfo> = this.arrCard[p];
+			let arr: Array<game.CardInfo> = this.arrCard[p];
 			if (arr.length > 0) {
-				let card: proto.CardInfo = arr[arr.length - 1];
+				let card: game.CardInfo = arr[arr.length - 1];
 				let g: eui.Group = this.findGroupByPosition(p);
 				for (let i: number = 0; i < g.numChildren; i++) {
 					let item: game.BasePoolCardUI = g.getChildAt(i) as game.BasePoolCardUI;

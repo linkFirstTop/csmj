@@ -26,5 +26,37 @@ module game {
 		 * 游戏定缺状态
 		 * **/
 		public static DINGQUE: number = 7;
+
+		/**
+		* 玩家出牌
+		*/
+		public static SELFTURN : number = 5;
+
+		/**
+		 * 其他玩家出牌
+		 */
+		public static OTHERTURN : number = 5;
+	 
+	}
+
+	export class GameTurnType {
+		public constructor() {
+		}
+		
+
+		/**
+		 * 玩家出牌
+		 */
+		 public static SELFTURN : number = 0;
+
+		/**
+		 * 其他玩家出牌
+		 */
+		 public static OTHERTURN : number = 1;
+
+		// /**
+		//  * 游戏定缺状态
+		//  * **/
+		// public static DINGQUE: number = 7;
 	}
 }

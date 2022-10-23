@@ -186,8 +186,14 @@ class Main extends eui.UILayer {
             Global.isShowLog = true;
         }
 
+        console.log(Global.baseURL + "GetSocket")
 
-
+        Global.baseURL = "https://"+this.domain+"/clientapi/API/";
+        Global.gameHallURL = "https://"+this.domain+"/gamehall/index.html";
+        Global.commURL = "https://"+this.domain+"/public/";
+        console.log(" Global.baseURL",  Global.baseURL)
+  
+        console.log(" Global.token",  Global.token)
         BaseHttpRequest.sendRequestGetOnce(Global.baseURL + "GetSocket", this.onGetSocketIP, this, "token=" + Global.token);
     }
     private onGetSocketIP(evt: egret.Event): void {
@@ -198,13 +204,34 @@ class Main extends eui.UILayer {
         var jsondata = eval("(" + json + ")");
         if (jsondata.state == 0) {
             Global.arrConfig = jsondata.value;
+            Global.arrSocket = jsondata.value;
+            console.log("jsondata======",jsondata)
             this.onCheckGameStatus();
+            BaseHttpRequest.sendRequestGetOnce(Global.baseURL+"GetUserInfo", this.onGetUserInfo, this, "token="+Global.token);
         } else {
             ViewManager.ins.showAlert(Global.dic["账号不存在"]);
         }
     }
 
-
+    private onGetUserInfo(evt:egret.Event):void{
+        var json = evt.target.data;
+        if (json == "") {
+            return;
+        }
+        var jsondata = eval("(" + json + ")");
+        if(jsondata.state == 0){
+            Global.showName = jsondata.value.nickname;
+            if(isNaN(Number(jsondata.value.icon)) == false){
+                Global.userHead = Number(jsondata.value.icon);
+                if(Global.userHead <= 0 || Global.userHead > 15){
+                    Global.userHead = 1;
+                }
+            }
+            
+            Global.isShowCoin = jsondata.value.coinshowtype == 1 ? true : false;
+            Global.exchange = jsondata.value.exchangerate;
+        }
+    }
     protected createGameScene(): void {
 
 
@@ -243,6 +270,7 @@ class Main extends eui.UILayer {
     private isTimeout: boolean = false;
     private nTimeID: number = -1;
     private onCheckGameStatus(): void {
+        console.log("==onCheckGameStatus",Global.token, Global.gameID)
         //检查游戏ip，5秒后不管返回，强制进入游戏
         BaseHttpRequest.sendRequestGetOnce(Global.baseURL + "ResetUser", this.onCheckGameFinish, this, "token=" + Global.token + "&gametype=" + Global.gameID);
         this.nTimeID = egret.setTimeout(function () {
@@ -253,6 +281,7 @@ class Main extends eui.UILayer {
         }, this, 5000);
     }
     private onCheckGameFinish(e: egret.Event): void {
+      
         egret.clearTimeout(this.nTimeID);
         if (this.isTimeout) {
             return;
@@ -262,6 +291,7 @@ class Main extends eui.UILayer {
             return;
         }
         var jsondata = eval("(" + json + ")");
+        console.log("==jsondata===",jsondata)
         if (jsondata.state == 0) {
             this.isTimeout = true;
             this.connectServer();
@@ -284,6 +314,7 @@ class Main extends eui.UILayer {
             });
             return;
         }
+        console.log("connectServer")
         room.RoomWebSocket.instance().connectServer();
         ViewManager.ins.showWait("loading...");
     }
