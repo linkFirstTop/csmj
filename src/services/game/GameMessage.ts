@@ -7,8 +7,7 @@ module game {
 
 		public static VGID_GAME_GAMESTATUS: string = GameMessage.GAME_BASE + "VGID_GAME_GAMESTATUS";
 		public static VGID_GAME_SYNCGAMEDATA: string = GameMessage.GAME_BASE + "VGID_GAME_SYNCGAMEDATA";
-		public static VGID_GAME_GAMESTART: string = GameMessage.GAME_BASE + "VGID_GAME_GAMESTART";
-		
+
 
 		/**游戏状态 */
 		public static VGID_GAME_GAMESTATUS: string = GameMessage.VGID_CLIENT + "VGID_GAME_GAMESTATUS";
@@ -45,6 +44,8 @@ module game {
 	    public static VGID_SERVICE_MAGICTILES: string = GameMessage.VGID_CLIENT + "VGID_SERVICE_MAGICTILES";
 
 
+		/**房间状态变更广播 */
+		public static NTF_ROOM_STATE: string = GameMessage.VGID_CLIENT + "NTF_ROOM_STATE";
 
 
 	}

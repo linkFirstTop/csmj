@@ -44,11 +44,11 @@ module game {
 			}
 			this.alpha = this.alpha == 1 ? 0.2 : 1;
 		}
-		public showResult(body: any): void {
+		public showResult(body: room.VGGameResultNtc): void {
 			console.log("页面展示");
 			this.visible = true;
 			this.alpha = 1;
-			let arr: Array<any> = body.others;
+			let arr: Array<any> = body.userInfos;
 			var sourceSelf: number = 0;//自己的得分
 			console.log(body);
 			for (let i: number = 0; i < 4; i++) {
@@ -56,13 +56,13 @@ module game {
 			
 				// console.log(body);
 				let p: number = Global.getUserPosition(info.seat);
-				if (p == 3) {//玩家自己
+				if (p == 0) {//玩家自己
 					
 					sourceSelf = Number(info.money);
 					if(sourceSelf>0){
-						this["userZ"].setResult(info, body.result,1);
+						this["userZ"].setResult(info, body.settlementInfos[0].coinList[i],1);
 					}else{
-						this["userZ"].setResult(info, body.result,0);
+						this["userZ"].setResult(info, body.settlementInfos[0].coinList[i],0);
 					}
 					Global.gameCoin = Number(info.chips);
 					if(sourceSelf!=0){
@@ -74,9 +74,9 @@ module game {
 					sourceSelf = Number(info.money);
 				//	this["user" + p].setResult(info, body.result);
 					if(sourceSelf>0){
-						this["user" + p].setResult(info, body.result,1);
+						this["user" + p].setResult(info, body.settlementInfos[0].coinList[i],1);
 					}else{
-						this["user" + p].setResult(info, body.result,0);
+						this["user" + p].setResult(info, body.settlementInfos[0].coinList[i],0);
 					}
 					if(sourceSelf!=0){
 						this["user" + p].showDetailInfo(info.fan);
@@ -86,17 +86,17 @@ module game {
 			}
 			// this.showDetailInfo(body.fan);
 			//结果 0 胡 1 流局 2 失败 3 不输不赢
-			if (body.result == 1) {
-				this.setPing();
-			} else if (body.result == 2) {
-				this.setLose();
-			} else if (body.result == 3) {
-				this.setNull();
-			} else if (body.result == 0) {
+			// if (body.result == 1) {
+			// 	this.setPing();
+			// } else if (body.result == 2) {
+			// 	this.setLose();
+			// } else if (body.result == 3) {
+			// 	this.setNull();
+			// } else if (body.result == 0) {
 
-				this.setWin();
+			// 	this.setWin();
 
-			}
+			// }
 			for (var i: number = 0; i < Global.roomData.length; i++) {
 				if (Global.roomData[i].id == Global.roomId) {
 					this.difen.text = Global.dic["底分/台分"] + ":" + ChipUtils.formatCoin(Number(Global.roomData[i].baseScore)) + "/" + ChipUtils.formatCoin((Global.roomData[i].taifen));

@@ -26,7 +26,7 @@ module game {
 
 		}
 		public setUserInfo(user: game.GameUserInfo): void {
-			console.log(user);
+			//console.log(user);
 			let strName: string = "";
 			if (game.GamePlayData.tingData[user.userSit] == true) {
 				this.imgTing.visible = true;

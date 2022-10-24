@@ -81,19 +81,17 @@ module game {
 		/*
 		*默认状态什么都不处理
 		*/
-		MJ_GS_DF = 0,
-		//开局动画状态
-		MJ_GS_ANIM_KJ = 1,
-		//打漂状态
-		MJ_GS_DP      = 2,
-		//开局状态
-		MJ_GS_KJ      = 3,
-		//发牌状态
-		MJ_GS_FP = 4,
-		//行牌状态
-		MJ_GS_XP = 5,
-		//结算状态
-		MJ_GS_JS = 6,
+		"开局等待" = 0,
+		/**开局动画状态*/
+		"初始化角色" = 1,
+		/**开局状态*/
+		"开始"      = 2,
+		/**发牌状态*/
+		"发牌" = 4,
+		/**行牌状态*/
+		"行牌" = 5,
+		/**结算状态*/
+		"结算" = 6,
 
 	}
 
@@ -116,9 +114,9 @@ module game {
 		private timer: egret.Timer = new egret.Timer(1000);
 
 
-		private _status: RoomStatus = RoomStatus.MJ_GS_DF;
+		private _status: RoomStatus = RoomStatus["开局等待"];
 
-		private _lastStatus: RoomStatus = RoomStatus.MJ_GS_DF;
+		private _lastStatus: RoomStatus = RoomStatus["结算"];
 
 		private _curStateEndTime: number = 0;
 
@@ -130,7 +128,9 @@ module game {
 			this._lastStatus = this._status;
 			this._status = value;
 			this._curStateEndTime = timer;
-			GDGame.Msg.ins.dispatchEventWith(game.GameMessage.VGID_GAME_GAMESTART);
+			if( GameParmes.gameStage  )
+			GDGame.Msg.ins.dispatchEventWith(game.GameMessage.NTF_ROOM_STATE);
+			// GDGame.Msg.ins.dispatchEventWith(game.GameMessage.VGID_GAME_GAMESTART);
 		}
 
 		public get status(): RoomStatus {

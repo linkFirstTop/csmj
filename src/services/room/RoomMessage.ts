@@ -28,7 +28,7 @@ module room {
 		/**
 		 *加入桌子结果
 			*/
-		public static  ON_ADD_TAB:string =RoomMessage.ROOM_BASE+"ON_ADD_TAB";
+		public static  ACK_START_GAME:string =RoomMessage.ROOM_BASE+"ACK_START_GAME";
 		/**
 		 *离开桌子结果
 			*/

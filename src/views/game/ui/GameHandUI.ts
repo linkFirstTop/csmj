@@ -111,12 +111,7 @@ module game {
 			this.addChild(this.gHuCardR);
 			this.addChild(this.gHuCardD);
 
-
-
 			this.gHandCardD.addEventListener("OnClickHandCard", this.onClickHandCard, this);
-
-
-
 
 			this.clearAllGroup();
 
@@ -126,186 +121,14 @@ module game {
 		}
 		/*创建手牌  state 0暗牌状态 1亮牌状态*/
 		public createHandCard(isShow: boolean, state: number): void {
-			for (let j: number = 0; j < 4; j++) {
+			console.log("创建手牌")
+			for (let j: number = 1; j < 5; j++) {
 				this.updataHandsByPosition(j, state, isShow);
 			}
 			if (!isShow) {
 				this.showHandCard();
 			}
 		}
-		/*创建手牌  state 0暗牌状态 1亮牌状态*/
-		public showQishouHandCard(isShow: boolean, state: number,): void {
-			for (let sit: number = 0; sit < 4; sit++) {
-				let p: number = Global.getUserPosition(sit);
-				let ghand: eui.Group = this.findHandGroup(p);
-				let arr: Array<game.CardInfo> = this.copyHandCard(game.GamePlayData.getHandCards(sit));
-				this.clearSomeGroup(ghand,arr);
-				let index: number = 0;
-				let len: number = arr.length;
-				if (arr.length % 3 == 2) {//玩家有摸牌牌权
-					index = 0;
-				} else {
-					index = 1;
-				}
-				let temLiangArr: Array<game.CardInfo> =new Array();
-				let temAnArr: Array<game.CardInfo> =new Array();
-				let temAllArr: Array<game.CardInfo> =new Array();
-				for (var i: number = 0; i < len; i++) {
-					let info: game.CardInfo = arr[i];
-					let cardValue: number = game.GameParmes.getCardID(info);
-					state=0;
-				
-					if (state==0){
-                        temAnArr.push(info);
-					}else{
-						temLiangArr.push(info);
-					}
-				}
-				temAllArr = temAllArr.concat(temLiangArr);
-				temAllArr = temAllArr.concat(temAnArr)
-		
-				for (var i: number = 0; i < len; i++) {
-					let isQue: boolean = false;
-					//let info: proto.CardInfo = arr[i];
-					let info: game.CardInfo = temAllArr[i];
-					let cardValue: number = game.GameParmes.getCardID(info);
-					if (cardValue > 0) {
-						let nHua: number = game.GameParmes.getHua(info);
-					}
-					if(!cardValue){
-					    continue;
-					}
-					state=0;
-			
-		
-					let card: BaseHandCardUI = new BaseHandCardUI();
-					ghand.addChild(card);
-					card.visible = true;
-					let nOptHei: number = 0;
-					let nOptW: number = 0;
-	
-					if (p == 0) {
-						let itemX: number = 277;
-						let itemY: number = 144;
-						let mcX: number = 304;
-						let mcY: number = 16;
-						nOptHei = 160;
-						nOptW = 72;
-						card.setCard(p, (i + index), cardValue, state, isQue);
-						if (state == 0) {//暗牌
-							card.x = itemX - (12 - i) * 18;
-							card.y = itemY + (12 - i) * 41;
-	
-							if (i == 13) {
-								//最后一张牌多出20像素
-								card.x = 40;
-								card.y = 692;
-								ghand.addChild(card);
-							} else {
-								ghand.addChildAt(card, 0);
-							}
-							this.gHandCardL.y = 0;
-							this.sprTmpLeft.y = 150;
-							this.sprTmpLeft.x = 90 - 5;
-							this.sprTmpLeft.scaleX = this.sprTmpLeft.scaleY = 0.8;
-						} else {//亮牌
-							card.x = 304 - (12 - i) * 19;
-							card.y = 144 + (12 - i) * 44 + 20;
-							ghand.addChildAt(card, 0);
-	
-						}
-	
-					}
-					if (p == 1) {
-						let itemCardWidth: number = 76 - 1;
-						card.setCard(p, (i + index), cardValue, state, isQue);
-						if (state == 0) {
-							card.x = (i) * itemCardWidth;
-							if (index == 0 && i == 0) {
-								card.x -= 10;
-							}
-							this.gOtherCardU.x = 1350 - 520;
-							this.sprTmpUp.x = 520;
-							this.sprTmpUp.y = 36 + 50;
-						} else {
-							card.x = i * 64;
-						}
-	
-					}
-					if (p == 2) {
-						card.setCard(p, 16 - i - index, cardValue, state, isQue);
-						if (state == 0) {
-	
-							card.x = (1578 - 1555) + i * 18;
-							card.y = (143 - 90) + i * 42;
-	
-							if (i == 13) {
-								card.y = 0;
-								card.x = 0;
-								ghand.addChildAt(card, 0);
-							} else {
-								ghand.addChild(card);
-							}
-							this.gHandCardR.x = this.gHandCardR.y = 0;
-							this.gOtherCardR.y = 0;
-							this.sprTmpRight.x = 1555 - 20;
-							this.sprTmpRight.y = 90 + 150;
-							this.sprTmpRight.scaleX = this.sprTmpRight.scaleY = 0.8;
-	
-						} else {
-	
-							card.x = i * 19;
-							card.y = i * 44;
-							ghand.addChild(card);
-						}
-	
-					}
-					if (p == 3) {
-						let itemCardWidth: number = 126 - 5;
-						card.setCard(p, (i + index), cardValue, state, isQue);
-						card.cardInfo = info;
-						if (GameParmes.isHu) {
-							card.setMaskFlag(false);
-							if (i == len - 1 && index == 0) {
-								card.setMaskFlag(true);
-							}
-						}
-						if (state == 0) {
-							card.x = i * itemCardWidth;
-							if (i == 13) {//自己出牌，断线回来
-								card.x = i * itemCardWidth + 20;
-							}
-							// if (i == len - 1 && index == 0) {
-							// 	card.x += 10;
-							// }
-	
-						}
-						else {
-							card.x = i * card.width - i * 2;
-						}
-	
-					}
-				}
-				if (p == 3) {
-					if (i == 14) {
-						this.gHandCardD.x = 1740 - this.gHandCardD.width + 20 + 126 - 5;
-					} else {
-						this.gHandCardD.x = 1740 - this.gHandCardD.width;
-					}
-					//console.log(this.gHandCardD.x, this.gHandCardD.width);
-				}
-	
-	
-				this.sprTmpUp.x = 520;
-				this.sprTmpUp.y = 36 + 50;
-			}
-			var timer:egret.Timer = new egret.Timer(3000,1);
-			timer.addEventListener(egret.TimerEvent.TIMER, this.onTimeUpdate, this);
-			this.addEventListener(egret.TimerEvent.TIMER_COMPLETE, this.onTimeComplete, this);
-			timer.start();
-		}
-
-
 
 		private onTimeUpdate():void{
 			for (let j: number = 0; j < 4; j++) {
@@ -482,39 +305,44 @@ module game {
 			}
 		}
 		private copyHandCard(arrTmp: Array<CardInfo>): Array<CardInfo> {
-			// let arr: Array<proto.CardInfo> = [];
-			// for (let i: number = 0; i < arrTmp.length; i++) {
-			// 	let card: proto.CardInfo = new proto.CardInfo();
-			// 	card.CardID = arrTmp[i].CardID;
-			// 	card.Sit = arrTmp[i].Sit;
-			// 	arr.push(card);
-			// }
-			// return arr;
+			if (!arrTmp) {
+				return
+			}
 
-			console.log("=arrTmp=",arrTmp)
+			let arr: Array<game.CardInfo> = [];
+			for (let i: number = 0; i < arrTmp.length; i++) {
+				let card: game.CardInfo = new game.CardInfo();
+				card.CardID = arrTmp[i].CardID;
+				card.Sit = arrTmp[i].Sit;
+				arr.push(card);
+			}
+			return arr;
+
+			// console.log("=arrTmp=",arrTmp)
 
 			if (!arrTmp) {
 				return
 			}
 
 			// console.log("=arrTmp==",arrTmp)
-			const arr: Array<CardInfo> = [];
-			for (let i: number = 0; i < arrTmp.length; i++) {
-				const card: CardInfo = new CardInfo();
-				card.CardID = arrTmp[i].CardID;
-				card.Sit = arrTmp[i].Sit;
-				arr.push(card);
-			}
-			return arr;
+			//const arr: Array<CardInfo> = [];
+			// for (let i: number = 0; i < arrTmp.length; i++) {
+			// 	const card: CardInfo = new CardInfo();
+			// 	card.CardID = arrTmp[i].CardID;
+			// 	card.Sit = arrTmp[i].Sit;
+			// 	arr.push(card);
+			// }
+			// return arr;
 		}
 
 		public updataHandsByPosition(sit: number, state: number, isShow: boolean = true, isQishou: boolean = false): void {
 			let p: number = Global.getUserPosition(sit);
+			console.log("====updataHandsByPosition==",sit,p)
 			// let nQue:number = game.GameUserList.arrUserList[sit].cardType;
 			let ghand: eui.Group = this.findHandGroup(p);
 			//this.clearGroup(ghand);
-			let arr: Array<CardInfo> = this.copyHandCard(game.GamePlayData.getHandCards(p));
-			console.log("===arr===",arr)
+			let arr: Array<CardInfo> = this.copyHandCard(game.GamePlayData.getHandCards(sit));
+			// console.log("===arr===",arr)
 			if(isQishou){
 				this.clearSomeGroup(ghand,arr);
 			}else{
@@ -528,6 +356,7 @@ module game {
 				index = 1;
 			}
 			for (var i: number = 0; i < len; i++) {
+				
 				let isQue: boolean = false;
 				let info: game.CardInfo = arr[i];
 				let cardValue: number = game.GameParmes.getCardID(info);
@@ -535,7 +364,7 @@ module game {
 					let nHua: number = game.GameParmes.getHua(info);
 				}
 				if(cardValue==-1 && isQishou){
-						continue;
+					continue;
 				}
 				let card: BaseHandCardUI = new BaseHandCardUI();
 				ghand.addChild(card);
@@ -544,6 +373,77 @@ module game {
 				let nOptW: number = 0;
 
 				if (p == 0) {
+
+					let itemCardWidth: number = 126 - 5;
+					card.setCard(p, (i + index), cardValue, state, isQue);
+					card.cardInfo = info;
+					if (GameParmes.isHu) {
+						card.setMaskFlag(false);
+						if (i == len - 1 && index == 0) {
+							card.setMaskFlag(true);
+						}
+					}
+					if (state == 0) {
+						card.x = i * itemCardWidth;
+						if (i == 13) {//自己出牌，断线回来
+							card.x = i * itemCardWidth + 20;
+						}else if((len==11&&i==10)||(len==8&&i==7)||(len==5&&i==4)||(len==2&&i==1)){
+							card.x = i * itemCardWidth + 20;
+						}
+				
+						// if (i == len - 1 && index == 0) {
+						// 	card.x += 10;
+						// }
+
+					}
+					else {
+						card.x = i * card.width - i * 2;
+					}
+				}
+				if (p == 1) {
+										card.setCard(p, 16 - i - index, cardValue, state, isQue);
+					if (state == 0) {
+						card.x = (1578 - 1555) + i * 18;
+						card.y = (143 - 90) + i * 42;
+						if (i == 13) {
+							card.y = 0;
+							card.x = 0;
+							ghand.addChildAt(card, 0);
+						} else {
+							ghand.addChild(card);
+						}
+						this.gHandCardR.x = this.gHandCardR.y = 0;
+						this.gOtherCardR.y = 0;
+						this.sprTmpRight.x = 1555 - 20;
+						this.sprTmpRight.y = 90 + 150;
+						this.sprTmpRight.scaleX = this.sprTmpRight.scaleY = 0.8;
+					} else {
+						card.x = i * 19;
+						card.y = i * 44;
+						ghand.addChild(card);
+					}
+	
+
+				}
+				 if (p == 2) {
+
+					let itemCardWidth: number = 76 - 1;
+					card.setCard(p, (i + index), cardValue, state, isQue);
+					if (state == 0) {
+						card.x = (i) * itemCardWidth;
+						if (index == 0 && i == 0) {
+							card.x -= 10;
+						}
+						this.gOtherCardU.x = 1350 - 520;
+						this.sprTmpUp.x = 520;
+						this.sprTmpUp.y = 36 + 50;
+					} else {
+						card.x = i * 64;
+					}
+
+
+				}
+				if (p == 3) {
 					let itemX: number = 277;
 					let itemY: number = 144;
 					let mcX: number = 304;
@@ -571,83 +471,12 @@ module game {
 						card.x = 304 - (12 - i) * 19;
 						card.y = 144 + (12 - i) * 44 + 20;
 						ghand.addChildAt(card, 0);
-
 					}
 
-				}
-				if (p == 1) {
-					let itemCardWidth: number = 76 - 1;
-					card.setCard(p, (i + index), cardValue, state, isQue);
-					if (state == 0) {
-						card.x = (i) * itemCardWidth;
-						if (index == 0 && i == 0) {
-							card.x -= 10;
-						}
-						this.gOtherCardU.x = 1350 - 520;
-						this.sprTmpUp.x = 520;
-						this.sprTmpUp.y = 36 + 50;
-					} else {
-						card.x = i * 64;
-					}
-
-				}
-				if (p == 2) {
-					card.setCard(p, 16 - i - index, cardValue, state, isQue);
-					if (state == 0) {
-
-						card.x = (1578 - 1555) + i * 18;
-						card.y = (143 - 90) + i * 42;
-
-						if (i == 13) {
-							card.y = 0;
-							card.x = 0;
-							ghand.addChildAt(card, 0);
-						} else {
-							ghand.addChild(card);
-						}
-						this.gHandCardR.x = this.gHandCardR.y = 0;
-						this.gOtherCardR.y = 0;
-						this.sprTmpRight.x = 1555 - 20;
-						this.sprTmpRight.y = 90 + 150;
-						this.sprTmpRight.scaleX = this.sprTmpRight.scaleY = 0.8;
-
-					} else {
-
-						card.x = i * 19;
-						card.y = i * 44;
-						ghand.addChild(card);
-					}
-
-				}
-				if (p == 3) {
-					let itemCardWidth: number = 126 - 5;
-					card.setCard(p, (i + index), cardValue, state, isQue);
-					card.cardInfo = info;
-					if (GameParmes.isHu) {
-						card.setMaskFlag(false);
-						if (i == len - 1 && index == 0) {
-							card.setMaskFlag(true);
-						}
-					}
-					if (state == 0) {
-						card.x = i * itemCardWidth;
-						if (i == 13) {//自己出牌，断线回来
-							card.x = i * itemCardWidth + 20;
-						}else if((len==11&&i==10)||(len==8&&i==7)||(len==5&&i==4)||(len==2&&i==1)){
-							card.x = i * itemCardWidth + 20;
-						}
-						// if (i == len - 1 && index == 0) {
-						// 	card.x += 10;
-						// }
-
-					}
-					else {
-						card.x = i * card.width - i * 2;
-					}
-
+		
 				}
 			}
-			if (p == 3) {
+			if (p == 0) {
 				if (i == 14) {
 					this.gHandCardD.x = 1740 - this.gHandCardD.width + 20 + 126 - 5;
 				} else {
@@ -1158,44 +987,49 @@ module game {
 		}
 		private findHandGroup(p: number): eui.Group {
 			if (p == 0) {
-				return this.gHandCardL;
+				return this.gHandCardD;
+			
 			}
 			if (p == 1) {
-				return this.gHandCardU;
+				return this.gHandCardR;
+				
 			}
 			if (p == 2) {
-				return this.gHandCardR;
+				return this.gHandCardU;
 			}
 			if (p == 3) {
-				return this.gHandCardD;
+				return this.gHandCardL;
 			}
 		}
 		private findOptGroup(p: number): eui.Group {
 			if (p == 0) {
-				return this.gOtherCardL;
+				return this.gOtherCardD;
 			}
 			if (p == 1) {
-				return this.gOtherCardU;
-			}
-			if (p == 2) {
 				return this.gOtherCardR;
 			}
+			if (p == 2) {
+				return this.gOtherCardU;
+			}
 			if (p == 3) {
-				return this.gOtherCardD;
+				return this.gOtherCardL;
+				
 			}
 		}
 		private findHuGroup(p: number): eui.Group {
 			if (p == 0) {
-				return this.gHuCardL;
+				return this.gHuCardD;
 			}
 			if (p == 1) {
-				return this.gHuCardU;
-			}
-			if (p == 2) {
 				return this.gHuCardR;
 			}
+			if (p == 2) {
+				return this.gHuCardU;
+				
+			}
 			if (p == 3) {
-				return this.gHuCardD;
+				return this.gHuCardL;
+				
 			}
 		}
 		private clearAllGroup(): void {

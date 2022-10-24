@@ -106,13 +106,6 @@ module room {
 			console.log('发牌广播消息', body);
 		}
 
-		//打漂通知
-		private VGID_ACK_USER_DAPIAP(byte: egret.ByteArray) {
-			const body: room.VGUserDapiaoAck = room.VGUserDapiaoAck.decode(byte.bytes);
-			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_USER_MANAGED, true, true, body));
-
-			//console.log("===VGID_ACK_USER_DAPIAP=body",body)	
-		}
 
 		//单张发牌器
 		private ON_VGID_SERVICE_MAGICTILES(byte: egret.ByteArray) {
@@ -325,7 +318,7 @@ module room {
 			game.GameUserList.saveUserListInfo(body.userInfos);
 			game.GamePlayData.SaveHandCarsd(body.userInfos);
 
-			GDGame.Msg.ins.dispatchEvent(new egret.Event(room.RoomMessage.ACK_ENTER_TABLE, true, true, body));
+			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_GAME_GAMESTART, true, true, body));
 
 
 			//断线重联

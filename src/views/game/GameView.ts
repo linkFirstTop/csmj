@@ -44,12 +44,12 @@ module game {
 			GDGame.Msg.ins.addEventListener(GameMessage.VGID_GAME_GAMESTATUS, this.onGameStage, this);
 			// //玩家列表
 			// GDGame.Msg.ins.addEventListener(GameMessage.ACK_GAMEPLAYERLIST, this.ACK_GAME_PLAYERLIST, this);
+			GDGame.Msg.ins.addEventListener(GameMessage.NTF_ROOM_STATE, this.ACK_GAME_STATUS_CHANGED, this);
 
-
-			//服务器通知客户端 单次胡牌消息
+			//游戏开始
 			GDGame.Msg.ins.addEventListener(GameMessage.VGID_GAME_GAMERESULT, this.ACK_GAME_RESULT, this);
 			// //游戏全部结束
-			// GDGame.Msg.ins.addEventListener(GameMessage.VGID_GAME_GAMERESULT, this.ACK_ALL_GAMERESULT, this);
+			 GDGame.Msg.ins.addEventListener(GameMessage.VGID_GAME_GAMERESULT, this.ACK_ALL_GAMERESULT, this);
 	
 			//服务器通知客户端托管操作
 			GDGame.Msg.ins.addEventListener(GameMessage.VGID_USER_MANAGED, this.ACK_USER_PLAYERTRUST, this);
@@ -107,7 +107,7 @@ module game {
 		*/
 		private ACK_GAME_DICEANDCARDS(): void {
 			console.log("ACK_GAME_DICEANDCARDS");
-			this.gameUI.initUser();
+		
 			this.gameUI.initHandCard();
 			egret.setTimeout(function () {
 				this.gameUI.initPosition();
@@ -279,18 +279,18 @@ module game {
 		 * 服务器通知客户端 单次胡牌
 		 */
 		private ACK_GAME_RESULT(evt: egret.Event): void {
-			// let body:game.HuResultAck = evt.data;
-			// let arrScore:Array<number> = [0,0,0,0];
-			// for(let i:number = 0;i < body.hulist.length;i++){
-			// 	this.checkHuInfo(body.hulist[i]);
-			// 	for(let j:number = 0;j<body.hulist[i].huInfo.score_change.length;j++){
-			// 		arrScore[j] += body.hulist[i].huInfo.score_change[j];
-			// 	}
-			// }
-			// if(body.hulist.length > 1){//一炮多响
-			// 	this.gameUI.playAnim("ypdx",body.hulist[0].seat,body.hulist[0].huInfo.obtainsit);
-			// }
-			// this.gameUI.showCoinChange(arrScore);
+			let body:game.HuResultAck = evt.data;
+			let arrScore:Array<number> = [0,0,0,0];
+			for(let i:number = 0;i < body.hulist.length;i++){
+				this.checkHuInfo(body.hulist[i]);
+				for(let j:number = 0;j<body.hulist[i].huInfo.score_change.length;j++){
+					arrScore[j] += body.hulist[i].huInfo.score_change[j];
+				}
+			}
+			if(body.hulist.length > 1){//一炮多响
+				this.gameUI.playAnim("ypdx",body.hulist[0].seat,body.hulist[0].huInfo.obtainsit);
+			}
+			this.gameUI.showCoinChange(arrScore);
 		}
 		private checkHuInfo(info: any): void {
 			let str: string = "";
@@ -332,17 +332,14 @@ module game {
 			GameParmes.nHuType = 0;//把天胡的标记重置，胡了一次后就没用了
 		}
 
-
-
-		
 		/** 
 		 * @param msg
 		 * 服务器通知客户端 全部结束
 		 */
 		private ACK_ALL_GAMERESULT(evt: egret.Event): void {
-			// let body: proto.NotGameResult = evt.data;
-			// this.gameUI["zniaoGroup"].visible = false;
-			// this.gameResult.showResult(body);
+			let body: room.VGGameResultNtc = evt.data;
+			this.gameUI["zniaoGroup"].visible = false;
+			this.gameResult.showResult(body);
 		}
 		private onGameContinue(): void {
 			room.RoomWebSocket.instance().roomSender.REQ_ROOMENTERROOM(Global.roomInfo.roomID);
@@ -907,6 +904,45 @@ module game {
 				this.gameMatch.parent.removeChild(this.gameMatch);
 				this.gameMatch = null;
 			}
+		}
+
+		private ACK_GAME_STATUS_CHANGED(evt: egret.Event): void {
+
+			let status = game.RoomInfo.ins.status;
+			// console.log("游戏状态变更==============");
+			console.log("游戏状态变更", status);
+			// console.log("游戏状态变更==============");
+			let lastStatus = game.RoomInfo.ins.lastStatus;
+
+			
+			////开局状态
+			if (status == game.RoomStatus["初始化角色"]) {
+				// this.gameUI.gameHSZ.showDapiaoPanel(false);
+				// this.gameUI.gameHSZ.onHideClock()
+				this.gameUI.initPosition();
+				this.gameUI.initUser();
+
+			}
+			// 开局动画状态
+			if (status == game.RoomStatus["开始"]){
+				comm.DragonAnim.ins.playAnimByName("ksyx", -1);
+				//SoundModel.playEffect(SoundModel.StartMatch)
+			}
+			////发牌状态
+			if (status == game.RoomStatus["发牌"]) {
+				// this.gameUI.initPosition();
+				this.ACK_GAME_DICEANDCARDS()
+			}
+			//行牌状态
+			if (status == game.RoomStatus["行牌"]) {
+
+			}
+			if (status == game.RoomStatus["结算"]) {
+				//打开结算UI
+				//this.gameResult.showResult()
+			}
+
+	
 		}
 
 	}

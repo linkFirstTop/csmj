@@ -27,7 +27,7 @@ module game {
 			} else {
 				strIndex = "" + value;
 			}
-			if (p == 0) {//左
+			if (p == 3) {//左
 				if (state == 0) {//暗牌
 					this.imgBack.source = "cardhandL";
 				} else {//明牌
@@ -38,7 +38,7 @@ module game {
 					// this.imgCard.skewY = 25;
 				}
 			}
-			if (p == 1) {//上
+			if (p == 2) {//上
 				if (state == 0) {
 					this.imgBack.source = "cardBackUp";
 				} else {
@@ -49,7 +49,7 @@ module game {
 					// this.imgCard.verticalCenter = -7;
 				}
 			}
-			if (p == 2) {//右
+			if (p ==1) {//右
 
 				if (state == 0) {
 					this.imgBack.source = "cardhandR";
@@ -63,7 +63,7 @@ module game {
 				}
 				// this.imgBack.scaleX = -1;//水平翻转由左向右
 			}
-			if (p == 3) {
+			if (p == 0) {
 
 				this.cardIndex = value;
 

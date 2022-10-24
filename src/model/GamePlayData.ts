@@ -120,15 +120,11 @@ module game {
 			console.log("SaveHandCarsd==",arr)
 			game.GamePlayData.arrHandCards = null;
 	
-			const array = [[], [], []];
-
-
+			const array = [[], [], [],[]];
 			arr.forEach((e, i) => {
 				const tiles = [...e.tileSets[0].Tiles];
 				const arrTmp = [];
 				const ln = tiles.length;
-			
-
 				for (let j = 0; j < ln; j++) {
 					// console.log(j, tiles[j])
 					let card: CardInfo = new CardInfo();
@@ -137,7 +133,7 @@ module game {
 					arrTmp[j] = card;
 				}
 
-				let p = Global.getUserPosition(e.userPos.seatID)
+				let p = e.userPos.seatID - 1;
 				array[p] = arrTmp;
 			})
 			game.GamePlayData.arrHandCards = array;
@@ -489,8 +485,8 @@ module game {
 		 * */
 		public static AddHandCards(sit: number, Card: any): void {
 
-			let p = Global.getUserPosition(sit);
-			let handcards: Array<game.CardInfo> = this.getHandCards(p);
+		//	let p = Global.getUserPosition(sit);
+			let handcards: Array<game.CardInfo> = this.getHandCards(sit);
 
 			var card: game.CardInfo = new game.CardInfo();
 			card.CardID = Card.CardID;
@@ -538,8 +534,8 @@ module game {
 		 * 添加牌池
 		 * */
 		public static AddCardPool(body: Array<any>, sit: number, istest: boolean = false): void {
-			let p = Global.getUserPosition(sit)
-			let cardpool: Array<CardInfo> = this.getCardsPool(p);
+			// let p = Global.getUserPosition(sit)
+			let cardpool: Array<CardInfo> = this.getCardsPool(sit-1);
 			for (var x: number = 0; x < body.length; x++) {
 				var card: CardInfo = new CardInfo();
 				card.CardID = body[x].CardID;
@@ -602,19 +598,18 @@ module game {
 		}
 		// 保存手牌数据
 		public static getHandCards(sit: number): Array<CardInfo> {
-			console.log("====sit======",sit)
-			let arr: Array<CardInfo> = game.GamePlayData.arrHandCards[sit];
-			console.log("=getHandCards==", arr)
+			let arr: Array<CardInfo> = game.GamePlayData.arrHandCards[sit-1];
+			// console.log("=getHandCards==", arr)
 			return arr;
 		}
 		// 保存吃碰杠数据
 		public static getOtherCards(sit: number): Array<CardsGroupInfo> {
-			let arr: Array<CardsGroupInfo> = game.GamePlayData.arrOtherCards[sit];
+			let arr: Array<CardsGroupInfo> = game.GamePlayData.arrOtherCards[sit-1];
 			return arr;
 		}
 		// 保存牌池数据
 		public static getCardsPool(sit: number): Array<game.CardInfo> {
-			let arr: Array<game.CardInfo> = game.GamePlayData.arrPoolCards[sit];
+			let arr: Array<game.CardInfo> = game.GamePlayData.arrPoolCards[sit-1];
 			return arr;
 		}
 		/**
@@ -641,6 +636,7 @@ module game {
 		 * 排序手牌（必须是自己的手牌）
 		 * */
 		public static SetHandCardsSorting(sit: number): void {
+
 			let arrCards: Array<game.CardInfo> = this.getHandCards(sit);
 			arrCards = this.SortCards(arrCards);
 		}
