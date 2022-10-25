@@ -24,8 +24,8 @@ module game {
 		public static Current_Card: game.CardInfo = new game.CardInfo();
 		//牌桌上最后一次打出的牌
 		// public static Catch_Card: game.CardInfo = new game.CardInfo();
-		//当前摸牌的人或者吃碰杠人的座位号
-		public static M_C_P_G_sit: number = -1;
+		/**当前摸牌的人或者吃碰杠人的座位号*/
+		public static playingSeat: number = -1;
 		//吃牌
 		public static Chi_Groups: Array<CardsGroupInfo> = [];
 		//碰牌
@@ -67,7 +67,7 @@ module game {
 			GamePlayData.CardsWall_Head_Index = 0;
 			GamePlayData.CardsWall_Tail_Index = 0;
 			GamePlayData.CardsWall_Hua_Index = 0;
-			GamePlayData.M_C_P_G_sit = -1;
+			GamePlayData.playingSeat = -1;
 			GamePlayData.Peng_Groups = [];
 			GamePlayData.Gang_Groups = [];
 			GamePlayData.Gangyao_Groups = [];
@@ -102,7 +102,7 @@ module game {
 		 * 记录最后摸牌或者吃碰杠操作的人的座位号
 		 * */
 		public static SaveOperationSit(sit: number): void {
-			this.M_C_P_G_sit = sit;
+			this.playingSeat = sit;
 		}
 		/**
 		 * 记录最后一次摸的牌
@@ -535,7 +535,8 @@ module game {
 		 * */
 		public static AddCardPool(body: Array<any>, sit: number, istest: boolean = false): void {
 			// let p = Global.getUserPosition(sit)
-			let cardpool: Array<CardInfo> = this.getCardsPool(sit-1);
+
+			let cardpool: Array<CardInfo> = this.getCardsPool(sit);
 			for (var x: number = 0; x < body.length; x++) {
 				var card: CardInfo = new CardInfo();
 				card.CardID = body[x].CardID;
@@ -599,7 +600,10 @@ module game {
 		// 保存手牌数据
 		public static getHandCards(sit: number): Array<CardInfo> {
 			let arr: Array<CardInfo> = game.GamePlayData.arrHandCards[sit-1];
-			// console.log("=getHandCards==", arr)
+			if( sit == Global.userSit ){
+				console.log("=getHandCards==", arr)
+			}
+			// 
 			return arr;
 		}
 		// 保存吃碰杠数据

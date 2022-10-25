@@ -5,8 +5,12 @@ module game {
 		}
 		//[{x:0,y:0},{x:0,y:0},{x:0,y:0}]
 		/*左边玩家 手牌 亮牌 吃碰 暗杠等坐标*/
-		private arrLHP: Array<any> = [{ x: 330, y: 743 }, { x: 342, y: 681 }, { x: 350, y: 635 }, { x: 359, y: 588 }, { x: 367, y: 542 }, { x: 375, y: 495 },
-		{ x: 385, y: 449 }, { x: 393, y: 403 }, { x: 402, y: 355 }, { x: 410, y: 309 }, { x: 418, y: 263 }, { x: 427, y: 215 }, { x: 435, y: 170 }, { x: 443, y: 125 }];
+		private arrLHP: Array<any> = [
+			{ x: 330, y: 743 }, { x: 342, y: 681 }, { x: 350, y: 635 },
+			 { x: 359, y: 588 }, { x: 367, y: 542 }, { x: 375, y: 495 },
+			{ x: 385, y: 449 }, { x: 393, y: 403 }, { x: 402, y: 355 }, 
+			{ x: 410, y: 309 }, { x: 418, y: 263 }, { x: 427, y: 215 }, 
+			{ x: 435, y: 170 }, { x: 443, y: 125 }];
 
 		private arrLLP: Array<any> = [{ x: 324, y: 768 }, { x: 334, y: 708 }, { x: 342, y: 658 }, { x: 351, y: 608 }, { x: 361, y: 558 }, { x: 370, y: 508 },
 		{ x: 379, y: 458 }, { x: 389, y: 408 }, { x: 398, y: 359 }, { x: 407, y: 310 }, { x: 416, y: 260 }, { x: 424, y: 213 }, { x: 433, y: 162 }, { x: 443, y: 115 }];
@@ -114,11 +118,8 @@ module game {
 			this.gHandCardD.addEventListener("OnClickHandCard", this.onClickHandCard, this);
 
 			this.clearAllGroup();
-
-
-
-
 		}
+
 		/*创建手牌  state 0暗牌状态 1亮牌状态*/
 		public createHandCard(isShow: boolean, state: number): void {
 			console.log("创建手牌")
@@ -131,7 +132,7 @@ module game {
 		}
 
 		private onTimeUpdate():void{
-			for (let j: number = 0; j < 4; j++) {
+			for (let j: number = 1; j < 5; j++) {
 				this.updataHandsByPosition(j, 0);
 			}
 		}
@@ -359,10 +360,8 @@ module game {
 				
 				let isQue: boolean = false;
 				let info: game.CardInfo = arr[i];
-				let cardValue: number = game.GameParmes.getCardID(info);
-				if (cardValue > 0) {
-					let nHua: number = game.GameParmes.getHua(info);
-				}
+				let cardValue: number = info.CardID; // game.GameParmes.getCardID(info);
+			
 				if(cardValue==-1 && isQishou){
 					continue;
 				}
@@ -373,6 +372,7 @@ module game {
 				let nOptW: number = 0;
 
 				if (p == 0) {
+
 
 					let itemCardWidth: number = 126 - 5;
 					card.setCard(p, (i + index), cardValue, state, isQue);
@@ -777,7 +777,7 @@ module game {
 
 			if (GameParmes.gameStage == GameStageType.PLAYING) {//出牌阶段
 				if (this.currentCard == item) {
-					if (game.GamePlayData.M_C_P_G_sit == Global.userSit) {
+					if (game.GamePlayData.playingSeat == Global.userSit) {
 						this.dispatchEvent(new egret.Event("ShowTingTip", true, true, { "isShowTing": item.isTingFlag, "index": item.cardIndex }));
 						var cardInfo: game.CardInfo = new game.CardInfo();
 						cardInfo.CardID = item.cardInfo.CardID;

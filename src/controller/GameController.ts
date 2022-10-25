@@ -104,9 +104,9 @@ module game {
 		 *断线续完同步消息 发完玩家列表和规则后下发此消息
 			* */
 		public static AckPlayerContinued(body: any): void {
-			game.GamePlayData.M_C_P_G_sit = body.info.currentActionSeat;
-			if (game.GamePlayData.M_C_P_G_sit == -1) {
-				game.GamePlayData.M_C_P_G_sit = GameParmes.firstSit;
+			game.GamePlayData.playingSeat = body.info.currentActionSeat;
+			if (game.GamePlayData.playingSeat == -1) {
+				game.GamePlayData.playingSeat = GameParmes.firstSit;
 			}
 			GameParmes.TrustNum = 9999;
 			GameParmes.gameDelayRestrictions = 0;

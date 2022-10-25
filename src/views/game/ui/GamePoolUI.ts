@@ -30,6 +30,7 @@ module game {
 			this.verticalCenter = "0";
 			this.scaleX = 0.8;
 			this.scaleY = 0.8;
+			//上方玩家牌池坐标
 			this.gUpPool.width = 805;
 			this.gUpPool.height = 186;
 			this.gUpPool.x = 640;
@@ -103,6 +104,9 @@ module game {
 		}
 		/*添加牌到牌池  card:CardInfo*/
 		public addCardToPool(card: game.CardInfo): void {
+			console.log("==card==",)
+			console.log("==card==",card)
+			console.log("==card==",)
 			let p: number = Global.getUserPosition(card.Sit);
 			let g: eui.Group = this.findGroupByPosition(p);
 			let len: number = 0;
@@ -116,9 +120,11 @@ module game {
 			this.arrCard[p].push(card);
 			let item: game.BasePoolCardUI = new game.BasePoolCardUI();
 			item.cardInfo = card;
-			let cardValue: number = game.GameParmes.getCardID(card);//Math.floor(Math.random()*27)+1;
+			let cardValue: number = card.CardID //game.GameParmes.getCardID(card);//Math.floor(Math.random()*27)+1;
 			item.setCard(p, len, cardValue);
+			
 			g.addChild(item);
+	
 			if (p == 0) {
 
 				var count: number = g.numElements - 1;
@@ -271,7 +277,7 @@ module game {
 			}
 			this.tipAnim.visible = true;
 			this.tipAnim.animation.play("cpts", 0);
-
+			console.log("====item==",item.x,item.x)
 		}
 		public playHuAnim(sit: number): void {
 			comm.DragonAnim.ins.playAnimByPosition("hluolei", this.tipAnim.x, this.tipAnim.y);
@@ -300,7 +306,7 @@ module game {
 			this.tipAnim.animation.stop();
 		}
 		public checkLPCards(): void {
-			for (let i: number = 0; i < 4; i++) {
+			for (let i: number = 1; i < 5; i++) {
 				let g: eui.Group = this.findGroupByPosition(i);
 				let len: number = g.numChildren;
 				for (let j: number = 0; j < len; j++) {
@@ -319,16 +325,19 @@ module game {
 		}
 		private findGroupByPosition(p: number): eui.Group {
 			if (p == 0) {
-				return this.gLeftPool;
+				return this.gDownPool;
+				
 			}
 			if (p == 1) {
-				return this.gUpPool;
+				return this.gLeftPool;
+				
 			}
 			if (p == 2) {
-				return this.gRightPool;
+				return this.gUpPool;
+				
 			}
 			if (p == 3) {
-				return this.gDownPool;
+				return this.gRightPool;
 			}
 		}
 		private clearCardPool(): void {

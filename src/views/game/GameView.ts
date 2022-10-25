@@ -133,35 +133,9 @@ module game {
 		public ACK_GAME_USEROPERATION(evt: egret.Event): void {
 			this.gameUI.onShowOpt(evt.data);
 		}
-		/** 
-		 * @param msg
-		 * 服务器广播过牌消息
-		 */
-		private ACK_GAME_NO_OPERATION(evt: egret.Event): void {
-			var nSit: number = evt.data;
-			Global.log("有人选择过====" + nSit + "自己的座位号=" + Global.userSit);
-			this.gameUI.changeUserRight();
-		}
-		/** 
-		 * @param msg
-		 * 服务器广播牌尾摸牌消息
-		 */
-		private ACK_USER_PAIWEIMOPAI(evt: egret.Event): void {
-			var cardInfo: game.CardInfo = evt.data[0] as game.CardInfo;
-			this.gameUI.getOneCard(cardInfo);
-			//SoundModel.playEffect(SoundModel.ZHUA);
-		}
-		/** 
-		 * @param msg
-		 * 服务器广播正常抓牌消息
-		 */
-		private ACK_USER_ZHUAPAI(evt: egret.Event): void {
-			var cardInfo: game.CardInfo = evt.data[0] as game.CardInfo;
-			//this.gameUI.znaioItemGroup.removeChildren();
-			this.gameUI.zniaoGroup.visible = false;
-			this.gameUI.getOneCard(cardInfo);
-			//SoundModel.playEffect(SoundModel.ZHUA);
-		}
+
+
+
 		/** 
 		 * @param msg
 		 * 服务器通知客户端吃
@@ -361,33 +335,6 @@ module game {
 		private ACK_USER_PLAYERRELIEVETRUST(): void {
 			this.gameUI.showTrust(false);
 		}
-		/*庄家开始出牌*/
-		private ACK_GAME_STARTPLAYING(): void {
-			this.gameUI.showWallCount();
-			this.gameUI.startTime(GameParmes.gamePlayTime);
-			// if(Global.userSit == GameParmes.firstSit && Global.userSit ==game.GamePlayData.M_C_P_G_sit){
-			// 	//我是庄的时候，第一次出牌的倒计时时间为15S
-			// 	this.gameUI.startTime(GameParmes.gamePlayTime);
-			// }
-		}
-		private NotBuhua(evt: egret.Event): void {
-			var body = evt.data;
-			if (body.seatNo != null && body.seatNo != NaN && body.seatNo != undefined) {
-				this.gameUI.userBuhua(body.seatNo);
-				for (var i: number = 0; i < body.huapai.length; i++) {
-					this.gameUI.showHuaCard(body.seatNo, body.huapai[i]);
-				}
-				this.gameUI.playAnim("bh", body.seatNo);
-				SoundModel.playEffect("buhua_mp3");
-			} else {
-				this.gameUI.userBuhua(body.Card.Cards[0].Sit);
-				this.gameUI.showHuaCard(body.Card.Cards[0].Sit, body.Card.ObtainCard.CardID);
-				this.gameUI.playAnim("bh", body.Card.Cards[0].Sit);
-				this.gameUI.gamePosition.startTime(GameParmes.chiPengGangSurplusTime);
-				SoundModel.playEffect("buhua_mp3");
-			}
-		}
-
 
 		/**
 		 * 行牌单播消息  根据这个显示操作按钮
@@ -401,9 +348,9 @@ module game {
 			this.gameUI.showRoomGUID(body.roundGuid);
 			//	body.remainCount
 			this.gameUI.startTime(body.second);
-			game.GamePlayData.M_C_P_G_sit = nSit;
+			game.GamePlayData.playingSeat = nSit;
 			this.gameUI.changeUserRight();
-
+	
 			GameParmes.isCurTing = false;
 
 			if (body.operation.length == 0) {
@@ -416,7 +363,7 @@ module game {
 				GameParmes.gameTurn = GameTurnType.OTHERTURN;
 				return;
 			}
-		
+			// this.gameOpt.showOpt(data);//0 吃 1碰 2杠 3胡 4听
 				game.GamePlayData.SaveMJ_Operation(body.operation);
 				const optArr = [false, false, false, false, false];
 
@@ -435,12 +382,14 @@ module game {
 				if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_D_DISCARD) {
 					GameParmes.gameStage = GameStageType.PLAYING;
 					GameParmes.gameTurn = GameTurnType.SELFTURN;
+					
 				}
 
 				//左吃，吃的牌是最小点, 例如45吃3
 				if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_L_CHOW) {
 					optArr[0] = true;
 					GameParmes.gameTurn = GameTurnType.OTHERTURN;
+					
 				}
 				//中吃，吃的牌是中间点，例如24吃3
 				if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_M_CHOW) {
@@ -513,12 +462,15 @@ module game {
 		 */
 
 		private ACK_USER_OPERATION(evt: egret.Event) {
+			
 			const body: room.VGUserOperationAck = evt.data;
 			egret.log("****行牌应答:这是玩家操作的结果:", body)
+	
 			//console.log("=== 行牌应答 这是玩家操作的seat:", body["seatID"])
 			const nSit = body["seatID"];
 			GameParmes.gameStage = GameStageType.PLAYING;
 			this.gameUI.showWallCount()//body.remainCount
+			console.log
 
 			let p = Global.getUserPosition(nSit)
 			//console.log(`****当前操作玩家座位号:${nSit}，和局部座位号:${p},玩家座位号：${Global.userSit}`)
@@ -591,16 +543,34 @@ module game {
 			//左吃，吃的牌是最小点, 例如45吃3
 			if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_L_CHOW) {
 				//console.log("=====左吃==")
+				let nSit: number = evt.data[0];
+				let card: game.CardInfo = evt.data[1];
+				this.gameUI.playAnim("chi", nSit);
+				//this.gameUI.playAnim("hdly",nSit);
+				this.gameUI.updataUserCPG(nSit, card);
+				SoundModel.playEffect(SoundModel.CHI);
 			}
 
 			//中吃，吃的牌是中间点，例如24吃3
 			if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_M_CHOW) {
 				//console.log("=====中吃，吃的牌是中间点，例如24吃3==")
+				let nSit: number = evt.data[0];
+				let card: game.CardInfo = evt.data[1];
+				this.gameUI.playAnim("chi", nSit);
+				//this.gameUI.playAnim("hdly",nSit);
+				this.gameUI.updataUserCPG(nSit, card);
+				SoundModel.playEffect(SoundModel.CHI);
 			}
 
 			//右吃，吃的牌是最大点，例如12吃3
 			if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_R_CHOW) {
 				//console.log("=====右吃，吃的牌是最大点，例如12吃3==")
+				let nSit: number = evt.data[0];
+				let card: game.CardInfo = evt.data[1];
+				this.gameUI.playAnim("chi", nSit);
+				//this.gameUI.playAnim("hdly",nSit);
+				this.gameUI.updataUserCPG(nSit, card);
+				SoundModel.playEffect(SoundModel.CHI);
 			}
 
 			//碰
@@ -919,6 +889,7 @@ module game {
 			if (status == game.RoomStatus["初始化角色"]) {
 				// this.gameUI.gameHSZ.showDapiaoPanel(false);
 				// this.gameUI.gameHSZ.onHideClock()
+				this.gameMatch.stopAnim();
 				this.gameUI.initPosition();
 				this.gameUI.initUser();
 

@@ -231,7 +231,7 @@ module game {
 			}
 			/*开始游戏动画*/
 			if (!Global.isContinue) {
-				comm.DragonAnim.ins.playAnimByName("ksyx", -1);
+				//comm.DragonAnim.ins.playAnimByName("ksyx", -1);
 				Global.isContinue = false;
 			}
 			this.showGameInfo();
@@ -317,7 +317,7 @@ module game {
 			// 	return ;
 			// }
 			// if(GameParmes.isHu == false && arr[4]){
-			if (game.GamePlayData.M_C_P_G_sit == Global.userSit) {//自己牌权时才判断是否听牌
+			if (game.GamePlayData.playingSeat == Global.userSit) {//自己牌权时才判断是否听牌
 				this.gameHand.showTingFlag(true, "ting");
 				this.checkLPCards();
 			}
@@ -384,7 +384,7 @@ module game {
 				}
 
 			}
-			this.changeUserRight();
+			//this.changeUserRight();
 			
 		}
 		public hideTingFlag(): void {
@@ -411,9 +411,9 @@ module game {
 			this.gamePosition.stopTime();
 			this.gamePosition.startTime(GameParmes.chiPengGangSurplusTime);
 			this.gameOpt.visible = false;
-			this.changeUserRight();
+			//this.changeUserRight();
 			egret.setTimeout(function(){
-				for (let j: number = 0; j < 4; j++) {
+				for (let j: number = 1; j < 5; j++) {
 					this.gameHand.updataHandsByPosition(j, 0);
 				}
 			},this,10);
@@ -423,7 +423,7 @@ module game {
 			this.gameHand.createHandCard(true, 0);//还原手牌
 			this.gameHand.createAllCPG(true);//还原吃碰杠牌
 			this.gamePool.reductionCardsPool();//还原牌池
-			this.gamePosition.setPosition(game.GamePlayData.M_C_P_G_sit);//还原方位
+			this.gamePosition.setPosition(game.GamePlayData.playingSeat);//还原方位
 			this.showGameInfo();
 
 			room.RoomWebSocket.instance().roomSender.ReqGamePlayerReleveTrustFun()
@@ -436,7 +436,7 @@ module game {
 				}
 
 			}
-			this.changeUserRight();
+			//this.changeUserRight();
 			for (var i: number = 0; i < 4; i++) {
 				if (game.GamePlayData.tingData[i] == true) {
 					if (i == Global.userSit) {
@@ -554,7 +554,7 @@ module game {
 		}
 		// 显示当前出牌玩家头像动画
 		public changeUserRight(): void {
-			var nCurrent: number = game.GamePlayData.M_C_P_G_sit;//当前操作人的座位号
+			var nCurrent: number = game.GamePlayData.playingSeat;//当前操作人的座位号
 			// this.gamePosition.setCurrentPosition(nCurrent);
 			let p: number = Global.getUserPosition(nCurrent);
 			this.gamePosition.onShowOpetorPostion(p);

@@ -26,6 +26,7 @@ module game {
 				strIndex = "" + value;
 			}
 
+			console.log("===setCard",value)
 			this.imgValue.source = "cardValue00" + strIndex;
 			if (islight) {
 				let guangQuanBg: eui.Image = new eui.Image();
