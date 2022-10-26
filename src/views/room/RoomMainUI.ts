@@ -97,7 +97,6 @@ module room {
 			this.changeLanguage.showUI();
 		}
 		public updataRoomList(arrList: Array<any>): void {
-			console.log("==arrList=",arrList)
 			this.initAnim()
 			for (let i: number = 0; i < arrList.length; i++) {
 				let info: any = arrList[i];

@@ -25,9 +25,9 @@ module room {
 			GDGame.Msg.ins.addEventListener(RoomMessage.ON_GAME_LIST, this.onUpdataRoomList, this);
 			GDGame.Msg.ins.addEventListener(RoomMessage.OGID_ROOM_UPDATECOIN, this.onUpdataUserInfo, this);
 		}
+		
 		/*更新房间列表*/
 		private onUpdataRoomList(evt: egret.Event): void {
-			console.log(" evt.data==", evt.data)
 			var arrList: Array<any> = evt.data.roomInfo;
 			this.roomUI.updataRoomList(arrList);
 		}

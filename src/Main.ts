@@ -205,7 +205,6 @@ class Main extends eui.UILayer {
         if (jsondata.state == 0) {
             Global.arrConfig = jsondata.value;
             Global.arrSocket = jsondata.value;
-            console.log("jsondata======",jsondata)
             this.onCheckGameStatus();
             BaseHttpRequest.sendRequestGetOnce(Global.baseURL+"GetUserInfo", this.onGetUserInfo, this, "token="+Global.token);
         } else {
@@ -291,7 +290,6 @@ class Main extends eui.UILayer {
             return;
         }
         var jsondata = eval("(" + json + ")");
-        console.log("==jsondata===",jsondata)
         if (jsondata.state == 0) {
             this.isTimeout = true;
             this.connectServer();

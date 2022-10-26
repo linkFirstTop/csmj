@@ -144,7 +144,7 @@ module game {
 		private showHandCard(): void {
 			var len: number = 0;
 			for (let j: number = 0; j < 4; j++) {
-				for (let i: number = 0; i < 4; i++) {
+				for (let i: number = 1; i < 5; i++) {
 					let g: eui.Group = this.findHandGroup(i);
 					let count: number = len + 4 > g.numChildren ? g.numChildren : len + 4;
 					for (let n: number = len; n < count; n++) {
@@ -988,7 +988,6 @@ module game {
 		private findHandGroup(p: number): eui.Group {
 			if (p == 0) {
 				return this.gHandCardD;
-			
 			}
 			if (p == 1) {
 				return this.gHandCardR;

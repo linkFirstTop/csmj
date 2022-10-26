@@ -147,8 +147,8 @@ module room {
 				*/
 			public static  ACK_GAMEPLAYERTRUST:string = RoomMessage.GAME_BASE+"ACK_GAMEPLAYERTRUST";
 	
-	/**
-		 *断线重联后 继续游戏
+	       /**
+		   *断线重联后 继续游戏
 			*/
 			public static ACK_GAME_CONTINUE: string = RoomMessage.GAME_BASE + "ACK_GAME_CONTINUE";
 	

@@ -117,7 +117,6 @@ module game {
 		 * 根据发牌数据创建手牌
 		 * */
 		public static SaveHandCarsd(arr: Array<room.IVGUserInfo>): void {
-			console.log("SaveHandCarsd==",arr)
 			game.GamePlayData.arrHandCards = null;
 	
 			const array = [[], [], [],[]];
@@ -138,6 +137,16 @@ module game {
 			})
 			game.GamePlayData.arrHandCards = array;
 	
+		}
+		/** 更新玩家的手牌 */
+
+		public static SaveHandCardsBySeatID(seatID: number, array){
+
+			console.log("=seatID-1==",seatID-1)
+			game.GamePlayData.arrHandCards[seatID-1] = array;
+
+			console.log("=game.GamePlayData.arrHandCards[seatID-1]==",game.GamePlayData.arrHandCards[seatID-1])
+
 		}
 		//结算手牌数据
 		public static SaveResultEnd(body:  Array<any>): void {
@@ -486,12 +495,12 @@ module game {
 		public static AddHandCards(sit: number, Card: any): void {
 
 		//	let p = Global.getUserPosition(sit);
-			let handcards: Array<game.CardInfo> = this.getHandCards(sit);
+			// let handcards: Array<game.CardInfo> = this.getHandCards(sit);
 
-			var card: game.CardInfo = new game.CardInfo();
-			card.CardID = Card.CardID;
-			card.Sit = Card.Sit;
-			handcards.push(card);
+			// var card: game.CardInfo = new game.CardInfo();
+			// card.CardID = Card.CardID;
+			// card.Sit = Card.Sit;
+			// handcards.push(card);
 
 			// let handcards: Array<game.CardInfo> = this.getHandCards(sit);
 			// for (var x: number = 0; x < cardGroup.Cards.length; x++) {
@@ -601,7 +610,7 @@ module game {
 		public static getHandCards(sit: number): Array<CardInfo> {
 			let arr: Array<CardInfo> = game.GamePlayData.arrHandCards[sit-1];
 			if( sit == Global.userSit ){
-				console.log("=getHandCards==", arr)
+				//console.log("=getHandCards==", arr)
 			}
 			// 
 			return arr;

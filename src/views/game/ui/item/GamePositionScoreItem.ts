@@ -13,8 +13,6 @@ module game {
 		}
 		protected childrenCreated(): void {
 			super.childrenCreated();
-
-
 		}
 
 		//-----------------------------------初始化东西南北   0-东，1-西，2-南，3-北-----------------------------------
@@ -22,17 +20,21 @@ module game {
 
 			this.clearUI();
 			if (p == 0) {
-				this.bmp.source = RES.getRes("direction_left");
-				this.fangXiang = "left";
-			} else if (p == 1) {
-				this.bmp.source = RES.getRes("direction_up");
-				this.fangXiang = "up";
-			} else if (p == 2) {
-				this.bmp.source = RES.getRes("direction_right");
-				this.fangXiang = "right";
-			} else if (p == 3) {
 				this.bmp.source = RES.getRes("direction_down");
 				this.fangXiang = "down";
+				
+			} else if (p == 1) {
+				this.bmp.source = RES.getRes("direction_left");
+				this.fangXiang = "left";
+		
+			} else if (p == 2) {
+				this.bmp.source = RES.getRes("direction_up");
+				this.fangXiang = "up";
+	
+			} else if (p == 3) {
+				this.bmp.source = RES.getRes("direction_right");
+				this.fangXiang = "right";
+			
 			}
 			Global.log("当前位置=" + p + "sit=" + Global.userSit);// 0-左边，1-上边，2-右边，3下边    玩家座位号(0-东，1-西，2-南，3-北)
 			if (str == "east") {

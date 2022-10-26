@@ -26,12 +26,13 @@ module room {
 				case RoomProtocol.ACK | RoomProtocol.VGID_USER_MANAGED://服务器通知客户端托管
 					this.ON_VGID_USER_MANAGED(byte);
 					break;
-				case RoomProtocol.ACK | RoomProtocol.VGID_GAME_GAMESTART://广播快速开始游戏
-					this.ON_ACK_START_GAME(byte);
-					break;
 				case RoomProtocol.ACK | RoomProtocol.VGID_GAME_SYNCGAMEDATA://同步游戏
 					this.VGID_ACK_GAME_SYNCGAMEDATA(byte);
 					break;
+				case RoomProtocol.ACK | RoomProtocol.VGID_GAME_GAMESTART://广播快速开始游戏
+					this.ON_ACK_START_GAME(byte);
+					break;
+
 				case RoomProtocol.ACK | RoomProtocol.VGID_GAME_GAMESTATUS://游戏状态广播消息
 					this.VGID_ACK_GAME_GAMESTATUS(byte);
 					break;
@@ -59,102 +60,8 @@ module room {
 			}
 		}
 
-		// 同步游戏
-		private VGID_ACK_GAME_SYNCGAMEDATA(byte: egret.ByteArray): void {
-
-			var body: room.VGSyncGameDataNtc = room.VGSyncGameDataNtc.decode(byte.bytes);
-			game.GameUserList.saveUserListInfo(body.userInfos)
-			GDGame.Msg.ins.dispatchEventWith(room.RoomMessage.ACK_GAMEPLAYERLIST, false, body);
-
-			game.GamePlayData.SaveHandCarsd(body.userInfos);
-			console.log('=====同步游戏======', body);
-			if (Number(body.status) == 0) {
-				return;
-			}
-
-			if (Global.isContinue) {
-				ViewManager.ins.switchToGame();
-
-				ViewManager.ins.hideWait();
-				GDGame.Msg.ins.dispatchEventWith(room.RoomMessage.ACK_GAME_CONTINUE);
-				Global.isContinue = false;
-			}
-		}
-
-
-		//游戏状态广播消息
-		private VGID_ACK_GAME_GAMESTATUS(byte: egret.ByteArray): void {
-			var body: room.VGGameStatusNtc = room.VGGameStatusNtc.decode(byte.bytes);
-			console.log("==body=",body)
-			
-			game.RoomInfo.ins.ChangeStatus(Number(body.status), body.second);
-
-			//console.log('游戏状态广播消息', body);
-		}
-
-
-		//发牌广播消息
-		private ON_VGID_GAME_SENDCARD(byte: egret.ByteArray): void {
-			console.log("========VGID_ACK_GAME_SENDCARD============")
-			var body: room.VGGameSendCardNtc = room.VGGameSendCardNtc.decode(byte.bytes);
-			game.GamePlayData.SaveHandCarsd(body.userInfos);
-			game.GameUserList.updateUserListInfo(body.userInfos);
-
-			//GDGame.Msg.ins.dispatchEventWith(game.GameMessage.SHOW_DAPIAO_INFO);
-
-			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_GAME_SENDCARD, true, true, body));
-			console.log('发牌广播消息', body);
-		}
-
-
-		//单张发牌器
-		private ON_VGID_SERVICE_MAGICTILES(byte: egret.ByteArray) {
-			const body: room.MagicTilesAck = room.MagicTilesAck.decode(byte.bytes);
-			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_SERVICE_MAGICTILES, true, true, body));
-
-			console.log("===单张发牌器=======", body)
-		}
-
-		//行牌单播消息
-		private VGID_ACK_GAME_OPERATION(byte: egret.ByteArray): void {
-			const body: room.VGGameOperationNtc = room.VGGameOperationNtc.decode(byte.bytes);
-			game.GamePlayData.SaveChiPengGangHu(body);
-			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_GAME_OPERATION, true, true, body));
-
-			// console.log('行牌单播消息', body);
-		}
-
-
-		private ON_VGID_USER_OPERATION(byte: egret.ByteArray): void {
-			const body: room.VGUserOperationAck = room.VGUserOperationAck.decode(byte.bytes);
-
-			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_USER_OPERATION, true, true, body));
-
-		}
-
-		//服务器通知客户端托管
-		private ON_VGID_USER_MANAGED(byte: egret.ByteArray): void {
-			//Global.log("服务器通知客户端托管");
-			var body: room.VGUserManagedAck = room.VGUserManagedAck.decode(byte.bytes);
-			Global.log("服务器通知客户端托管", body);
-
-			//	console.log("托管玩家座位号:" + body.TrustSit, "我的座位号:" + Global.userSit);
-			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_USER_MANAGED, true, true, body));
-		}
-
-		//结算广播消息
-		private VGID_ACK_GAME_GAMERESULT(byte: egret.ByteArray): void {
-			var body: room.VGGameResultNtc = room.VGGameResultNtc.decode(byte.bytes);
-			// GDGame.Msg.ins.dispatchEvent();
-			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_GAME_GAMERESULT, true, true, body));
-
-			console.log('结算广播消息', body);
-		}
-
-
 		//返回进入游戏服务结果
 		private ON_VGID_ROOM_LOGIN(byte: egret.ByteArray): void {
-			
 			var body: room.VGLoginAck = room.VGLoginAck.decode(byte.bytes);
 			console.log("===Login ok",body)
 			//Global.log("收到登陆返回:" + body.userInfo);
@@ -239,8 +146,7 @@ module room {
 		//返回游戏列表
 		private ON_VGID_ROOM_ROOMLIST(byte: egret.ByteArray): void {
 			var body: room.VGRoomListAck = room.VGRoomListAck.decode(byte.bytes);
-			console.log('---body', body);
-
+			console.log('---返回游戏列表:', body);
 			GDGame.Msg.ins.dispatchEvent(new egret.Event(RoomMessage.ON_GAME_LIST, true, true, body));
 			//断线重连进来,不用主动连接，等服务器推送接受链接服务器
 			if (Global.myPos.tableId) {
@@ -270,6 +176,104 @@ module room {
 			GDGame.Msg.ins.dispatchEvent(new egret.Event(RoomMessage.ON_LEAVE_TAB, true, true, body));
 		}
 
+		// 同步游戏
+		private VGID_ACK_GAME_SYNCGAMEDATA(byte: egret.ByteArray): void {
+			var body: room.VGSyncGameDataNtc = room.VGSyncGameDataNtc.decode(byte.bytes);
+			game.GameUserList.saveUserListInfo(body.userInfos)
+			GDGame.Msg.ins.dispatchEventWith(room.RoomMessage.ACK_GAMEPLAYERLIST, false, body);
+
+			game.GamePlayData.SaveHandCarsd(body.userInfos);
+			console.log('=====同步游戏:', body);
+			if (Number(body.status) == 0) {
+				return;
+			}
+
+			if (Global.isContinue) {
+				ViewManager.ins.switchToGame();
+
+				ViewManager.ins.hideWait();
+				GDGame.Msg.ins.dispatchEventWith(room.RoomMessage.ACK_GAME_CONTINUE);
+				Global.isContinue = false;
+			}
+		}
+
+
+		//游戏状态广播消息
+		private VGID_ACK_GAME_GAMESTATUS(byte: egret.ByteArray): void {
+			var body: room.VGGameStatusNtc = room.VGGameStatusNtc.decode(byte.bytes);
+			console.log("==body=",body)
+			
+			game.RoomInfo.ins.ChangeStatus(Number(body.status), body.second);
+
+			//console.log('游戏状态广播消息', body);
+		}
+
+
+		//发牌广播消息
+		private ON_VGID_GAME_SENDCARD(byte: egret.ByteArray): void {
+			console.log("========发牌广播消息============")
+			var body: room.VGGameSendCardNtc = room.VGGameSendCardNtc.decode(byte.bytes);
+			game.GamePlayData.SaveHandCarsd(body.userInfos);
+			game.GameUserList.updateUserListInfo(body.userInfos);
+
+			//GDGame.Msg.ins.dispatchEventWith(game.GameMessage.SHOW_DAPIAO_INFO);
+
+			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_GAME_SENDCARD, true, true, body));
+			console.log('发牌广播消息', body);
+		}
+
+
+		//单张发牌器
+		private ON_VGID_SERVICE_MAGICTILES(byte: egret.ByteArray) {
+			const body: room.MagicTilesAck = room.MagicTilesAck.decode(byte.bytes);
+			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_SERVICE_MAGICTILES, true, true, body));
+
+			console.log("===单张发牌器=======", body)
+		}
+
+		//行牌单播消息
+		private VGID_ACK_GAME_OPERATION(byte: egret.ByteArray): void {
+			const body: room.VGGameOperationNtc = room.VGGameOperationNtc.decode(byte.bytes);
+			//game.GamePlayData.SaveChiPengGangHu(body);
+			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_GAME_OPERATION, true, true, body));
+
+			// console.log('行牌单播消息', body);
+		}
+
+
+		private ON_VGID_USER_OPERATION(byte: egret.ByteArray): void {
+			const body: room.VGUserOperationAck = room.VGUserOperationAck.decode(byte.bytes);
+
+			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_USER_OPERATION, true, true, body));
+
+		}
+
+		//服务器通知客户端托管
+		private ON_VGID_USER_MANAGED(byte: egret.ByteArray): void {
+			//Global.log("服务器通知客户端托管");
+			var body: room.VGUserManagedAck = room.VGUserManagedAck.decode(byte.bytes);
+			Global.log("服务器通知客户端托管", body);
+
+			//	console.log("托管玩家座位号:" + body.TrustSit, "我的座位号:" + Global.userSit);
+			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_USER_MANAGED, true, true, body));
+		}
+
+		//结算广播消息
+		private VGID_ACK_GAME_GAMERESULT(byte: egret.ByteArray): void {
+			var body: room.VGGameResultNtc = room.VGGameResultNtc.decode(byte.bytes);
+			// GDGame.Msg.ins.dispatchEvent();
+			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_GAME_GAMERESULT, true, true, body));
+
+			console.log('结算广播消息', body);
+		}
+
+
+
+
+
+
+
+
 		//接收心跳消息
 		private ON_VGID_HEART_BEAT(byte: egret.ByteArray): void {
 			room.RoomWebSocket.instance().nRoomTimerCount = 0;
@@ -282,7 +286,6 @@ module room {
 			if (body.result == 0) {
 				//请求开始游戏
 				Global.myPos.roomID = body.userInfo.userPos.roomID;
-
 				game.GamePlayData.initData();
 				game.GameParmes.initData();
 				ViewManager.ins.switchToGame();

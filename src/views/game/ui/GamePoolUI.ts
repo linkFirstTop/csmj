@@ -326,7 +326,6 @@ module game {
 		private findGroupByPosition(p: number): eui.Group {
 			if (p == 0) {
 				return this.gDownPool;
-				
 			}
 			if (p == 1) {
 				return this.gLeftPool;

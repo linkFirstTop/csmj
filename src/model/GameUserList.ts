@@ -4,7 +4,7 @@ module game {
 		}
 		public static arrUserList: Array<game.GameUserInfo> = [];
 		public static saveUserListInfo(arr: Array<any>): void {
-			console.log("==saveUserListInfo=", arr)
+		
 			game.GameUserList.arrUserList = [];
 			for (let i: number = 0; i < arr.length; i++) {
 				let info:room.IVGUserInfo = arr[i];

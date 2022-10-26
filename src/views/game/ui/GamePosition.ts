@@ -22,17 +22,18 @@ module game {
 			this.mcTimer = new egret.Timer(1000);
 			this.mcTimer.addEventListener(egret.TimerEvent.TIMER, this.onTimer, this);
 			this.timeNum_lab.text = GameParmes.chiPengGangSurplusTime + "";
-			this.item2.item.x = 217;//右边
-			this.item2.item.y = 61;
 
-			this.item1.item.x = 130;//上边
-			this.item1.item.y = 7;
+			this.item3.item.x = 217;//右边
+			this.item3.item.y = 61;
 
-			this.item0.item.x = 45;//左边
-			this.item0.item.y = 61;
+			this.item2.item.x = 130;//上边
+			this.item2.item.y = 7;
 
-			this.item3.item.x = 130;//下边
-			this.item3.item.y = 130;
+			this.item1.item.x = 45;//左边
+			this.item1.item.y = 61;
+
+			this.item0.item.x = 130;//下边
+			this.item0.item.y = 130;
 		}
 
 
@@ -66,8 +67,8 @@ module game {
 		 * 确定当前的圈，局
 		 */
 		public setCurrentRing(): void {
-			for (var i: number = 0; i < 4; i++) {
-				var p: number = Global.getUserPosition(i);
+			for (let i: number = 1; i < 5; i++) {
+				const p: number = Global.getUserPosition(i);
 				(this["item" + p] as GamePositionScoreItem).setData(Global.getCurrentPositionName(i), p);
 				Global.log("itemp=" + p);
 			}
