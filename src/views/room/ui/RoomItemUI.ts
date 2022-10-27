@@ -15,15 +15,9 @@ module room {
 		// private lbTaiT: eui.BitmapLabel;
 		private lbEnterT: eui.BitmapLabel;
 
-		private nRoomID: number = 0;
-		private imgItem: eui.Image;
+	
 		private info: any;
 		private gContent: eui.Group;
-		private nLoadNum: number = 0;
-		private lbEnterGroup: eui.Group;
-		private bonesJson: any;
-		private textureJson: any;
-		private texture: any;
 		protected childrenCreated(): void {
 			super.childrenCreated();
 
@@ -83,46 +77,32 @@ module room {
 
 				this.lbEnter.font = Global.language + "roomItemNumFnt1_fnt";
 			}
-			let str: string = "roomItem" + this.info.id;
+	
 
 
-			try {
-				RES.getResByUrl("resource/assets/language/" + Global.language + "/roomAnim/" + str + "_ske.json", function (text: any) {
-					if (text) {
-						this.bonesJson = text;
-						this.getAnimComplete();
-					}
+			let str: string = "roomItem" + this.info.roomID;
+			let factory: dragonBones.EgretFactory = new dragonBones.EgretFactory();
 
-				}, this, RES.ResourceItem.TYPE_JSON);
-				RES.getResByUrl("resource/assets/language/" + Global.language + "/roomAnim/" + str + "_tex.json", function (text: any) {
-					if (text) {
-						this.textureJson = text;
-						this.getAnimComplete();
-					}
 
-				}, this, RES.ResourceItem.TYPE_JSON);
-				RES.getResByUrl("resource/assets/language/" + Global.language + "/roomAnim/" + str + "_tex.png", function (texture: any) {
-					if (texture) {
-						this.texture = texture;
-						this.getAnimComplete();
-					}
-
-				}, this, RES.ResourceItem.TYPE_IMAGE);
-			} catch (error) { }
+			console.log("==`${str}_ske_json`=",`${str}_ske_json`)
+			factory.parseDragonBonesData(
+			  RES.getRes(`${str}_ske_json`)
+			); //xlrw_tex_webp
+			factory.parseTextureAtlasData(
+			  RES.getRes(`${str}_tex_json`),
+			  RES.getRes(`${str}_tex_png`)
+			);
+	  
+			let ar: dragonBones.EgretArmatureDisplay = factory.buildArmatureDisplay(this.itemWenZiArr[this.info.roomID - 1]);
+			ar.animation.play("Sprite", 0);
+			ar.x = 240;
+			ar.y = 160;
+			ar.animation.play(this.itemWenZiArr[this.info.roomID - 1], 0);
+			this.gContent.addChildAt(ar, 0);
+	  
+		
 		}
-		private getAnimComplete(): void {
-			this.nLoadNum += 1;
-			if (this.nLoadNum == 3) {
-				let factory: dragonBones.EgretFactory = new dragonBones.EgretFactory();
-				factory.parseDragonBonesData(this.bonesJson);
-				factory.parseTextureAtlasData(this.textureJson, this.texture);
-				let armatureDisplay2 = factory.buildArmatureDisplay(this.itemWenZiArr[this.info.id - 1]);
-				armatureDisplay2.animation.play(this.itemWenZiArr[this.info.id - 1], 0);
-				this.gContent.addChildAt(armatureDisplay2, 0);
-				armatureDisplay2.x = 180;
-				armatureDisplay2.y = 150;
-				//this.gItem.addChild( this.lbEnter );
-			}
-		}
+
+
 	}
 }

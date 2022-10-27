@@ -46,8 +46,8 @@ module game {
 			// GDGame.Msg.ins.addEventListener(GameMessage.ACK_GAMEPLAYERLIST, this.ACK_GAME_PLAYERLIST, this);
 			GDGame.Msg.ins.addEventListener(GameMessage.NTF_ROOM_STATE, this.ACK_GAME_STATUS_CHANGED, this);
 
-			//游戏开始
-			GDGame.Msg.ins.addEventListener(GameMessage.VGID_GAME_GAMERESULT, this.ACK_GAME_RESULT, this);
+
+			// GDGame.Msg.ins.addEventListener(GameMessage.VGID_GAME_GAMERESULT, this.ACK_GAME_RESULT, this);
 			// //游戏全部结束
 			 GDGame.Msg.ins.addEventListener(GameMessage.VGID_GAME_GAMERESULT, this.ACK_ALL_GAMERESULT, this);
 	
@@ -843,7 +843,7 @@ module game {
 
 
 			//服务器通知客户端 单次胡牌消息
-			GDGame.Msg.ins.removeEventListener(GameMessage.VGID_GAME_GAMERESULT, this.ACK_GAME_RESULT, this);
+			GDGame.Msg.ins.removeEventListener(GameMessage.VGID_GAME_GAMERESULT, this.ACK_ALL_GAMERESULT, this);
 			// //游戏全部结束
 			// GDGame.Msg.ins.addEventListener(GameMessage.VGID_GAME_GAMERESULT, this.ACK_ALL_GAMERESULT, this);
 

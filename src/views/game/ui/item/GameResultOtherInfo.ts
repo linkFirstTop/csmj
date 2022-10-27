@@ -29,12 +29,24 @@ module game {
 			this.zhuangImg.source = "gameIcon_zhuang_" + Global.language + "_png";
 			this.icon_h.source = "gameResult_icon_htype_" + Global.language + "__png";
 		}
-		public setResult(info: room.VGGameResultNtc, type: number,hu: number): void {
+		public setResult(info: room.VGUserInfo, type: number,hu: number): void {
+			if (Global.getUserPosition(info.userPos.seatID ) == 3) {
+				this.imgHead.source = Global.commURL + "head/iconHead" + Global.userHead + ".png";
+
+			} else {
+				this.imgHead.source = Global.commURL + "head/iconHead" + Global.getHeadByName(info.userName) + ".png";
+	
+			}
+
+			this.zhuangImg.visible = info.role == 0;
+
 			if(hu==1){
 				this.icon_h.visible = true;
 			}else{
 				this.icon_h.visible = false;
 			}
+			this.lbName.text = info.userName;
+			
 			if (type == 0) {//胡
 				this.lbName.textColor = 0xFCEFCE;
 				this.gInfo.itemRendererSkinName.textColor = 0xFCEFCE;
@@ -91,12 +103,12 @@ module game {
 		}
 
 		/*显示剩余手牌*/
-		public showHandCardInfo(arr: Array<any>): void {
+		public showHandCardInfo(arr: Array<number>): void {
 		
 			let znValue: Array<number> = [];
-			for (let i: number = 0; i < arr[0].cards.length; i++) {
-				let info: game.CardInfo = arr[0].cards[i] as game.CardInfo;
-				let cardValue: number = game.GameParmes.getCardID(info);
+			for (let i: number = 0; i < arr.length; i++) {
+			
+				let cardValue: number = arr[i]
 	
 				if (cardValue < 10) {//万
 					znValue.push(cardValue);
@@ -106,7 +118,7 @@ module game {
 					znValue.push(cardValue - 18);
 				}
 				let card: BaseHandCardUI = new BaseHandCardUI();
-					 card.setCard(3, i, cardValue, 0, false);
+				card.setCard(3, i, cardValue, 0, false);
 		
 				// item.x = j * 126;
 				this.CandsGroup.scaleX = this.CandsGroup.scaleY = 0.5;

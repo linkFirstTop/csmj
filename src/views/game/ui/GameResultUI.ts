@@ -9,7 +9,7 @@ module game {
 		}
 		private btnContinue: BaseButton;
 
-
+		private userGroup: eui.Group;
 		private labelColor: eui.Label;
 
 		private resultBg: eui.Image;
@@ -52,51 +52,50 @@ module game {
 			var sourceSelf: number = 0;//自己的得分
 			console.log(body);
 			for (let i: number = 0; i < 4; i++) {
-				let info:any = arr[i];
+				let info:room.VGUserInfo = arr[i];
 			
 				// console.log(body);
-				let p: number = Global.getUserPosition(info.seat);
+				let p: number = Global.getUserPosition(info.userPos.seatID);
+				const User: game.GameResultOtherInfo = <GameResultOtherInfo>this.userGroup.getChildAt(i);
 				if (p == 0) {//玩家自己
 					
-					sourceSelf = Number(info.money);
+
+					sourceSelf = Number(info.resultCoin);
 					if(sourceSelf>0){
-						this["userZ"].setResult(info, body.settlementInfos[0].coinList[i],1);
+						User.setResult(info, body.settlementInfos[0].coinList[i],1);
 					}else{
-						this["userZ"].setResult(info, body.settlementInfos[0].coinList[i],0);
+						User.setResult(info, body.settlementInfos[0].coinList[i],0);
 					}
-					Global.gameCoin = Number(info.chips);
+					Global.gameCoin = Number(info.gameCoin);
 					if(sourceSelf!=0){
-						this["userZ"].showDetailInfo(info.fan);
+						User.showDetailInfo(info.fan);
 					}
-					this["userZ"].showHandCardInfo(info.playerCards);
+					User.showHandCardInfo(info.tileSets[0].Tiles);
 					GDGame.Msg.ins.dispatchEvent(new egret.Event(room.RoomMessage.OGID_ROOM_UPDATECOIN));
 				} else {//其他玩家
-					sourceSelf = Number(info.money);
+					const resultCoin = Number(info.resultCoin);
 				//	this["user" + p].setResult(info, body.result);
-					if(sourceSelf>0){
-						this["user" + p].setResult(info, body.settlementInfos[0].coinList[i],1);
+					if(resultCoin>0){
+						User.setResult(info, body.settlementInfos[0].coinList[i],1);
 					}else{
-						this["user" + p].setResult(info, body.settlementInfos[0].coinList[i],0);
+						User.setResult(info, body.settlementInfos[0].coinList[i],0);
 					}
-					if(sourceSelf!=0){
-						this["user" + p].showDetailInfo(info.fan);
+					if(resultCoin!=0){
+						User.showDetailInfo(info.fan);
 					}
-					this["user" + p].showHandCardInfo(info.playerCards);
+					//User.showHandCardInfo(info.tileSets[0].Tiles);
 				}
 			}
 			// this.showDetailInfo(body.fan);
 			//结果 0 胡 1 流局 2 失败 3 不输不赢
-			// if (body.result == 1) {
-			// 	this.setPing();
-			// } else if (body.result == 2) {
-			// 	this.setLose();
-			// } else if (body.result == 3) {
-			// 	this.setNull();
-			// } else if (body.result == 0) {
+			if (sourceSelf == 0) {
+				this.setPing();
+			} else if (sourceSelf < 0) {
+				this.setLose();
+			} else if (sourceSelf > 3) {
+				this.setWin();
+			}
 
-			// 	this.setWin();
-
-			// }
 			for (var i: number = 0; i < Global.roomData.length; i++) {
 				if (Global.roomData[i].id == Global.roomId) {
 					this.difen.text = Global.dic["底分/台分"] + ":" + ChipUtils.formatCoin(Number(Global.roomData[i].baseScore)) + "/" + ChipUtils.formatCoin((Global.roomData[i].taifen));

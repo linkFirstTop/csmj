@@ -104,9 +104,9 @@ module game {
 		}
 		/*添加牌到牌池  card:CardInfo*/
 		public addCardToPool(card: game.CardInfo): void {
-			console.log("==card==",)
-			console.log("==card==",card)
-			console.log("==card==",)
+			
+			console.log("==addCardToPool==",card)
+
 			let p: number = Global.getUserPosition(card.Sit);
 			let g: eui.Group = this.findGroupByPosition(p);
 			let len: number = 0;
@@ -306,7 +306,7 @@ module game {
 			this.tipAnim.animation.stop();
 		}
 		public checkLPCards(): void {
-			for (let i: number = 1; i < 5; i++) {
+			for (let i: number = 0; i < 4; i++) {
 				let g: eui.Group = this.findGroupByPosition(i);
 				let len: number = g.numChildren;
 				for (let j: number = 0; j < len; j++) {

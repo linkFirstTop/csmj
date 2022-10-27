@@ -268,12 +268,6 @@ module room {
 		}
 
 
-
-
-
-
-
-
 		//接收心跳消息
 		private ON_VGID_HEART_BEAT(byte: egret.ByteArray): void {
 			room.RoomWebSocket.instance().nRoomTimerCount = 0;
@@ -311,11 +305,21 @@ module room {
 
 		private ON_ACK_START_GAME(byte: egret.ByteArray): void {
 			Global.log("游戏开始消息");
-			var body: room.VGGameStartNtc = room.VGGameStartNtc.decode(byte.bytes);
+			
+
+
+			const body: room.VGGameStartNtc = room.VGGameStartNtc.decode(byte.bytes);
 			console.log('游戏开始消息', body);
 			game.GamePlayData.initData();
 			game.GameParmes.initData();
 
+			body.userInfos.forEach( user=>{
+				if(user.role == 0){
+					game.GameParmes.firstSit = user.userPos.seatID;
+				}
+			} )
+
+			
 			// Global.myPos.tableGuid = body.roundGuid;
 
 			game.GameUserList.saveUserListInfo(body.userInfos);

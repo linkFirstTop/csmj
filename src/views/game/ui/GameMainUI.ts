@@ -241,7 +241,7 @@ module game {
 			this.lbInfo.text = Global.dic["局号"] +": "+ Global.strGameGUID + " " + this.findRoomName();
 		}
 		public initPosition(): void {
-			console.log("initPosition");
+			console.log("initPosition",game.GameParmes.firstSit);
 			let p: number = Global.getUserPosition(game.GameParmes.firstSit);
 			this.gamePosition.setPosition(p);
 		}
