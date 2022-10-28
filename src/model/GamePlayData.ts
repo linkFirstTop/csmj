@@ -67,7 +67,7 @@ module game {
 			GamePlayData.CardsWall_Head_Index = 0;
 			GamePlayData.CardsWall_Tail_Index = 0;
 			GamePlayData.CardsWall_Hua_Index = 0;
-			GamePlayData.playingSeat = -1;
+
 			GamePlayData.Peng_Groups = [];
 			GamePlayData.Gang_Groups = [];
 			GamePlayData.Gangyao_Groups = [];
@@ -98,12 +98,7 @@ module game {
 			this.secondDiceSit = SecondSit;
 			this.firstCardsIndexes = FirstCardsIndexes;
 		}
-		/**
-		 * 记录最后摸牌或者吃碰杠操作的人的座位号
-		 * */
-		public static SaveOperationSit(sit: number): void {
-			this.playingSeat = sit;
-		}
+
 		/**
 		 * 记录最后一次摸的牌
 		 * */

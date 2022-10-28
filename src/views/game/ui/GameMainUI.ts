@@ -224,7 +224,9 @@ module game {
 			this.isGaming = true;
 			let len: number = game.GameUserList.arrUserList.length;
 			for (let i: number = 0; i < len; i++) {
+				
 				let user: game.GameUserInfo = game.GameUserList.arrUserList[i];
+		
 				let p: number = Global.getUserPosition(user.userSit);
 				this["gameUser" + p].setUserInfo(user);
 				this["gameUser" + p].visible = true;
@@ -308,19 +310,12 @@ module game {
 			this.gameOpt.showOpt(data);//0 吃 1碰 2杠 3胡 4听
 			this.onCloseTingFlag();
 			this.gamePosition.startTime(GameParmes.chiPengGangSurplusTime);
-			// if(GameParmes.isHu){//如果玩家胡牌后，这时候再次胡或杠停止自动出牌
-			// 	if(arr[2] || arr[3]){
-			// 		this.gameHand.stopAutoSendCard();
-			// 	}
-			// }
-			// if(arr[3] && GameParmes.nHuType == 16){//此时是天胡情况 下面的判断就不用走了
-			// 	return ;
-			// }
+		
 			// if(GameParmes.isHu == false && arr[4]){
-			if (game.GamePlayData.playingSeat == Global.userSit) {//自己牌权时才判断是否听牌
-				this.gameHand.showTingFlag(true, "ting");
-				this.checkLPCards();
-			}
+			// if (game.GamePlayData.playingSeat == Global.userSit) {//自己牌权时才判断是否听牌
+			// 	this.gameHand.showTingFlag(true, "ting");
+			// 	this.checkLPCards();
+			// }
 			//}
 		}
 		public showHandCardMask(): void {
@@ -367,7 +362,7 @@ module game {
 		 */
 		public getOneCard(card: game.CardInfo): void {
 			this.gameOpt.visible = false;
-			this.showWallCount();
+			
 			//在打牌阶段得倒的牌不用刷新，把牌放在最右边
 			if (GameParmes.gameStage == GameStageType.PLAYING) {
 				this.gamePosition.startTime(GameParmes.gamePlayTime);
@@ -383,9 +378,7 @@ module game {
 					}
 				}
 
-			}
-			//this.changeUserRight();
-			
+			}			
 		}
 		public hideTingFlag(): void {
 			this.gameHand.showTingFlag(false, "");
@@ -411,7 +404,7 @@ module game {
 			this.gamePosition.stopTime();
 			this.gamePosition.startTime(GameParmes.chiPengGangSurplusTime);
 			this.gameOpt.visible = false;
-			//this.changeUserRight();
+
 			egret.setTimeout(function(){
 				for (let j: number = 1; j < 5; j++) {
 					this.gameHand.updataHandsByPosition(j, 0);
@@ -553,11 +546,11 @@ module game {
 			}
 		}
 		// 显示当前出牌玩家头像动画
-		public changeUserRight(): void {
-			var nCurrent: number = game.GamePlayData.playingSeat;//当前操作人的座位号
-			// this.gamePosition.setCurrentPosition(nCurrent);
-			let p: number = Global.getUserPosition(nCurrent);
-			this.gamePosition.onShowOpetorPostion(p);
+		public changeUserRight(nSit): void {
+	
+		
+			let p: number = Global.getUserPosition(nSit);
+			this.gamePosition.setPositionItem(p);
 
 			for (let i: number = 0; i < 4; i++) {
 				if (p == i) {

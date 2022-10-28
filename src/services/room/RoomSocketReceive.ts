@@ -201,8 +201,8 @@ module room {
 		//游戏状态广播消息
 		private VGID_ACK_GAME_GAMESTATUS(byte: egret.ByteArray): void {
 			var body: room.VGGameStatusNtc = room.VGGameStatusNtc.decode(byte.bytes);
-			console.log("==body=",body)
-			
+			console.log("==游戏状态变更=",body)
+
 			game.RoomInfo.ins.ChangeStatus(Number(body.status), body.second);
 
 			//console.log('游戏状态广播消息', body);
@@ -211,15 +211,16 @@ module room {
 
 		//发牌广播消息
 		private ON_VGID_GAME_SENDCARD(byte: egret.ByteArray): void {
-			console.log("========发牌广播消息============")
+		
 			var body: room.VGGameSendCardNtc = room.VGGameSendCardNtc.decode(byte.bytes);
+			console.log("========发牌广播消息============",body)
 			game.GamePlayData.SaveHandCarsd(body.userInfos);
 			game.GameUserList.updateUserListInfo(body.userInfos);
 
 			//GDGame.Msg.ins.dispatchEventWith(game.GameMessage.SHOW_DAPIAO_INFO);
 
 			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_GAME_SENDCARD, true, true, body));
-			console.log('发牌广播消息', body);
+			
 		}
 
 

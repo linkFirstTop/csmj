@@ -39,7 +39,7 @@ module game {
 
 
 		//-----------------------------------东西南北方位-----------------------------------
-		private setPositionItem(n: number) {
+		public setPositionItem(n: number) {
 			for (var i: number = 0; i < 4; i++) {
 				this["item" + i].setChoose(false);
 				if (i == n) {
@@ -53,14 +53,6 @@ module game {
 			this.visible = true;
 			this.setCurrentRing();
 			this.setPositionItem(n);
-		}
-
-		/**
-		 * 显示当前正在操作的人
-		 */
-		public onShowOpetorPostion(nFrame: number): void {
-			this.setPositionItem(nFrame);
-			Global.log("操作人位置" + nFrame);
 		}
 
 		/** 

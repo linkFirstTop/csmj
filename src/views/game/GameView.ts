@@ -198,10 +198,10 @@ module game {
 			//这里处理断线 的 牌
 			game.GamePlayData.arrPoolCards = [[], [], []]
 			const arr = game.GameUserList.arrUserList;
-			// console.log("====arr", arr)
+			 console.log("====arr", arr)
 			//GamePlayData.MJ_LiangOtherPais = [];
 			arr.forEach((e: any, i) => {
-				const user: room.VGUserInfo = e.origin;
+				const user: room.VGUserInfo = e.userPos;
 				let nSit: number = user.userPos.seatID;
 				let p = Global.getUserPosition(user.userPos.seatID);
 
@@ -350,14 +350,14 @@ module game {
 		 */
 		private ACK_GAME_OPERATION(evt: egret.Event) {
 			const body: room.VGGameOperationNtc = evt.data;
-			console.log(">>行牌单播消息  根据这个显示操作按钮", body)
 			const nSit = body.seatid;
-			console.log(`>>需要操作的玩家的座位=${nSit}, 自己座位${Global.userSit}`,)
+			console.log(`>>行牌单播消息  玩家的座位=${nSit}, 自己座位${Global.userSit} `, body)
+			
 			this.gameUI.showRoomGUID(body.roundGuid);
 			//	body.remainCount
 			this.gameUI.startTime(body.second);
 			game.GamePlayData.playingSeat = nSit;
-			this.gameUI.changeUserRight();
+			this.gameUI.changeUserRight(nSit);
 	
 			GameParmes.isCurTing = false;
 
@@ -588,7 +588,7 @@ module game {
 	
 			//暗杠
 			if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_C_KONG) {
-				//	game.GamePlayData.SaveOperationSit(body.Card.Sit);
+			
 				let card: CardInfo = { CardID: opt.ObtainTile, Sit: opt.ObtainSeat };
 				const body = {
 					ObtainCard: card,
@@ -701,7 +701,7 @@ module game {
 					card.CardID = opt.ObtainTile;
 					card.Sit = opt.ObtainSeat;
 
-					let op = Global.getUserPosition(opt.ObtainSeat);
+					let op = opt.ObtainSeat;
 					//this.gameUI.gamePool.removeCardToPool(opt.ObtainSeat, card);
 					GamePlayData.DelectCardPool(GamePlayData.getCardsPool(op));
 
@@ -724,7 +724,7 @@ module game {
 
 			//过
 			if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_PASS) {
-				//this.gameUI.changeUserRight();
+		
 			}
 
 			const userInfo :room.VGUserInfo  = <any>body["userInfo"];
@@ -887,8 +887,7 @@ module game {
 		private ACK_GAME_STATUS_CHANGED(evt: egret.Event): void {
 
 			let status = game.RoomInfo.ins.status;
-			// console.log("游戏状态变更==============");
-			console.log("游戏状态变更", status);
+		
 			// console.log("游戏状态变更==============");
 			let lastStatus = game.RoomInfo.ins.lastStatus;
 

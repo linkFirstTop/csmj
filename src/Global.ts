@@ -463,10 +463,8 @@ class Global {
 	public static getUserPosition(nSeat: number): number {
 		var mySeat: number = Global.userSit;//跟据我自己的座位号确定其他玩家方位，自己永远在下方
 		if (mySeat > -1) {
-			var nSide: number = (4 + mySeat - nSeat) % 4;
-			return nSide;
+			return nSeat - mySeat >= 0 ? nSeat - mySeat : (4 + nSeat - mySeat)
 		}
-		return -1;
 	}
 	/**
 	 * 当前出牌玩家的方位永远是东   0-东，1-西，2-南，3-北
