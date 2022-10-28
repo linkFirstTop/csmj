@@ -5,12 +5,12 @@
 	<e:Group width="405" height="348" id="gContent" horizontalCenter="0" verticalCenter="0">
 		<!--<e:Image id="imgItem" horizontalCenter="0" verticalCenter="0" source="roomItembg1_png" />
 		-->
-		<e:Group y="260" x="30" id="group1">
+		<e:Group y="266" x="72" id="group1">
 			<!--<e:BitmapLabel id="lbTaiT" text="t" anchorOffsetX="0" textAlign="center" font="cnroomItemFnt1_fnt" left="50"
 			                   bottom="94" height="31" />
 			-->
 			<e:Group height="31">
-				<e:BitmapLabel id="lbEnterT" text="z" anchorOffsetX="0" textAlign="center" left="0" height="31" width="50"
+				<e:BitmapLabel id="lbEnterT" text="z" anchorOffsetX="0" textAlign="center" left="32" height="31" width="50"
 				               font="cnroomItemFnt1_fnt" verticalCenter="0" />
 			</e:Group>
 			<e:Group id="lbEnterGroup">
@@ -21,7 +21,7 @@
 				<e:HorizontalLayout gap="5" horizontalAlign="center" verticalAlign="middle" />
 			</e:layout>
 		</e:Group>
-		<e:Group y="260" x="200" height="31">
+		<e:Group y="266" x="274" height="31">
 			<e:Group height="31">
 				<e:BitmapLabel id="lbBaseT" text="d" anchorOffsetX="0" textAlign="center" font="cnroomItemFnt1_fnt" height="31"
 				               verticalCenter="0" left="0" />

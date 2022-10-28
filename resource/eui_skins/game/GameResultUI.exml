@@ -10,15 +10,7 @@
 		<e:Image id="resultHuawen" source="winHw_png" x="3" y="30" />
 		<!--<e:Image id="resultText" horizontalCenter="10" top="131" source="winText_cn_png" />
 		-->
-		<game:GameResultOtherInfo id="userZ" x="260" y="0" currentState="sitSelf" anchorOffsetX="0" width="1612"
-		                          anchorOffsetY="0" height="214" />
 		<!-- 其他玩家结算 -->
-		<game:GameResultOtherInfo id="user0" currentState="sitSelf" width="1610" x="260" y="214" anchorOffsetY="0"
-		                          height="218" />
-		<game:GameResultOtherInfo id="user1" currentState="sitSelf" width="1610" x="260" y="438" anchorOffsetY="0"
-		                          height="220" />
-		<game:GameResultOtherInfo id="user2" currentState="sitSelf" width="1610" x="260" y="658" anchorOffsetY="0"
-		                          height="214" />
 		<!--<e:Group horizontalCenter="30" verticalCenter="298">
 		<game:GameResultOtherInfo id="user0" currentState="sitOther" />
 		<game:GameResultOtherInfo id="user1" currentState="sitOther" />
@@ -35,6 +27,12 @@
 	<!--<e:Image id="btnClose" name="btnClose" source="winClose_png" right="97" top="202" />
 	-->
 	<e:Label id="difen" text="底分/台分" x="52" y="865"  visible="false"/>
+		<e:Group id="userGroup" width="1909.09" height="869.7" x="3" y="-1" anchorOffsetX="0" anchorOffsetY="0">
+			<game:GameResultOtherInfo id="userZ" x="257" y="0.9999999999999858" currentState="sitSelf" anchorOffsetX="0" width="1612" anchorOffsetY="0" height="214" scaleX="1" scaleY="1"/>
+			<game:GameResultOtherInfo id="user0" currentState="sitSelf" width="1610" x="257" y="215" anchorOffsetY="0" height="218" scaleX="1" scaleY="1"/>
+			<game:GameResultOtherInfo id="user1" currentState="sitSelf" width="1610" x="257" y="439.0000000000001" anchorOffsetY="0" height="220" scaleX="1" scaleY="1"/>
+			<game:GameResultOtherInfo id="user2" currentState="sitSelf" width="1610" x="257" y="659" anchorOffsetY="0" height="214" scaleX="1" scaleY="1"/>
+		</e:Group>
 </e:Group>
 <ns1:BaseButton icon="gameResult_continue_cn_png" id="btnContinue" name="btnContinue" x="798" y="975" />
 </e:Skin>
