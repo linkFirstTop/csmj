@@ -57,26 +57,19 @@ module room {
 				this.lbEnter.x = 32;
 			}
 			//this.nRoomID = data.roomID;
-			if (this.info.id > 3) {//高级馆以上
+			// if (this.info.roomID > 3) {//高级馆以上
 
-				this.lbBaseT.font = Global.language + "roomItemFnt0_fnt";
+			// 	this.lbBaseT.font = Global.language + "roomItemFnt0_";
+			// 	this.lbEnterT.font = Global.language + "roomItemFnt0";
+			// 	this.lbBase.font = Global.language + "roomItemNumFnt0";
+			// 	this.lbEnter.font = Global.language + "roomItemNumFnt0";
+			// } else {
 
-				this.lbEnterT.font = Global.language + "roomItemFnt0_fnt";
-
-				this.lbBase.font = Global.language + "roomItemNumFnt0_fnt";
-
-				this.lbEnter.font = Global.language + "roomItemNumFnt0_fnt";
-			} else {
-
-
-				this.lbBaseT.font = Global.language + "roomItemFnt1_fnt";
-
-				this.lbEnterT.font = Global.language + "roomItemFnt1_fnt";
-
-				this.lbBase.font = Global.language + "roomItemNumFnt1_fnt";
-
-				this.lbEnter.font = Global.language + "roomItemNumFnt1_fnt";
-			}
+			// 	this.lbBaseT.font = Global.language + "roomItemFnt1";
+			// 	this.lbEnterT.font = Global.language + "roomItemFnt1";
+			// 	this.lbBase.font = Global.language + "roomItemNumFnt1";
+			// 	this.lbEnter.font = Global.language + "roomItemNumFnt1";
+			// }
 	
 
 

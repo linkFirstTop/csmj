@@ -148,10 +148,12 @@ module game {
 					let g: eui.Group = this.findHandGroup(i);
 					let count: number = len + 4 > g.numChildren ? g.numChildren : len + 4;
 					for (let n: number = len; n < count; n++) {
+						if(g){
+							
+						}
 						egret.Tween.get(g).wait(j * 800).call(function () {
 							g.getChildAt(n).visible = true;
 						}, this);
-
 					}
 				}
 				len += 4;
@@ -338,7 +340,7 @@ module game {
 
 		public updataHandsByPosition(sit: number, state: number, isShow: boolean = true, isQishou: boolean = false): void {
 			let p: number = Global.getUserPosition(sit);
-			console.log("====updataHandsByPosition==",sit,p)
+			//console.log("====updataHandsByPosition==",sit,p)
 			// let nQue:number = game.GameUserList.arrUserList[sit].cardType;
 			let ghand: eui.Group = this.findHandGroup(p);
 			//this.clearGroup(ghand);
@@ -482,7 +484,7 @@ module game {
 				} else {
 					this.gHandCardD.x = 1740 - this.gHandCardD.width;
 				}
-				console.log(this.gHandCardD.x, this.gHandCardD.width);
+				// console.log(this.gHandCardD.x, this.gHandCardD.width);
 			}
 
 

@@ -305,22 +305,20 @@ module room {
 		}
 
 		private ON_ACK_START_GAME(byte: egret.ByteArray): void {
-			Global.log("游戏开始消息");
-			
-
 
 			const body: room.VGGameStartNtc = room.VGGameStartNtc.decode(byte.bytes);
 			console.log('游戏开始消息', body);
+
 			game.GamePlayData.initData();
 			game.GameParmes.initData();
 
 			body.userInfos.forEach( user=>{
 				if(user.role == 0){
+					console.log("game.GameParmes.firstSit", user.userPos.seatID)
 					game.GameParmes.firstSit = user.userPos.seatID;
 				}
-			} )
+			})
 
-			
 			// Global.myPos.tableGuid = body.roundGuid;
 
 			game.GameUserList.saveUserListInfo(body.userInfos);

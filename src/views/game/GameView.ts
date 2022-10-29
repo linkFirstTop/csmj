@@ -108,7 +108,8 @@ module game {
 		
 			this.gameUI.initHandCard();
 			egret.setTimeout(function () {
-				this.gameUI.initPosition();
+				console.log("==AA")
+				// this.gameUI.initPosition();
 				this.gameUI.initQshHandCard();
 			}, this, 2000);
 		}
@@ -457,7 +458,7 @@ module game {
 			})
 
 			const isShow = optArr.some((e) => (e))
-			egret.log(">>>>操作按钮 数组<<<<", isShow, optArr)
+			//egret.log(">>>>操作按钮 数组<<<<", isShow, optArr)
 			if (isShow) {
 				this.gameUI.onShowOpt(optArr)
 			}
@@ -477,7 +478,7 @@ module game {
 			const nSit = body["seatID"];
 			GameParmes.gameStage = GameStageType.PLAYING;
 			this.gameUI.showWallCount()//body.remainCount
-			console.log
+			// console.log
 
 			let p = Global.getUserPosition(nSit)
 			//console.log(`****当前操作玩家座位号:${nSit}，和局部座位号:${p},玩家座位号：${Global.userSit}`)
@@ -487,7 +488,7 @@ module game {
 				return;
 			}
 		
-			game.GamePlayData.SaveHandCardsBySeatID(nSit, body.userInfo.tileSets[0].Tiles);
+			// game.GamePlayData.SaveHandCardsBySeatID(nSit, body.userInfo.tileSets[0].Tiles);
 			//摸牌s
 			if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_DRAW) {
 				// game.GamePlayData.SetCardsWallIndex("Head", 1);

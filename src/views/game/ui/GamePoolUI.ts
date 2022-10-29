@@ -92,7 +92,7 @@ module game {
 		 * 还原牌池里的牌
 		 */
 		public reductionCardsPool(): void {
-			for (var i: number = 0; i < 4; i++) {
+			for (var i: number =1; i < 5; i++) {
 				var arrCards: Array<game.CardInfo> = GamePlayData.getCardsPool(i);
 				var num: number = arrCards.length;
 				for (var j: number = 0; j < num; j++) {
@@ -105,7 +105,7 @@ module game {
 		/*添加牌到牌池  card:CardInfo*/
 		public addCardToPool(card: game.CardInfo): void {
 			
-			console.log("==addCardToPool==",card)
+			//console.log("==addCardToPool==",card)
 
 			let p: number = Global.getUserPosition(card.Sit);
 			let g: eui.Group = this.findGroupByPosition(p);
@@ -277,7 +277,6 @@ module game {
 			}
 			this.tipAnim.visible = true;
 			this.tipAnim.animation.play("cpts", 0);
-			console.log("====item==",item.x,item.x)
 		}
 		public playHuAnim(sit: number): void {
 			comm.DragonAnim.ins.playAnimByPosition("hluolei", this.tipAnim.x, this.tipAnim.y);

@@ -44,7 +44,6 @@ module game {
 				this["item" + i].setChoose(false);
 				if (i == n) {
 					(this["item" + i] as GamePositionScoreItem).setChoose(true);
-
 				}
 			}
 		}

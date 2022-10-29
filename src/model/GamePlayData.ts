@@ -136,13 +136,10 @@ module game {
 		/** 更新玩家的手牌 */
 
 		public static SaveHandCardsBySeatID(seatID: number, array){
-
-			console.log("=seatID-1==",seatID-1)
 			game.GamePlayData.arrHandCards[seatID-1] = array;
-
-			console.log("=game.GamePlayData.arrHandCards[seatID-1]==",game.GamePlayData.arrHandCards[seatID-1])
-
+			//console.log("=game.GamePlayData.arrHandCards[seatID-1]==",game.GamePlayData.arrHandCards[seatID-1])
 		}
+
 		//结算手牌数据
 		public static SaveResultEnd(body:  Array<any>): void {
 			// console.log("亮手牌");
@@ -308,46 +305,49 @@ module game {
 		 * */
 		public static AddChiPengGangCards(body: any, sit: number): CardInfo {
 			const group: CardsGroupInfo = this.CopyCardsGroup(new CardsGroupInfo(), body);
-			console.log("==group",group)
-			var handCards: Array<game.CardInfo> = this.getHandCards(sit);
-			var otherCards: Array<CardsGroupInfo> = this.getOtherCards(sit);
+			// console.group("==CopyCardsGroup==", group)
+			let p = Global.getUserPosition(sit)
+			//const handCards: Array<CardInfo> = this.getHandCards(p);
+			const otherCards: Array<CardsGroupInfo> = this.getOtherCards(sit);
+			let op = group.obtainCard.Sit
 			switch (body.Type) {
 				case CardsGroupType.CHI://吃牌
-					this.DelectCardPool(this.getCardsPool(group.obtainCard.Sit));
+					this.DelectCardPool(this.getCardsPool(op));
 					//处理手牌
-					this.ClearHandCards(handCards, group.cards, sit);
+					this.ClearHandCards(p, group.cards, sit);
 					otherCards.push(group);
 					break;
 				case CardsGroupType.PENG://碰牌
-					this.DelectCardPool(this.getCardsPool(group.obtainCard.Sit));
+					this.DelectCardPool(this.getCardsPool(op));
 					//处理手牌
-					this.ClearHandCards(handCards, group.cards, sit);
+					this.ClearHandCards(p, body.DelCards, sit);
 					otherCards.push(group);
 					break;
 				case CardsGroupType.BUGANG://补杠牌
 					//处理手牌
 					for (var i: number = 0; i < otherCards.length; i++) {
 						if (otherCards[i].CardsGroupType == CardsGroupType.PENG) {
-							if (game.GameParmes.getHua(otherCards[i].cards[0]) == game.GameParmes.getHua(group.obtainCard) && game.GameParmes.getValue(otherCards[i].cards[0]) == game.GameParmes.getValue(group.obtainCard)) {
+							if ( otherCards[i].cards[0].CardID ==group.obtainCard.CardID) {
 								//手中是碰  自摸杠 
 								otherCards[i].CardsGroupType = CardsGroupType.BUGANG;
 								otherCards[i].cards.push(group.obtainCard);
 								var cardtemp: CardInfo = new CardInfo();
 								cardtemp.CardID = group.obtainCard.CardID;
-								cardtemp.Sit = group.obtainCard.Sit;
-								this.ClearHandCards(handCards, [cardtemp], body.Sit);
+								cardtemp.Sit = op;
+
+								this.ClearHandCards(p, [cardtemp], sit);
 								break;
 							}
 						}
 					}
 					break;
 				case CardsGroupType.MINGGANG://明杠牌
-					this.DelectCardPool(this.getCardsPool(group.obtainCard.Sit));
-					this.ClearHandCards(handCards, group.cards, body.Sit);
+					this.DelectCardPool(this.getCardsPool(op));
+					this.ClearHandCards(p, group.cards, sit);
 					otherCards.push(group);
 					break;
 				case CardsGroupType.ANGANG://暗杠牌
-					this.ClearHandCards(handCards, group.cards, sit);
+					this.ClearHandCards(p, group.cards, sit);
 					otherCards.push(group);
 					break;
 				case CardsGroupType.HU://胡牌
@@ -357,37 +357,35 @@ module game {
 		}
 		/**
 		 * 删除一组/张手牌数据
-		 * 0  HandCardsInfo
+		 * p  本地座位号
+		 * cards  要删除的牌
 		 * 1  CardsGroup.Cards
 		 * */
-		public static ClearHandCards(handcards: Array<game.CardInfo>, cards: Array<game.CardInfo>, sit: number): void {
-
-			for (var x: number = 0; x < cards.length; x++) {
-				for (var y: number = 0; y < handcards.length; y++) {
-					if (handcards[y].CardID == -1 && sit == cards[x].Sit) {
-						handcards.shift();
-						break;
-					} else {
-						if (cards[x].CardID == handcards[y].CardID && sit == cards[x].Sit) {
-							handcards.splice(y, 1);
-							break;
-						}
-					}
-
-				}
-			}
+		 public static ClearHandCards(p: number, cards: Array<CardInfo>, sit: number): void {
+			//  console.log("====ClearHandCardsS== ", handcards,cards);
+			let handcards = GamePlayData.arrHandCards[p];
+			if(!cards){return}
 
 			if (sit == Global.userSit) {
 				this.Chi_Groups.length = 0;
 				this.Peng_Groups.length = 0;
 				this.Gang_Groups.length = 0;
-				this.Gangyao_Groups.length = 0;
 				this.Hu_Groups.length = 0;
 				this.Call_Groups.length = 0;
-				/*console.log("清理碰杠权限数组:"+this.Call_Groups.length);
-				if(isPeng == false){//用户处理碰后听牌的情况
-					this.Call_Groups.length = 0;
-				} */
+				for (var x: number = 0; x < cards.length; x++) {
+					for (var y: number = handcards.length - 1; y >= 0; y--) {
+						if (cards[x].CardID == handcards[y].CardID) {
+							handcards.splice(y, 1);
+							break;
+						}
+					}
+				}
+			} else {
+				const Max = cards.length;
+				//console.log("====MAX", Max);
+				for (let i = 0; i < Max; i++) {
+					handcards.pop();
+				}
 			}
 		}
 		/**

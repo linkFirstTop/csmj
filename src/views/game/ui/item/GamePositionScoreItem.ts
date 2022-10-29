@@ -24,16 +24,18 @@ module game {
 				this.fangXiang = "down";
 				
 			} else if (p == 1) {
-				this.bmp.source = RES.getRes("direction_left");
-				this.fangXiang = "left";
+				this.bmp.source = RES.getRes("direction_right");
+				this.fangXiang = "right";
+
 		
 			} else if (p == 2) {
 				this.bmp.source = RES.getRes("direction_up");
 				this.fangXiang = "up";
 	
 			} else if (p == 3) {
-				this.bmp.source = RES.getRes("direction_right");
-				this.fangXiang = "right";
+				this.bmp.source = RES.getRes("direction_left");
+				this.fangXiang = "left";
+
 			
 			}
 			Global.log("当前位置=" + p + "sit=" + Global.userSit);// 0-左边，1-上边，2-右边，3下边    玩家座位号(0-东，1-西，2-南，3-北)

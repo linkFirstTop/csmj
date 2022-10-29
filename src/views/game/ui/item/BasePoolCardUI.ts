@@ -33,7 +33,7 @@ module game {
 			}
 			if (p == 1) {
 				this.imgBack.source = "cardValueU1" + strIndex;
-				this.imgBack.source = "card_pool_up_" + (index + 1);
+				// this.imgBack.source = "card_pool_up_" + (index + 1);
 				this.imgCard.source = "cardValue" + value;
 				this.imgCard.scaleX = 0.4;
 				this.imgCard.scaleY = -0.38;
@@ -59,7 +59,7 @@ module game {
 			}
 			if (p == 2) {
 				this.imgBack.source = "cardValueR" + strIndex;
-				this.imgBack.source = "card_pool_right_" + (index + 1);
+				// this.imgBack.source = "card_pool_right_" + (index + 1);
 				this.imgBack.scaleX = -1;
 				this.imgCard.source = "cardValue" + value;
 				if ((index + 1) % 6 == 0) {
@@ -73,7 +73,7 @@ module game {
 			}
 			if (p == 3) {
 				this.imgBack.source = "cardValueV" + strIndex;
-				this.imgBack.source = "card_pool_down_" + (index + 1);
+				// this.imgBack.source = "card_pool_down_" + (index + 1);
 				this.imgCard.source = "cardValue" + value;
 				this.imgCard.scaleX = this.imgCard.scaleY = 0.7 - (3 - Math.floor((index) / 6)) * 0.05;
 				if (index % 6 == 0) {
