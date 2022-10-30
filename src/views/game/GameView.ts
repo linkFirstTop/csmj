@@ -204,7 +204,7 @@ module game {
 			arr.forEach((e: any, i) => {
 				const user: room.VGUserInfo = e.userPos;
 				let nSit: number = user.userPos.seatID;
-				let p = Global.getUserPosition(user.userPos.seatID);
+				let p = Global.getUserPosition(user.userPos.seatID-1);
 
 				if (user.isTing) {
 					// GamePlayData.MJ_LiangSitArr.push(nSit);
@@ -480,7 +480,7 @@ module game {
 			this.gameUI.showWallCount()//body.remainCount
 			// console.log
 
-			let p = Global.getUserPosition(nSit)
+			// let p = Global.getUserPosition(nSit)
 			//console.log(`****当前操作玩家座位号:${nSit}，和局部座位号:${p},玩家座位号：${Global.userSit}`)
 			const opt: room.MJ_Operation = <any>body.operation;
 			GameParmes.isCurTing = false;
@@ -776,7 +776,7 @@ module game {
 
 			this.gameUI.playAnim("peng", nSit);
 			this.gameUI.updataUserCPG(nSit, card);
-			let p: number = Global.getUserPosition(nSit);
+			let p: number = Global.getUserPosition(nSit-1);
 			const sex =  this.gameUI["gameUser" + p].sex;
 			SoundModel.playEffect(`${sex}${SoundModel.PENG}` );
 		}
@@ -790,7 +790,7 @@ module game {
 			this.gameUI.playAnim("anGang", nSit);
 			// const arrCoin: Array<number> = data.Tiles;
 			// this.gameUI.showCoinChange(arrCoin);
-			let p: number = Global.getUserPosition(nSit);
+			let p: number = Global.getUserPosition(nSit-1);
 			const sex =  this.gameUI["gameUser" + p].sex ;
 			SoundModel.playEffect(`${sex}${SoundModel.GANG}`);
 		}
@@ -803,7 +803,7 @@ module game {
 			this.gameUI.playAnim("buGang", nSit);
 			// const arrCoin: Array<number> = data.Tiles;
 			// this.gameUI.showCoinChange(arrCoin);
-			let p: number = Global.getUserPosition(nSit);
+			let p: number = Global.getUserPosition(nSit-1);
 			const sex =  this.gameUI["gameUser" + p].sex ;
 			SoundModel.playEffect(`${sex}${SoundModel.GANG}`);
 		}
@@ -820,7 +820,7 @@ module game {
 			this.gameUI.playAnim("mingGang", nSit, obSit);
 			//const arrCoin: Array<number> = data.Tiles;
 			//this.gameUI.showCoinChange(arrCoin);
-			let p: number = Global.getUserPosition(nSit);
+			let p: number = Global.getUserPosition(nSit-1);
 			const sex =  this.gameUI["gameUser" + p].sex ;
 			SoundModel.playEffect(`${sex}${SoundModel.GANG}`);
 		}

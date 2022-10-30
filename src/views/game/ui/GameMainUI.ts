@@ -228,6 +228,7 @@ module game {
 				let user: game.GameUserInfo = game.GameUserList.arrUserList[i];
 		
 				let p: number = Global.getUserPosition(user.userSit);
+				
 				this["gameUser" + p].setUserInfo(user);
 				this["gameUser" + p].visible = true;
 			}
@@ -280,10 +281,7 @@ module game {
 		public showHuaCard(sit, CardID): void {
 			this.gameHand.showHuCard(sit, CardID, 0);
 		}
-		public userBuhua(sit): void {
-			this.gameHand.updataHandsByPosition(sit, 0);
-			//this.gameHand.showHuCard(sit,huCardID,type);
-		}
+
 		/*玩家出牌*/
 		public userSendCard(card: game.CardInfo, b: boolean): void {
 			this.gameOpt.visible = false;
@@ -549,7 +547,7 @@ module game {
 		public changeUserRight(nSit): void {
 	
 		
-			let p: number = Global.getUserPosition(nSit);
+			let p: number = Global.getUserPosition(nSit-1);
 			this.gamePosition.setPositionItem(p);
 
 			for (let i: number = 0; i < 4; i++) {

@@ -70,14 +70,11 @@ module room {
 			// 	this.lbBase.font = Global.language + "roomItemNumFnt1";
 			// 	this.lbEnter.font = Global.language + "roomItemNumFnt1";
 			// }
-	
 
 
 			let str: string = "roomItem" + this.info.roomID;
 			let factory: dragonBones.EgretFactory = new dragonBones.EgretFactory();
 
-
-			console.log("==`${str}_ske_json`=",`${str}_ske_json`)
 			factory.parseDragonBonesData(
 			  RES.getRes(`${str}_ske_json`)
 			); //xlrw_tex_webp

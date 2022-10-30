@@ -306,7 +306,7 @@ module game {
 		public static AddChiPengGangCards(body: any, sit: number): CardInfo {
 			const group: CardsGroupInfo = this.CopyCardsGroup(new CardsGroupInfo(), body);
 			// console.group("==CopyCardsGroup==", group)
-			let p = Global.getUserPosition(sit)
+			let p = Global.getUserPosition(sit-1)
 			//const handCards: Array<CardInfo> = this.getHandCards(p);
 			const otherCards: Array<CardsGroupInfo> = this.getOtherCards(sit);
 			let op = group.obtainCard.Sit

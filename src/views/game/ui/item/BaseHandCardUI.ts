@@ -22,11 +22,7 @@ module game {
 			this.imgCard.horizontalCenter = 0;
 			var strIndex: string;
 
-			if (value < 10) {
-				strIndex = "0" + value;
-			} else {
-				strIndex = "" + value;
-			}
+
 			if (p == 3) {//左
 				if (state == 0) {//暗牌
 					this.imgBack.source = "cardhandL";
@@ -66,9 +62,15 @@ module game {
 			if (p == 0) {
 
 				this.cardIndex = value;
+				if (value < 10) {
+					strIndex = `cardValue000${value}` ;
+				} else {
+					strIndex = `cardValue00${value}` ;
+				}
+
 
 				if (state == 0) {//暗牌（手牌）
-					this.imgBack.source = "cardValue00" + strIndex;
+					this.imgBack.source = strIndex;
 
 					this.isSelect = false;
 					this.isTingFlag = false;
@@ -83,12 +85,12 @@ module game {
 					// this.imgCard.verticalCenter = -10;
 				}
 			}
-			if (game.GamePlayData.tingData[Global.userSit] == true && p == 3) {
-				this.setMaskFlagEX(true);
-			} else {
+			// if (game.GamePlayData.tingData[Global.userSit] == true && p == 3) {
+			// 	this.setMaskFlagEX(true);
+			// } else {
 
-				this.setMaskFlagEX(false);
-			}
+			// 	this.setMaskFlagEX(false);
+			// }
 
 
 		}

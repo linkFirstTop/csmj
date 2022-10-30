@@ -167,7 +167,7 @@ module game {
 		}
 		/*显示玩家的胡牌*/
 		public showHuCard(sit: number, cardID: number, type: number): void {
-			let p: number = Global.getUserPosition(sit);
+			let p: number = Global.getUserPosition(sit-1);
 			GamePlayData.CardsWall_Hua_Index++;
 			let card: game.CardInfo = new game.CardInfo();
 			card.CardID = cardID;
@@ -241,7 +241,7 @@ module game {
 			item = null;
 		}
 		public getOneCard(info: game.CardInfo): void {
-			let p: number = Global.getUserPosition(info.Sit);
+			let p: number = Global.getUserPosition(info.Sit-1);
 			// let nQue: number = game.GameUserList.arrUserList[info.Sit].cardType;
 			let ghand: eui.Group = this.findHandGroup(p);
 			let card: BaseHandCardUI = new BaseHandCardUI();
