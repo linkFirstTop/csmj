@@ -49,7 +49,7 @@ module game {
 				strName = user.userShowName;
 			}
 
-			if (Global.getUserPosition(this.nSit) == 3) {
+			if (Global.getUserPosition(this.nSit) == 0) {
 				this.lbCoin.text = ChipUtils.formatCoin(user.userCoin);
 			} else {
 				this.lbCoin.text = ChipUtils.formatCoin(user.userCoin, true);
@@ -58,7 +58,7 @@ module game {
 			this.nCoin = user.userCoin;
 			this.nSit = user.userSit;
 			this.imgZhuang.source = "";
-			if (Global.getUserPosition(this.nSit) == 3) {
+			if (Global.getUserPosition(this.nSit) == 0) {
 				strName = Global.userName;
 				this.lbName.text = GameUtils.ReplaceChar(GameUtils.getShowName(strName), 10, "...");
 			} else {
@@ -71,7 +71,7 @@ module game {
 				this.nCoin = 0;
 				this.dispatchEvent(new egret.Event("UserLoseGame", true, true, this.nSit));
 			}
-			if (Global.getUserPosition(this.nSit) == 3) {
+			if (Global.getUserPosition(this.nSit) == 0) {
 				this.imgHead.source = Global.commURL + "head/iconHead" + Global.userHead + ".png";
 
 			} else {
@@ -87,7 +87,7 @@ module game {
 
 		}
 		public showResultCoin(coin: number): void {
-			if (Global.getUserPosition(this.nSit) == 3) {
+			if (Global.getUserPosition(this.nSit) == 0) {
 				this.lbCoin.text = ChipUtils.formatCoin(coin);
 			} else {
 				this.lbCoin.text = ChipUtils.formatCoin(coin, true);
@@ -118,7 +118,7 @@ module game {
 				this.nCoin = 0;
 				this.dispatchEvent(new egret.Event("UserLoseGame", true, true, this.nSit));
 			}
-			if (Global.getUserPosition(this.nSit) == 3) {
+			if (Global.getUserPosition(this.nSit) == 0) {
 				this.lbCoin.text = ChipUtils.formatCoin(this.nCoin);
 			} else {
 				this.lbCoin.text = ChipUtils.formatCoin(this.nCoin, true);

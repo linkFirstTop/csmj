@@ -51,7 +51,6 @@ module game {
 
 		private static arrHandCards: Array<any> = [];	
 
-		private static arrQshHandCards: Array<any> = [];
 
 		public static arrOtherCards: Array<any> = [[], [], [], []];
 
@@ -78,7 +77,7 @@ module game {
 			// GamePlayData.HSZUserChoose = [];
 			GamePlayData.HSZGetCards = [];
 			GamePlayData.arrHandCards = [];
-			GamePlayData.arrQshHandCards = [];
+		
 			GamePlayData.arrOtherCards = [[], [], [], []];
 			GamePlayData.arrPoolCards = [[], [], [], []];
 			GamePlayData.arrLPCards = [];
@@ -127,17 +126,11 @@ module game {
 					arrTmp[j] = card;
 				}
 
-				let p = e.userPos.seatID - 1;
+				let p =  Global.getUserPosition(e.userPos.seatID) // - 1;
 				array[p] = arrTmp;
 			})
 			game.GamePlayData.arrHandCards = array;
 	
-		}
-		/** 更新玩家的手牌 */
-
-		public static SaveHandCardsBySeatID(seatID: number, array){
-			game.GamePlayData.arrHandCards[seatID-1] = array;
-			//console.log("=game.GamePlayData.arrHandCards[seatID-1]==",game.GamePlayData.arrHandCards[seatID-1])
 		}
 
 		//结算手牌数据
@@ -203,60 +196,10 @@ module game {
 				}
 			}
 		}
-		public static SetOtherCardsValue(arr: Array<game.ICardsGroup>, sit: number): void {
-			var arrtemp: Array<CardsGroupInfo> = [];
-			for (var i: number = 0; i < arr.length; i++) {
-				var infoTemp: CardsGroupInfo = new CardsGroupInfo();
-				var cardsTemp: Array<game.CardInfo> = [];
-				for (var n: number = 0; n < arr[i].Cards.length; n++) {
-					var tempcard: game.CardInfo = new game.CardInfo();
-					tempcard.CardID = arr[i].Cards[n].CardID;
-					tempcard.Sit = arr[i].Cards[n].Sit;
-					cardsTemp.push(tempcard);
-				}
-				infoTemp.cards = cardsTemp;
-				infoTemp.CardsGroupType = arr[i].Type;
-				infoTemp.cardsit = arr[i].Sit;
-				var obCardtemp: game.CardInfo = new game.CardInfo();
-				// obCardtemp.CardID=arr[i].ObtainCard.CardID;
-				// obCardtemp.Sit=arr[i].ObtainCard.Sit;
-				infoTemp.obtainCard = obCardtemp;
-				arrtemp.push(infoTemp);
 
-			}
 
-			this.arrOtherCards[sit] = arrtemp;
-		}
-		/**
-		 *手牌赋值数据 arr CardsGroup
-			* */
-		public static SetHandCardsValue(arr: Array<any>, cardID: number, sit: number): void {
-			var handCards: Array<game.CardInfo> = [];
-			var otherCards: Array<CardsGroupInfo> = [];
-			for (var x: number = 0; x < arr.length; x++) {
-				var cardsGroup = arr[x];
-				//if(cardsGroup.Type==CardsGroupType.HANDCARDS){
-				// for(var y:number=0;y<cardsGroup.Cards.length;y++){
-				// 	if(cardsGroup.Cards[y].CardID!=cardID){
-				// 		var handcard:proto.CardInfo = new proto.CardInfo();
-				// 		handcard.CardID = cardsGroup.Cards[y].CardID;
-				// 		handcard.Sit = cardsGroup.Sit;
-				// 		handCards.push(handcard);
-				// 	}
-				// }
-				handCards.push(cardsGroup);
-				handCards = this.SortCards(handCards);
-				// }else{
-				// 	var group_temp:CardsGroupInfo = this.CopyCardsGroup(new CardsGroupInfo(),cardsGroup);
-				// 	otherCards.push(group_temp);
-				// }
-			}
-			this.arrHandCards.push(handCards);
-
-		}
 		//拷贝牌组数据
 		public static CopyCardsGroup(cardsgroup: CardsGroupInfo, body: any): CardsGroupInfo {
-
 
 			cardsgroup.CardsGroupType = body.Type;
 			cardsgroup.cardsit = body.Sit;
@@ -273,32 +216,8 @@ module game {
 				cardsgroup.cards.push(card);
 			}
 			return cardsgroup;
-			// cardsgroup.CardsGroupType = body.Type;
-			// cardsgroup.cardsit = body.Sit;
-			// if (body.ObtainCard) {
-			// 	cardsgroup.obtainCard.Sit = body.ObtainCardSit;
-			// 	cardsgroup.obtainCard.CardID = body.ObtainCard.CardID;
-			// } else {
-			// 	cardsgroup.obtainCard.Sit = -1;
-			// 	cardsgroup.obtainCard.CardID = -1;
-			// }
 
-			// for (var i: number = 0; i < body.Cards.length; i++) {
-			// 	var card: game.CardInfo = new game.CardInfo();
-			// 	card.CardID = body.Cards[i].CardID;
-			// 	if (body.ObtainCard) {
-			// 		if (card.CardID == body.ObtainCard.CardID) {
-			// 			card.Sit = body.ObtainCardSit;
-			// 		} else {
-			// 			card.Sit = body.Sit;
-			// 		}
-			// 	} else {
-			// 		card.Sit = body.Sit;
-			// 	}
 
-			// 	cardsgroup.cards.push(card);
-			// }
-			// return cardsgroup;
 		}
 		/**
 		 * 添加手牌吃碰杠
@@ -306,10 +225,10 @@ module game {
 		public static AddChiPengGangCards(body: any, sit: number): CardInfo {
 			const group: CardsGroupInfo = this.CopyCardsGroup(new CardsGroupInfo(), body);
 			// console.group("==CopyCardsGroup==", group)
-			let p = Global.getUserPosition(sit-1)
+			let p = Global.getUserPosition(sit)
 			//const handCards: Array<CardInfo> = this.getHandCards(p);
-			const otherCards: Array<CardsGroupInfo> = this.getOtherCards(sit);
-			let op = group.obtainCard.Sit
+			const otherCards: Array<CardsGroupInfo> = this.getOtherCards(p);
+			let op =  Global.getUserPosition(group.obtainCard.Sit) 
 			switch (body.Type) {
 				case CardsGroupType.CHI://吃牌
 					this.DelectCardPool(this.getCardsPool(op));
@@ -382,7 +301,7 @@ module game {
 				}
 			} else {
 				const Max = cards.length;
-				//console.log("====MAX", Max);
+				console.log("====MAX", Max);
 				for (let i = 0; i < Max; i++) {
 					handcards.pop();
 				}
@@ -486,93 +405,30 @@ module game {
 		 * 添加一张手牌数据
 		 * */
 		public static AddHandCards(sit: number, Card: any): void {
+			let p = Global.getUserPosition(sit);
+			let handcards: Array<game.CardInfo> = this.getHandCards(p);
 
-		//	let p = Global.getUserPosition(sit);
-			// let handcards: Array<game.CardInfo> = this.getHandCards(sit);
+			var card: game.CardInfo = new game.CardInfo();
+			card.CardID = Card.CardID;
+			card.Sit = Card.Sit;
+			handcards.push(card);
 
-			// var card: game.CardInfo = new game.CardInfo();
-			// card.CardID = Card.CardID;
-			// card.Sit = Card.Sit;
-			// handcards.push(card);
-
-			// let handcards: Array<game.CardInfo> = this.getHandCards(sit);
-			// for (var x: number = 0; x < cardGroup.Cards.length; x++) {
-			// 	var card: game.CardInfo = new game.CardInfo();
-			// 	card.CardID = cardGroup.Cards[x].CardID;
-			// 	card.Sit = cardGroup.Sit;
-				//handcards.push(card);
-				/*if(cardGroup.Sit==Global.userSit){
-					for(var y:number = 0;y<handcards.length;y++){
-						if(handcards[handcards.length-1].CardID<cardGroup.Cards[x].CardID){
-							card.CardID = cardGroup.Cards[x].CardID;
-							card.Sit = cardGroup.Sit;
-							handcards.push(card);
-							break;
-						}else{
-							if(handcards[y].CardID>cardGroup.Cards[x].CardID){
-								card.CardID = cardGroup.Cards[x].CardID;
-								card.Sit = cardGroup.Sit;
-								handcards.splice(y,0,card);
-								break;
-							}
-						}
-					}
-				}else{
-					card.CardID = cardGroup.Cards[x].CardID;
-					card.Sit = cardGroup.Sit;
-					handcards.push(card);
-				}*/
-			//}
-			// if (sit == Global.userSit) {//根据定缺要排序
-			// 	handcards = this.SortCards(handcards);
-
-			// 	let type: number = game.GameUserList.arrUserList[sit].cardType;
-			// 	if (type > -1) {
-			// 		GamePlayData.SortHandCardQue(type);
-			// 	}
-			// }
 		}
 		/**
 		 * 添加牌池
 		 * */
 		public static AddCardPool(body: Array<any>, sit: number, istest: boolean = false): void {
-			// let p = Global.getUserPosition(sit)
+			 let p = Global.getUserPosition(sit)
 
-			let cardpool: Array<CardInfo> = this.getCardsPool(sit);
+			let cardpool: Array<CardInfo> = this.getCardsPool(p);
+
 			for (var x: number = 0; x < body.length; x++) {
 				var card: CardInfo = new CardInfo();
 				card.CardID = body[x].CardID;
 				card.Sit = sit;
-				// if (cardpool.length > 0) {
-				// 	if (card.CardID != cardpool[cardpool.length - 1].CardID) {
-				// 		cardpool.push(card);
-				// 	}
-				// } else {
+	
 				cardpool.push(card);
-				// }
 			}
-
-
-			// let cardpool: Array<CardInfo> = this.getCardsPool(sit);
-			// for (var x: number = 0; x < body.length; x++) {
-			// 	var card: CardInfo = new CardInfo();
-			// 	card.CardID = body[x].CardID;
-			// 	card.Sit = sit;
-			// 	if (cardpool.length > 0) {
-			// 		if (istest == false) {
-			// 			if (card.CardID != cardpool[cardpool.length - 1].CardID) {
-			// 				cardpool.push(card);
-			// 			}
-			// 		} else {
-			// 			cardpool.push(card);
-			// 		}
-
-			// 	} else {
-			// 		cardpool.push(card);
-			// 	}
-
-			// }
-
 		}
 		/**
 		 * 川麻添加换三张的牌
@@ -599,9 +455,9 @@ module game {
 				}
 			}
 		}
-		// 保存手牌数据
+		/**获得手牌数据 请用转换后的本地座位号 */
 		public static getHandCards(sit: number): Array<CardInfo> {
-			let arr: Array<CardInfo> = game.GamePlayData.arrHandCards[sit-1];
+			let arr: Array<CardInfo> = game.GamePlayData.arrHandCards[sit];
 			if( sit == Global.userSit ){
 				//console.log("=getHandCards==", arr)
 			}
@@ -610,12 +466,12 @@ module game {
 		}
 		// 保存吃碰杠数据
 		public static getOtherCards(sit: number): Array<CardsGroupInfo> {
-			let arr: Array<CardsGroupInfo> = game.GamePlayData.arrOtherCards[sit-1];
+			let arr: Array<CardsGroupInfo> = game.GamePlayData.arrOtherCards[sit];
 			return arr;
 		}
 		// 保存牌池数据
 		public static getCardsPool(sit: number): Array<game.CardInfo> {
-			let arr: Array<game.CardInfo> = game.GamePlayData.arrPoolCards[sit-1];
+			let arr: Array<game.CardInfo> = game.GamePlayData.arrPoolCards[sit];
 			return arr;
 		}
 		/**
@@ -624,26 +480,13 @@ module game {
 		public static DelectCardPool(cardpool: Array<game.CardInfo>): void {
 			cardpool.pop();
 		}
-		/*根据定缺重新排序手牌*/
-		public static SortHandCardQue(type: number): void {
-			let arr: Array<game.CardInfo> = GamePlayData.getHandCards(Global.userSit);
-			let num: number = arr.length;
-			var count: number = 0;
-			for (var i: number = 0; i < num; i++) {
-				var card: game.CardInfo = arr[count];
-				if (GameParmes.getHua(card) == type) {
-					arr.push(arr.splice(count, 1)[0]);
-				} else {
-					count += 1;
-				}
-			}
-		}
+
 		/**
 		 * 排序手牌（必须是自己的手牌）
 		 * */
 		public static SetHandCardsSorting(sit: number): void {
-
-			let arrCards: Array<game.CardInfo> = this.getHandCards(sit);
+			let p = Global.getUserPosition(sit)
+			let arrCards: Array<game.CardInfo> = this.getHandCards(p);
 			arrCards = this.SortCards(arrCards);
 		}
 		public static SortCards(arr: Array<game.CardInfo>): Array<game.CardInfo> {

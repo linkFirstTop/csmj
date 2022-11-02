@@ -47,34 +47,8 @@ module game {
 				user.init();
 			}
 		}
-		/**
-		 * 根据座位号获取玩家个人信息
-		 * */
-		public static getPlayerformSit(sit: number): game.GameUserInfo {
-			return game.GameUserList.arrUserList[sit];
-		}
 
-		/**
-		 * 获取自己的信息
-		 * @returns 
-		 */
-		public static getCurrentPlayerInfo(): game.GameUserInfo {
-			return game.GameUserList.arrUserList[2]
-		}
 
-		/**
-		 * 根据名称 查询自己的座位
-		 */
-		public static getUserSitByName(name:string) {
-			let sit = -1;
-			game.GameUserList.arrUserList.forEach((e:game.GameUserInfo)=>{
-				if(e.userName == name){
-					sit = e.userSit
-				}
-
-			})
-			return sit;
-		}
 	}
 
 	export enum RoomStatus {

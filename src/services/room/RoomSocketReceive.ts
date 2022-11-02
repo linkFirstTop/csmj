@@ -308,6 +308,7 @@ module room {
 
 			const body: room.VGGameStartNtc = room.VGGameStartNtc.decode(byte.bytes);
 			console.log('游戏开始消息', body);
+			Global.strGameGUID = body.roundGuid;
 
 			game.GamePlayData.initData();
 			game.GameParmes.initData();

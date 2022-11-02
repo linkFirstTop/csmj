@@ -224,11 +224,8 @@ module game {
 			this.isGaming = true;
 			let len: number = game.GameUserList.arrUserList.length;
 			for (let i: number = 0; i < len; i++) {
-				
 				let user: game.GameUserInfo = game.GameUserList.arrUserList[i];
-		
-				let p: number = Global.getUserPosition(user.userSit);
-				
+				let p: number = Global.getUserPosition(user.userSit);	
 				this["gameUser" + p].setUserInfo(user);
 				this["gameUser" + p].visible = true;
 			}
@@ -258,15 +255,10 @@ module game {
 				this["zniao" + i].visible = false;
 			}
 		}
-		public showWallCount(): void {
+		public showWallCount(num): void {
 		
-			//if (108 - GamePlayData.CardsWall_Head_Index - GamePlayData.CardsWall_Tail_Index - GamePlayData.CardsWall_Hua_Index > 0) {
-			if (120 - GamePlayData.CardsWall_Head_Index - GamePlayData.CardsWall_Tail_Index  > 0) {
-				this.lbLeftCard.text = Global.dic["余牌"] + ":" + (120 - GamePlayData.CardsWall_Head_Index - GamePlayData.CardsWall_Tail_Index) + Global.dic["张"];
-			} else {
-				this.lbLeftCard.text = Global.dic["余牌"] + ":0" + Global.dic["张"];
-			}
-
+			this.lbLeftCard.text = `${Global.dic["余牌"]}:${num}${Global.dic["张"]}`;
+	
 		}
 
 		// public startHSZAndDQ(state:number):void{
@@ -363,11 +355,11 @@ module game {
 			
 			//在打牌阶段得倒的牌不用刷新，把牌放在最右边
 			if (GameParmes.gameStage == GameStageType.PLAYING) {
-				this.gamePosition.startTime(GameParmes.gamePlayTime);
+				// this.gamePosition.startTime(GameParmes.gamePlayTime);
 				this.gameHand.getOneCard(card);
 				let p: number = Global.getUserPosition(card.Sit);//刷新剩余牌张数，听牌显示
-				if (this.gTingTip.visible && p == 3) {
-					let cardValue: number = game.GameParmes.getCardID(card);
+				if (this.gTingTip.visible && p == 0) {
+					let cardValue: number =  card.CardID //game.GameParmes.getCardID(card);
 					for (let i: number = 0; i < this.gTingCards.numChildren; i++) {
 						let item: game.BaseTingCardUI = this.gTingCards.getChildAt(i) as game.BaseTingCardUI;
 						if (item.cardIndex == cardValue) {
@@ -547,7 +539,9 @@ module game {
 		public changeUserRight(nSit): void {
 	
 		
-			let p: number = Global.getUserPosition(nSit-1);
+			let p: number = Global.getUserPosition(nSit);
+			console.error(`操作 玩家的座位:${nSit},  自己座位:${Global.userSit} , 本地座位：${p}`)
+		
 			this.gamePosition.setPositionItem(p);
 
 			for (let i: number = 0; i < 4; i++) {
@@ -556,6 +550,12 @@ module game {
 				} else {
 					this["gameUser" + i].showCurrentAnim(false);
 				}
+			}
+		}
+
+		public stopAllUserAnim(){
+			for (let i: number = 0; i < 4; i++) {
+				this["gameUser" + i].showCurrentAnim(false);
 			}
 		}
 		public showResultBtn(): void {
