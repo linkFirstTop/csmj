@@ -2,7 +2,7 @@
 <e:Skin class="GamePositionSkin" xmlns:e="http://ns.egret.com/eui" xmlns:game="game.*"
         xmlns:w="http://ns.egret.com/wing" width="297" height="199">
 	<e:Image source="gameView_json.direction_bg" x="0" />
-	<game:GamePositionScoreItem id="item0" x="0" y="0" skinName="GamePositionScoreItemSkin" />
+	<game:GamePositionScoreItem id="item0" x="0" y="0" skinName="GamePositionScoreItemSkin"  anchorOffsetX="0" width="297"/>
 	<game:GamePositionScoreItem id="item1" x="0" y="0" skinName="GamePositionScoreItemSkin" />
 	<game:GamePositionScoreItem id="item2" x="0" y="0" skinName="GamePositionScoreItemSkin" />
 	<game:GamePositionScoreItem id="item3" x="0" y="0" skinName="GamePositionScoreItemSkin" />

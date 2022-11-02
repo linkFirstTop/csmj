@@ -16,7 +16,7 @@
 		
 		</e:Group>
 	</e:Group>
-	<e:Group id="gCardBg" horizontalCenter="0" y="750" height="180">
+	<e:Group id="gCardBg" horizontalCenter="0" y="750" height="180" locked="true">
 		<e:Image source="gameCommbg_png" width="100%" />
 		<e:Group id="gPGCards" verticalCenter="0" horizontalCenter="0">
 			<e:layout>
@@ -35,7 +35,7 @@
 		</e:Group>
 	</e:Group>
 	<!-- 杠摇牌型 -->
-	<e:Group id="GangYaoGroup" horizontalCenter="0" verticalCenter="0" visible="false">
+	<e:Group id="GangYaoGroup" horizontalCenter="0" verticalCenter="0" visible="false" locked="true">
 		<e:Image source="gameCommbg_png" width="100%" height="196" />
 		<e:Group horizontalCenter="0" verticalCenter="0" id="GangyaoCards">
 			<game:BaseCardUI visible="false" />

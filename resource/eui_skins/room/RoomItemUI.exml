@@ -27,8 +27,7 @@
 				               verticalCenter="0" left="0" />
 			</e:Group>
 			<e:Group height="31">
-				<e:BitmapLabel id="lbBase" text="999w" anchorOffsetX="0" verticalAlign="middle" textAlign="center"
-				               right="0" height="31" y="-3"  font="enroomItemNumFnt1_fnt_fnt"/>
+				<e:BitmapLabel id="lbBase" text="9999w" anchorOffsetX="0" textAlign="center" verticalAlign="middle" height="31" font="cnroomItemNumFnt1_fnt" y="0" x="6" scaleX="1" scaleY="1"/>
 			</e:Group>
 			<!--<e:BitmapLabel id="lbTai" text="999K" anchorOffsetX="0" textAlign="center" verticalAlign="middle"
 			                   font="roomItemFnt1_fnt" right="90" bottom="94" height="31" />
