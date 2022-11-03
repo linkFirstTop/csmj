@@ -105,4 +105,5 @@
 		</e:Group>
 	</e:Group>
 	<e:Image id="btnContinue" horizontalCenter="0" verticalCenter="84" source="gameResult_continue_cn_png" />
+	<e:Image id="btnTest" horizontalCenter="-792" verticalCenter="-328" source="gameResult_continue_cn_png"/>
 </e:Skin>
