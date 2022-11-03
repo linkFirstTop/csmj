@@ -45,6 +45,10 @@ module room {
 				TipsUtils.showTipsFromCenter("您的金币不足,请进入其他场馆");
 				return ;
 			}*/
+			//console.log("==ssss")
+			//ViewManager.ins.switchToGame();
+
+
 			this.dispatchEvent(new egret.Event("OnItemClick", true, true, this.info));
 		}
 		private itemWenZiArr: Array<string> = ["rmg", "cjg", "zjg", "gjg", "djg", "zzg"];

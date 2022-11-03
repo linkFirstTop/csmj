@@ -56,15 +56,17 @@ module game {
 			
 				// console.log(body);
 				let p: number = Global.getUserPosition(info.userPos.seatID);
+
 				const User: game.GameResultOtherInfo = <GameResultOtherInfo>this.userGroup.getChildAt(i);
+				
 				if (p == 0) {//玩家自己
 					
 
 					sourceSelf = Number(info.resultCoin);
 					if(sourceSelf>0){
-						User.setResult(info, body.settlementInfos[0].coinList[i],1);
+						User.setResult(info,1);
 					}else{
-						User.setResult(info, body.settlementInfos[0].coinList[i],0);
+						User.setResult(info,0);
 					}
 					Global.gameCoin = Number(info.gameCoin);
 					if(sourceSelf!=0){
@@ -76,9 +78,9 @@ module game {
 					const resultCoin = Number(info.resultCoin);
 				//	this["user" + p].setResult(info, body.result);
 					if(resultCoin>0){
-						User.setResult(info, body.settlementInfos[0].coinList[i],1);
+						User.setResult(info,1);
 					}else{
-						User.setResult(info, body.settlementInfos[0].coinList[i],0);
+						User.setResult(info, 0);
 					}
 					if(resultCoin!=0){
 						User.showDetailInfo(info.fan);

@@ -39,6 +39,8 @@ module game {
 		private huIcon: eui.Image;
 		private private: eui.Group;
 
+		private btnTest: eui.Image;
+
 		private infoBg: eui.Image;
 		protected childrenCreated(): void {
 			super.childrenCreated();
@@ -69,10 +71,10 @@ module game {
 			this.gameOpt.addEventListener("ShowTianHuFlag", this.onShowTHFlag, this);
 			this.gameOpt.addEventListener("ShowTingHuFlag", this.onShowTingFlag, this);
 			this.gameOpt.addEventListener("CloseTingHuFlag", this.onCloseTingFlag, this);
+
 			// this.addChild(this.gameHSZ);
 			// this.gameHSZ.addEventListener("OnSendHSZCards",this.onSendHSZCards,this);
 			// this.gameHSZ.addEventListener("OnHSZAnimComplete",this.onHSZAnimComplete,this);
-
 			this.addChild(this.gameTrust);
 			this.btnTrust.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onCancelTrust, this);
 
@@ -89,6 +91,28 @@ module game {
 			this.lbLeftCard.text = Global.dic["余牌"] + ":0" + Global.dic["张"];
 			this.initGame();
 			this.initBtns();
+
+			this.btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
+			
+				const card =  new game.CardInfo()
+				card.CardID = 1;
+				card.Sit = 1;
+				this.gamePool.addCardToPool(card);
+				const card1 =  new game.CardInfo()
+				card1.CardID = 1;
+				card1.Sit = 2;
+				this.gamePool.addCardToPool(card1);
+				const card2 =  new game.CardInfo()
+				card2.CardID = 1;
+				card2.Sit = 3;
+				this.gamePool.addCardToPool(card2);
+				const card3 =  new game.CardInfo()
+				card2.CardID = 1;
+				card2.Sit = 4;
+				this.gamePool.addCardToPool(card3);
+			}, this);
+
+			this.btnTest.visible = false;
 			//test
 			// var playList:Array<any>=[];
 			// for(var i:number=0;i<4;i++){
