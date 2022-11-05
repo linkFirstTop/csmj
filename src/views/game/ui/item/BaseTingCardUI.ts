@@ -35,16 +35,6 @@ module game {
 			}
 
 		}
-		public updataLeftCard(): void {
-			if (this.nLeft > 1) {
-				this.nLeft -= 1;
-				if (Global.language != "en") {
-					this.lbNum.text = this.nLeft + Global.dic["张数"];
-				} else {
-					this.lbNum.text = "Rest " + this.nLeft;
-				}
 
-			}
-		}
 	}
 }

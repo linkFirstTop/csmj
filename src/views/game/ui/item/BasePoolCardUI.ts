@@ -22,70 +22,20 @@ module game {
 			}
 			if (p == 0) {
 				this.imgCard.source =  "cardValueV" + strIndex;
-				this.imgCard.scaleX = this.imgCard.scaleY = 1 - (3 - Math.floor((index) / 6)) * 0.01;
-
-		
-
+			
 			}
 			if (p == 1) {
-				//this.imgBack.source =
-				// this.imgBack.source = "card_pool_down_" + (index + 1);
 				this.imgCard.source = "cardValueR" + strIndex;
-				// if ((index + 1) % 6 == 0) {
-				// 	this.imgCard.scaleX = this.imgCard.scaleY = 0.;
-				// } else {
-				// 	this.imgCard.scaleX = this.imgCard.scaleY = 0.8 - 0.02 * ((index + 1) % 6);
-				// }
-				// this.imgCard.rotation = -90;
-				// this.imgCard.skewY = -10;
-				this.imgCard.verticalCenter = -12;
+			
+				//this.imgCard.verticalCenter = -12;
 			}
 			if (p == 2) {
-
-				//this.imgBack.source =
-				// this.imgBack.source = "card_pool_up_" + (index + 1);
 				this.imgCard.source = "cardValueU1" + strIndex;
-				// this.imgCard.scaleX = 0.4;
-				// this.imgCard.scaleY = -0.38;
-				// this.imgCard.verticalCenter = -7;
-				if (index % 6 == 0) {
-					this.imgCard.skewX = -6;
-				}
-				if (index % 6 == 1) {
-					this.imgCard.skewX = -4;
-				}
-				if (index % 6 == 2) {
-					this.imgCard.skewX = -1;
-				}
-				if (index % 6 == 3) {
-					this.imgCard.skewX = 1;
-				}
-				if (index % 6 == 4) {
-					this.imgCard.skewX = 4;
-				}
-				if (index % 6 == 5) {
-					this.imgCard.skewX = 6;
-				}
-
 			}
 			if (p == 3) {
 
-				console.log("==strIndex=",strIndex)
-				//this.imgBack.source = 
-				// this.imgBack.source = "card_pool_right_" + (index + 1);
-				//this.imgBack.scaleX = -1;
 				this.imgCard.source = "cardValueH" + strIndex;
-				// if ((index + 1) % 6 == 0) {
-				// 	this.imgCard.scaleX = this.imgCard.scaleY = 0.4;
-				// } else {
-				// 	this.imgCard.scaleX = this.imgCard.scaleY = 0.5 - 0.02 * ((index + 1) % 6);
-				// }
-				// this.imgCard.rotation = -90;
-				// this.imgCard.skewY = -10;
-				// this.imgCard.verticalCenter = -12;
-
-
-				
+	
 			}
 		}
 	}

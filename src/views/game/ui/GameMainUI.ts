@@ -94,23 +94,22 @@ module game {
 
 			this.btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
 			
-				const card =  new game.CardInfo()
+				// const card =  new game.CardInfo()
+				// card.CardID = 1;
+				// card.Sit = 0;
+				GameParmes.gameStage = GameStageType.PLAYING
+
+				const nSit = 3
+				const card: CardInfo = new CardInfo();
 				card.CardID = 1;
-				card.Sit = 1;
-				this.gamePool.addCardToPool(card);
-				const card1 =  new game.CardInfo()
-				card1.CardID = 1;
-				card1.Sit = 2;
-				this.gamePool.addCardToPool(card1);
-				const card2 =  new game.CardInfo()
-				card2.CardID = 1;
-				card2.Sit = 3;
-				this.gamePool.addCardToPool(card2);
-				const card3 =  new game.CardInfo()
-				card2.CardID = 1;
-				card2.Sit = 4;
-				this.gamePool.addCardToPool(card3);
+				card.Sit = nSit;
+				// console.log("====MOPAI=====",card)
+	
+				//game.GamePlayData.AddHandCards(nSit, card);
+				this.getOneCard(card);
+
 			}, this);
+			
 
 			this.btnTest.visible = false;
 			//test
@@ -285,14 +284,6 @@ module game {
 	
 		}
 
-		// public startHSZAndDQ(state:number):void{
-		// 	if(state == 1){//换三张提示
-		// 		this.gameHSZ.showHSZTips();
-		// 		this.gameHand.onShowHSZCards();
-		// 	}else{//定缺提示
-		// 		this.gameHSZ.showDQTips();
-		// 	}
-
 
 		public showHuaCard(sit, CardID): void {
 			this.gameHand.showHuCard(sit, CardID, 0);
@@ -304,15 +295,7 @@ module game {
 			this.gamePool.addCardToPool(card);
 			this.gameHand.updataHandsByPosition(card.Sit, 0);
 			game.SoundModel.playCardSound(card);
-			let cardValue: number = game.GameParmes.getCardID(card);
-			if (this.gTingTip.visible) {
-				for (let i: number = 0; i < this.gTingCards.numChildren; i++) {
-					let item: game.BaseTingCardUI = this.gTingCards.getChildAt(i) as game.BaseTingCardUI;
-					if (item.cardIndex == cardValue) {
-						item.updataLeftCard();
-					}
-				}
-			}
+	
 		}
 
 		public showRoomGUID(guid: string) {
@@ -381,16 +364,8 @@ module game {
 			if (GameParmes.gameStage == GameStageType.PLAYING) {
 				// this.gamePosition.startTime(GameParmes.gamePlayTime);
 				this.gameHand.getOneCard(card);
-				let p: number = Global.getUserPosition(card.Sit);//刷新剩余牌张数，听牌显示
-				if (this.gTingTip.visible && p == 0) {
-					let cardValue: number =  card.CardID //game.GameParmes.getCardID(card);
-					for (let i: number = 0; i < this.gTingCards.numChildren; i++) {
-						let item: game.BaseTingCardUI = this.gTingCards.getChildAt(i) as game.BaseTingCardUI;
-						if (item.cardIndex == cardValue) {
-							item.updataLeftCard();
-						}
-					}
-				}
+				//let p: number = Global.getUserPosition(card.Sit);//刷新剩余牌张数，听牌显示
+			
 
 			}			
 		}

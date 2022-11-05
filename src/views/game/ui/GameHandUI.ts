@@ -282,10 +282,11 @@ module game {
 		
 			}
 			if (p == 1) {
-				// card.x = -54;
-				card.x = -96;
-				card.y = 50;
-				egret.Tween.get(card).to({ y: 0, touchEnabled: true }, 200);
+				//console.log("=====card--")
+			
+				card.x = 1700;
+				card.y = 0;
+				egret.Tween.get(card).to({ y: 50, touchEnabled: true }, 200);
 			}
 			if (p == 2) {
 				card.setCard(p, 16, 1, 0, isQue);
@@ -297,9 +298,9 @@ module game {
 				egret.Tween.get(card).to({ x: 0, touchEnabled: true }, 200);
 			}
 			if (p == 3) {
-				card.x = 40 + 50;
-				card.y = 692;
-				egret.Tween.get(card).to({ x: 40, touchEnabled: true }, 200);
+				card.x = 40 ;
+				card.y = 692 - 50;
+				egret.Tween.get(card).to({ y: 692, touchEnabled: true }, 200);
 				ghand.addChild(card);
 			}
 		}
@@ -340,11 +341,7 @@ module game {
 			}
 			let index: number = 0;
 			let len: number = arr.length;
-			if (arr.length % 3 == 2) {//玩家有摸牌牌权
-				index = 0;
-			} else {
-				index = 1;
-			}
+	
 			for (var i: number = 0; i < len; i++) {
 				
 				let isQue: boolean = false;
@@ -361,8 +358,6 @@ module game {
 				let nOptW: number = 0;
 
 				if (p == 0) {
-
-
 					let itemCardWidth: number = 126 - 5;
 					card.setCard(p, (i + index), cardValue, state, isQue);
 					card.cardInfo = info;
@@ -390,7 +385,7 @@ module game {
 					}
 				}
 				if (p == 1) {
-										card.setCard(p, 16 - i - index, cardValue, state, isQue);
+					card.setCard(p, 16 - i - index, cardValue, state, isQue);
 					if (state == 0) {
 						card.x = (1578 - 1555) + i * 18;
 						card.y = (143 - 90) + i * 42;
