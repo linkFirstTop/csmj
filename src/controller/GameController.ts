@@ -99,7 +99,13 @@ module game {
 			GDGame.Msg.ins.dispatchEvent(new egret.Event(GameMessage.VGID_GAME_GAMERESULT, true, true, body));
 		}
 
-
+		/**
+		 * 请求进行下一轮游戏
+		 */
+		 public static onRequeseNextGame(){
+			let roomID = Global.myPos.roomID
+			room.RoomWebSocket.instance().roomSender.REQ_ROOMENTERROOM(roomID);
+		}
 
 
 	}

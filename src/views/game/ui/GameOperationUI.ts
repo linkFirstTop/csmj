@@ -90,47 +90,19 @@ module game {
 		}
 		public showOpt(data: Array<any>): void {
 			console.log("====data",data)
-
+			//0 吃 1碰 2杠 3胡 4听
 			this.initBtns();
 			this.thisData = data;
-			var isChi: boolean = false;
-			var isPeng: boolean = false;
-			var isGang: boolean = false;
-			var isHu: boolean = false;
-			var isTing: boolean = false;
+			var isChi: boolean = data[0];
+			var isPeng: boolean = data[1];
+			var isGang: boolean = data[2];
+			var isHu: boolean = data[3];
+			var isTing: boolean = data[4];
 			var istianHu: boolean = false;
 			var isGangyao: boolean = false;
 			var isQishouHu: boolean = false;
 			
-			//console.log(data, data.operations);
-			// for (var i: number = 0; i < data.operations.length; i++) {
-			// 	var temp = data.operations[i];
-			// 	if (temp.type == 4) {
-			// 		isChi = true;
-			// 	}
-			// 	if (temp.type == 5) {
-			// 		isPeng = true;
-			// 	}
-			// 	if (temp.type == 24 || temp.type == 26 ||temp.type == 27) {
-			// 		isGangyao = true;
-			// 	}
-			// 	if (temp.type == 6 || temp.type == 7 || temp.type == 13) {
-			// 		isGang = true;
 
-			// 	}
-			// 	if (temp.type == 8 || temp.type == 16) {
-			// 		isHu = true;
-			// 	}
-			// 	if (temp.type == 16) {
-			// 		istianHu = true;
-			// 	}
-			// 	if (temp.type == 25) {
-			// 		isQishouHu = true;
-			// 	}
-			// }
-			// if (data.callCards.length > 0) {
-			// 	isTing = true;
-			// }
 			console.log("isPeng:" + isPeng, "isGang:" + isGang, "isHu:" + isHu, "isTing:" + isTing, "isChi:" + isChi, "isGangyao:" + isGangyao);
 			if (isHu) {
 				this.arrTmp.unshift(this.btnHu);
@@ -235,51 +207,149 @@ module game {
 		}
 		private onPeng(): void {
 			this.initBtns();
-			let arr: Array<CardsGroupInfo> = GamePlayData.GetChiPengGangHuGroup(CardsGroupType.PENG);
-			//room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Peng_Groups[0]);
+			const mj_opts = game.GamePlayData.GetMJ_Operation();
+			let mj_opt: room.MJ_Operation
+			mj_opts.forEach(e => {
+				if (e.operationType == CardsGroupType.MJ_OperationType.MJ_OT_PONG) {
+					mj_opt = e;
+				}
+			})
+
+			if (!mj_opt) {
+				return;
+			}
+
+			const opt: room.MJ_Operation = new room.MJ_Operation()
+			opt.operationType = mj_opt.operationType;//操作类型
+			opt.Tiles = [] //牌组  如果是出牌则数组中只有一张牌
+			//如果是吃、碰、杠、胡则以下值需要读取或者写入
+			opt.ObtainTile = mj_opt.ObtainTile //需要吃碰杠胡的那一张牌 
+			opt.ObtainSeat = mj_opt.ObtainSeat //被吃碰杠胡的那个人的座位号 
+
+			//如果是听，则以下值需要读取或写入
+			opt.tingTileInfo = [] //MJ_TingTileInfo /和牌信息
+
+			//如果是胡，则以下值需要读取或写入
+			opt.maxFan = 3 //最大番数 
+			//opt.fans = 3 // MJ_FanInfo 被吃碰杠胡的那个人的座位号 
+			//opt.operationID = Global.userSit + 1 //操作id
+
+			room.RoomWebSocket.instance().roomSender.REQ_USEROPERATIONREQ(opt)
 
 		}
 		private onGang(): void {
 			this.initBtns();
-			console.log("点击普通杠");
-			var arr: Array<CardsGroupInfo> = GamePlayData.GetChiPengGangHuGroup(CardsGroupType.GANG);
-			if (arr.length == 1) {
-				//room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Gang_Groups[0]);
+			// var arr: Array<CardsGroupInfo> = GamePlayData.GetChiPengGangHuGroup(CardsGroupType.GANG);
+			// 	game.GameWebSocket.instance().gameSender.ReqSendCardsGameFun(GamePlayData.Gang_Groups[0]);
+			const mj_opts = game.GamePlayData.GetMJ_Operation();
+			let mj_opt: room.MJ_Operation
+			mj_opts.forEach(e => {
+				if (e.operationType == CardsGroupType.MJ_OperationType.MJ_OT_C_KONG) {
+					mj_opt = e;
+				}
+				if (e.operationType == CardsGroupType.MJ_OperationType.MJ_OT_E_KONG) {
+					mj_opt = e;
+				}
+				if (e.operationType == CardsGroupType.MJ_OperationType.MJ_OT_P_KONG) {
+					mj_opt = e;
+				}
+			})
 
+			if (!mj_opt) {
 				return;
 			}
-			this.isChi = false;
-			this.showCardGroups(arr);
+			const opt: room.MJ_Operation = new room.MJ_Operation()
+			opt.operationType = mj_opt.operationType;//操作类型
+			opt.Tiles = [] //牌组  如果是出牌则数组中只有一张牌
+			//如果是吃、碰、杠、胡则以下值需要读取或者写入
+			opt.ObtainTile = mj_opt.ObtainTile //需要吃碰杠胡的那一张牌 
+			opt.ObtainSeat = mj_opt.ObtainSeat //被吃碰杠胡的那个人的座位号 
+
+			//如果是听，则以下值需要读取或写入
+			opt.tingTileInfo = [] //MJ_TingTileInfo /和牌信息
+
+			//如果是胡，则以下值需要读取或写入
+			opt.maxFan = 3 //最大番数 
+			//opt.fans = 3 // MJ_FanInfo 被吃碰杠胡的那个人的座位号 
+			opt.operationID = 3 //操作id
+			room.RoomWebSocket.instance().roomSender.REQ_USEROPERATIONREQ(opt)
+			return;
+			// }
+			// this.showCardGroups(arr);
 		}
 		private onTing(): void {
-			this.initBtns();
-			this.arrTmp.unshift(this.btnGuo);
-			this.btnGuo.visible = true;
-			for (let i: number = 0; i < this.arrTmp.length; i++) {
-				let img: eui.Image = this.arrTmp[i];
-				img.x = this.arrPosition[4 - i];
+			// }
+			console.log("GameParmes.isHu:", GameParmes.isHu)
+			if (GameParmes.isHu == false) {
+
+				ViewManager.ins.gameView.gameUI.gameHand.showTingFlag(true, "ting");
 			}
-			this.dispatchEvent(new egret.Event("ShowTingHuFlag"));
+			this.btnTing.visible = false;
 		}
 		private onChi(): void {
-			let arr: Array<CardsGroupInfo> = GamePlayData.GetChiPengGangHuGroup(CardsGroupType.CHI);
-			if (arr.length == 1) {
-				this.initBtns();
-				//room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Chi_Groups[0]);
+			this.initBtns();
+			const mj_opts = game.GamePlayData.GetMJ_Operation();
+			let mj_opt: room.MJ_Operation
+			mj_opts.forEach(e => {
+				if (e.operationType == CardsGroupType.MJ_OperationType.MJ_OT_PONG) {
+					mj_opt = e;
+				}
+			})
+
+			if (!mj_opt) {
 				return;
 			}
-			this.isChi = true;
-			this.showCardGroups(arr);
 
+			const opt: room.MJ_Operation = new room.MJ_Operation()
+			opt.operationType = mj_opt.operationType;//操作类型
+			opt.Tiles = [] //牌组  如果是出牌则数组中只有一张牌
+			//如果是吃、碰、杠、胡则以下值需要读取或者写入
+			opt.ObtainTile = mj_opt.ObtainTile //需要吃碰杠胡的那一张牌 
+			opt.ObtainSeat = mj_opt.ObtainSeat //被吃碰杠胡的那个人的座位号 
 
+			//如果是听，则以下值需要读取或写入
+			opt.tingTileInfo = [] //MJ_TingTileInfo /和牌信息
+
+			//如果是胡，则以下值需要读取或写入
+			opt.maxFan = 3 //最大番数 
+			//opt.fans = 3 // MJ_FanInfo 被吃碰杠胡的那个人的座位号 
+			//opt.operationID = Global.userSit + 1 //操作id
+
+			room.RoomWebSocket.instance().roomSender.REQ_USEROPERATIONREQ(opt)
 
 		}
 		private onHu(): void {
 			if (GameParmes.nHuType == 16) {//此时是天胡情况
 				this.dispatchEvent(new egret.Event("ShowTianHuFlag"));
 			} else {
-				//room.RoomWebSocket.instance().roomSender.ReqSendCard(GamePlayData.Hu_Groups[0]);
+				const mj_opts = game.GamePlayData.GetMJ_Operation();
+				let mj_opt: room.MJ_Operation
+				mj_opts.forEach(e => {
+					if (e.operationType == CardsGroupType.MJ_OperationType.MJ_OT_WIN) {
+						mj_opt = e;
+					}
+				})
 
+				if (!mj_opt) {
+					return;
+				}
+				const opt: room.MJ_Operation = new room.MJ_Operation()
+				opt.operationType = mj_opt.operationType;//操作类型
+				opt.Tiles = [] //牌组  如果是出牌则数组中只有一张牌
+				//如果是吃、碰、杠、胡则以下值需要读取或者写入
+				opt.ObtainTile = mj_opt.ObtainTile //需要吃碰杠胡的那一张牌 
+				opt.ObtainSeat = mj_opt.ObtainSeat //被吃碰杠胡的那个人的座位号 
+
+				//如果是听，则以下值需要读取或写入
+				opt.tingTileInfo = [] //MJ_TingTileInfo /和牌信息
+
+				//如果是胡，则以下值需要读取或写入
+				opt.maxFan = 3 //最大番数 
+				//opt.fans = 3 // MJ_FanInfo 被吃碰杠胡的那个人的座位号 
+				opt.operationID = 3 //操作id
+				room.RoomWebSocket.instance().roomSender.REQ_USEROPERATIONREQ(opt)
+
+				//game.GameWebSocket.instance().gameSender.ReqSendCardsGameFun(GamePlayData.Hu_Groups[0]);
 			}
 			this.initBtns();
 		}
@@ -289,13 +359,24 @@ module game {
 			//room.RoomWebSocket.instance().roomSender.ReqSendCardQiShou(GamePlayData.QiShouHu_Groups[0]);
 		}
 		private onGuo(): void {
-			this.initBtns();
-			if (GameParmes.hasClickTing == false) {
-				this.sendGameNoOperation();
-			} else {
-				this.dispatchEvent(new egret.Event("CloseTingHuFlag"));
-				this.showOpt(this.thisData);
+			console.log("GameParmes.isCurTing:", GameParmes.isCurTing)
+			if (this.btnTing.visible == true && GameParmes.isCurTing) {
+				this.initBtns();
+				//this.sendGameNoOperation();
+				ViewManager.ins.gameView.gameUI.gameHand.showTingFlag(false, "ting");
+				return
+
 			}
+
+			if (GameParmes.isCurTing && this.btnTing.visible == false) {
+				this.btnTing.visible = true;
+				ViewManager.ins.gameView.gameUI.gameHand.showTingFlag(false, "ting");
+				return;
+			}
+
+			this.initBtns();
+			this.sendGameNoOperation();
+			ViewManager.ins.gameView.gameUI.gameHand.showTingFlag(false, "ting");
 		
 		}
 		private sendGameNoOperation(): void {

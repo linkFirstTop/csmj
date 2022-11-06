@@ -425,9 +425,7 @@ module game {
       //玩家自己操作
       body.operation.forEach((opt: room.MJ_Operation) => {
         //摸牌s
-        // if (opt.operationType == CardsGroupType.MJ_OperationType.摸牌) {
-
-        // }
+        // if (opt.operationType == CardsGroupType.MJ_OperationType.摸牌) { }
 
         //手切，打出的是手中的牌，吃碰之后都是手切
         if (opt.operationType == CardsGroupType.MJ_OperationType.手切) {
@@ -523,8 +521,6 @@ module game {
       const nSit = body["seatID"];
       GameParmes.gameStage = GameStageType.PLAYING;
       this.gameUI.showWallCount(body.remainCount); //body.remainCount
-      // console.log
-
       let p = Global.getUserPosition(nSit);
       //console.log(`****当前操作玩家座位号:${nSit}，和局部座位号:${p},玩家座位号：${Global.userSit}`)
       const opt: room.MJ_Operation = <any>body.operation;

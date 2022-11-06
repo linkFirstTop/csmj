@@ -48,7 +48,7 @@ module room {
 			//console.log("==ssss")
 			//game.GamePlayData.MockStart();
 
-			 this.dispatchEvent(new egret.Event("OnItemClick", true, true, this.info));
+			this.dispatchEvent(new egret.Event("OnItemClick", true, true, this.info));
 		}
 		private itemWenZiArr: Array<string> = ["rmg", "cjg", "zjg", "gjg", "djg", "zzg"];
 		public setItem(data: any): void {

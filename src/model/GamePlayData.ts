@@ -536,6 +536,15 @@ module game {
 			this.MJ_Operation = operation;
 		}
 
+
+		/**
+		 * 保存 玩家 当前可以进行操作
+		 */
+
+			public static GetMJ_Operation() {
+			return this.MJ_Operation || [];
+		}
+
 		//********TEST */
 
 		public static MockStart(){	

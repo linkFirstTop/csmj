@@ -92,10 +92,13 @@ module game {
 			this.initGame();
 			this.initBtns();
 
+			// 测试用按钮
+			this.btnTest.visible = false;
 			this.btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
 			
+				this.onShowOpt([true,true,true,true,true]);
+				return
 				//const card =  new game.CardInfo()
-			
 				GameParmes.gameStage = GameStageType.PLAYING
 
 				const nSit = 2
@@ -130,39 +133,8 @@ module game {
 			}, this);
 			
 
-			this.btnTest.visible = false;
-			//test
-			// var playList:Array<any>=[];
-			// for(var i:number=0;i<4;i++){
-			// 	let user:proto.PlayerInfo = new proto.PlayerInfo();
-			// 	user.UserName = "test";
-			// 	user.UsershowName = "test";
-			// 	user.UserSit = i;
-			// 	user.Coin = 9999;
-			// 	user.UserImage = "";
-			// 	playList.push(user);
-			// }
-			// game.GameUserList.saveUserListInfo(playList);
-			// var handCardinfo:Array<any>=[];
-			// for(var i:number=0;i<17;i++){
-			// 	var cardInfo:proto.CardInfo=new proto.CardInfo();
-			// 	cardInfo.CardID=1;
-			// 	cardInfo.Sit=0;
-			// 	handCardinfo.push(cardInfo);
-			// }
-			// game.GamePlayData.SaveHandCarsd(handCardinfo);
-			// this.gameHand.createHandCard(true,0);
-			// for(i=0;i<4;i++){
-			// 	var cardArr:Array<any>=[];
-			// 	for(var n:number=0;n<20;n++){
-			// 		var cardInfo:proto.CardInfo=new proto.CardInfo();
-			// 		cardInfo.CardID=1;
-			// 		cardInfo.Sit=i;
-			// 		cardArr.push(cardInfo);
-			// 	}
-			// 	game.GamePlayData.AddCardPool(cardArr,i,true);
-			// }
-			// this.gamePool.reductionCardsPool();//还原牌池
+
+			
 			this.gameOpt.visible = true;
 		}
 		public initGame(): void {
@@ -323,7 +295,7 @@ module game {
 		public onShowOpt(data:  Array<any>): void {
 			this.gameOpt.showOpt(data);//0 吃 1碰 2杠 3胡 4听
 			this.onCloseTingFlag();
-			this.gamePosition.startTime(GameParmes.chiPengGangSurplusTime);
+
 		
 			// if(GameParmes.isHu == false && arr[4]){
 			// if (game.GamePlayData.playingSeat == Global.userSit) {//自己牌权时才判断是否听牌
@@ -580,7 +552,9 @@ module game {
 		}
 		private onBtnContinue(): void {
 			this.btnContinue.visible = false;
-			this.dispatchEvent(new egret.Event("OnGameContinue", true, true));
+		
+
+			GameController.onRequeseNextGame();
 		}
 		public startTime(count: number, str: string = ""): void {
 			this.gamePosition.startTime(count, str);
