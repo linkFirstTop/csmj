@@ -1,41 +1,41 @@
 module game {
   export class GameView extends egret.DisplayObjectContainer {
     public constructor() {
-		super();
+      super();
     }
-    private gameUI: game.GameMainUI;
+    public gameUI: game.GameMainUI;
     private gameOperationUI: game.GameOperationUI;
     private gameMatch: game.GameMatchUserUI;
     private gameResult: game.GameResultUI;
     /*添加view*/
     public onAddView(): void {
-		this.gameUI = new game.GameMainUI();
-		this.addChild(this.gameUI);
+      this.gameUI = new game.GameMainUI();
+      this.addChild(this.gameUI);
 
-		this.gameResult = new game.GameResultUI();
-		this.addChild(this.gameResult);
-		this.gameResult.addEventListener("OnHideResult", this.onHideResult, this);
+      this.gameResult = new game.GameResultUI();
+      this.addChild(this.gameResult);
+      this.gameResult.addEventListener("OnHideResult", this.onHideResult, this);
 
-		this.addEventListener("OnGameContinue", this.onGameContinue, this);
+      this.addEventListener("OnGameContinue", this.onGameContinue, this);
 
-		this.gameMatch = new game.GameMatchUserUI();
-		this.addChild(this.gameMatch);
+      this.gameMatch = new game.GameMatchUserUI();
+      this.addChild(this.gameMatch);
 
       // this.gameMatch.startAnim();
 
-      	if (!Global.isContinue) {
-			this.gameMatch.x = (GameConfig.curWidth() - this.gameMatch.width) / 2;
-			this.gameMatch.y = (GameConfig.curHeight() - this.gameMatch.height) / 2;
-			this.gameMatch.startAnim();
-      	}
-      	if (egret.getOption("pai") == "1") {
-        	Global.isDeal = true;
-     	 }
-     	if (Global.isDeal) {
-        	let gamezhuapai: GameZhuaPaiQiUI = new GameZhuaPaiQiUI();
-     	   	this.addChild(gamezhuapai);
-      	}
-      	this.addMEL();
+      if (!Global.isContinue) {
+        this.gameMatch.x = (GameConfig.curWidth() - this.gameMatch.width) / 2;
+        this.gameMatch.y = (GameConfig.curHeight() - this.gameMatch.height) / 2;
+        this.gameMatch.startAnim();
+      }
+      if (egret.getOption("pai") == "1") {
+        Global.isDeal = true;
+      }
+      if (Global.isDeal) {
+        let gamezhuapai: GameZhuaPaiQiUI = new GameZhuaPaiQiUI();
+        this.addChild(gamezhuapai);
+      }
+      this.addMEL();
     }
     private addMEL(): void {
       //进入游戏结果
@@ -43,22 +43,46 @@ module game {
 
       // //玩家列表
       // GDGame.Msg.ins.addEventListener(GameMessage.ACK_GAMEPLAYERLIST, this.ACK_GAME_PLAYERLIST, this);
-     	GDGame.Msg.ins.addEventListener(GameMessage.NTF_ROOM_STATE,	this.ACK_GAME_STATUS_CHANGED,this);
+      GDGame.Msg.ins.addEventListener(
+        GameMessage.NTF_ROOM_STATE,
+        this.ACK_GAME_STATUS_CHANGED,
+        this
+      );
 
       // GDGame.Msg.ins.addEventListener(GameMessage.VGID_GAME_GAMERESULT, this.ACK_GAME_RESULT, this);
       // //游戏全部结束
-      GDGame.Msg.ins.addEventListener(  GameMessage.VGID_GAME_GAMERESULT,  this.ACK_ALL_GAMERESULT,this );
+      GDGame.Msg.ins.addEventListener(
+        GameMessage.VGID_GAME_GAMERESULT,
+        this.ACK_ALL_GAMERESULT,
+        this
+      );
 
       //服务器通知客户端托管操作
-      GDGame.Msg.ins.addEventListener(  GameMessage.VGID_USER_MANAGED,  this.ACK_USER_PLAYERTRUST, this );
+      GDGame.Msg.ins.addEventListener(
+        GameMessage.VGID_USER_MANAGED,
+        this.ACK_USER_PLAYERTRUST,
+        this
+      );
 
       //开始发牌
-      GDGame.Msg.ins.addEventListener(game.GameMessage.VGID_GAME_GAMESTART, this.ACK_GAME_DICEANDCARDS, this );
+      GDGame.Msg.ins.addEventListener(
+        game.GameMessage.VGID_GAME_GAMESTART,
+        this.ACK_GAME_DICEANDCARDS,
+        this
+      );
 
       //行牌单播消息
-      GDGame.Msg.ins.addEventListener( GameMessage.VGID_GAME_OPERATION,this.ACK_GAME_OPERATION, this);
+      GDGame.Msg.ins.addEventListener(
+        GameMessage.VGID_GAME_OPERATION,
+        this.ACK_GAME_OPERATION,
+        this
+      );
       //行牌应答
-      GDGame.Msg.ins.addEventListener( GameMessage.VGID_USER_OPERATION,  this.ACK_USER_OPERATION,  this  );
+      GDGame.Msg.ins.addEventListener(
+        GameMessage.VGID_USER_OPERATION,
+        this.ACK_USER_OPERATION,
+        this
+      );
 
       //断线重联
       GDGame.Msg.ins.addEventListener(
@@ -207,7 +231,7 @@ module game {
       //这里处理断线 的 牌
       game.GamePlayData.arrPoolCards = [[], [], [], []];
       const arr = game.GameUserList.arrUserList;
-      console.log("====arr", arr);
+     
       //GamePlayData.MJ_LiangOtherPais = [];
       arr.forEach((e: any, i) => {
         const user: room.VGUserInfo = e.userPos;
@@ -371,14 +395,14 @@ module game {
      * @param evt
      */
     private ACK_GAME_OPERATION(evt: egret.Event) {
-		const body: room.VGGameOperationNtc = evt.data;
-      	const nSit = body.seatid;
+      const body: room.VGGameOperationNtc = evt.data;
+      const nSit = body.seatid;
 
-      	console.log(`>>行牌单播消息`, body);
+      console.log(`>>行牌单播消息`, body);
 
-      	this.gameUI.showRoomGUID(body.roundGuid);
-      	//	body.remainCount
-      	this.gameUI.startTime(body.second);
+      this.gameUI.showRoomGUID(body.roundGuid);
+      //	body.remainCount
+      this.gameUI.startTime(body.second);
       game.GamePlayData.playingSeat = nSit;
       this.gameUI.changeUserRight(nSit);
 
@@ -401,12 +425,12 @@ module game {
       //玩家自己操作
       body.operation.forEach((opt: room.MJ_Operation) => {
         //摸牌s
-        //if (opt.operationType == CardsGroupType.MJ_OperationType.摸牌) {}
+        // if (opt.operationType == CardsGroupType.MJ_OperationType.摸牌) {
+
+        // }
 
         //手切，打出的是手中的牌，吃碰之后都是手切
-        if (
-          opt.operationType == CardsGroupType.MJ_OperationType.手切
-        ) {
+        if (opt.operationType == CardsGroupType.MJ_OperationType.手切) {
           GameParmes.gameStage = GameStageType.PLAYING;
           GameParmes.gameTurn = GameTurnType.SELFTURN;
         }
@@ -492,59 +516,56 @@ module game {
      * @param evt
      */
     private ACK_USER_OPERATION(evt: egret.Event) {
-		const body: room.VGUserOperationAck = evt.data;
-		egret.log("****行牌应答:这是玩家操作的结果:", body);
+      const body: room.VGUserOperationAck = evt.data;
+      egret.log("****行牌应答:这是玩家操作的结果:", body);
 
-		//console.log("=== 行牌应答 这是玩家操作的seat:", body["seatID"])
-		const nSit = body["seatID"];
-		GameParmes.gameStage = GameStageType.PLAYING;
-		this.gameUI.showWallCount(body.remainCount); //body.remainCount
-		// console.log
+      //console.log("=== 行牌应答 这是玩家操作的seat:", body["seatID"])
+      const nSit = body["seatID"];
+      GameParmes.gameStage = GameStageType.PLAYING;
+      this.gameUI.showWallCount(body.remainCount); //body.remainCount
+      // console.log
 
-		let p = Global.getUserPosition(nSit)
-		//console.log(`****当前操作玩家座位号:${nSit}，和局部座位号:${p},玩家座位号：${Global.userSit}`)
-		const opt: room.MJ_Operation = <any>body.operation;
-		GameParmes.isCurTing = false;
-		if (!opt) {
-			return;
-		}
+      let p = Global.getUserPosition(nSit);
+      //console.log(`****当前操作玩家座位号:${nSit}，和局部座位号:${p},玩家座位号：${Global.userSit}`)
+      const opt: room.MJ_Operation = <any>body.operation;
+      GameParmes.isCurTing = false;
+      if (!opt) {
+        return;
+      }
 
       //摸牌s
       if (opt.operationType == CardsGroupType.MJ_OperationType.摸牌) {
-        // game.GamePlayData.SetCardsWallIndex("Head", 1);
+        const card: CardInfo = new CardInfo();
+        card.CardID = opt.Tiles[0];
+        card.Sit = nSit;
 
-			const card: CardInfo = new CardInfo();
-			card.CardID = opt.Tiles[0];
-			card.Sit = nSit;
-			// console.log("====MOPAI=====",card)
-
-			game.GamePlayData.AddHandCards(nSit, card);
-			this.gameUI.getOneCard(card);
-
-        //room.RoomWebSocket.instance().roomSender.REQ_MAGICTILES()
+        game.GamePlayData.AddHandCards(nSit, card);
+        this.gameUI.getOneCard(card);
       }
 
       //手切，打出的是手中的牌，吃碰之后都是手切
-      if ( opt.operationType == CardsGroupType.MJ_OperationType.手切 ) {
+      if (opt.operationType == CardsGroupType.MJ_OperationType.手切) {
         //	console.log("=====打出的是手中的牌，吃碰之后都是手切==")
-			const card: CardInfo = new CardInfo();
-			card.CardID = opt.Tiles[0];
-			card.Sit = nSit;
+        const card: CardInfo = new CardInfo();
+        card.CardID = opt.Tiles[0];
+        card.Sit = nSit;
 
-			const Cards = [card];
-			game.GamePlayData.ClearHandCards(p, [card], nSit);
-			game.GamePlayData.AddCardPool(Cards, nSit);
-			if (nSit == Global.userSit) {
-				game.GamePlayData.SaveCurrentCard(0, -1);
-			}
+        const Cards = [card];
+        game.GamePlayData.ClearHandCards(p, [card], nSit);
+        game.GamePlayData.AddCardPool(Cards, nSit);
+        if (nSit == Global.userSit) {
+          game.GamePlayData.SaveCurrentCard(0, -1);
+        }
 
-			const b: boolean = false;
-			this.gameUI.userSendCard(card, b);
-			SoundModel.playEffect(SoundModel.CHU);
+        const b: boolean = false;
+        this.gameUI.userSendCard(card, b);
+        SoundModel.playEffect(SoundModel.CHU);
       }
 
       //摸切，打出的是刚摸到的牌s
-      if (  opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_D_DISCARD ) {
+      if (
+        opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_D_DISCARD
+      ) {
         //console.log("=====摸切==")
         const card: CardInfo = new CardInfo();
         card.CardID = opt.Tiles[0];

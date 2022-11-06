@@ -94,19 +94,38 @@ module game {
 
 			this.btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
 			
-				// const card =  new game.CardInfo()
-				// card.CardID = 1;
-				// card.Sit = 0;
+				//const card =  new game.CardInfo()
+			
 				GameParmes.gameStage = GameStageType.PLAYING
 
-				const nSit = 3
-				const card: CardInfo = new CardInfo();
-				card.CardID = 1;
-				card.Sit = nSit;
-				// console.log("====MOPAI=====",card)
-	
-				//game.GamePlayData.AddHandCards(nSit, card);
-				this.getOneCard(card);
+				const nSit = 2
+				// const card: CardInfo = new CardInfo();
+				// card.CardID = 1;
+				// card.Sit = nSit;
+				let card: CardInfo = { CardID:1, Sit: 3 };
+				const body = {
+					ObtainCard: card,
+					Type: CardsGroupType.ANGANG,
+					ObtainCardSit: 1,
+					sit: nSit,
+					Cards: [
+						{ CardID:1, Sit: nSit },
+						{ CardID: 1, Sit: nSit },
+						{ CardID: 1, Sit: nSit },
+						{ CardID: 1, Sit: nSit },
+					],
+				}
+				game.GamePlayData.SaveCurrentCard(0, -1);
+				game.GamePlayData.AddChiPengGangCards(body, nSit);
+
+
+				this.playAnim("chi", nSit);
+				//this.gameUI.playAnim("hdly",nSit);
+				//this.updataUserCPG(nSit, card);
+				// //game.GamePlayData.AddHandCards(nSit, card);
+				// this.getOneCard(card);
+				this.gameHand.createCPGCard(nSit);
+				this.changeUserRight(nSit);
 
 			}, this);
 			
@@ -243,7 +262,7 @@ module game {
 		}
 		/*初始化四个玩家*/
 		public initUser(): void {
-			console.log("initUser");
+		
 			this.isGaming = true;
 			let len: number = game.GameUserList.arrUserList.length;
 			for (let i: number = 0; i < len; i++) {
@@ -279,9 +298,7 @@ module game {
 			}
 		}
 		public showWallCount(num): void {
-		
 			this.lbLeftCard.text = `${Global.dic["余牌"]}:${num}${Global.dic["张"]}`;
-	
 		}
 
 
@@ -391,7 +408,7 @@ module game {
 				this.gamePool.removeCardToPool(card.Sit);
 			}
 			this.gamePosition.stopTime();
-			this.gamePosition.startTime(GameParmes.chiPengGangSurplusTime);
+			// this.gamePosition.startTime(GameParmes.chiPengGangSurplusTime);
 			this.gameOpt.visible = false;
 
 			egret.setTimeout(function(){

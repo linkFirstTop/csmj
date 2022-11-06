@@ -535,6 +535,53 @@ module game {
 		public static SaveMJ_Operation(operation: any) {
 			this.MJ_Operation = operation;
 		}
+
+		//********TEST */
+
+		public static MockStart(){	
+			game.GamePlayData.initData();
+			game.GameParmes.initData();
+			ViewManager.ins.switchToGame();
+
+			Global.userSit = 1;
+			const users:any = GamePlayData.MockUsers();
+			game.GameUserList.saveUserListInfo(users);
+
+			ViewManager.ins.gameView.gameUI.initUser();
+		}
+
+		public static MockUsers(){
+			const users = [];
+			for( let i= 1;i<5;i++){
+				let user = GamePlayData.MockUser(i);
+				users.push(user);
+			}
+			return users;
+		}
 		
+
+		public static MockUser(i){
+			const user = {
+				fan: [],
+				feeCoin: 0,
+				gameCoin: 10488,
+				
+				isManaged: 0,
+				resultCoin: 0,
+				role: 1,
+				showName: "jytzyztp0v",
+				status: 3,
+				tileSets:  [],
+				tingTileInfo: [],
+				userName: "jytzyztp0v",
+				userPos:{
+					roomID: 1,
+					seatID: i,
+					tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
+				}
+			}
+			return user;
+
+		}
 	}
 }

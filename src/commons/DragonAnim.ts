@@ -77,13 +77,17 @@ module comm {
 				if (str == "hdly" || str == "mg" || str == "jg" || str == "bt" || str == "bh" || str == "gf" || str == "ljf" || str == "gy" || str == "xyz" || str == "peng" || str == "chi" || str == "hu" || str == "bt" || str == "zm"
 					|| str == "qgh" || str == "ag" || str == "ypdx" || str == "gskh" || str == "hjzy" || str == "dj" || str == "hz") {
 					if (p == 0) {
-						return { "x": 400, "y": GameConfig.curHeight() / 2 }
-					} else if (p == 1) {
-						return { "x": GameConfig.curWidth() / 2, "y": 300 }
-					} else if (p == 2) {
-						return { "x": GameConfig.curWidth() - 400, "y": GameConfig.curHeight() / 2 }
-					} else {
 						return { "x": GameConfig.curWidth() / 2, "y": 950 }
+						
+					} else if (p == 1) {
+						return { "x": GameConfig.curWidth() - 400, "y": GameConfig.curHeight() / 2 }
+						
+					} else if (p == 2) {
+						return { "x": GameConfig.curWidth() / 2, "y": 300 }
+						
+						
+					} else {
+						return { "x": 400, "y": GameConfig.curHeight() / 2 }
 					}
 				}
 				if (str == "zmbd") {

@@ -20,7 +20,7 @@ class ViewManager extends egret.DisplayObjectContainer {
 	private alertUI: comm.Alert;
 	private ruleUI: room.RoomRuleUI;
 	private roomView: room.RoomView;
-	private gameView: game.GameView;
+	public gameView: game.GameView;
 	public curview: string = "";
 	private outTimeNum: number;
 	public constructor() {

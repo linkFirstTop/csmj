@@ -7,6 +7,7 @@ module game {
 		
 			game.GameUserList.arrUserList = [];
 			for (let i: number = 0; i < arr.length; i++) {
+				console.log("===ii",i)
 				let info:room.IVGUserInfo = arr[i];
 				let user: game.GameUserInfo = new game.GameUserInfo();
 				user.userName = info.userName;

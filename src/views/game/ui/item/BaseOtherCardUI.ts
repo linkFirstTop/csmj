@@ -12,91 +12,21 @@ module game {
 			this.addChild(g);
 			g.addChild(this.imgBack);
 			g.addChild(this.imgCard);
-			this.imgBack.horizontalCenter = this.imgBack.verticalCenter = 0;
+		//	this.imgBack.horizontalCenter = this.imgBack.verticalCenter = 0;
 			var strIndex: string;
 			if (value < 10) {
 				strIndex = "0" + value;
 			} else {
 				strIndex = "" + value;
 			}
-			if (p == 0) {//左
-				if (isAnGang) {
-					this.imgBack.source = "cardGangL";
-					if (value > 0) {
-						this.imgBack.source = "cardValueH" + strIndex;
-					}
-					// this.imgCard.scaleX = this.imgCard.scaleY = 0.5 - 0.01 * (3 - index);
-					// this.imgCard.verticalCenter = -8;
-					// this.imgCard.rotation = 90;
-					// this.imgCard.skewY = 25;
-				} else {
-					this.imgCard.source = "cardValueH" + strIndex;
-					// if (value > 0) {
-					// 	this.imgCard.source = "cardValue" + value;
-					// }
-					// this.imgCard.scaleX = this.imgCard.scaleY = 0.5 - 0.01 * (15 - index);
-					// this.imgCard.verticalCenter = -8;
-					// this.imgCard.rotation = 90;
-					// this.imgCard.skewY = 25;
-				}
-				this.imgCard.horizontalCenter = -5;
-			}
-			if (p == 1) {//上
-				if (isAnGang) {
-					if (value > 0) {
-						this.imgBack.source = "cardValueU1" + strIndex;//正面
-						// this.imgCard.source = "cardValue" + value;
-						// this.imgCard.scaleX = 0.5;
-						// this.imgCard.scaleY = -0.35;
-						// this.imgCard.verticalCenter = -10;
-					} else {
-						this.imgBack.source = "cardGangD2";//背面
-					}
-				} else {//明杠，吃，碰
-					this.imgBack.source = "cardValueU1" + strIndex;
-					// if (value > 0) {
-					// 	this.imgCard.source = "cardValue" + value;
-					// }
-					// this.imgCard.scaleX = 0.5;
-					// this.imgCard.scaleY = -0.4;
-					// this.imgCard.verticalCenter = -7;
-				}
-				// this.imgCard.horizontalCenter = 0;
-			}
-			if (p == 2) {//右
-				if (isAnGang) {
-					this.imgBack.source = "cardGangR";
-					// this.imgBack.scaleX = -1;
-					if (value > 0) {
-						// this.imgCard.source = "cardValue" + value;
-						this.imgBack.source = "cardValueR" + strIndex;
-					}
-					// this.imgCard.scaleX = this.imgCard.scaleY = 0.5 - 0.01 * index;
-					// this.imgCard.rotation = -90;
-					// this.imgCard.skewY = -25;
-					// this.imgCard.verticalCenter = -8;
-				} else {
-					this.imgBack.source = "cardValueR" + strIndex;
-					// if (value > 0) {
-					// 	this.imgCard.source = "cardValue" + value;
-					// }
-					// this.imgCard.scaleX = this.imgCard.scaleY = 0.5 - 0.01 * index;
-					// this.imgCard.rotation = -90;
-					// this.imgCard.skewY = -25;
-					// this.imgCard.verticalCenter = -8;
-					// this.imgBack.scaleX = -1;
-				}
-				// this.imgCard.horizontalCenter = 5;
-			}
-			if (p == 3) {
+			if (p == 0) {//down
 				if (isAnGang) {
 					if (value > 0) {
 						//明牌（正面）
 						// this.imgBack.source = "card_down_a2";
-						this.imgBack.source = "cardValueV" + strIndex;
-						// this.imgCard.source = "cardValue" + value;
-						// this.imgCard.scaleX = this.imgCard.scaleY = 0.8;
-						// this.imgCard.verticalCenter = -12;
+						//this.imgBack.source = "cardGangR" + strIndex;
+						this.imgCard.source = "cardValueV" + strIndex;
+	
 					} else {
 						//暗牌（背面）
 						this.imgBack.source = "cardGangD";
@@ -104,12 +34,58 @@ module game {
 				} else {//明杠，吃，碰
 					// this.imgBack.source = "card_down_a2";
 					// if (value > 0) {
+						console.log("==strIndex=",strIndex)
 					this.imgCard.source = "cardValueV" + strIndex;
 					// }
-					// this.imgCard.scaleX = this.imgCard.scaleY = 0.8;
-					// this.imgCard.verticalCenter = -12;
+				}
+				this.imgCard.verticalCenter = 0;
+			}
+			if (p == 1) {//right
+				if (isAnGang) {
+					if (value > 0) {
+						//this.imgBack.source = "cardGang" + strIndex;//正面
+						 this.imgCard.source = "cardValueR" + strIndex;
+					} else {
+						this.imgBack.source = "cardGangR";//背面
+					}
+				} else {//明杠，吃，碰
+					this.imgBack.source = "cardValueR" + strIndex;
+					// if (value > 0) {
+					// 	this.imgCard.source = "cardValue" + value;
+					// }
 				}
 				// this.imgCard.horizontalCenter = 0;
+			}
+			if (p == 2) {//
+				if (isAnGang) {
+					this.imgBack.source = "cardGangR"; //cardValueU1
+					// this.imgBack.scaleX = -1;
+					if (value > 0) {
+						// this.imgCard.source = "cardValue" + value;
+						this.imgBack.source = "cardValueU1" + strIndex;
+					}
+				} else {
+					this.imgBack.source = "cardValueU1" + strIndex;
+					// if (value > 0) {
+					// 	this.imgCard.source = "cardValue" + value;
+					// }
+				}
+				// this.imgCard.horizontalCenter = 5;
+			}
+			if (p == 3) {
+				if (isAnGang) {
+					this.imgBack.source = "cardGangL";
+					if (value > 0) {
+						this.imgBack.source = "cardValueH" + strIndex;
+					}
+				} else {
+				
+					this.imgCard.source = "cardValueH" + strIndex;
+					// if (value > 0) {
+					// 	this.imgCard.source = "cardValue" + value;
+					// }
+				}
+				this.imgCard.horizontalCenter = -5;
 			}
 		}
 	}

@@ -28,10 +28,7 @@ module game {
 					this.imgBack.source = "cardhandL";
 				} else {//明牌
 					this.imgBack.source = "cardValueH" + strIndex;
-					// this.imgCard.source = "cardValue" + value;
-					// this.imgCard.scaleX = this.imgCard.scaleY = 0.5 - 0.01 * index;
-					// this.imgCard.rotation = 90;
-					// this.imgCard.skewY = 25;
+		
 				}
 			}
 			if (p == 2) {//上
@@ -39,10 +36,7 @@ module game {
 					this.imgBack.source = "cardBackUp";
 				} else {
 					this.imgBack.source = "cardValueU1" + strIndex;
-					// this.imgCard.source = "cardValue" + value;
-					// this.imgCard.scaleX = 0.5;
-					// this.imgCard.scaleY = -0.4;//垂直翻转
-					// this.imgCard.verticalCenter = -7;
+		
 				}
 			}
 			if (p ==1) {//右
@@ -51,11 +45,7 @@ module game {
 					this.imgBack.source = "cardhandR";
 				} else {
 					this.imgBack.source = "cardValueR" + strIndex;
-					// this.imgCard.source = "cardValue" + value;
-					// this.imgCard.scaleX = this.imgCard.scaleY = 0.5 - 0.01 * index;
-					// this.imgCard.rotation = -90;
-					// this.imgCard.skewY = -25;
-					// this.imgCard.verticalCenter = -8;
+		
 				}
 				// this.imgBack.scaleX = -1;//水平翻转由左向右
 			}
@@ -95,12 +85,9 @@ module game {
 
 		}
 		private onCardTap(): void {
-			if (GameParmes.gameStage == GameStageType.CHANGE) {//换三张阶段
-				this.onSelectCard();
-				this.dispatchEvent(new egret.Event("OnClickHandCard", true, true, this));
-			}
-			if (GameParmes.gameStage == GameStageType.PLAYING) {//出牌阶段
-				this.dispatchEvent(new egret.Event("OnClickHandCard", true, true, this));
+
+			if(GameParmes.gameTurn == GameTurnType.SELFTURN ){//出牌阶段
+				this.dispatchEvent(new egret.Event("OnClickHandCard",true,true,this));
 			}
 		}
 		public onSelectCard(): void {
