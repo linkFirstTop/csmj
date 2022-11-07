@@ -557,19 +557,26 @@ module game {
 			game.GameUserList.saveUserListInfo(users);
 
 			ViewManager.ins.gameView.gameUI.initUser();
+		//	game.GameUserList.saveUserListInfo(body.userInfos);
+			game.GamePlayData.SaveHandCarsd(users);
+			ViewManager.ins.gameView.gameUI.initHandCard();
 		}
 
 		public static MockUsers(){
 			const users = [];
 			for( let i= 1;i<5;i++){
-				let user = GamePlayData.MockUser(i);
+				let user = null;
+				if(i == 1){
+					user = GamePlayData.MockSelfUser();
+				}else{
+					user = GamePlayData.MockUser(i);
+				}
+				
 				users.push(user);
 			}
 			return users;
 		}
-		
-
-		public static MockUser(i){
+		public static MockSelfUser(){
 			const user = {
 				fan: [],
 				feeCoin: 0,
@@ -580,14 +587,45 @@ module game {
 				role: 1,
 				showName: "jytzyztp0v",
 				status: 3,
-				tileSets:  [],
+				tingTileInfo: [],
+				userName: "jytzyztp0v",
+				userPos:{
+					roomID: 1,
+					seatID: 1,
+					tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
+				},
+				tileSets:[
+					{Tiles: [0, 2, 5, 8, 10, 11, 16, 17, 19, 19, 22, 23, 25],
+					Type: 0},
+				]
+			}
+			return user;
+		}
+		
+
+		public static MockUser(i){
+
+			const user = {
+				fan: [],
+				feeCoin: 0,
+				gameCoin: 10488,
+				
+				isManaged: 0,
+				resultCoin: 0,
+				role: 1,
+				showName: "jytzyztp0v",
+				status: 3,
 				tingTileInfo: [],
 				userName: "jytzyztp0v",
 				userPos:{
 					roomID: 1,
 					seatID: i,
 					tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
-				}
+				},
+				tileSets:[
+					{Tiles: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+					Type: 0},
+				]
 			}
 			return user;
 

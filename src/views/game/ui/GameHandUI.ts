@@ -126,24 +126,24 @@ module game {
 
     private arrRCP: Array<any> = [
       [
-        { x: 1618, y: 726+140 },
-        { x: 1618-18, y: 679+140 },
-        { x: 1618-18*2, y: 633+140 },
+        { x: 210-18*2, y: 623 },
+        { x: 210-18,  y: 623+56},
+        { x: 210,     y: 623+112},
       ],
       [
-        { x: 1587, y: 559+100 },
-        { x: 1577, y: 513+100 },
-        { x: 1567, y: 468+100 },
+        { x: 140-18*2, y: 408 },
+        { x: 140-18, y: 408+60 },
+        { x: 140, y: 408+112 },
       ],
       [
-        { x: 1553, y: 401+60 },
-        { x: 1543, y: 355+60 },
-        { x: 1533, y: 311+60 },
+        { x: 70-18*2, y: 201 },
+        { x: 70-18, y: 201+60 },
+        { x: 70, y: 201+112 },
       ],
       [
-        { x: 1522, y: 244+20 },
-        { x: 1512, y: 199+20 },
-        { x: 1503, y: 155+20 },
+        { x: 210, y: 244+20 },
+        { x: 210, y: 199+20 },
+        { x: 210, y: 155+20 },
       ],
     ];
 
@@ -220,6 +220,7 @@ module game {
     private isSortComplete: boolean = false;
     private isHSZStart: boolean = false;
     public initHand(): void {
+
       this.width = GameConfig.curWidth();
       this.height = GameConfig.curHeight();
       this.sprTmpDown.height = 190;
@@ -229,26 +230,31 @@ module game {
       this.addChild(this.sprTmpRight);
       this.addChild(this.sprTmpUp);
       this.addChild(this.sprTmpDown);
+      
       this.sprTmpLeft.addChild(this.gOtherCardL);
       this.sprTmpLeft.addChild(this.gHandCardL);
       this.sprTmpLeft.x = 0;
       this.sprTmpLeft.y = 0;
       this.sprTmpLeft.anchorOffsetX = 0;
       this.sprTmpLeft.anchorOffsetY = 0;
+
       this.sprTmpRight.addChild(this.gHandCardR);
       this.sprTmpRight.addChild(this.gOtherCardR);
       this.sprTmpRight.x = 0;
       this.sprTmpRight.y = 0;
       this.sprTmpRight.anchorOffsetX = 0;
       this.sprTmpRight.anchorOffsetY = 0;
+
       this.sprTmpUp.addChild(this.gHandCardU);
       this.sprTmpUp.addChild(this.gOtherCardU);
       this.sprTmpDown.addChild(this.gOtherCardD);
       this.sprTmpDown.addChild(this.gHandCardD);
       this.arrHSZCards = [];
+
       this.currentCard = null;
       this.isSortComplete = false;
       this.isHSZStart = false;
+
       this.addChild(this.gHuCardL);
       this.addChild(this.gHuCardU);
       this.addChild(this.gHuCardR);
@@ -544,8 +550,8 @@ module game {
         if (p == 1) {
           card.setCard(p, 16 - i - index, cardValue, state, isQue);
           if (state == 0) {
-            card.x = 1578 - 1555 + i * 18;
-            card.y = 143 - 90 + i * 42;
+            card.x = 23 + i * 18;
+            card.y = 53 + i * 42;
             if (i == 13) {
               card.y = 0;
               card.x = 0;
@@ -554,7 +560,7 @@ module game {
               ghand.addChild(card);
             }
             this.gHandCardR.x = this.gHandCardR.y = 0;
-            this.gOtherCardR.y = 0;
+            // this.gOtherCardR.y = 0;
             this.sprTmpRight.x = 1555 - 20;
             this.sprTmpRight.y = 90 + 150;
             this.sprTmpRight.scaleX = this.sprTmpRight.scaleY = 0.8;
@@ -569,9 +575,9 @@ module game {
           card.setCard(p, i + index, cardValue, state, isQue);
           if (state == 0) {
             card.x = i * itemCardWidth;
-            if (index == 0 && i == 0) {
-              card.x -= 10;
-            }
+            // if (index == 0 && i == 0) {
+            //   card.x -= 10;
+            // }
             this.gOtherCardU.x = 1350 - 520;
             this.sprTmpUp.x = 520;
             this.sprTmpUp.y = 36 + 50;
@@ -612,14 +618,14 @@ module game {
           }
         }
       }
-      if (p == 0) {
-        if (i == 14) {
-          this.gHandCardD.x = 1740 - this.gHandCardD.width + 20 + 126 - 5;
-        } else {
-          this.gHandCardD.x = 1740 - this.gHandCardD.width;
-        }
-        // console.log(this.gHandCardD.x, this.gHandCardD.width);
-      }
+      // if (p == 0) {
+      //   if (i == 14) {
+      //     this.gHandCardD.x = 1740 - this.gHandCardD.width + 20 + 126 - 5;
+      //   } else {
+      //     this.gHandCardD.x = 1740 - this.gHandCardD.width;
+      //   }
+      //   // console.log(this.gHandCardD.x, this.gHandCardD.width);
+      // }
 
       this.sprTmpUp.x = 520;
       this.sprTmpUp.y = 36 + 50;
@@ -681,14 +687,14 @@ module game {
 			// console.log("===ARRCARDS=====",arrCards)
 			let nOptCount: number = arrCards.length;//玩家吃碰杠数组
 
-			// for (let i: number = 0; i < nOptCount; i++) {
-			// 	this.createCPGItem(p, i, arrCards[i]);
-			// }
+			for (let i: number = 0; i < nOptCount; i++) {
+				this.createCPGItem(p, i, arrCards[i]);
+			}
 
         /*测试数据*/
-        for(let i:number = 0;i < 4;i++){
-          this.createCPGItem(p,i,arrCards[0]);
-        }
+        // for(let i:number = 0;i < 4;i++){
+        //   this.createCPGItem(p,i,arrCards[0]);
+        // }
     }
 		/** 
 		 * 这是吃 碰 杠后的牌
@@ -750,25 +756,30 @@ module game {
 		
 				if (p == 1) {// right
 					if (isAnGang) {
+            console.log("==ss=s=s==")
 						if (i == 3) {
 							gItem.addChild(item);
 							item.setCard(p, (index * 4 + i), cardValue, isAnGang);
 						} else {
-							gItem.addChildAt(item, 0);
+							gItem.addChildAt(item, (index * 4 + i));
 							item.setCard(p, (index * 4 + i), -1, isAnGang);
 						}
 						item.x = this.arrRAP[index][i].x;
-						item.y = this.arrRAP[index][i].y + 10;
+						item.y = this.arrRAP[index][i].y - 18;
 					} else {
+            
+            item.setCard(p, index * 4 + i, cardValue, isAnGang);
 						if (i == 3) {
-							gItem.addChild(item);
-						} else {
-							gItem.addChildAt(item, 0);
-						}
-						item.setCard(p, index * 4 + i, cardValue, isAnGang);
-						item.x = this.arrRCP[index][i].x;
-						item.y = this.arrRCP[index][i].y;
 
+							gItem.addChild(item);
+              item.y = this.arrRCP[index][1].y -28;
+              item.x =this.arrRCP[index][1].x+5  ;
+						} else {
+							gItem.addChildAt(item,(index * 4 + i));
+              item.x = this.arrRCP[index][i].x;
+              item.y = this.arrRCP[index][i].y;
+						}
+            console.log("==item.y",item.x,item.y)
 					}
 				}
 				if (p == 0) {//下

@@ -95,9 +95,9 @@ module game {
 			// 测试用按钮
 			this.btnTest.visible = false;
 			this.btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
-			
-				this.onShowOpt([true,true,true,true,true]);
-				return
+
+				// this.onShowOpt([true,true,true,true,true]);
+				// return
 				//const card =  new game.CardInfo()
 				GameParmes.gameStage = GameStageType.PLAYING
 
@@ -108,7 +108,7 @@ module game {
 				let card: CardInfo = { CardID:1, Sit: 3 };
 				const body = {
 					ObtainCard: card,
-					Type: CardsGroupType.ANGANG,
+					Type: CardsGroupType.MINGGANG,
 					ObtainCardSit: 1,
 					sit: nSit,
 					Cards: [
@@ -119,16 +119,17 @@ module game {
 					],
 				}
 				game.GamePlayData.SaveCurrentCard(0, -1);
+			
 				game.GamePlayData.AddChiPengGangCards(body, nSit);
+				this.updataUserCPG(nSit, card);
 
-
-				this.playAnim("chi", nSit);
+				// this.playAnim("chi", nSit);
 				//this.gameUI.playAnim("hdly",nSit);
 				//this.updataUserCPG(nSit, card);
 				// //game.GamePlayData.AddHandCards(nSit, card);
 				// this.getOneCard(card);
-				this.gameHand.createCPGCard(nSit);
-				this.changeUserRight(nSit);
+				// this.gameHand.createCPGCard(nSit);
+				 this.changeUserRight(nSit);
 
 			}, this);
 			

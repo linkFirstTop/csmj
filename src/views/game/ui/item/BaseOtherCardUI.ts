@@ -42,6 +42,7 @@ module game {
 			}
 			if (p == 1) {//right
 				if (isAnGang) {
+					console.log("==isAnGang===")
 					if (value > 0) {
 						//this.imgBack.source = "cardGang" + strIndex;//正面
 						 this.imgCard.source = "cardValueR" + strIndex;
@@ -49,6 +50,7 @@ module game {
 						this.imgBack.source = "cardGangR";//背面
 					}
 				} else {//明杠，吃，碰
+					console.log("===strIndex=",strIndex)
 					this.imgBack.source = "cardValueR" + strIndex;
 					// if (value > 0) {
 					// 	this.imgCard.source = "cardValue" + value;

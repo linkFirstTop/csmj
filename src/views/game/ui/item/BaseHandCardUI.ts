@@ -70,6 +70,7 @@ module game {
 						this.setMaskFlag();
 					}
 				} else {//明牌
+					
 					this.imgBack.source = "cardValueV" + strIndex;
 					// this.imgCard.scaleX = this.imgCard.scaleY = 0.9;
 					// this.imgCard.verticalCenter = -10;
