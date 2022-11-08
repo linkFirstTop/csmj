@@ -36,7 +36,6 @@ module game {
 					this.imgBack.source = "cardBackUp";
 				} else {
 					this.imgBack.source = "cardValueU1" + strIndex;
-		
 				}
 			}
 			if (p ==1) {//右

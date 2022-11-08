@@ -15,11 +15,11 @@ module game {
 			this.imgBack.horizontalCenter = this.imgBack.verticalCenter = 0;
 			this.imgCard.horizontalCenter = 0;
 			var strIndex: string;
-			if (value < 10) {
-				strIndex = "0" + value;
-			} else {
-				strIndex = "" + value;
-			}
+			// if (value < 10) {
+			// 	strIndex = "0" + value;
+			// } else {
+			// 	strIndex = "" + value;
+			// }
 			if (p == 0) {
 				this.imgCard.source =  "cardValueV" + strIndex;
 			

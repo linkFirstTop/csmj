@@ -41,24 +41,24 @@ module game {
 
     private arrLCP: Array<any> = [
       [
-        { x: 343, y: 155 },//343
-        { x: 343-20, y: 199 },
-        { x: 343-20*2, y: 244 },//322
+        { x: 243, y: 155 },//343
+        { x: 243-20, y: 199 },
+        { x: 243-20*2, y: 244 },//322
       ],
       [
-        { x: 310, y: 311 },//310
-        { x: 310-20, y: 355 },
-        { x: 310-20*2, y: 401 },//288
+        { x: 180, y: 311 },//310
+        { x: 180-20, y: 355 },
+        { x: 180-20*2, y: 401 },//288
       ],
       [
-        { x: 274, y: 468 },//274
-        { x: 274-20, y: 513 },
-        { x: 274-20*2, y: 559 },//251
+        { x: 117, y: 468 },//274
+        { x: 117-20, y: 513 },
+        { x: 117-20*2, y: 559 },//251
       ],
       [
-        { x: 240, y: 633 },//240
-        { x: 215-20, y: 679 },
-        { x: 218-20*2, y: 726 },//218
+        { x: 54, y: 633 },//240
+        { x: 54-20, y: 679 },
+        { x: 54-20*2, y: 726 },//218
       ],
     ];
 
@@ -131,19 +131,19 @@ module game {
         { x: 210,     y: 623+112},
       ],
       [
-        { x: 140-18*2, y: 408 },
-        { x: 140-18, y: 408+60 },
-        { x: 140, y: 408+112 },
+        { x: 140-18*2, y: 428 },
+        { x: 140-18, y: 428+60 },
+        { x: 140, y: 428+112 },
       ],
       [
-        { x: 70-18*2, y: 201 },
-        { x: 70-18, y: 201+60 },
-        { x: 70, y: 201+112 },
+        { x: 70-18*2, y: 233 },
+        { x: 70-18, y: 233+60 },
+        { x: 70, y: 233+112 },
       ],
       [
-        { x: 210, y: 244+20 },
-        { x: 210, y: 199+20 },
-        { x: 210, y: 155+20 },
+        { x: 0-18*2, y: 38 },
+        { x: 0-18, y: 38+60 },
+        { x: 0, y: 38+112 },
       ],
     ];
 
@@ -398,11 +398,12 @@ module game {
 
       let ghand: eui.Group = this.findHandGroup(p);
       let card: BaseHandCardUI = new BaseHandCardUI();
-      ghand.addChild(card);
+    
       let isQue: boolean = false;
       let cardValue: number = game.GameParmes.getCardID(info);
 
       if (p == 0) {
+        ghand.addChild(card);
         if (cardValue > 0) {
           let nHua: number = game.GameParmes.getHua(info);
           // if (nHua == nQue) {
@@ -424,6 +425,7 @@ module game {
       }
       card.setCard(p, 0, cardValue, 0, isQue);
       if (p == 0) {
+        ghand.addChild(card);
         card.cardInfo = info;
         card.y = -50;
         // card.x = (ghand.numChildren - 1) * 90;
@@ -435,20 +437,23 @@ module game {
         // card.y = this.arrLHP[0].y;
       }
       if (p == 1) {
+        ghand.addChildAt(card, 0);
+     
         //console.log("=====card--")
 
-        card.x = 1700;
-        card.y = 0;
-        egret.Tween.get(card).to({ y: 50, touchEnabled: true }, 200);
+        card.x = 0;
+        card.y = -50;
+        egret.Tween.get(card).to({ y: -10, touchEnabled: true }, 200);
       }
       if (p == 2) {
+        ghand.addChildAt(card, 0);
         card.setCard(p, 16, 1, 0, isQue);
         // card.x = this.arrRHP[0].x;
         // card.y = this.arrRHP[0].y;
-        card.y = 0;
-        card.x = -50;
-        ghand.addChildAt(card, 0);
-        egret.Tween.get(card).to({ x: 0, touchEnabled: true }, 200);
+         card.y = -50;
+        card.x = -100;
+       
+        egret.Tween.get(card).to({ y: 0, touchEnabled: true }, 200);
       }
       if (p == 3) {
         card.x = 40;
@@ -720,15 +725,27 @@ module game {
           if (isAnGang) {
 						if (i == 3) {
 							item.setCard(p, (index * 4 + i), cardValue, isAnGang);
+              item.x = this.arrLAP[index][1].x;
+              item.y = this.arrLAP[index][1].y -40;
 						} else {
 							item.setCard(p, (index * 4 + i), -1, isAnGang);
+              item.x = this.arrLAP[index][i].x;
+              item.y = this.arrLAP[index][i].y;
 						}
-						item.x = this.arrLAP[index][i].x;
-						item.y = this.arrLAP[index][i].y;
+					
 					} else {
-						item.setCard(p, index * 4 + i, cardValue, isAnGang);
-						item.x = this.arrLCP[index][i].x;
-						item.y = this.arrLCP[index][i].y;
+            if (i == 3) {
+	
+              item.setCard(p, index * 4 + i, cardValue, isAnGang);
+              item.x = this.arrLCP[index][1].x;
+              item.y = this.arrLCP[index][1].y-40;
+						} else {
+							item.setCard(p, (index * 4 + i), cardValue, isAnGang);
+       
+              item.x = this.arrLCP[index][i].x;
+              item.y = this.arrLCP[index][i].y;
+						}
+					
 					}
 				}
 				if (p == 2) {//UP
@@ -745,12 +762,14 @@ module game {
 					} else {
 						item.setCard(p, index, cardValue, isAnGang);
 						if (i == 3) {
-							item.x = GameConfig.curWidth() - index * 220 - (i - 2) * 62 - 230;
-					
+							item.y =   -10 ;
+              item.x =   - index * 220  -(i-2) * 62 ;
 						} else {
-							item.x = GameConfig.curWidth() - index * 220 - i * 62 - 230;
-						
+							item.x =  - index * 220+  -i * 62 ;
+            
 						}
+
+            console.log("==GameConfig.curWidth()",index )
 					}
 				}
 		
@@ -816,6 +835,7 @@ module game {
 		/*点击了手牌*/
 		private onClickHandCard(evt: egret.Event): void {
 			let item: BaseHandCardUI = evt.data;
+     // console.log("===item",item.cardInfo.CardID)
 
 			if (GameParmes.gameTurn == GameTurnType.SELFTURN) {//出牌阶段
 

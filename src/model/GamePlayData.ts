@@ -630,5 +630,17 @@ module game {
 			return user;
 
 		}
+
+		public static MockResult(){
+			const result = {
+				birdTiles:  [25, 7, 7, 26],
+				roomID: 1,
+	
+				roundGuid: "611667921478134",
+
+			}
+
+
+		}
 	}
 }

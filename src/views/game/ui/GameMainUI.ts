@@ -99,35 +99,35 @@ module game {
 				// this.onShowOpt([true,true,true,true,true]);
 				// return
 				//const card =  new game.CardInfo()
-				GameParmes.gameStage = GameStageType.PLAYING
+				// GameParmes.gameStage = GameStageType.PLAYING
 
-				const nSit = 2
+				const nSit = 4
 				// const card: CardInfo = new CardInfo();
 				// card.CardID = 1;
 				// card.Sit = nSit;
-				let card: CardInfo = { CardID:1, Sit: 3 };
-				const body = {
-					ObtainCard: card,
-					Type: CardsGroupType.MINGGANG,
-					ObtainCardSit: 1,
-					sit: nSit,
-					Cards: [
-						{ CardID:1, Sit: nSit },
-						{ CardID: 1, Sit: nSit },
-						{ CardID: 1, Sit: nSit },
-						{ CardID: 1, Sit: nSit },
-					],
-				}
-				game.GamePlayData.SaveCurrentCard(0, -1);
+				 let card: CardInfo = { CardID:1, Sit: 4 };
+				// const body = {
+				// 	ObtainCard: card,
+				// 	Type: CardsGroupType.MINGGANG,
+				// 	ObtainCardSit: 1,
+				// 	sit: nSit,
+				// 	Cards: [
+				// 		{ CardID:1, Sit: nSit },
+				// 		{ CardID: 1, Sit: nSit },
+				// 		{ CardID: 1, Sit: nSit },
+				// 		{ CardID: 1, Sit: nSit },
+				// 	],
+				// }
+				// game.GamePlayData.SaveCurrentCard(0, -1);
 			
-				game.GamePlayData.AddChiPengGangCards(body, nSit);
-				this.updataUserCPG(nSit, card);
+				// game.GamePlayData.AddChiPengGangCards(body, nSit);
+				// this.updataUserCPG(nSit, card);
 
 				// this.playAnim("chi", nSit);
 				//this.gameUI.playAnim("hdly",nSit);
 				//this.updataUserCPG(nSit, card);
 				// //game.GamePlayData.AddHandCards(nSit, card);
-				// this.getOneCard(card);
+				this.getOneCard(card);
 				// this.gameHand.createCPGCard(nSit);
 				 this.changeUserRight(nSit);
 
@@ -349,14 +349,15 @@ module game {
 		 */
 		public getOneCard(card: game.CardInfo): void {
 			this.gameOpt.visible = false;
-			
+			// console.log("===ss===")
+			// this.gameHand.getOneCard(card);
+
 			//在打牌阶段得倒的牌不用刷新，把牌放在最右边
 			if (GameParmes.gameStage == GameStageType.PLAYING) {
 				// this.gamePosition.startTime(GameParmes.gamePlayTime);
-				this.gameHand.getOneCard(card);
-				//let p: number = Global.getUserPosition(card.Sit);//刷新剩余牌张数，听牌显示
 			
-
+				this.gameHand.getOneCard(card);
+		
 			}			
 		}
 		public hideTingFlag(): void {
