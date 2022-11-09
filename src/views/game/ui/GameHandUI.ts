@@ -522,7 +522,7 @@ module game {
         let nOptW: number = 0;
 
         if (p == 0) {
-          let itemCardWidth: number = 126 - 5;
+          let itemCardWidth: number = 121;
           card.setCard(p, i + index, cardValue, state, isQue);
           card.cardInfo = info;
           if (GameParmes.isHu) {
@@ -542,7 +542,7 @@ module game {
               (len == 5 && i == 4) ||
               (len == 2 && i == 1)
             ) {
-              card.x = i * itemCardWidth + 20;
+              card.x = 300 - (12 - i * itemCardWidth) * 18;
             }
 
             // if (i == len - 1 && index == 0) {
@@ -551,6 +551,7 @@ module game {
           } else {
             card.x = i * card.width - i * 2;
           }
+          this.gHandCardD.x = GameConfig.curWidth() - this.gHandCardD.width - 300;
         }
         if (p == 1) {
           card.setCard(p, 16 - i - index, cardValue, state, isQue);
@@ -725,12 +726,12 @@ module game {
           if (isAnGang) {
 						if (i == 3) {
 							item.setCard(p, (index * 4 + i), cardValue, isAnGang);
-              item.x = this.arrLAP[index][1].x;
-              item.y = this.arrLAP[index][1].y -40;
+              item.x = this.arrLCP[index][1].x;
+              item.y = this.arrLCP[index][1].y -40;
 						} else {
 							item.setCard(p, (index * 4 + i), -1, isAnGang);
-              item.x = this.arrLAP[index][i].x;
-              item.y = this.arrLAP[index][i].y;
+              item.x = this.arrLCP[index][i].x;
+              item.y = this.arrLCP[index][i].y;
 						}
 					
 					} else {
@@ -753,44 +754,42 @@ module game {
 						// item.y = 320;
 						if (i == 3) {
 							item.setCard(p, index, cardValue, isAnGang);
-							item.x = GameConfig.curWidth() - index * 220 - (i - 2) * 62 - 230;
-							
+							item.y =   -10 ;
+              item.x =   - index * 220  -(i-2) * 62 + 120 ;
 						} else {
 							item.setCard(p, index, -1, isAnGang);
-							item.x = GameConfig.curWidth() - index * 220 - i * 62 - 230;
+							item.x =  - index * 220+  -i * 62 + 120 ;
 						}
 					} else {
 						item.setCard(p, index, cardValue, isAnGang);
 						if (i == 3) {
 							item.y =   -10 ;
-              item.x =   - index * 220  -(i-2) * 62 ;
+              item.x =   - index * 220  -(i-2) * 62 + 120 ;
 						} else {
-							item.x =  - index * 220+  -i * 62 ;
+							item.x =  - index * 220+  -i * 62 + 120 ;
             
 						}
-
-            console.log("==GameConfig.curWidth()",index )
 					}
 				}
 		
 				if (p == 1) {// right
+        
 					if (isAnGang) {
-            console.log("==ss=s=s==")
 						if (i == 3) {
-							gItem.addChild(item);
+						  gItem.addChild(item);
 							item.setCard(p, (index * 4 + i), cardValue, isAnGang);
+              item.y = this.arrRCP[index][1].y -28;
+              item.x =this.arrRCP[index][1].x+5  ;
 						} else {
 							gItem.addChildAt(item, (index * 4 + i));
 							item.setCard(p, (index * 4 + i), -1, isAnGang);
+              item.x = this.arrRCP[index][i].x;
+              item.y = this.arrRCP[index][i].y;
 						}
-						item.x = this.arrRAP[index][i].x;
-						item.y = this.arrRAP[index][i].y - 18;
 					} else {
-            
             item.setCard(p, index * 4 + i, cardValue, isAnGang);
 						if (i == 3) {
-
-							gItem.addChild(item);
+              gItem.addChild(item);
               item.y = this.arrRCP[index][1].y -28;
               item.x =this.arrRCP[index][1].x+5  ;
 						} else {
@@ -798,33 +797,28 @@ module game {
               item.x = this.arrRCP[index][i].x;
               item.y = this.arrRCP[index][i].y;
 						}
-            console.log("==item.y",item.x,item.y)
+            //console.log("==item.y",item.x,item.y)
 					}
 				}
 				if (p == 0) {//下
-          
 					if (isAnGang) {
-					
-          
 						if (i == 3) {
 							item.setCard(p, index, cardValue, isAnGang);
 							item.x = 160 + index * 260 + (i - 2) * 80;
-							item.y = 70;
+							item.y = 50;
 						} else {
 							item.setCard(p, index, -1, isAnGang);
               item.x = 160 + index * 260 + i * 80;
-              item.y = 90;
+              item.y = 70;
 						}
 					} else {
-         
 						item.setCard(p, index, cardValue, isAnGang);
-       
 						if (i == 3) {
 							item.x = 160 + index * 260 + (i - 2) * 80;
-							item.y = 60;
+							item.y = 50;
 						} else {
 							item.x = 160 + index * 260 + i * 80;
-							item.y = 90;
+							item.y = 70;
 						}
 
 					}

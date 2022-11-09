@@ -15,20 +15,20 @@ module game {
 			this.imgBack.horizontalCenter = this.imgBack.verticalCenter = 0;
 			this.imgCard.horizontalCenter = 0;
 			var strIndex: string;
-			// if (value < 10) {
-			// 	strIndex = "0" + value;
-			// } else {
-			// 	strIndex = "" + value;
-			// }
+			if (value < 10) {
+				strIndex = "0" + value;
+			} else {
+				strIndex = "" + value;
+			}
+		
 			if (p == 0) {
 				this.imgCard.source =  "cardValueV" + strIndex;
-			
 			}
 			if (p == 1) {
 				this.imgCard.source = "cardValueR" + strIndex;
-			
 				//this.imgCard.verticalCenter = -12;
 			}
+			
 			if (p == 2) {
 				this.imgCard.source = "cardValueU1" + strIndex;
 			}

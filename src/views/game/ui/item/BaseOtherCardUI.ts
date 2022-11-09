@@ -19,6 +19,7 @@ module game {
 			} else {
 				strIndex = "" + value;
 			}
+			console.log("=====chid hi", p)
 			if (p == 0) {//down
 				if (isAnGang) {
 					if (value > 0) {
@@ -42,32 +43,38 @@ module game {
 			}
 			if (p == 1) {//right
 				if (isAnGang) {
-					console.log("==isAnGang===")
+				
 					if (value > 0) {
 						//this.imgBack.source = "cardGang" + strIndex;//正面
 						 this.imgCard.source = "cardValueR" + strIndex;
 					} else {
+						console.log("=====chid hi")
 						this.imgBack.source = "cardGangR";//背面
 					}
 				} else {//明杠，吃，碰
-					console.log("===strIndex=",strIndex)
-					this.imgBack.source = "cardValueR" + strIndex;
+				
+					
+					this.imgCard.source = "cardValueR" + strIndex;
 					// if (value > 0) {
 					// 	this.imgCard.source = "cardValue" + value;
+					// }else{
+
 					// }
 				}
 				// this.imgCard.horizontalCenter = 0;
 			}
 			if (p == 2) {//
 				if (isAnGang) {
-					this.imgBack.source = "cardGangR"; //cardValueU1
+				
 					// this.imgBack.scaleX = -1;
 					if (value > 0) {
 						// this.imgCard.source = "cardValue" + value;
-						this.imgBack.source = "cardValueU1" + strIndex;
+						this.imgCard.source = "cardValueU1" + strIndex;
+					}else{
+						this.imgBack.source = "cardGangD2"; //cardValueU1
 					}
 				} else {
-					this.imgBack.source = "cardValueU1" + strIndex;
+					this.imgCard.source = "cardValueU1" + strIndex;
 					// if (value > 0) {
 					// 	this.imgCard.source = "cardValue" + value;
 					// }
@@ -78,7 +85,7 @@ module game {
 				if (isAnGang) {
 					this.imgBack.source = "cardGangL";
 					if (value > 0) {
-						this.imgBack.source = "cardValueH" + strIndex;
+						this.imgBack.source = "cardValueL" + strIndex;
 					}
 				} else {
 				

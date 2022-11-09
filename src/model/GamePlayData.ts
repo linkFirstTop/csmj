@@ -59,6 +59,10 @@ module game {
 		public static arrLPCards: Array<Array<number>> = [];//亮牌数组 用于听牌张数判断
 
 		public static MJ_Operation: Array<room.MJ_Operation> = [];
+		/**
+		 * 玩家听
+		 */
+		public static isSelfTing : boolean = false;
 
 		/*初始化数据*/
 		public static initData(): void {
@@ -285,27 +289,27 @@ module game {
 			let handcards = GamePlayData.arrHandCards[p];
 			if(!cards){return}
 
-			if (sit == Global.userSit) {
-				this.Chi_Groups.length = 0;
-				this.Peng_Groups.length = 0;
-				this.Gang_Groups.length = 0;
-				this.Hu_Groups.length = 0;
-				this.Call_Groups.length = 0;
-				for (var x: number = 0; x < cards.length; x++) {
-					for (var y: number = handcards.length - 1; y >= 0; y--) {
-						if (cards[x].CardID == handcards[y].CardID) {
-							handcards.splice(y, 1);
-							break;
-						}
-					}
-				}
-			} else {
+			// if (sit == Global.userSit) {
+			// 	this.Chi_Groups.length = 0;
+			// 	this.Peng_Groups.length = 0;
+			// 	this.Gang_Groups.length = 0;
+			// 	this.Hu_Groups.length = 0;
+			// 	this.Call_Groups.length = 0;
+			// 	for (var x: number = 0; x < cards.length; x++) {
+			// 		for (var y: number = handcards.length - 1; y >= 0; y--) {
+			// 			if (cards[x].CardID == handcards[y].CardID) {
+			// 				handcards.splice(y, 1);
+			// 				break;
+			// 			}
+			// 		}
+			// 	}
+			// } else {
 				const Max = cards.length;
 				console.log("====MAX", Max);
 				for (let i = 0; i < Max; i++) {
 					handcards.pop();
 				}
-			}
+			// }
 		}
 		/**
 		 * 获取吃碰杠的数据

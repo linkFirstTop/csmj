@@ -105,31 +105,40 @@ module game {
 				// const card: CardInfo = new CardInfo();
 				// card.CardID = 1;
 				// card.Sit = nSit;
-				 let card: CardInfo = { CardID:1, Sit: 4 };
+				 //let card: CardInfo = { CardID:1, Sit: 3 };
 				// const body = {
 				// 	ObtainCard: card,
 				// 	Type: CardsGroupType.MINGGANG,
 				// 	ObtainCardSit: 1,
 				// 	sit: nSit,
 				// 	Cards: [
-				// 		{ CardID:1, Sit: nSit },
-				// 		{ CardID: 1, Sit: nSit },
-				// 		{ CardID: 1, Sit: nSit },
-				// 		{ CardID: 1, Sit: nSit },
+				// 		{ CardID:27, Sit: nSit },
+				// 		{ CardID: 27, Sit: nSit },
+				// 		{ CardID: 27, Sit: nSit },
+				// 		{ CardID: 27, Sit: nSit },
 				// 	],
 				// }
 				// game.GamePlayData.SaveCurrentCard(0, -1);
 			
-				// game.GamePlayData.AddChiPengGangCards(body, nSit);
-				// this.updataUserCPG(nSit, card);
+				//  game.GamePlayData.AddChiPengGangCards(body, nSit);
+			
 
 				// this.playAnim("chi", nSit);
 				//this.gameUI.playAnim("hdly",nSit);
 				//this.updataUserCPG(nSit, card);
 				// //game.GamePlayData.AddHandCards(nSit, card);
-				this.getOneCard(card);
+				//this.getOneCard(card);
 				// this.gameHand.createCPGCard(nSit);
 				 this.changeUserRight(nSit);
+
+				 let card1: CardInfo = { CardID:1, Sit: 1 };
+				 this.userSendCard( card1,false);
+				 let card2: CardInfo = { CardID:11, Sit: 1 };
+				 this.userSendCard( card2,false);
+				 let card3: CardInfo = { CardID:18, Sit: 1 };
+				 this.userSendCard( card3,false);
+				 let card4: CardInfo = { CardID:27, Sit: 1 };
+				 this.userSendCard( card4,false);
 
 			}, this);
 			

@@ -57,7 +57,6 @@ module game {
 					strIndex = `cardValue00${value}` ;
 				}
 
-
 				if (state == 0) {//暗牌（手牌）
 					this.imgBack.source = strIndex;
 
