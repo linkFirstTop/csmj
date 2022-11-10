@@ -359,7 +359,7 @@ module game {
 			//room.RoomWebSocket.instance().roomSender.ReqSendCardQiShou(GamePlayData.QiShouHu_Groups[0]);
 		}
 		private onGuo(): void {
-			console.log("GameParmes.isCurTing:", GameParmes.isCurTing)
+			console.log("-==GameParmes.isCurTing:", GameParmes.isCurTing)
 			if (this.btnTing.visible == true && GameParmes.isCurTing) {
 				this.initBtns();
 				//this.sendGameNoOperation();

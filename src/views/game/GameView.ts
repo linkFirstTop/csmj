@@ -394,7 +394,7 @@ module game {
      * 行牌单播消息  根据这个显示操作按钮
      * @param evt
      */
-    private ACK_GAME_OPERATION(evt: egret.Event) {
+    public ACK_GAME_OPERATION(evt: egret.Event) {
       const body: room.VGGameOperationNtc = evt.data;
       const nSit = body.seatid;
 
@@ -513,7 +513,7 @@ module game {
      * 行牌应答 这是玩家操作的结果
      * @param evt
      */
-    private ACK_USER_OPERATION(evt: egret.Event) {
+    public ACK_USER_OPERATION(evt: egret.Event) {
       const body: room.VGUserOperationAck = evt.data;
       egret.log("****行牌应答:这是玩家操作的结果:", body);
 
@@ -590,6 +590,19 @@ module game {
         let card: game.CardInfo = evt.data[1];
         this.gameUI.playAnim("chi", nSit);
         //this.gameUI.playAnim("hdly",nSit);
+        const body = {
+          ObtainCard: card,
+          Type: CardsGroupType.CHI,
+          ObtainCardSit: opt.ObtainSeat,
+          sit: nSit,
+          Cards: [
+            { CardID: opt.ObtainTile[0], Sit: nSit },
+            { CardID: opt.ObtainTile[1], Sit: nSit },
+            { CardID: opt.ObtainTile[2], Sit: nSit },
+          ],
+        };
+        //this.gameUI.playAnim("hdly",nSit);
+        game.GamePlayData.AddChiPengGangCards(body, nSit);
         this.gameUI.updataUserCPG(nSit, card);
         SoundModel.playEffect(SoundModel.CHI);
       }
@@ -600,7 +613,21 @@ module game {
         let nSit: number = evt.data[0];
         let card: game.CardInfo = evt.data[1];
         this.gameUI.playAnim("chi", nSit);
+        const body = {
+          ObtainCard: card,
+          Type: CardsGroupType.CHI,
+          ObtainCardSit: opt.ObtainSeat,
+          sit: nSit,
+          Cards: [
+            { CardID: opt.ObtainTile[0], Sit: nSit },
+            { CardID: opt.ObtainTile[1], Sit: nSit },
+            { CardID: opt.ObtainTile[2], Sit: nSit },
+          ],
+        };
         //this.gameUI.playAnim("hdly",nSit);
+        game.GamePlayData.AddChiPengGangCards(body, nSit);
+        //this.gameUI.playAnim("hdly",nSit);
+
         this.gameUI.updataUserCPG(nSit, card);
         SoundModel.playEffect(SoundModel.CHI);
       }
@@ -611,7 +638,19 @@ module game {
         let nSit: number = evt.data[0];
         let card: game.CardInfo = evt.data[1];
         this.gameUI.playAnim("chi", nSit);
+        const body = {
+          ObtainCard: card,
+          Type: CardsGroupType.CHI,
+          ObtainCardSit: opt.ObtainSeat,
+          sit: nSit,
+          Cards: [
+            { CardID: opt.ObtainTile[0], Sit: nSit },
+            { CardID: opt.ObtainTile[1], Sit: nSit },
+            { CardID: opt.ObtainTile[2], Sit: nSit },
+          ],
+        };
         //this.gameUI.playAnim("hdly",nSit);
+        game.GamePlayData.AddChiPengGangCards(body, nSit);
         this.gameUI.updataUserCPG(nSit, card);
         SoundModel.playEffect(SoundModel.CHI);
       }

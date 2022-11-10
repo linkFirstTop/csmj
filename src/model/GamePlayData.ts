@@ -289,27 +289,27 @@ module game {
 			let handcards = GamePlayData.arrHandCards[p];
 			if(!cards){return}
 
-			// if (sit == Global.userSit) {
-			// 	this.Chi_Groups.length = 0;
-			// 	this.Peng_Groups.length = 0;
-			// 	this.Gang_Groups.length = 0;
-			// 	this.Hu_Groups.length = 0;
-			// 	this.Call_Groups.length = 0;
-			// 	for (var x: number = 0; x < cards.length; x++) {
-			// 		for (var y: number = handcards.length - 1; y >= 0; y--) {
-			// 			if (cards[x].CardID == handcards[y].CardID) {
-			// 				handcards.splice(y, 1);
-			// 				break;
-			// 			}
-			// 		}
-			// 	}
-			// } else {
+			if (sit == Global.userSit) {
+				this.Chi_Groups.length = 0;
+				this.Peng_Groups.length = 0;
+				this.Gang_Groups.length = 0;
+				this.Hu_Groups.length = 0;
+				this.Call_Groups.length = 0;
+				for (var x: number = 0; x < cards.length; x++) {
+					for (var y: number = handcards.length - 1; y >= 0; y--) {
+						if (cards[x].CardID == handcards[y].CardID) {
+							handcards.splice(y, 1);
+							break;
+						}
+					}
+				}
+			} else {
 				const Max = cards.length;
 				console.log("====MAX", Max);
 				for (let i = 0; i < Max; i++) {
 					handcards.pop();
 				}
-			// }
+			}
 		}
 		/**
 		 * 获取吃碰杠的数据
@@ -629,6 +629,11 @@ module game {
 				tileSets:[
 					{Tiles: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
 					Type: 0},
+					{Tiles: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+					Type: 8},
+					{Tiles: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+					Type: 10},
+			
 				]
 			}
 			return user;
@@ -643,8 +648,57 @@ module game {
 				roundGuid: "611667921478134",
 
 			}
+		}
+		public static MockUserOption(){
+			return  {
+				operation:{
+					ObtainSeat: 2,
+					ObtainTile: 25,
+					Tiles: [-1],// 25,25,25
+					fans: [],
+					operationID: 0,
+					operationType: 1,
+					tingTileInfo: [],
+		
+				},
+				remainCount: 54,
+				result: 0,
+				seatID: 4,
+				userInfo:{},
+			}
 
+		}
 
+		public static MockGameOption(){
+			return {
+				operation:[
+					{
+						ObtainSeat: 1,
+						ObtainTile: 0,
+						Tiles: [ 23,25,24],
+						fans: [],
+						operationID: 0,
+						operationType: CardsGroupType.MJ_OperationType.MJ_OT_L_CHOW,
+						tingTileInfo: [],		
+					},
+					// {
+					// 	ObtainSeat: 0,
+					// 	ObtainTile: 2,
+					// 	Tiles: [2],
+					// 	fans: [],
+					// 	operationID: 1,
+					// 	operationType: 2,
+					// 	tingTileInfo: [],		
+					// }
+				],
+				roundGuid: "611668085300221",
+				seatid: 1,
+				second: 20,
+
+	
+
+			}
+			
 		}
 	}
 }

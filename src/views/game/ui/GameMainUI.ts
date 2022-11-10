@@ -101,7 +101,7 @@ module game {
 				//const card =  new game.CardInfo()
 				// GameParmes.gameStage = GameStageType.PLAYING
 
-				const nSit = 4
+				//const nSit = 4
 				// const card: CardInfo = new CardInfo();
 				// card.CardID = 1;
 				// card.Sit = nSit;
@@ -129,17 +129,23 @@ module game {
 				// //game.GamePlayData.AddHandCards(nSit, card);
 				//this.getOneCard(card);
 				// this.gameHand.createCPGCard(nSit);
-				 this.changeUserRight(nSit);
+				//  this.changeUserRight(nSit);
 
-				 let card1: CardInfo = { CardID:1, Sit: 1 };
-				 this.userSendCard( card1,false);
-				 let card2: CardInfo = { CardID:11, Sit: 1 };
-				 this.userSendCard( card2,false);
-				 let card3: CardInfo = { CardID:18, Sit: 1 };
-				 this.userSendCard( card3,false);
-				 let card4: CardInfo = { CardID:27, Sit: 1 };
-				 this.userSendCard( card4,false);
+				//  let card1: CardInfo = { CardID:1, Sit: 1 };
+				//  this.userSendCard( card1,false);
+				//  let card2: CardInfo = { CardID:11, Sit: 1 };
+				//  this.userSendCard( card2,false);
+				//  let card3: CardInfo = { CardID:18, Sit: 1 };
+				//  this.userSendCard( card3,false);
+				//  let card4: CardInfo = { CardID:27, Sit: 1 };
+				//  this.userSendCard( card4,false);
 
+			   const gameopt = game.GamePlayData.MockGameOption();
+				ViewManager.ins.gameView.ACK_GAME_OPERATION( <any>{data:gameopt} );
+
+				// const Useropt = game.GamePlayData.MockUserOption();
+				// ViewManager.ins.gameView.ACK_USER_OPERATION(<any>{data:Useropt} );
+				
 			}, this);
 			
 
