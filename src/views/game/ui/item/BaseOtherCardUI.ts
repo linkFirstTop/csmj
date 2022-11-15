@@ -15,9 +15,9 @@ module game {
 		//	this.imgBack.horizontalCenter = this.imgBack.verticalCenter = 0;
 			var strIndex: string;
 			if (value < 10) {
-				strIndex = "0" + value;
+				strIndex = "0" + (value +1);
 			} else {
-				strIndex = "" + value;
+				strIndex = "" + (value+1);
 			}
 			console.log("=====chid hi", p)
 			if (p == 0) {//down

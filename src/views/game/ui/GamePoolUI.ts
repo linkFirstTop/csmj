@@ -52,25 +52,25 @@ module game {
     /*右边玩家牌池坐标*/
     private arrRP: Array<any> = [
       { x: 1147, y: 697 },
-      { x: 1147 - 24, y: 697 - 50 },
-      { x: 1147 - 24 * 2, y: 697 - 50 * 2 },
-      { x: 1147 - 24 * 3, y: 697 - 50 * 3 },
-      { x: 1147 - 24 * 4, y: 697 - 50 * 4 },
-      { x: 1147 - 24 * 5, y: 697 - 50 * 5 },
+      { x: 1147 - 22, y: 697 - 50 },
+      { x: 1147 - 22 * 2, y: 697 - 50 * 2 },
+      { x: 1147 - 22 * 3, y: 697 - 50 * 3 },
+      { x: 1147 - 22 * 4, y: 697 - 50 * 4 },
+      { x: 1147 - 22 * 5, y: 697 - 50 * 5 },
 
       { x: 1238, y: 697 },
-      { x: 1238 - 24, y: 697 - 50 },
-      { x: 1238 - 24 * 2, y: 697 - 50 * 2 },
-      { x: 1238 - 24 * 3, y: 697 - 50 * 3 },
-      { x: 1238 - 24 * 4, y: 697 - 50 * 4 },
-      { x: 1238 - 24 * 5, y: 697 - 50 * 5 },
+      { x: 1238 - 22, y: 697 - 50 },
+      { x: 1238 - 22 * 2, y: 697 - 50 * 2 },
+      { x: 1238 - 22 * 3, y: 697 - 50 * 3 },
+      { x: 1238 - 22 * 4, y: 697 - 50 * 4 },
+      { x: 1238 - 22 * 5, y: 697 - 50 * 5 },
 
       { x: 1329, y: 697 },
-      { x: 1329 - 24, y: 697 - 50 },
-      { x: 1329 - 24 * 2, y: 697 - 50 * 2 },
-      { x: 1329 - 24 * 3, y: 697 - 50 * 3 },
-      { x: 1329 - 24 * 4, y: 697 - 50 * 4 },
-      { x: 1329 - 24 * 5, y: 697 - 50 * 5 },
+      { x: 1329 - 22, y: 697 - 50 },
+      { x: 1329 - 22 * 2, y: 697 - 50 * 2 },
+      { x: 1329 - 22 * 3, y: 697 - 50 * 3 },
+      { x: 1329 - 22 * 4, y: 697 - 50 * 4 },
+      { x: 1329 - 22 * 5, y: 697 - 50 * 5 },
     ];
     /*下边玩家牌池坐标*/
     private arrDP: Array<any> = [
@@ -167,7 +167,7 @@ module game {
      * 还原牌池里的牌
      */
     public reductionCardsPool(): void {
-      for (var i: number = 1; i < 5; i++) {
+      for (var i: number = 0; i < 4; i++) {
         var arrCards: Array<game.CardInfo> = GamePlayData.getCardsPool(i);
         var num: number = arrCards.length;
         for (var j: number = 0; j < num; j++) {
@@ -212,8 +212,8 @@ module game {
         g.addChild(item);
 
         g.addChildAt(item, 0 + nLevel * 18);
-        item.x = this.arrRP[len].x - 300;
-        item.y = this.arrRP[len].y - 300;
+        item.x = this.arrRP[len].x - 400;
+        item.y = this.arrRP[len].y - 400;
         if (nLevel == 1) {
           item.y -= 15;
           item.x += 6
@@ -240,7 +240,7 @@ module game {
         g.addChild(item);
 
         g.addChildAt(item, (len % 6) + nLevel * 18);
-        item.x = this.arrLP[len].x - 1600;
+        item.x = this.arrLP[len].x - 1450;
         item.y = this.arrLP[len].y - 360;
         if (nLevel == 1) {
           item.y -= 15;

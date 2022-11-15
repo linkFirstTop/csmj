@@ -16,26 +16,40 @@ module game {
 			this.imgCard.horizontalCenter = 0;
 			var strIndex: string;
 			if (value < 10) {
-				strIndex = "0" + value;
+				strIndex = "0" + (value+1);
 			} else {
-				strIndex = "" + value;
+				strIndex = "" + (value+1);
 			}
 		
 			if (p == 0) {
 				this.imgCard.source =  "cardValueV" + strIndex;
+				if(value == -1 ){
+					
+					this.imgCard.source = "cardGangD";
+				}
 			}
 			if (p == 1) {
 				this.imgCard.source = "cardValueR" + strIndex;
 				//this.imgCard.verticalCenter = -12;
+				if(value == -1){
+					this.imgCard.source = "cardGangR";//背面
+			
+				}
 			}
 			
 			if (p == 2) {
 				this.imgCard.source = "cardValueU1" + strIndex;
+				if(value == -1 ){
+					this.imgCard.source = "cardGangD2"; //cardValueU1
+
+					
+				}
 			}
 			if (p == 3) {
-
 				this.imgCard.source = "cardValueH" + strIndex;
-	
+				if(value == -1 ){
+					this.imgCard.source = "cardGangL";
+				}
 			}
 		}
 	}

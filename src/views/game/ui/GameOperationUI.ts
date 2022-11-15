@@ -17,6 +17,7 @@ module game {
 		private btnGuo: eui.Image;
 		private btnQishouHu: eui.Image;
 		private btnGangyao: eui.Image;
+		public HasTwoChi :boolean = true; // 有两种 
 
 		private btnGangyaoAo: dragonBones.EgretArmatureDisplay;
 		private GangyaoCards: eui.Group;
@@ -287,15 +288,14 @@ module game {
 			this.btnTing.visible = false;
 		}
 		private onChi(): void {
+			if(this.HasTwoChi){
+				return;
+
+			}  
 			this.initBtns();
 			const mj_opts = game.GamePlayData.GetMJ_Operation();
 			let mj_opt: room.MJ_Operation
-			mj_opts.forEach(e => {
-				if (e.operationType == CardsGroupType.MJ_OperationType.MJ_OT_PONG) {
-					mj_opt = e;
-				}
-			})
-
+	
 			if (!mj_opt) {
 				return;
 			}
@@ -314,6 +314,7 @@ module game {
 			opt.maxFan = 3 //最大番数 
 			//opt.fans = 3 // MJ_FanInfo 被吃碰杠胡的那个人的座位号 
 			//opt.operationID = Global.userSit + 1 //操作id
+
 
 			room.RoomWebSocket.instance().roomSender.REQ_USEROPERATIONREQ(opt)
 

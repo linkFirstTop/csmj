@@ -15,7 +15,7 @@ module game {
 			this.imgBack.horizontalCenter = this.imgBack.verticalCenter = 0;
 			if (p == 0) {//左（上家胡牌）
 				this.imgBack.source = "SJHP";
-				this.imgCard.source = "cardValue" + value;
+				this.imgCard.source = "cardValue" + (value + 1) ;
 				this.imgCard.scaleX = this.imgCard.scaleY = 0.6;
 				this.imgCard.rotation = 90;
 				this.imgCard.skewY = 25;
@@ -24,7 +24,7 @@ module game {
 			}
 			if (p == 1) {//上(对家胡牌)
 				this.imgBack.source = "DJHP";
-				this.imgCard.source = "cardValue" + value;
+				this.imgCard.source = "cardValue" + (value +1);
 				this.imgCard.scaleX = 0.4;
 				this.imgCard.scaleY = -0.32;
 				this.imgCard.skewX = 20;

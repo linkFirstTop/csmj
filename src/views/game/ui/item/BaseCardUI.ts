@@ -21,9 +21,9 @@ module game {
 			this.gCards.addChild(this.imgValue);
 			var strIndex: string;
 			if (value < 10) {
-				strIndex = "0" + value;
+				strIndex = "0" + (value+1);
 			} else {
-				strIndex = "" + value;
+				strIndex = "" + (value+1);
 			}
 
 			console.log("===setCard",value)

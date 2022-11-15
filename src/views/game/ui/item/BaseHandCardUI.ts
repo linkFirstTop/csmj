@@ -11,6 +11,7 @@ module game {
 		private imgBack: eui.Image = new eui.Image();
 		private imgCard: eui.Image = new eui.Image();
 		private imgMask: eui.Image = new eui.Image();
+		public isMoCard:boolean = false;
 		private imgTip: eui.Image;
 		/*p:方位 index:牌的索引 value:牌值 state:0 暗牌 1亮牌 isDQ:是否定缺牌*/
 		public setCard(p: number, index: number, value: number, state: number, isDQ: boolean = false): void {
@@ -21,13 +22,11 @@ module game {
 			this.imgBack.horizontalCenter = this.imgBack.verticalCenter = 0;
 			this.imgCard.horizontalCenter = 0;
 			var strIndex: string;
-
-
 			if (p == 3) {//左
 				if (state == 0) {//暗牌
 					this.imgBack.source = "cardhandL";
 				} else {//明牌
-					this.imgBack.source = "cardValueH" + strIndex;
+					this.imgBack.source = "cardValueH" + strIndex ;
 		
 				}
 			}
@@ -39,25 +38,24 @@ module game {
 				}
 			}
 			if (p ==1) {//右
-
 				if (state == 0) {
 					this.imgBack.source = "cardhandR";
 				} else {
 					this.imgBack.source = "cardValueR" + strIndex;
-		
 				}
 				// this.imgBack.scaleX = -1;//水平翻转由左向右
 			}
 			if (p == 0) {
 
 				this.cardIndex = value;
-				if (value < 10) {
-					strIndex = `cardValue000${value}` ;
+				if (value < 9) {
+					strIndex = `cardValue000${value +1}` ;
 				} else {
-					strIndex = `cardValue00${value}` ;
+					strIndex = `cardValue00${value +1}` ;
 				}
 
 				if (state == 0) {//暗牌（手牌）
+				
 					this.imgBack.source = strIndex;
 
 					this.isSelect = false;
@@ -69,11 +67,12 @@ module game {
 					}
 				} else {//明牌
 					
-					this.imgBack.source = "cardValueV" + strIndex;
+					this.imgCard.source = "cardValueV" + strIndex;
 					// this.imgCard.scaleX = this.imgCard.scaleY = 0.9;
 					// this.imgCard.verticalCenter = -10;
 				}
 			}
+
 			// if (game.GamePlayData.tingData[Global.userSit] == true && p == 3) {
 			// 	this.setMaskFlagEX(true);
 			// } else {
@@ -149,5 +148,7 @@ module game {
 
 			//this.touchEnabled = this.touchChildren = isEnabled;
 		}
+
+		
 	}
 }

@@ -289,6 +289,7 @@ module game {
 			let handcards = GamePlayData.arrHandCards[p];
 			if(!cards){return}
 
+			
 			if (sit == Global.userSit) {
 				this.Chi_Groups.length = 0;
 				this.Peng_Groups.length = 0;
@@ -305,7 +306,6 @@ module game {
 				}
 			} else {
 				const Max = cards.length;
-				console.log("====MAX", Max);
 				for (let i = 0; i < Max; i++) {
 					handcards.pop();
 				}
@@ -552,18 +552,18 @@ module game {
 		//********TEST */
 
 		public static MockStart(){	
-			game.GamePlayData.initData();
-			game.GameParmes.initData();
+			// game.GamePlayData.initData();
+			// game.GameParmes.initData();
 			ViewManager.ins.switchToGame();
 
-			Global.userSit = 1;
-			const users:any = GamePlayData.MockUsers();
-			game.GameUserList.saveUserListInfo(users);
+			Global.userSit = 3;
+		// 	const users:any = GamePlayData.MockUsers();
+		// 	game.GameUserList.saveUserListInfo(users);
 
-			ViewManager.ins.gameView.gameUI.initUser();
-		//	game.GameUserList.saveUserListInfo(body.userInfos);
-			game.GamePlayData.SaveHandCarsd(users);
-			ViewManager.ins.gameView.gameUI.initHandCard();
+		// 	ViewManager.ins.gameView.gameUI.initUser();
+		// //	game.GameUserList.saveUserListInfo(body.userInfos);
+		// 	game.GamePlayData.SaveHandCarsd(users);
+		// 	ViewManager.ins.gameView.gameUI.initHandCard();
 		}
 
 		public static MockUsers(){
@@ -585,7 +585,6 @@ module game {
 				fan: [],
 				feeCoin: 0,
 				gameCoin: 10488,
-				
 				isManaged: 0,
 				resultCoin: 0,
 				role: 1,
@@ -599,7 +598,7 @@ module game {
 					tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
 				},
 				tileSets:[
-					{Tiles: [0, 2, 5, 8, 10, 11, 16, 17, 19, 19, 22, 23, 25],
+					{Tiles: [1, 5, 6 , 9, 8, 10, 15, 16, 20, 20, 21, 21, 21],
 					Type: 0},
 				]
 			}
@@ -649,36 +648,49 @@ module game {
 
 			}
 		}
-		public static MockUserOption(){
+		public static MockGameOption (){
 			return  {
-				operation:{
-					ObtainSeat: 2,
-					ObtainTile: 25,
-					Tiles: [-1],// 25,25,25
-					fans: [],
-					operationID: 0,
-					operationType: 1,
-					tingTileInfo: [],
-		
-				},
+				operation: [
+					{
+						ObtainSeat: 3,
+						ObtainTile: 0,
+						Tiles: [ 3,4,5],
+						fans: [],
+						operationID: 0,
+						operationType: CardsGroupType.MJ_OperationType.MJ_OT_L_CHOW,
+						tingTileInfo: [],	
+			
+					},
+					{
+						ObtainSeat: 3,
+						ObtainTile: 0,
+						Tiles: [ 5,6,7],
+						fans: [],
+						operationID: 0,
+						operationType: CardsGroupType.MJ_OperationType.MJ_OT_R_CHOW,
+						tingTileInfo: [],	
+			
+					},
+					
+				],
 				remainCount: 54,
 				result: 0,
-				seatID: 4,
+				seatid: 1,
 				userInfo:{},
 			}
 
 		}
 
-		public static MockGameOption(){
+		public static MockUserOption(){
 			return {
-				operation:[
+				operation:
 					{
 						ObtainSeat: 1,
-						ObtainTile: 0,
-						Tiles: [ 23,25,24],
+						ObtainTile: 3,
+						Tiles: [ 3,3,3],
 						fans: [],
 						operationID: 0,
-						operationType: CardsGroupType.MJ_OperationType.MJ_OT_L_CHOW,
+						operationType: CardsGroupType.MJ_OperationType.MJ_OT_PONG,
 						tingTileInfo: [],		
 					},
 					// {
@@ -690,15 +702,177 @@ module game {
 					// 	operationType: 2,
 					// 	tingTileInfo: [],		
 					// }
-				],
+				
 				roundGuid: "611668085300221",
-				seatid: 1,
+				seatID: 1,
 				second: 20,
-
+				userInfo:{
+					fan: [],
+					feeCoin: 0,
+					gameCoin: 10488,
+					
+					isManaged: 0,
+					resultCoin: 0,
+					role: 1,
+					showName: "jytzyztp0v",
+					status: 3,
+					tingTileInfo: [],
+					userName: "jytzyztp0v",
+					userPos:{
+						roomID: 1,
+						seatID: 1,
+						tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
+					},
+					tileSets:[
+						{Tiles: [3, 3, 3 , 8, 10, 11, 16, 17, 19, 19, 22, 23, 25],
+						Type: 0},
+					]
+				}
 	
 
 			}
 			
+		}
+
+		public static MockSyncGameNtc(){
+			return {
+				remainCount: 50,
+				roomID: 1,
+				roundGuid: "611668521740514",
+				second: 19,
+				settlementInfos: [],
+				status: 3,
+				tableID: "{3724DEF0-3FAB-46A1-9932-3542E8CE8048}",
+				userInfos:[
+					{
+						fan: [],
+						feeCoin: 0,
+						gameCoin: 10488,
+						isManaged: 0,
+						resultCoin: 0,
+						role: 1,
+						showName: "jytzyztp0v",
+						status: 3,
+						tingTileInfo: [],
+						userName: "jytzyztp0v",
+						userPos:{
+							roomID: 1,
+							seatID: 1,
+							tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
+						},
+						tileSets:[
+							{Tiles: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+							Type: 0},
+							{Tiles: [10,11],
+							Type: 10},
+						]
+					},
+					{
+						fan: [],
+						feeCoin: 0,
+						gameCoin: 10488,
+						
+						isManaged: 0,
+						resultCoin: 0,
+						role: 1,
+						showName: "jytzyztp0v",
+						status: 3,
+						tingTileInfo: [],
+						userName: "jytzyztp0v",
+						userPos:{
+							roomID: 1,
+							seatID: 2,
+							tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
+						},
+						tileSets:[
+							{Tiles: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+							Type: 0},
+							{Tiles: [-1],
+							Type: 8},
+							{Tiles: [],
+							Type: 10},
+						]
+					},
+					{
+						fan: [],
+						feeCoin: 0,
+						gameCoin: 10488,
+						
+						isManaged: 0,
+						resultCoin: 0,
+						role: 1,
+						showName: "jytzyztp0v",
+						status: 3,
+						tingTileInfo: [],
+						userName: "jytzyztp0v",
+						userPos:{
+							roomID: 1,
+							seatID: 3,
+							tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
+						},
+						tileSets:[
+							{Tiles: [2, 8, 12, 15, 16, 19, 20, 21, 21, 26],
+							Type: 0},
+							{Tiles: [ 10,11],
+							Type: 10},
+							{
+								ObtainSeat: 4,
+								ObtainTile: 9,
+								Tiles: [ 9,9,9],
+								Type: 2},
+						]
+					},
+					{
+						fan: [],
+						feeCoin: 0,
+						gameCoin: 10488,
+						
+						isManaged: 0,
+						resultCoin: 0,
+						role: 1,
+						showName: "jytzyztp0v",
+						status: 3,
+						tingTileInfo: [],
+						userName: "jytzyztp0v",
+						userPos:{
+							roomID: 1,
+							seatID: 4,
+							tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
+						},
+						tileSets:[
+							{Tiles: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+							Type: 0},
+							{Tiles: [9, 14, 24],
+							Type: 10},
+							{
+								ObtainSeat: 4,
+								ObtainTile: 9,
+								Tiles: [10, 10, 10],
+								Type: 2},
+						]
+					}
+				]
+			}
+		}
+
+		public static ContinueGame( body ){
+			game.GameUserList.saveUserListInfo(body.userInfos)
+			GDGame.Msg.ins.dispatchEventWith(room.RoomMessage.ACK_GAMEPLAYERLIST, false, body);
+
+			game.GamePlayData.SaveHandCarsd(body.userInfos);
+			console.log('=====同步游戏:', body);
+			if (Number(body.status) == 0) {
+				return;
+			}
+
+			//if (Global.isContinue) {
+				//ViewManager.ins.switchToGame();
+
+				ViewManager.ins.hideWait();
+				ViewManager.ins.gameView.onGameContinue();
+				//GDGame.Msg.ins.dispatchEventWith(room.RoomMessage.ACK_GAME_CONTINUE);
+				Global.isContinue = false;
+			//}
 		}
 	}
 }

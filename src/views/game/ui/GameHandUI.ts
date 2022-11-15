@@ -404,6 +404,7 @@ module game {
 
       if (p == 0) {
         ghand.addChild(card);
+        card.isMoCard = true;
         if (cardValue > 0) {
           let nHua: number = game.GameParmes.getHua(info);
           // if (nHua == nQue) {
@@ -494,11 +495,12 @@ module game {
       //console.log("====updataHandsByPosition==",sit,p)
 
       let ghand: eui.Group = this.findHandGroup(p);
-      //this.clearGroup(ghand);
+     
+      this.clearGroup(ghand);
       let arr: Array<CardInfo> = this.copyHandCard(
         game.GamePlayData.getHandCards(p)
       );
-      // console.log("===arr===",arr)
+
       if (isQishou) {
         this.clearSomeGroup(ghand, arr);
       } else {
@@ -522,6 +524,7 @@ module game {
         let nOptW: number = 0;
 
         if (p == 0) {
+         
           let itemCardWidth: number = 121;
           card.setCard(p, i + index, cardValue, state, isQue);
           card.cardInfo = info;
@@ -542,16 +545,15 @@ module game {
               (len == 5 && i == 4) ||
               (len == 2 && i == 1)
             ) {
-              card.x = 300 - (12 - i * itemCardWidth) * 18;
+             // card.x = 300 - (12 - i * itemCardWidth) * 18;
             }
-
             // if (i == len - 1 && index == 0) {
             // 	card.x += 10;
             // }
           } else {
             card.x = i * card.width - i * 2;
           }
-          this.gHandCardD.x = GameConfig.curWidth() - this.gHandCardD.width - 300;
+          this.gHandCardD.x = GameConfig.curWidth() - this.gHandCardD.width - 180;
         }
         if (p == 1) {
           card.setCard(p, 16 - i - index, cardValue, state, isQue);
@@ -690,10 +692,10 @@ module game {
 			this.clearGroup(g);
 			let arrCards: Array<CardsGroupInfo> = game.GamePlayData.getOtherCards(p);//this.copyCardGroup(game.GamePlayData.getOtherCards(nSit));
 
-			// console.log("===ARRCARDS=====",arrCards)
 			let nOptCount: number = arrCards.length;//玩家吃碰杠数组
 
 			for (let i: number = 0; i < nOptCount; i++) {
+
 				this.createCPGItem(p, i, arrCards[i]);
 			}
 
@@ -718,7 +720,7 @@ module game {
 			let gItem: eui.Group = new eui.Group();
 			g.addChild(gItem);
 			for (let i: number = 0; i < info.cards.length; i++) {
-				let cardValue: number = info.cards[0].CardID //game.GameParmes.getCardID(info.cards[i]);
+				let cardValue: number = info.cards[i].CardID ;
 				let item: BaseOtherCardUI = new BaseOtherCardUI();
 				item.cardInfo = info.cards[i];
 				gItem.addChild(item);
@@ -865,7 +867,7 @@ module game {
 							cardInfo.CardID = item.cardInfo.CardID;
 
 							const opt: room.MJ_Operation = new room.MJ_Operation()
-							opt.operationType = CardsGroupType.MJ_OperationType.MJ_OT_TING;//摸切
+					
 							opt.Tiles = [item.cardInfo.CardID] //牌组  如果是出牌则数组中只有一张牌
 							opt.tingTileInfo = [{
 								callTile: item.cardInfo.CardID,	//听哪张牌
@@ -885,11 +887,11 @@ module game {
 
 						const opt: room.MJ_Operation = new room.MJ_Operation()
 
-						// if (item.isMoCard) {
-						 	opt.operationType = CardsGroupType.MJ_OperationType.MJ_OT_D_DISCARD;//摸切
-						// } else {
-						// 	opt.operationType = CardsGroupType.MJ_OperationType.MJ_OT_H_DISCARD;//操作类型
-						// }
+						if (item.isMoCard) {
+						 	opt.operationType = CardsGroupType.MJ_OperationType.摸牌;//摸切
+						} else {
+						 	opt.operationType = CardsGroupType.MJ_OperationType.手切;//操作类型
+						}
 
 
 

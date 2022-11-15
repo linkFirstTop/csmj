@@ -41,6 +41,11 @@ module game {
 
 		private btnTest: eui.Image;
 
+		private twoChi:eui.Group;
+		private lchiGroup:eui.Group;
+		private RchiGroup:eui.Group;
+
+
 		private infoBg: eui.Image;
 		protected childrenCreated(): void {
 			super.childrenCreated();
@@ -71,6 +76,10 @@ module game {
 			this.gameOpt.addEventListener("ShowTianHuFlag", this.onShowTHFlag, this);
 			this.gameOpt.addEventListener("ShowTingHuFlag", this.onShowTingFlag, this);
 			this.gameOpt.addEventListener("CloseTingHuFlag", this.onCloseTingFlag, this);
+
+			this.lchiGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTapLeftChi, this);
+			this.RchiGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTapRightChi, this);
+
 
 			// this.addChild(this.gameHSZ);
 			// this.gameHSZ.addEventListener("OnSendHSZCards",this.onSendHSZCards,this);
@@ -140,17 +149,18 @@ module game {
 				//  let card4: CardInfo = { CardID:27, Sit: 1 };
 				//  this.userSendCard( card4,false);
 
-			   const gameopt = game.GamePlayData.MockGameOption();
-				ViewManager.ins.gameView.ACK_GAME_OPERATION( <any>{data:gameopt} );
+			//    const gameopt = game.GamePlayData.MockGameOption();
+			// 	ViewManager.ins.gameView.ACK_GAME_OPERATION( <any>{data:gameopt} );
 
 				// const Useropt = game.GamePlayData.MockUserOption();
 				// ViewManager.ins.gameView.ACK_USER_OPERATION(<any>{data:Useropt} );
+
+				   const gameopt = game.GamePlayData.MockSyncGameNtc();
+				   game.GamePlayData.ContinueGame(gameopt);
+				
 				
 			}, this);
-			
-
-
-			
+		
 			this.gameOpt.visible = true;
 		}
 		public initGame(): void {
@@ -353,10 +363,12 @@ module game {
 
 		/*显示托管界面*/
 		public showTrust(b: boolean): void {
+			console.log("==showTrust===",b)
 			this.gameTrust.visible = b;
 		}
 		/*取消托管*/
 		private onCancelTrust(): void {
+			console.log("====calTrust")
 			room.RoomWebSocket.instance().roomSender.ReqGamePlayerReleveTrustFun()
 		}
 		/**
@@ -400,11 +412,11 @@ module game {
 			// this.gamePosition.startTime(GameParmes.chiPengGangSurplusTime);
 			this.gameOpt.visible = false;
 
-			egret.setTimeout(function(){
-				for (let j: number = 1; j < 5; j++) {
-					this.gameHand.updataHandsByPosition(j, 0);
-				}
-			},this,10);
+			// egret.setTimeout(function(){
+			// 	for (let j: number = 1; j < 5; j++) {
+			// 		this.gameHand.updataHandsByPosition(j, 0);
+			// 	}
+			// },this,10);
 			
 		}
 		public onGameContinue(): void {
@@ -599,6 +611,134 @@ module game {
 				this.arrTingCards = [];
 			}
 		}
+
+
+		//可以 左吃 右吃的时候显示
+		public showTwochi( leftArr:number[], rightArr:number[] ){
+			this.gameOpt.HasTwoChi = true;
+			this.twoChi.visible = true;
+			console.log("= this.lchiGroup==s", leftArr,rightArr)
+
+			leftArr.forEach( e=>{
+			
+
+				let strIndex = `cardValue00${e}` ;
+			
+				if (e < 10) {
+					strIndex = `cardValue000${e}` ;
+				}
+
+				let card: BaseHandCardUI = new BaseHandCardUI();
+				this.lchiGroup.addChild(card);
+				let imgCard: eui.Image = new eui.Image();
+				let g: eui.Group = new eui.Group();
+				this.addChild(g);
+				card.addChild(imgCard);
+	
+				imgCard.source  = strIndex;
+
+			})
+
+			rightArr.forEach( e=>{
+				let strIndex = `cardValue00${e}` ;
+				if (e < 10) {
+					strIndex = `cardValue000${e}` ;
+				}
+
+				let card: BaseHandCardUI = new BaseHandCardUI();
+				this.RchiGroup.addChild(card);
+				let imgCard: eui.Image = new eui.Image();
+				let g: eui.Group = new eui.Group();
+				this.addChild(g);
+				card.addChild(imgCard);
+	
+				imgCard.source  = strIndex;
+
+			})
+		}
+
+		private onTapRightChi(){
+			this.gameOpt.HasTwoChi = false;
+			this.gameOpt.initBtns();
+			this.twoChi.visible = false;
+			console.log("=onTapRightChi==")
+			this.lchiGroup.removeChildren();
+			this.RchiGroup.removeChildren();
+
+			const mj_opts = game.GamePlayData.GetMJ_Operation();
+			let mj_opt: room.MJ_Operation
+			mj_opts.forEach(e => {
+				if (e.operationType == CardsGroupType.MJ_OperationType.MJ_OT_R_CHOW) {
+					mj_opt = e;
+				}
+			})
+
+			if (!mj_opt) {
+				return;
+			}
+
+			const opt: room.MJ_Operation = new room.MJ_Operation()
+			opt.operationType = mj_opt.operationType;//操作类型
+			opt.Tiles = [] //牌组  如果是出牌则数组中只有一张牌
+			//如果是吃、碰、杠、胡则以下值需要读取或者写入
+			opt.ObtainTile = mj_opt.ObtainTile //需要吃碰杠胡的那一张牌 
+			opt.ObtainSeat = mj_opt.ObtainSeat //被吃碰杠胡的那个人的座位号 
+
+			//如果是听，则以下值需要读取或写入
+			opt.tingTileInfo = [] //MJ_TingTileInfo /和牌信息
+
+			//如果是胡，则以下值需要读取或写入
+			opt.maxFan = 3 //最大番数 
+			//opt.fans = 3 // MJ_FanInfo 被吃碰杠胡的那个人的座位号 
+			//opt.operationID = Global.userSit + 1 //操作id
+
+			room.RoomWebSocket.instance().roomSender.REQ_USEROPERATIONREQ(opt)
+
+
+
+		}
+
+		private onTapLeftChi(){
+			this.gameOpt.HasTwoChi = false;
+			this.gameOpt.initBtns();
+			this.twoChi.visible = false;
+			this.lchiGroup.removeChildren();
+			this.RchiGroup.removeChildren();
+
+			console.log("=onTapLeftChi==")
+
+			const mj_opts = game.GamePlayData.GetMJ_Operation();
+			let mj_opt: room.MJ_Operation
+			mj_opts.forEach(e => {
+				if (e.operationType == CardsGroupType.MJ_OperationType.MJ_OT_L_CHOW) {
+					mj_opt = e;
+				}
+			})
+
+			if (!mj_opt) {
+				return;
+			}
+
+			const opt: room.MJ_Operation = new room.MJ_Operation()
+			opt.operationType = mj_opt.operationType;//操作类型
+			opt.Tiles = [] //牌组  如果是出牌则数组中只有一张牌
+			//如果是吃、碰、杠、胡则以下值需要读取或者写入
+			opt.ObtainTile = mj_opt.ObtainTile //需要吃碰杠胡的那一张牌 
+			opt.ObtainSeat = mj_opt.ObtainSeat //被吃碰杠胡的那个人的座位号 
+
+			//如果是听，则以下值需要读取或写入
+			opt.tingTileInfo = [] //MJ_TingTileInfo /和牌信息
+
+			//如果是胡，则以下值需要读取或写入
+			opt.maxFan = 3 //最大番数 
+			//opt.fans = 3 // MJ_FanInfo 被吃碰杠胡的那个人的座位号 
+			//opt.operationID = Global.userSit + 1 //操作id
+
+			room.RoomWebSocket.instance().roomSender.REQ_USEROPERATIONREQ(opt);
+		}
+
+
+
 		/*显示待胡牌*/
 		private showTingGroup(nIndex: number): void {
 			let arr: Array<any> = GamePlayData.GetChiPengGangHuGroup(CardsGroupType.CALL);
@@ -640,6 +780,8 @@ module game {
 				//this.gameHSZ.autoHSZ();
 			}
 		}
+
+
 		private findRoomName(): string {
 			let str: string = "";
 			switch (Global.roomId) {

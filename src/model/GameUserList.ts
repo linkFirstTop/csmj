@@ -6,21 +6,7 @@ module game {
 		public static saveUserListInfo(arr: Array<any>): void {
 		
 			game.GameUserList.arrUserList = [];
-			for (let i: number = 0; i < arr.length; i++) {
-				console.log("===ii",i)
-				let info:room.IVGUserInfo = arr[i];
-				let user: game.GameUserInfo = new game.GameUserInfo();
-				user.userName = info.userName;
-				user.userShowName = info.showName;
-				user.userSit = info.userPos.seatID;
-				user.userCoin = Number(info.gameCoin);
-				user.userPos = info.userPos;
-				//user.userImage = info.user.avatar;
-				game.GameUserList.arrUserList.push(user);
-				if (user.userName == Global.userName) {
-					Global.userSit = user.userSit;
-				}
-			}
+			this.updateUserListInfo(arr);
 		}
 
 

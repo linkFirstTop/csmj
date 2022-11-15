@@ -46,7 +46,7 @@ module room {
 				return ;
 			}*/
 			//console.log("==ssss")
-			//game.GamePlayData.MockStart();
+		    //game.GamePlayData.MockStart();
 
 			this.dispatchEvent(new egret.Event("OnItemClick", true, true, this.info));
 		}
