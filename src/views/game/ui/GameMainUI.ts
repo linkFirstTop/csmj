@@ -45,6 +45,8 @@ module game {
 		private lchiGroup:eui.Group;
 		private RchiGroup:eui.Group;
 
+		private birdsGroup:eui.Group;
+
 
 		private infoBg: eui.Image;
 		protected childrenCreated(): void {
@@ -155,9 +157,13 @@ module game {
 				// const Useropt = game.GamePlayData.MockUserOption();
 				// ViewManager.ins.gameView.ACK_USER_OPERATION(<any>{data:Useropt} );
 
-				   const gameopt = game.GamePlayData.MockSyncGameNtc();
-				   game.GamePlayData.ContinueGame(gameopt);
+				//    const gameopt = game.GamePlayData.MockSyncGameNtc();
+				//    game.GamePlayData.ContinueGame(gameopt);
+
+				   const gameopt = game.GamePlayData.MockResultNtc();
+				   ViewManager.ins.gameView.ACK_ALL_GAMERESULT( <any>{data:gameopt} );
 				
+				   
 				
 			}, this);
 		
@@ -570,6 +576,33 @@ module game {
 			}
 		}
 
+		public showZhaBird(body:room.VGGameResultNtc){
+			this.zniaoGroup.visible = true;
+
+			const birds = body.birdTiles;
+			birds.forEach( e=>{
+				let strIndex = `cardValue00${e +1}` ;
+				if (e < 9) {
+					strIndex = `cardValue000${e +1}` ;
+				}
+
+				let card: BaseHandCardUI = new BaseHandCardUI();
+				this.birdsGroup.addChild(card);
+				let imgCard: eui.Image = new eui.Image();
+				let g: eui.Group = new eui.Group();
+				this.addChild(g);
+				card.addChild(imgCard);
+
+				imgCard.source  = strIndex;
+			})
+
+			body.userInfos.forEach( (e)=>{
+				const seatid = e.userPos.seatID;
+				const p = Global.getUserPosition(seatid);
+				//this["gameUser" + p].setUserInfo(user);
+			})
+		}
+
 		public stopAllUserAnim(){
 			for (let i: number = 0; i < 4; i++) {
 				this["gameUser" + i].showCurrentAnim(false);
@@ -620,12 +653,10 @@ module game {
 			console.log("= this.lchiGroup==s", leftArr,rightArr)
 
 			leftArr.forEach( e=>{
+				let strIndex = `cardValue00${e +1}` ;
 			
-
-				let strIndex = `cardValue00${e}` ;
-			
-				if (e < 10) {
-					strIndex = `cardValue000${e}` ;
+				if (e < 9) {
+					strIndex = `cardValue000${e+1}` ;
 				}
 
 				let card: BaseHandCardUI = new BaseHandCardUI();
@@ -640,9 +671,9 @@ module game {
 			})
 
 			rightArr.forEach( e=>{
-				let strIndex = `cardValue00${e}` ;
-				if (e < 10) {
-					strIndex = `cardValue000${e}` ;
+				let strIndex = `cardValue00${e+1}` ;
+				if (e < 9) {
+					strIndex = `cardValue000${e+1}` ;
 				}
 
 				let card: BaseHandCardUI = new BaseHandCardUI();

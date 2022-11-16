@@ -557,13 +557,13 @@ module game {
 			ViewManager.ins.switchToGame();
 
 			Global.userSit = 3;
-		// 	const users:any = GamePlayData.MockUsers();
-		// 	game.GameUserList.saveUserListInfo(users);
+			const users:any = GamePlayData.MockUsers();
+			game.GameUserList.saveUserListInfo(users);
 
-		// 	ViewManager.ins.gameView.gameUI.initUser();
+			ViewManager.ins.gameView.gameUI.initUser();
 		// //	game.GameUserList.saveUserListInfo(body.userInfos);
-		// 	game.GamePlayData.SaveHandCarsd(users);
-		// 	ViewManager.ins.gameView.gameUI.initHandCard();
+			game.GamePlayData.SaveHandCarsd(users);
+			ViewManager.ins.gameView.gameUI.initHandCard();
 		}
 
 		public static MockUsers(){
@@ -639,15 +639,7 @@ module game {
 
 		}
 
-		public static MockResult(){
-			const result = {
-				birdTiles:  [25, 7, 7, 26],
-				roomID: 1,
-	
-				roundGuid: "611667921478134",
 
-			}
-		}
 		public static MockGameOption (){
 			return  {
 				operation: [
@@ -860,7 +852,7 @@ module game {
 			GDGame.Msg.ins.dispatchEventWith(room.RoomMessage.ACK_GAMEPLAYERLIST, false, body);
 
 			game.GamePlayData.SaveHandCarsd(body.userInfos);
-			console.log('=====同步游戏:', body);
+			//console.log('=====同步游戏:', body);
 			if (Number(body.status) == 0) {
 				return;
 			}
@@ -873,6 +865,129 @@ module game {
 				//GDGame.Msg.ins.dispatchEventWith(room.RoomMessage.ACK_GAME_CONTINUE);
 				Global.isContinue = false;
 			//}
+		}
+
+		public static MockResultNtc(){
+			return {
+				birdTiles: [1,2,3,5],
+				roomID: 1,
+				roundGuid: "611668521740514",
+				second: 19,
+				settlementInfos: [],
+				status: 3,
+				tableID: "{3724DEF0-3FAB-46A1-9932-3542E8CE8048}",
+				userInfos:[
+					{
+						fan: [],
+						feeCoin: 0,
+						gameCoin: 10488,
+						isManaged: 0,
+						resultCoin: 0,
+						role: 1,
+						showName: "jytzyztp0v",
+						status: 3,
+						tingTileInfo: [],
+						userName: "jytzyztp0v",
+						niaoMulti:1,
+						userPos:{
+							roomID: 1,
+							seatID: 1,
+							tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
+						},
+						tileSets:[
+							{Tiles: [2, 2, 2, 5, 6, 7, 19, 20, 20, 21],
+							Type: 0},
+							{Tiles: [16,16,16],
+							Type: 2},
+						]
+					},
+					{
+						fan: [],
+						feeCoin: 0,
+						gameCoin: 10488,
+						isManaged: 0,
+						resultCoin: 0,
+						role: 1,
+						showName: "jytzyztp0v",
+						status: 3,
+						tingTileInfo: [],
+						niaoMulti:1,
+						userName: "jytzyztp0v",
+						userPos:{
+							roomID: 1,
+							seatID: 2,
+							tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
+						},
+						tileSets:[
+							{Tiles: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+							Type: 0},
+							{Tiles: [-1],
+							Type: 8},
+							{Tiles: [],
+							Type: 10},
+						]
+					},
+					{
+						fan: [],
+						feeCoin: 0,
+						gameCoin: 10488,
+						isManaged: 0,
+						resultCoin: 0,
+						role: 1,
+						showName: "jytzyztp0v",
+						status: 3,
+						tingTileInfo: [],
+						userName: "jytzyztp0v",
+						niaoMulti:1,
+						userPos:{
+							roomID: 1,
+							seatID: 3,
+							tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
+						},
+						tileSets:[
+							{Tiles: [2, 8, 12, 15, 16, 19, 20, 21, 21, 26],
+							Type: 0},
+							{Tiles: [ 10,11],
+							Type: 10},
+							{
+								ObtainSeat: 4,
+								ObtainTile: 9,
+								Tiles: [ 9,9,9],
+								Type: 2},
+						]
+					},
+					{
+						fan: [],
+						feeCoin: 0,
+						gameCoin: 10488,
+						
+						isManaged: 0,
+						resultCoin: 0,
+						role: 1,
+						showName: "jytzyztp0v",
+						status: 3,
+						tingTileInfo: [],
+						userName: "jytzyztp0v",
+						niaoMulti:1,
+						userPos:{
+							roomID: 1,
+							seatID: 4,
+							tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
+						},
+						tileSets:[
+							{Tiles: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+							Type: 0},
+							{Tiles: [9, 14, 24],
+							Type: 10},
+							{
+								ObtainSeat: 4,
+								ObtainTile: 9,
+								Tiles: [10, 10, 10],
+								Type: 2},
+						]
+					}
+				]
+			}
 		}
 	}
 }

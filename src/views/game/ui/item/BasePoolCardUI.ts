@@ -15,7 +15,7 @@ module game {
 			this.imgBack.horizontalCenter = this.imgBack.verticalCenter = 0;
 			this.imgCard.horizontalCenter = 0;
 			var strIndex: string;
-			if (value < 10) {
+			if (value < 9) {
 				strIndex = "0" + (value+1);
 			} else {
 				strIndex = "" + (value+1);
@@ -24,7 +24,6 @@ module game {
 			if (p == 0) {
 				this.imgCard.source =  "cardValueV" + strIndex;
 				if(value == -1 ){
-					
 					this.imgCard.source = "cardGangD";
 				}
 			}

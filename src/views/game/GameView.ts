@@ -217,14 +217,66 @@ module game {
      * @param msg
      * 服务器通知客户端 全部结束
      */
-    private ACK_ALL_GAMERESULT(evt: egret.Event): void {
+    public ACK_ALL_GAMERESULT(evt: egret.Event): void {
       let body: room.VGGameResultNtc = evt.data;
-      this.gameUI["zniaoGroup"].visible = false;
+
+    
+      this.gameUI.showZhaBird(body)
+
+      return;
+      // sound.SoundManager.getInstance().stopBg();
+      let nTime: number = 1200;
+
+      //console.log("=!!!!SHOW RESULT=====", body)
+
+      let isWin = false;
+
+      //this.gameUI.playAnim("djjs", -1);
       this.gameUI.stopAllUserAnim();
-      this.gameResult.showResult(body);
+
+      game.GamePlayData.SaveHandCarsd(body.userInfos);
+      GameParmes.gameTurn = GameTurnType.OTHERTURN;
+
+      let isAnim: boolean = false;
+      for (let i: number = 0; i < body.userInfos.length; i++) {
+        this.gameUI.updataUserCoin(
+          body.userInfos[i].userPos.seatID,
+          Number(body.userInfos[i].gameCoin)
+        );
+      }
+
+      if (isAnim) {
+        nTime = 2400;
+      }
+      egret.setTimeout(
+        function () {
+          egret.setTimeout(
+            function () {
+              this.gameResult.showResult(body);
+            },
+            this, 1000 );
+
+          this.gameUI.showAllHandCard();
+
+          for (let i: number = 0; i < body.userInfos.length; i++) {
+            const tileSets = body.userInfos[i].tileSets;
+            tileSets.forEach((obj) => {
+              if (obj.Type == 6) {
+                const nSit = body.userInfos[i].userPos.seatID;
+                //this.gameUI.showHuCard(nSit, obj.Tiles[0]);
+              }
+            });
+          }
+        },
+        this,
+        nTime
+      );
+     // ViewManager.ins.changeTimer(true);
+
+  
+      // this.gameResult.showResult(body);
     }
     public onGameContinue(): void {
- 
       GameParmes.isGameFlower = true;
       this.gameUI.initUser();
 
@@ -232,17 +284,17 @@ module game {
       //这里处理断线 的 牌
       game.GamePlayData.arrPoolCards = [[], [], [], []];
       const arr = game.GameUserList.arrUserList;
- 
+
       //GamePlayData.MJ_LiangOtherPais = [];
       arr.forEach((e: any, i) => {
-        console.log("===eee",e)
-      	const user: room.VGUserInfo = e.origin;
+        console.log("===eee", e);
+        const user: room.VGUserInfo = e.origin;
         let nSit: number = user.userPos.seatID;
         let p = Global.getUserPosition(user.userPos.seatID - 1);
 
         // if (user.isTing) {
-          // GamePlayData.MJ_LiangSitArr.push(nSit);
-          // this.gameUI.onShowUserLiang(nSit)
+        // GamePlayData.MJ_LiangSitArr.push(nSit);
+        // this.gameUI.onShowUserLiang(nSit)
         // }
 
         const tileSets = user.tileSets;
@@ -424,7 +476,7 @@ module game {
       game.GamePlayData.SaveMJ_Operation(body.operation);
       const optArr = [false, false, false, false, false];
 
-      let TwoChi = [0,0]
+      let TwoChi = [0, 0];
       let leftArr = [];
       let rightArr = [];
       //玩家自己操作
@@ -449,7 +501,7 @@ module game {
         if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_L_CHOW) {
           optArr[0] = true;
           GameParmes.gameTurn = GameTurnType.OTHERTURN;
-          TwoChi[0]= 1
+          TwoChi[0] = 1;
           leftArr = opt.Tiles;
         }
         //中吃，吃的牌是中间点，例如24吃3
@@ -461,7 +513,7 @@ module game {
         if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_R_CHOW) {
           optArr[0] = true;
           GameParmes.gameTurn = GameTurnType.OTHERTURN;
-          TwoChi[1]= 1;
+          TwoChi[1] = 1;
           rightArr = opt.Tiles;
         }
 
@@ -511,9 +563,8 @@ module game {
         }
       });
 
-      if(TwoChi[0] == 1 && TwoChi[1] == 1 ){
+      if (TwoChi[0] == 1 && TwoChi[1] == 1) {
         this.gameUI.showTwochi(leftArr, rightArr);
-        
       }
 
       const isShow = optArr.some((e) => e);
@@ -529,7 +580,6 @@ module game {
      */
     public ACK_USER_OPERATION(evt: egret.Event) {
       const body: room.VGUserOperationAck = evt.data;
-     
 
       //console.log("=== 行牌应答 这是玩家操作的seat:", body["seatID"])
       const nSit = body["seatID"];
@@ -538,17 +588,16 @@ module game {
       let p = Global.getUserPosition(nSit);
       //console.log(`****当前操作玩家座位号:${nSit}，和局部座位号:${p},玩家座位号：${Global.userSit}`)
       const opt: room.MJ_Operation = <any>body.operation;
-    
+
       GameParmes.isCurTing = false;
       if (!opt) {
         return;
       }
 
-      if( nSit == Global.userSit ){
+      if (nSit == Global.userSit) {
         egret.log("****行牌应答:这是玩家操作的结果:", body);
       }
-    
-    
+
       //摸牌s
       if (opt.operationType == CardsGroupType.MJ_OperationType.摸牌) {
         const card: CardInfo = new CardInfo();
@@ -605,10 +654,8 @@ module game {
       }
       //左吃，吃的牌是最小点, 例如45吃3
       if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_L_CHOW) {
-
-      
         let card: game.CardInfo = new game.CardInfo();
-        card.CardID = opt.ObtainTile[0]
+        card.CardID = opt.ObtainTile[0];
         card.Sit = opt.ObtainSeat;
         this.gameUI.playAnim("chi", nSit);
         //this.gameUI.playAnim("hdly",nSit);
@@ -632,10 +679,9 @@ module game {
       //中吃，吃的牌是中间点，例如24吃3
       if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_M_CHOW) {
         //console.log("=====中吃，吃的牌是中间点，例如24吃3==")
-     
-           
+
         let card: game.CardInfo = new game.CardInfo();
-        card.CardID = opt.ObtainTile[0]
+        card.CardID = opt.ObtainTile[0];
         card.Sit = opt.ObtainSeat;
         this.gameUI.playAnim("chi", nSit);
         const body = {
@@ -660,9 +706,9 @@ module game {
       //右吃，吃的牌是最大点，例如12吃3
       if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_R_CHOW) {
         //console.log("=====右吃，吃的牌是最大点，例如12吃3==")
-       
+
         let card: game.CardInfo = new game.CardInfo();
-        card.CardID = opt.ObtainTile[0]
+        card.CardID = opt.ObtainTile[0];
         card.Sit = opt.ObtainSeat;
         this.gameUI.playAnim("chi", nSit);
         const body = {
@@ -841,7 +887,7 @@ module game {
      * 服务器通知客户端碰牌
      */
     private ON_USER_PENGPAI(data: room.MJ_Operation, seat: number): void {
-      console.log("=ON_USER_PENGPAI===",data,seat)
+      console.log("=ON_USER_PENGPAI===", data, seat);
       let nSit: number = seat;
       let card: CardInfo = { CardID: data.ObtainTile, Sit: data.ObtainSeat };
 

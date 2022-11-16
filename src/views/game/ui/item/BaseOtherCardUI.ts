@@ -14,7 +14,7 @@ module game {
 			g.addChild(this.imgCard);
 		//	this.imgBack.horizontalCenter = this.imgBack.verticalCenter = 0;
 			var strIndex: string;
-			if (value < 10) {
+			if (value < 9) {
 				strIndex = "0" + (value +1);
 			} else {
 				strIndex = "" + (value+1);
