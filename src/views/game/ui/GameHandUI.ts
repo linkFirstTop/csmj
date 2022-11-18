@@ -214,6 +214,11 @@ module game {
     private gHuCardU: eui.Group = new eui.Group();
     private gHuCardR: eui.Group = new eui.Group();
     private gHuCardD: eui.Group = new eui.Group();
+
+ 
+
+
+
     private nAutoTime: number = -1; //自动摸打计时器
     private arrHSZCards: Array<BaseHandCardUI> = [];
     private currentCard: BaseHandCardUI;
@@ -626,14 +631,7 @@ module game {
           }
         }
       }
-      // if (p == 0) {
-      //   if (i == 14) {
-      //     this.gHandCardD.x = 1740 - this.gHandCardD.width + 20 + 126 - 5;
-      //   } else {
-      //     this.gHandCardD.x = 1740 - this.gHandCardD.width;
-      //   }
-      //   // console.log(this.gHandCardD.x, this.gHandCardD.width);
-      // }
+
 
       this.sprTmpUp.x = 520;
       this.sprTmpUp.y = 36 + 50;

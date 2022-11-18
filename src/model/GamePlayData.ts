@@ -49,7 +49,7 @@ module game {
 		//是否加入了三张牌
 		public static isAddHuanSanZhang: boolean = false;
 
-		private static arrHandCards: Array<any> = [];	
+		public static arrHandCards: Array<any> = [];	
 
 
 		public static arrOtherCards: Array<any> = [[], [], [], []];
@@ -410,12 +410,12 @@ module game {
 		 * */
 		public static AddHandCards(sit: number, Card: any): void {
 			let p = Global.getUserPosition(sit);
-			let handcards: Array<game.CardInfo> = this.getHandCards(p);
+			//let handcards: Array<game.CardInfo> = this.getHandCards(p);
 
 			var card: game.CardInfo = new game.CardInfo();
 			card.CardID = Card.CardID;
 			card.Sit = Card.Sit;
-			handcards.push(card);
+			//handcards.push(card);
 
 		}
 		/**
@@ -462,9 +462,7 @@ module game {
 		/**获得手牌数据 请用转换后的本地座位号 */
 		public static getHandCards(sit: number): Array<CardInfo> {
 			let arr: Array<CardInfo> = game.GamePlayData.arrHandCards[sit];
-			if( sit == Global.userSit ){
-				//console.log("=getHandCards==", arr)
-			}
+	
 			// 
 			return arr;
 		}
@@ -919,7 +917,7 @@ module game {
 							tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
 						},
 						tileSets:[
-							{Tiles: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
+							{Tiles: [2, 2, 2, 5, 6, 7, 19, 20, 20, 21],
 							Type: 0},
 							{Tiles: [-1],
 							Type: 8},
@@ -968,7 +966,7 @@ module game {
 						status: 3,
 						tingTileInfo: [],
 						userName: "jytzyztp0v",
-						niaoMulti:1,
+						niaoMulti:3,
 						userPos:{
 							roomID: 1,
 							seatID: 4,

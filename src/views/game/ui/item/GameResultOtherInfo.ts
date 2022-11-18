@@ -18,7 +18,6 @@ module game {
 		private listTitleLayout: eui.TileLayout;
 		private CandsGroup: eui.Group;
 
-
 		protected childrenCreated(): void {
 			super.childrenCreated();
 			if (Global.language == "en") {
@@ -30,17 +29,15 @@ module game {
 			this.icon_h.source = "gameResult_icon_htype_" + Global.language + "__png";
 		}
 		public setResult(info: room.VGUserInfo,hu: number): void {
+	
+			this.showHandCardInfo(info.tileSets[0].Tiles)
 			if (Global.getUserPosition(info.userPos.seatID ) == 3) {
 				this.imgHead.source = Global.commURL + "head/iconHead" + Global.userHead + ".png";
-
 			} else {
 				this.imgHead.source = Global.commURL + "head/iconHead" + Global.getHeadByName(info.userName) + ".png";
-	
 			}
-
 			
 			this.zhuangImg.visible = info.role == 0;
-
 			if(hu==1){
 				this.icon_h.visible = true;
 				this.lbName.textColor = 0xFCEFCE;
@@ -53,7 +50,6 @@ module game {
 			this.lbName.text = info.userName;
 
 
-	
 			if (info.userPos.seatID == Global.userSit) {
 				this.lbName.text = GameUtils.ReplaceChar(GameUtils.getShowName(Global.userName), 10, "...");
 				this.imgHead.source = Global.commURL + "head/iconHead" + Global.userHead + ".png";
@@ -87,7 +83,7 @@ module game {
 
 		/*显示剩余手牌*/
 		public showHandCardInfo(arr: Array<number>): void {
-		
+			console.log("===array",arr)
 			let znValue: Array<number> = [];
 			for (let i: number = 0; i < arr.length; i++) {
 			
@@ -101,10 +97,11 @@ module game {
 					znValue.push(cardValue - 18);
 				}
 				let card: BaseHandCardUI = new BaseHandCardUI();
-				card.setCard(3, i, cardValue, 0, false);
+				card.setCard(0, i, cardValue, 0, false);
 		
-				// item.x = j * 126;
+				card.x = i * 126;
 				this.CandsGroup.scaleX = this.CandsGroup.scaleY = 0.5;
+			//	this.CandsGroup.y += 50;
 				this.CandsGroup.addChild(card);
 			}	
 		}

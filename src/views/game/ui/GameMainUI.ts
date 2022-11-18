@@ -35,6 +35,8 @@ module game {
 		public zniaoGroup: eui.Group;
 		public znaioItemGroup: eui.Group;
 
+		public CardGroup: eui.Group;
+
 		private trustText: eui.Image;
 		private huIcon: eui.Image;
 		private private: eui.Group;
@@ -46,6 +48,7 @@ module game {
 		private RchiGroup:eui.Group;
 
 		private birdsGroup:eui.Group;
+
 
 
 		private infoBg: eui.Image;
@@ -70,7 +73,7 @@ module game {
 			this.gamePool.initCard();
 
 			this.gameHand = new game.GameHandUI();
-			this.addChild(this.gameHand);
+			this.CardGroup.addChild(this.gameHand);
 			this.gameHand.addEventListener("ShowTingGroup", this.onShowTingGroup, this);
 			this.gameHand.addEventListener("ShowTingTip", this.onShowTingTip, this);
 			this.gameHand.initHand();
@@ -560,10 +563,9 @@ module game {
 		}
 		// 显示当前出牌玩家头像动画
 		public changeUserRight(nSit): void {
-	
-		
+
 			let p: number = Global.getUserPosition(nSit);
-			console.error(`操作 玩家的座位:${nSit},  自己座位:${Global.userSit} , 本地座位：${p}`)
+			//console.error(`操作 玩家的座位:${nSit},  自己座位:${Global.userSit} , 本地座位：${p}`)
 		
 			this.gamePosition.setPositionItem(p);
 
@@ -574,6 +576,12 @@ module game {
 					this["gameUser" + i].showCurrentAnim(false);
 				}
 			}
+		}
+
+
+		public hideZhaBird(body:room.VGGameResultNtc){
+			this.zniaoGroup.visible = false;
+			this.birdsGroup.removeChildren();
 		}
 
 		public showZhaBird(body:room.VGGameResultNtc){
@@ -589,8 +597,7 @@ module game {
 				let card: BaseHandCardUI = new BaseHandCardUI();
 				this.birdsGroup.addChild(card);
 				let imgCard: eui.Image = new eui.Image();
-				let g: eui.Group = new eui.Group();
-				this.addChild(g);
+		
 				card.addChild(imgCard);
 
 				imgCard.source  = strIndex;
@@ -600,6 +607,10 @@ module game {
 				const seatid = e.userPos.seatID;
 				const p = Global.getUserPosition(seatid);
 				//this["gameUser" + p].setUserInfo(user);
+				this[`zniao${p}`].visible = true;
+				//this[`zniao${p}`]. = true;
+				this[`zniao${p}`].text = `中${e["niaoMulti"]}鸟`;
+				
 			})
 		}
 
@@ -614,8 +625,6 @@ module game {
 		}
 		private onBtnContinue(): void {
 			this.btnContinue.visible = false;
-		
-
 			GameController.onRequeseNextGame();
 		}
 		public startTime(count: number, str: string = ""): void {

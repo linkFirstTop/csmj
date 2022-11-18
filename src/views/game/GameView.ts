@@ -127,7 +127,6 @@ module game {
       this.gameUI.initHandCard();
       egret.setTimeout(
         function () {
-          console.log("==AA");
           // this.gameUI.initPosition();
           this.gameUI.initQshHandCard();
         },
@@ -220,16 +219,14 @@ module game {
     public ACK_ALL_GAMERESULT(evt: egret.Event): void {
       let body: room.VGGameResultNtc = evt.data;
 
-    
-      this.gameUI.showZhaBird(body)
+      this.gameUI.showZhaBird(body);
 
-      return;
       // sound.SoundManager.getInstance().stopBg();
       let nTime: number = 1200;
 
       //console.log("=!!!!SHOW RESULT=====", body)
 
-      let isWin = false;
+      // let isWin = false;
 
       //this.gameUI.playAnim("djjs", -1);
       this.gameUI.stopAllUserAnim();
@@ -254,7 +251,9 @@ module game {
             function () {
               this.gameResult.showResult(body);
             },
-            this, 1000 );
+            this,
+            1000
+          );
 
           this.gameUI.showAllHandCard();
 
@@ -263,7 +262,7 @@ module game {
             tileSets.forEach((obj) => {
               if (obj.Type == 6) {
                 const nSit = body.userInfos[i].userPos.seatID;
-                //this.gameUI.showHuCard(nSit, obj.Tiles[0]);
+                // this.gameUI.showHuCard(nSit, obj.Tiles[0]);
               }
             });
           }
@@ -271,10 +270,6 @@ module game {
         this,
         nTime
       );
-     // ViewManager.ins.changeTimer(true);
-
-  
-      // this.gameResult.showResult(body);
     }
     public onGameContinue(): void {
       GameParmes.isGameFlower = true;
@@ -287,7 +282,6 @@ module game {
 
       //GamePlayData.MJ_LiangOtherPais = [];
       arr.forEach((e: any, i) => {
-        console.log("===eee", e);
         const user: room.VGUserInfo = e.origin;
         let nSit: number = user.userPos.seatID;
         let p = Global.getUserPosition(user.userPos.seatID - 1);
@@ -595,7 +589,17 @@ module game {
       }
 
       if (nSit == Global.userSit) {
-        egret.log("****行牌应答:这是玩家操作的结果:", body);
+        const tiles = body.userInfo.tileSets[0].Tiles;
+
+        const arrTmp = [];
+        for (let j = 0; j < tiles.length; j++) {
+          // console.log(j, tiles[j])
+          let card: CardInfo = new CardInfo();
+          card.CardID = tiles[j];
+          card.Sit = nSit;
+          arrTmp[j] = card;
+        }
+        game.GamePlayData.arrHandCards[p] = arrTmp;
       }
 
       //摸牌s
@@ -887,7 +891,7 @@ module game {
      * 服务器通知客户端碰牌
      */
     private ON_USER_PENGPAI(data: room.MJ_Operation, seat: number): void {
-      console.log("=ON_USER_PENGPAI===", data, seat);
+      // console.log("=ON_USER_PENGPAI===", data, seat);
       let nSit: number = seat;
       let card: CardInfo = { CardID: data.ObtainTile, Sit: data.ObtainSeat };
 
@@ -932,7 +936,7 @@ module game {
       // this.gameUI.showCoinChange(arrCoin);
       let p: number = Global.getUserPosition(nSit);
       const sex = this.gameUI["gameUser" + p].sex;
-      SoundModel.playEffect(`${sex}${SoundModel.GANG}`);
+      SoundModel.playEffect(SoundModel.GANG);
     }
 
     private ON_USER_BUGANGPAI(card, seat: number): void {
@@ -944,7 +948,7 @@ module game {
       // this.gameUI.showCoinChange(arrCoin);
       let p: number = Global.getUserPosition(nSit);
       const sex = this.gameUI["gameUser" + p].sex;
-      SoundModel.playEffect(`${sex}${SoundModel.GANG}`);
+      SoundModel.playEffect(SoundModel.GANG);
     }
 
     /**
@@ -960,7 +964,7 @@ module game {
       //this.gameUI.showCoinChange(arrCoin);
       let p: number = Global.getUserPosition(nSit);
       const sex = this.gameUI["gameUser" + p].sex;
-      SoundModel.playEffect(`${sex}${SoundModel.GANG}`);
+      SoundModel.playEffect(SoundModel.GANG);
     }
 
     /*
