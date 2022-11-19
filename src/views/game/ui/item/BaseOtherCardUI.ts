@@ -19,7 +19,7 @@ module game {
 			} else {
 				strIndex = "" + (value+1);
 			}
-			console.log("=====chid hi", p)
+			//console.log("=====chid hi", p)
 			if (p == 0) {//down
 				if (isAnGang) {
 					if (value > 0) {
@@ -48,7 +48,7 @@ module game {
 						//this.imgBack.source = "cardGang" + strIndex;//正面
 						 this.imgCard.source = "cardValueR" + strIndex;
 					} else {
-						console.log("=====chid hi")
+						//console.log("=====chid hi")
 						this.imgBack.source = "cardGangR";//背面
 					}
 				} else {//明杠，吃，碰

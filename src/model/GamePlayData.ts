@@ -410,12 +410,12 @@ module game {
 		 * */
 		public static AddHandCards(sit: number, Card: any): void {
 			let p = Global.getUserPosition(sit);
-			//let handcards: Array<game.CardInfo> = this.getHandCards(p);
+			let handcards: Array<game.CardInfo> = this.getHandCards(p);
 
 			var card: game.CardInfo = new game.CardInfo();
 			card.CardID = Card.CardID;
 			card.Sit = Card.Sit;
-			//handcards.push(card);
+			handcards.push(card);
 
 		}
 		/**

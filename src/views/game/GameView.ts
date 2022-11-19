@@ -427,8 +427,15 @@ module game {
      * @param msg
      * 托管消息
      */
-    private ACK_USER_PLAYERTRUST(): void {
-      this.gameUI.showTrust(true);
+    private ACK_USER_PLAYERTRUST(evt: egret.Event): void {
+    
+      const body:any = evt.data;
+
+      console.log("===body===",body.data)
+      if(body.result == 1){
+        this.gameUI.showTrust(body.isManaged);
+      }
+      
     }
     /**
      * @param msg
@@ -609,6 +616,7 @@ module game {
         card.Sit = nSit;
 
         game.GamePlayData.AddHandCards(nSit, card);
+
         this.gameUI.getOneCard(card);
       }
 
