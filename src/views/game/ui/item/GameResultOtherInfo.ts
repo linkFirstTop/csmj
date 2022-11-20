@@ -31,7 +31,7 @@ module game {
 		public setResult(info: room.VGUserInfo,hu: number): void {
 	
 			this.showHandCardInfo(info.tileSets[0].Tiles)
-			if (Global.getUserPosition(info.userPos.seatID ) == 3) {
+			if (Global.getUserPosition(info.userPos.seatID ) == 0) {
 				this.imgHead.source = Global.commURL + "head/iconHead" + Global.userHead + ".png";
 			} else {
 				this.imgHead.source = Global.commURL + "head/iconHead" + Global.getHeadByName(info.userName) + ".png";
@@ -83,21 +83,15 @@ module game {
 
 		/*显示剩余手牌*/
 		public showHandCardInfo(arr: Array<number>): void {
-			console.log("===array",arr)
+			// console.log("===array",arr)
 			let znValue: Array<number> = [];
 			for (let i: number = 0; i < arr.length; i++) {
 			
-				let cardValue: number = arr[i]
+				let cardValue: number = arr[i] + 1
 	
-				if (cardValue < 10) {//万
-					znValue.push(cardValue);
-				} else if (cardValue >= 10 && cardValue < 19) {//条
-					znValue.push(cardValue - 9);
-				} else if (cardValue >= 19 && cardValue < 28) {//筒
-					znValue.push(cardValue - 18);
-				}
+		
 				let card: BaseHandCardUI = new BaseHandCardUI();
-				card.setCard(0, i, cardValue, 0, false);
+				card.setCard(0,  cardValue, 0, false);
 		
 				card.x = i * 126;
 				this.CandsGroup.scaleX = this.CandsGroup.scaleY = 0.5;

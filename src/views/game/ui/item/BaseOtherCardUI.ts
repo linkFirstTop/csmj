@@ -23,21 +23,14 @@ module game {
 			if (p == 0) {//down
 				if (isAnGang) {
 					if (value > 0) {
-						//明牌（正面）
-						// this.imgBack.source = "card_down_a2";
-						//this.imgBack.source = "cardGangR" + strIndex;
 						this.imgCard.source = "cardValueV" + strIndex;
-	
 					} else {
-						//暗牌（背面）
 						this.imgBack.source = "cardGangD";
 					}
 				} else {//明杠，吃，碰
-					// this.imgBack.source = "card_down_a2";
-					// if (value > 0) {
-						console.log("==strIndex=",strIndex)
+			
 					this.imgCard.source = "cardValueV" + strIndex;
-					// }
+			
 				}
 				this.imgCard.verticalCenter = 0;
 			}

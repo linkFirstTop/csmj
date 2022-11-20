@@ -132,17 +132,17 @@ module game {
       ],
       [
         { x: 140-18*2, y: 428 },
-        { x: 140-18, y: 428+60 },
+        { x: 140-18, y: 428+56 },
         { x: 140, y: 428+112 },
       ],
       [
         { x: 70-18*2, y: 233 },
-        { x: 70-18, y: 233+60 },
+        { x: 70-18, y: 233+56 },
         { x: 70, y: 233+112 },
       ],
       [
         { x: 0-18*2, y: 38 },
-        { x: 0-18, y: 38+60 },
+        { x: 0-18, y: 38+56 },
         { x: 0, y: 38+112 },
       ],
     ];
@@ -405,7 +405,7 @@ module game {
       let card: BaseHandCardUI = new BaseHandCardUI();
     
       let isQue: boolean = false;
-      let cardValue: number = game.GameParmes.getCardID(info);
+      let cardValue: number = info.CardID; //game.GameParmes.getCardID(info);
 
       if (p == 0) {
         ghand.addChild(card);
@@ -429,31 +429,26 @@ module game {
           );
         }
       }
-      card.setCard(p, 0, cardValue, 0, isQue);
+      card.setCard(p, cardValue, 0, isQue);
       if (p == 0) {
         ghand.addChild(card);
         card.cardInfo = info;
         card.y = -50;
-        // card.x = (ghand.numChildren - 1) * 90;
-        // card.x += 10;
         card.x = (ghand.numChildren - 1) * (126 - 5) + 15;
 
         egret.Tween.get(card).to({ y: 0, touchEnabled: true }, 200);
-        // card.x = this.arrLHP[0].x;
-        // card.y = this.arrLHP[0].y;
+ 
       }
       if (p == 1) {
         ghand.addChildAt(card, 0);
      
-        //console.log("=====card--")
-
         card.x = 0;
         card.y = -50;
         egret.Tween.get(card).to({ y: -10, touchEnabled: true }, 200);
       }
       if (p == 2) {
         ghand.addChildAt(card, 0);
-        card.setCard(p, 16, 1, 0, isQue);
+        card.setCard(p, 16,  0, isQue);
         // card.x = this.arrRHP[0].x;
         // card.y = this.arrRHP[0].y;
          card.y = -50;
@@ -531,7 +526,7 @@ module game {
         if (p == 0) {
          
           let itemCardWidth: number = 121;
-          card.setCard(p, i + index, cardValue, state, isQue);
+          card.setCard(p ,cardValue, state, isQue);
           card.cardInfo = info;
           if (GameParmes.isHu) {
             card.setMaskFlag(false);
@@ -561,7 +556,7 @@ module game {
           this.gHandCardD.x = GameConfig.curWidth() - this.gHandCardD.width - 180;
         }
         if (p == 1) {
-          card.setCard(p, 16 - i - index, cardValue, state, isQue);
+          card.setCard(p,  cardValue, state, isQue);
           if (state == 0) {
             card.x = 23 + i * 18;
             card.y = 53 + i * 42;
@@ -585,7 +580,7 @@ module game {
         }
         if (p == 2) {
           let itemCardWidth: number = 76 - 1;
-          card.setCard(p, i + index, cardValue, state, isQue);
+          card.setCard(p,cardValue, state, isQue);
           if (state == 0) {
             card.x = i * itemCardWidth;
             // if (index == 0 && i == 0) {
@@ -605,7 +600,7 @@ module game {
           let mcY: number = 16;
           nOptHei = 160;
           nOptW = 72;
-          card.setCard(p, i + index, cardValue, state, isQue);
+          card.setCard(p,  cardValue, state, isQue);
           if (state == 0) {
             //暗牌
             card.x = itemX - (12 - i) * 18;
@@ -1137,7 +1132,7 @@ module game {
         ghand.addChild(card);
 
         if (p == 0) {
-          card.setCard(p, i + index, cardValue, state, isQue);
+          card.setCard(p, cardValue, state, isQue);
           if (state == 0) {
             //暗牌
             card.x = this.arrLHP[i + index].x;
@@ -1150,14 +1145,14 @@ module game {
           ghand.addChildAt(card, 0);
         }
         if (p == 1) {
-          card.setCard(p, i + index, cardValue, state, isQue);
+          card.setCard(p, cardValue, state, isQue);
           card.x = i * 44;
           if (index == 0 && i == 0) {
             card.x -= 10;
           }
         }
         if (p == 2) {
-          card.setCard(p, 16 - i - index, cardValue, state, isQue);
+          card.setCard(p,  cardValue, state, isQue);
           if (state == 0) {
             card.x = this.arrRHP[i + index].x;
             card.y = this.arrRHP[i + index].y;
@@ -1168,7 +1163,7 @@ module game {
           ghand.addChild(card);
         }
         if (p == 3) {
-          card.setCard(p, i + index, cardValue, state, isQue);
+          card.setCard(p, cardValue, state, isQue);
           if (GameParmes.isHu) {
             card.setMaskFlag(false);
             if (i == len - 1 && index == 0) {

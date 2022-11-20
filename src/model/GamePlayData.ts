@@ -665,7 +665,7 @@ module game {
 				],
 				remainCount: 54,
 				result: 0,
-				seatid: 1,
+				seatid: 2,
 				userInfo:{},
 			}
 

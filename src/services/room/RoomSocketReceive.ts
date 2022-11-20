@@ -251,12 +251,8 @@ module room {
 
 		//服务器通知客户端托管
 		private ON_VGID_USER_MANAGED(byte: egret.ByteArray): void {
-			//Global.log("服务器通知客户端托管");
 			var body: room.VGUserManagedAck = room.VGUserManagedAck.decode(byte.bytes);
-			console.log("服务器通知客户端托管", body);
-
 	
-		//console.log("托管玩家座位号:" + body.TrustSit, "我的座位号:" + Global.userSit);
 			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_USER_MANAGED, true, true, body));
 		}
 

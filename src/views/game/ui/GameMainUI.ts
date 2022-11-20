@@ -69,7 +69,7 @@ module game {
 			this.imgTHTip.source = "gameIcon_tianhu_" + Global.language + "_png";
 			this.btnContinue.source = "gameResult_continue_" + Global.language + "_png";
 			this.gamePool = new game.GamePoolUI();
-			this.addChild(this.gamePool);
+			this.CardGroup.addChild(this.gamePool);
 			this.gamePool.initCard();
 
 			this.gameHand = new game.GameHandUI();
@@ -115,21 +115,19 @@ module game {
 				//const card =  new game.CardInfo()
 				// GameParmes.gameStage = GameStageType.PLAYING
 
-				//const nSit = 4
-				// const card: CardInfo = new CardInfo();
-				// card.CardID = 1;
-				// card.Sit = nSit;
-				 //let card: CardInfo = { CardID:1, Sit: 3 };
+				const nSit = 2
+			
+				//  let card: CardInfo = { CardID:1, Sit: 3 };
 				// const body = {
 				// 	ObtainCard: card,
-				// 	Type: CardsGroupType.MINGGANG,
+				// 	Type: CardsGroupType.PENG,
 				// 	ObtainCardSit: 1,
 				// 	sit: nSit,
 				// 	Cards: [
 				// 		{ CardID:27, Sit: nSit },
 				// 		{ CardID: 27, Sit: nSit },
 				// 		{ CardID: 27, Sit: nSit },
-				// 		{ CardID: 27, Sit: nSit },
+				// 		//{ CardID: 27, Sit: nSit },
 				// 	],
 				// }
 				// game.GamePlayData.SaveCurrentCard(0, -1);
@@ -139,20 +137,20 @@ module game {
 
 				// this.playAnim("chi", nSit);
 				//this.gameUI.playAnim("hdly",nSit);
-				//this.updataUserCPG(nSit, card);
+				// this.updataUserCPG(nSit, card);
 				// //game.GamePlayData.AddHandCards(nSit, card);
 				//this.getOneCard(card);
 				// this.gameHand.createCPGCard(nSit);
 				//  this.changeUserRight(nSit);
 
-				//  let card1: CardInfo = { CardID:1, Sit: 1 };
-				//  this.userSendCard( card1,false);
-				//  let card2: CardInfo = { CardID:11, Sit: 1 };
-				//  this.userSendCard( card2,false);
-				//  let card3: CardInfo = { CardID:18, Sit: 1 };
-				//  this.userSendCard( card3,false);
-				//  let card4: CardInfo = { CardID:27, Sit: 1 };
-				//  this.userSendCard( card4,false);
+				 let card1: CardInfo = { CardID:1, Sit: 4 };
+				 this.userSendCard( card1,false);
+				 let card2: CardInfo = { CardID:11, Sit: 4 };
+				 this.userSendCard( card2,false);
+				 let card3: CardInfo = { CardID:18, Sit: 4 };
+				 this.userSendCard( card3,false);
+				 let card4: CardInfo = { CardID:27, Sit: 4 };
+				 this.userSendCard( card4,false);
 
 			//    const gameopt = game.GamePlayData.MockGameOption();
 			// 	ViewManager.ins.gameView.ACK_GAME_OPERATION( <any>{data:gameopt} );
@@ -163,8 +161,8 @@ module game {
 				//    const gameopt = game.GamePlayData.MockSyncGameNtc();
 				//    game.GamePlayData.ContinueGame(gameopt);
 
-				   const gameopt = game.GamePlayData.MockResultNtc();
-				   ViewManager.ins.gameView.ACK_ALL_GAMERESULT( <any>{data:gameopt} );
+				//    const gameopt = game.GamePlayData.MockResultNtc();
+				//    ViewManager.ins.gameView.ACK_ALL_GAMERESULT( <any>{data:gameopt} );
 				
 				   
 				
@@ -385,15 +383,10 @@ module game {
 		 */
 		public getOneCard(card: game.CardInfo): void {
 			this.gameOpt.visible = false;
-			// console.log("===ss===")
-			// this.gameHand.getOneCard(card);
 
 			//在打牌阶段得倒的牌不用刷新，把牌放在最右边
 			if (GameParmes.gameStage == GameStageType.PLAYING) {
-				// this.gamePosition.startTime(GameParmes.gamePlayTime);
-			
 				this.gameHand.getOneCard(card);
-		
 			}			
 		}
 		public hideTingFlag(): void {
@@ -609,8 +602,7 @@ module game {
 				//this["gameUser" + p].setUserInfo(user);
 				this[`zniao${p}`].visible = true;
 				//this[`zniao${p}`]. = true;
-				this[`zniao${p}`].text = `中${e["niaoMulti"]}鸟`;
-				
+				this[`zniao${p}`].text = e["niaoMulti"];
 			})
 		}
 

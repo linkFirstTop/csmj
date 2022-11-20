@@ -12,5 +12,13 @@ module GDGame {
 			}
 			return GDGame.Msg._ins;
 		}
+
+		public on (type: string, listener: Function, thisObject: any, useCapture?: boolean, priority?: number){
+			GDGame.Msg._ins.addEventListener(type, listener, thisObject, useCapture, priority)
+		}
+
+		public off (type: string, listener: Function, thisObject: any, useCapture?: boolean){
+			GDGame.Msg._ins.removeEventListener(type, listener, thisObject, useCapture)
+		}
 	}
 }

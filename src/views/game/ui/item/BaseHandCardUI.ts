@@ -14,7 +14,7 @@ module game {
 		public isMoCard:boolean = false;
 		private imgTip: eui.Image;
 		/*p:方位 index:牌的索引 value:牌值 state:0 暗牌 1亮牌 isDQ:是否定缺牌*/
-		public setCard(p: number, index: number, value: number, state: number, isDQ: boolean = false): void {
+		public setCard(p: number, value: number, state: number, isDQ: boolean = false): void {
 			let g: eui.Group = new eui.Group();
 			this.addChild(g);
 			g.addChild(this.imgBack);
