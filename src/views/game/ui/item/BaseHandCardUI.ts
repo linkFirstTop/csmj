@@ -21,27 +21,46 @@ module game {
 			g.addChild(this.imgCard);
 			this.imgBack.horizontalCenter = this.imgBack.verticalCenter = 0;
 			this.imgCard.horizontalCenter = 0;
-			var strIndex: string;
+			var strIndex :string ;
+
+			console.log("==sss= setCardsetCardsetCardsetCard==",strIndex)
 			if (p == 3) {//左
+				if (value < 9) {
+					strIndex = `cardValueH${value +1}` ;
+				} else {
+					strIndex = `cardValueH${value +1}` ;
+				}
 				if (state == 0) {//暗牌
 					this.imgBack.source = "cardhandL";
 				} else {//明牌
-					this.imgBack.source = "cardValueH" + strIndex ;
-		
+				
+					this.imgBack.source =  strIndex ;
+	
 				}
 			}
 			if (p == 2) {//上
+				if (value < 9) {
+					strIndex = `cardValueU1${value +1}` ;
+				} else {
+					strIndex = `cardValueU1${value +1}` ;
+				}
 				if (state == 0) {
 					this.imgBack.source = "cardBackUp";
 				} else {
-					this.imgBack.source = "cardValueU1" + strIndex;
+					this.imgBack.source = strIndex
 				}
 			}
 			if (p ==1) {//右
+
+				if (value < 9) {
+					strIndex = `cardValueR${value +1}` ;
+				} else {
+					strIndex = `cardValueR${value +1}` ;
+				}
 				if (state == 0) {
 					this.imgBack.source = "cardhandR";
 				} else {
-					this.imgBack.source = "cardValueR" + strIndex;
+					this.imgBack.source = strIndex;
 				}
 				// this.imgBack.scaleX = -1;//水平翻转由左向右
 			}

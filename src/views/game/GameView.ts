@@ -42,9 +42,6 @@ module game {
       	// GDGame.Msg.ins.addEventListener(GameMessage.ACK_GAMEPLAYERLIST, this.ACK_GAME_PLAYERLIST, this);
       	GDGame.Msg.ins.on(GameMessage.NTF_ROOM_STATE, this.ACK_GAME_STATUS_CHANGED, this );
 
-      	// GDGame.Msg.ins.addEventListener(GameMessage.VGID_GAME_GAMERESULT, this.ACK_GAME_RESULT, this);
-      	//游戏全部结束
-     	 GDGame.Msg.ins.on(GameMessage.VGID_GAME_GAMERESULT, this.ACK_ALL_GAMERESULT, this );
 
       	//服务器通知客户端托管操作
       	GDGame.Msg.ins.on(GameMessage.VGID_USER_MANAGED, this.ACK_USER_PLAYERTRUST, this);
@@ -59,6 +56,11 @@ module game {
 
       	//断线重联
       	GDGame.Msg.ins.on(room.RoomMessage.ACK_GAME_CONTINUE, this.onGameContinue,  this );
+
+		// GDGame.Msg.ins.addEventListener(GameMessage.VGID_GAME_GAMERESULT, this.ACK_GAME_RESULT, this);
+      	//游戏全部结束
+		GDGame.Msg.ins.on(GameMessage.VGID_GAME_GAMERESULT, this.ACK_ALL_GAMERESULT, this );
+
     }
 	//this.gameUI.initGame();
     /**
@@ -175,7 +177,11 @@ module game {
     public ACK_ALL_GAMERESULT(evt: egret.Event): void {
       	let body: room.VGGameResultNtc = evt.data;
 
-      	this.gameUI.showZhaBird(body);
+		  let isAnim: boolean = false;
+		  if( body.birdTiles.length > 0){
+			this.gameUI.showZhaBird(body);
+		  }
+      	
 
       	// sound.SoundManager.getInstance().stopBg();
       	let nTime: number = 1200;
@@ -185,10 +191,10 @@ module game {
       	//this.gameUI.playAnim("djjs", -1);
       	this.gameUI.stopAllUserAnim();
 
-      	game.GamePlayData.SaveHandCarsd(body.userInfos);
+     
       	GameParmes.gameTurn = GameTurnType.OTHERTURN;
 
-      	let isAnim: boolean = false;
+ 
       	for (let i: number = 0 ,n = body.userInfos.length; i <n; i++) {
 			const userInfos =body.userInfos[i]
         	this.gameUI.updataUserCoin( userInfos.userPos.seatID,  Number(userInfos.gameCoin));
@@ -199,10 +205,11 @@ module game {
         }
      	egret.setTimeout(function () {
           	egret.setTimeout( function () {
-              	this.gameResult.showResult(body);
+              //	this.gameResult.showResult(body);
             	},  this, 1000
           	);
 
+			game.GamePlayData.SaveHandCarsd(body.userInfos);
           	this.gameUI.showAllHandCard();
 
           	for (let i: number = 0; i < body.userInfos.length; i++) {

@@ -485,12 +485,7 @@ module game {
       return arr;
     }
 
-    public updataHandsByPosition(
-      sit: number,
-      state: number,
-      isShow: boolean = true,
-      isQishou: boolean = false
-    ): void {
+    public updataHandsByPosition(  sit: number,  state: number, isShow: boolean = true,  isQishou: boolean = false  ): void {
       let p: number = Global.getUserPosition(sit);
       //console.log("====updataHandsByPosition==",sit,p)
 
@@ -500,20 +495,17 @@ module game {
       let arr: Array<CardInfo> = this.copyHandCard(
         game.GamePlayData.getHandCards(p)
       );
-
-      if (isQishou) {
-        this.clearSomeGroup(ghand, arr);
-      } else {
-        this.clearGroup(ghand);
-      }
+    
+ 
       let index: number = 0;
       let len: number = arr.length;
 
       for (var i: number = 0; i < len; i++) {
         let isQue: boolean = false;
         let info: game.CardInfo = arr[i];
+      
         let cardValue: number = info.CardID; // game.GameParmes.getCardID(info);
-
+        // console.log("====updataHandsB  arr yPoarr=",cardValue)
         if (cardValue == -1 && isQishou) {
           continue;
         }

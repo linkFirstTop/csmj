@@ -13,8 +13,8 @@ module game {
 		public static CHU:string = "sendCard_mp3";
 		public static ZHUA:string = "zhuapai_mp3";
 		public static TIME:string = "time_mp3";
-		public static playCardSound(card:game.CardInfo):void{
-			let index:number = GameParmes.getCardID(card);
+		public static playCardSound(CardID:number):void{
+			let index:number = CardID + 1;
 			if(index >= 1 && index <= 9){
 				sound.SoundManager.getInstance().playEffect(index+"w_mp3");
 				return ;

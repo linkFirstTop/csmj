@@ -46,7 +46,7 @@ module room {
 				return ;
 			}*/
 			//console.log("==ssss")
-		    //game.GamePlayData.MockStart();
+		   // game.GamePlayData.MockStart();
 
 			this.dispatchEvent(new egret.Event("OnItemClick", true, true, this.info));
 		}
@@ -93,9 +93,7 @@ module room {
 			ar.animation.play(this.itemWenZiArr[this.info.roomID - 1], 0);
 			this.gContent.addChildAt(ar, 0);
 	  
-		
+
 		}
-
-
 	}
 }

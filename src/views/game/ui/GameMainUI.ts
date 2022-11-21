@@ -86,6 +86,7 @@ module game {
 			this.RchiGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTapRightChi, this);
 
 
+
 			// this.addChild(this.gameHSZ);
 			// this.gameHSZ.addEventListener("OnSendHSZCards",this.onSendHSZCards,this);
 			// this.gameHSZ.addEventListener("OnHSZAnimComplete",this.onHSZAnimComplete,this);
@@ -109,6 +110,8 @@ module game {
 			// 测试用按钮
 			this.btnTest.visible = false;
 			this.btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
+
+
 
 				// this.onShowOpt([true,true,true,true,true]);
 				// return
@@ -143,14 +146,14 @@ module game {
 				// this.gameHand.createCPGCard(nSit);
 				//  this.changeUserRight(nSit);
 
-				 let card1: CardInfo = { CardID:1, Sit: 4 };
-				 this.userSendCard( card1,false);
-				 let card2: CardInfo = { CardID:11, Sit: 4 };
-				 this.userSendCard( card2,false);
-				 let card3: CardInfo = { CardID:18, Sit: 4 };
-				 this.userSendCard( card3,false);
-				 let card4: CardInfo = { CardID:27, Sit: 4 };
-				 this.userSendCard( card4,false);
+				//  let card1: CardInfo = { CardID:1, Sit: 4 };
+				//  this.userSendCard( card1,false);
+				//  let card2: CardInfo = { CardID:11, Sit: 4 };
+				//  this.userSendCard( card2,false);
+				//  let card3: CardInfo = { CardID:18, Sit: 4 };
+				//  this.userSendCard( card3,false);
+				//  let card4: CardInfo = { CardID:18, Sit: 4 };
+				//  this.userSendCard( card4,false);
 
 			//    const gameopt = game.GamePlayData.MockGameOption();
 			// 	ViewManager.ins.gameView.ACK_GAME_OPERATION( <any>{data:gameopt} );
@@ -161,8 +164,8 @@ module game {
 				//    const gameopt = game.GamePlayData.MockSyncGameNtc();
 				//    game.GamePlayData.ContinueGame(gameopt);
 
-				//    const gameopt = game.GamePlayData.MockResultNtc();
-				//    ViewManager.ins.gameView.ACK_ALL_GAMERESULT( <any>{data:gameopt} );
+				   const gameopt = game.GamePlayData.MockResultNtc();
+				   ViewManager.ins.gameView.ACK_ALL_GAMERESULT( <any>{data:gameopt} );
 				
 				   
 				
@@ -316,7 +319,7 @@ module game {
 			this.gameOpt.visible = false;
 			this.gamePool.addCardToPool(card);
 			this.gameHand.updataHandsByPosition(card.Sit, 0);
-			game.SoundModel.playCardSound(card);
+			game.SoundModel.playCardSound(card.CardID);
 	
 		}
 
