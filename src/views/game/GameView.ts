@@ -205,7 +205,7 @@ module game {
         }
      	egret.setTimeout(function () {
           	egret.setTimeout( function () {
-              //	this.gameResult.showResult(body);
+              	this.gameResult.showResult(body);
             	},  this, 1000
           	);
 

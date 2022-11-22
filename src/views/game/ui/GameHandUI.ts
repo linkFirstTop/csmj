@@ -543,7 +543,7 @@ module game {
             // 	card.x += 10;
             // }
           } else {
-            card.x = i * card.width - i * 2;
+            //card.x = i * card.width - i * 2;
           }
           this.gHandCardD.x = GameConfig.curWidth() - this.gHandCardD.width - 180;
         }

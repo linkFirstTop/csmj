@@ -21,12 +21,11 @@ module game {
 			g.addChild(this.imgCard);
 			this.imgBack.horizontalCenter = this.imgBack.verticalCenter = 0;
 			this.imgCard.horizontalCenter = 0;
+			this.cardIndex = value;
 			var strIndex :string ;
-
-			console.log("==sss= setCardsetCardsetCardsetCard==",strIndex)
 			if (p == 3) {//左
 				if (value < 9) {
-					strIndex = `cardValueH${value +1}` ;
+					strIndex = `cardValueH0${value +1}` ;
 				} else {
 					strIndex = `cardValueH${value +1}` ;
 				}
@@ -66,7 +65,7 @@ module game {
 			}
 			if (p == 0) {
 
-				this.cardIndex = value;
+			
 				if (value < 9) {
 					strIndex = `cardValue000${value +1}` ;
 				} else {
@@ -86,7 +85,7 @@ module game {
 					}
 				} else {//明牌
 					
-					this.imgCard.source = "cardValueV" + strIndex;
+					this.imgCard.source = strIndex;
 					// this.imgCard.scaleX = this.imgCard.scaleY = 0.9;
 					// this.imgCard.verticalCenter = -10;
 				}
