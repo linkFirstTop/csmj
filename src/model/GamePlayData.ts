@@ -677,10 +677,10 @@ module game {
 					{
 						ObtainSeat: 1,
 						ObtainTile: 3,
-						Tiles: [ 3,3,3],
+						Tiles: [3,2],
 						fans: [],
 						operationID: 0,
-						operationType: CardsGroupType.MJ_OperationType.MJ_OT_PONG,
+						operationType: CardsGroupType.MJ_OperationType.MJ_OT_TING,
 						tingTileInfo: [],		
 					},
 					// {
@@ -958,7 +958,6 @@ module game {
 						fan: [],
 						feeCoin: 0,
 						gameCoin: 10488,
-						
 						isManaged: 0,
 						resultCoin: 0,
 						role: 1,
@@ -973,7 +972,7 @@ module game {
 							tableID: "{F29C47DB-B580-4F96-92B8-3975E587574D}",
 						},
 						tileSets:[
-							{Tiles: [2, 8, 12, 15, 16, 19, 20, 21, 21, 26],
+							{Tiles: [0, 8, 12, 15, 16, 19, 20, 21, 21, 26],
 							Type: 0},
 							{Tiles: [9, 14, 24],
 							Type: 10},

@@ -45,7 +45,7 @@ module game {
 			this.alpha = this.alpha == 1 ? 0.2 : 1;
 		}
 		public showResult(body: room.VGGameResultNtc): void {
-			console.log("页面展示");
+			// console.log("页面展示");
 			this.visible = true;
 			this.alpha = 1;
 			let arr: Array<any> = body.userInfos;
@@ -60,8 +60,6 @@ module game {
 				const User: game.GameResultOtherInfo = <GameResultOtherInfo>this.userGroup.getChildAt(i);
 				
 				if (p == 0) {//玩家自己
-					
-
 					sourceSelf = Number(info.resultCoin);
 					if(sourceSelf>0){
 						User.setResult(info,1);
@@ -72,7 +70,7 @@ module game {
 					if(sourceSelf!=0){
 						User.showDetailInfo(info.fan);
 					}
-					User.showHandCardInfo(info.tileSets[0].Tiles);
+					// User.showHandCardInfo(info.tileSets[0].Tiles);
 					GDGame.Msg.ins.dispatchEvent(new egret.Event(room.RoomMessage.OGID_ROOM_UPDATECOIN));
 				} else {//其他玩家
 					const resultCoin = Number(info.resultCoin);

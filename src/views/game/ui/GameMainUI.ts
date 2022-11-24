@@ -111,8 +111,6 @@ module game {
 			this.btnTest.visible = false;
 			this.btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
 
-
-
 				// this.onShowOpt([true,true,true,true,true]);
 				// return
 				//const card =  new game.CardInfo()
@@ -166,8 +164,6 @@ module game {
 
 				   const gameopt = game.GamePlayData.MockResultNtc();
 				   ViewManager.ins.gameView.ACK_ALL_GAMERESULT( <any>{data:gameopt} );
-				
-				   
 				
 			}, this);
 		

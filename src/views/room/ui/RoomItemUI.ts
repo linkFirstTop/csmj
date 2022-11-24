@@ -46,8 +46,7 @@ module room {
 				return ;
 			}*/
 			//console.log("==ssss")
-		    //game.GamePlayData.MockStart();
-
+		   // game.GamePlayData.MockStart();
 			this.dispatchEvent(new egret.Event("OnItemClick", true, true, this.info));
 		}
 		private itemWenZiArr: Array<string> = ["rmg", "cjg", "zjg", "gjg", "djg", "zzg"];
@@ -92,8 +91,7 @@ module room {
 			ar.y = 160;
 			ar.animation.play(this.itemWenZiArr[this.info.roomID - 1], 0);
 			this.gContent.addChildAt(ar, 0);
-	  
-
+	
 		}
 	}
 }

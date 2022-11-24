@@ -33,16 +33,18 @@ module game {
 					this.imgBack.source = "cardhandL";
 				} else {//明牌
 				
-					this.imgBack.source =  strIndex ;
+					
+					this.imgCard.source =  strIndex ;
 	
 				}
 			}
 			if (p == 2) {//上
 				if (value < 9) {
-					strIndex = `cardValueU1${value +1}` ;
+					strIndex = `cardValueU0${value +1}` ;
 				} else {
-					strIndex = `cardValueU1${value +1}` ;
+					strIndex = `cardValueU${value +1}` ;
 				}
+				
 				if (state == 0) {
 					this.imgBack.source = "cardBackUp";
 				} else {
@@ -52,14 +54,14 @@ module game {
 			if (p ==1) {//右
 
 				if (value < 9) {
-					strIndex = `cardValueR${value +1}` ;
+					strIndex = `cardValueR0${value +1}` ;
 				} else {
 					strIndex = `cardValueR${value +1}` ;
 				}
 				if (state == 0) {
 					this.imgBack.source = "cardhandR";
 				} else {
-					this.imgBack.source = strIndex;
+					this.imgCard.source = strIndex;
 				}
 				// this.imgBack.scaleX = -1;//水平翻转由左向右
 			}
@@ -90,15 +92,6 @@ module game {
 					// this.imgCard.verticalCenter = -10;
 				}
 			}
-
-			// if (game.GamePlayData.tingData[Global.userSit] == true && p == 3) {
-			// 	this.setMaskFlagEX(true);
-			// } else {
-
-			// 	this.setMaskFlagEX(false);
-			// }
-
-
 		}
 		private onCardTap(): void {
 

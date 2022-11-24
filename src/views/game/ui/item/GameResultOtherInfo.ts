@@ -29,6 +29,7 @@ module game {
 			this.icon_h.source = "gameResult_icon_htype_" + Global.language + "__png";
 		}
 		public setResult(info: room.VGUserInfo,hu: number): void {
+			console.log("=info.tileSets==",info.tileSets)
 	
 			this.showHandCardInfo(info.tileSets[0].Tiles)
 			if (Global.getUserPosition(info.userPos.seatID ) == 0) {
@@ -83,11 +84,11 @@ module game {
 
 		/*显示剩余手牌*/
 		public showHandCardInfo(arr: Array<number>): void {
-			// console.log("===array",arr)
+			console.log("===array",arr)
 			let znValue: Array<number> = [];
 			for (let i: number = 0; i < arr.length; i++) {
 			
-				let cardValue: number = arr[i] + 1
+				let cardValue: number = arr[i]
 	
 		
 				let card: BaseHandCardUI = new BaseHandCardUI();

@@ -487,7 +487,7 @@ module game {
 
     public updataHandsByPosition(  sit: number,  state: number, isShow: boolean = true,  isQishou: boolean = false  ): void {
       let p: number = Global.getUserPosition(sit);
-      //console.log("====updataHandsByPosition==",sit,p)
+      // console.log("====updataHandsByPosition==",sit,p)
 
       let ghand: eui.Group = this.findHandGroup(p);
      
@@ -496,7 +496,6 @@ module game {
         game.GamePlayData.getHandCards(p)
       );
     
- 
       let index: number = 0;
       let len: number = arr.length;
 
@@ -516,7 +515,7 @@ module game {
         let nOptW: number = 0;
 
         if (p == 0) {
-         
+        
           let itemCardWidth: number = 121;
           card.setCard(p ,cardValue, state, isQue);
           card.cardInfo = info;
@@ -531,19 +530,9 @@ module game {
             if (i == 13) {
               //自己出牌，断线回来
               card.x = i * itemCardWidth + 20;
-            } else if (
-              (len == 11 && i == 10) ||
-              (len == 8 && i == 7) ||
-              (len == 5 && i == 4) ||
-              (len == 2 && i == 1)
-            ) {
-             // card.x = 300 - (12 - i * itemCardWidth) * 18;
-            }
-            // if (i == len - 1 && index == 0) {
-            // 	card.x += 10;
-            // }
+            } 
           } else {
-            //card.x = i * card.width - i * 2;
+            card.x = i * itemCardWidth;
           }
           this.gHandCardD.x = GameConfig.curWidth() - this.gHandCardD.width - 180;
         }
@@ -571,13 +560,12 @@ module game {
           }
         }
         if (p == 2) {
+
           let itemCardWidth: number = 76 - 1;
           card.setCard(p,cardValue, state, isQue);
           if (state == 0) {
             card.x = i * itemCardWidth;
-            // if (index == 0 && i == 0) {
-            //   card.x -= 10;
-            // }
+
             this.gOtherCardU.x = 1350 - 520;
             this.sprTmpUp.x = 520;
             this.sprTmpUp.y = 36 + 50;
@@ -588,8 +576,7 @@ module game {
         if (p == 3) {
           let itemX: number = 277;
           let itemY: number = 144;
-          let mcX: number = 304;
-          let mcY: number = 16;
+ 
           nOptHei = 160;
           nOptW = 72;
           card.setCard(p,  cardValue, state, isQue);
