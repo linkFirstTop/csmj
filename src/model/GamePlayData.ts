@@ -480,7 +480,7 @@ module game {
 		 * 删除牌池最后一张
 		 * */
 		public static DelectCardPool(cardpool: Array<game.CardInfo>): void {
-			cardpool.pop();
+			cardpool && cardpool.pop();
 		}
 
 		/**

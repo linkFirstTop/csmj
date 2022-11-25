@@ -301,12 +301,16 @@ module game {
           let count: number = len + 4 > g.numChildren ? g.numChildren : len + 4;
           for (let n: number = len; n < count; n++) {
             if (g) {
-            }
-            egret.Tween.get(g)
+              egret.Tween.get(g)
               .wait(j * 800)
               .call(function () {
-                g.getChildAt(n).visible = true;
+                if(g.getChildAt(n)){
+                  g.getChildAt(n).visible = true;
+                }
+               
               }, this);
+            }
+
           }
         }
         len += 4;
