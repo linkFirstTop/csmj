@@ -5,7 +5,7 @@ module game {
     }
     public gameUI: game.GameMainUI;
     private gameOperationUI: game.GameOperationUI;
-    private gameMatch: game.GameMatchUserUI;
+    public gameMatch: game.GameMatchUserUI;
     private gameResult: game.GameResultUI;
     /*添加view*/
     public onAddView(): void {
@@ -93,9 +93,9 @@ module game {
 
       	this.gameUI.initHandCard();
       	egret.setTimeout(function () {
-          	// this.gameUI.initPosition();
+          	 this.gameUI.initPosition();
           	this.gameUI.initQshHandCard();
-        	},this, 2000
+        	},this, 1000
       	);
     }
 

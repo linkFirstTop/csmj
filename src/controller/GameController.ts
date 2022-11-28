@@ -103,7 +103,8 @@ module game {
 		 * 请求进行下一轮游戏
 		 */
 		 public static onRequeseNextGame(){
-			let roomID = Global.myPos.roomID
+			let roomID = Global.myPos.roomID;
+			//console.log("==roomID=",roomID)
 			room.RoomWebSocket.instance().roomSender.REQ_ROOMENTERROOM(roomID);
 		}
 

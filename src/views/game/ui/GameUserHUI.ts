@@ -71,14 +71,16 @@ module game {
 				this.nCoin = 0;
 				this.dispatchEvent(new egret.Event("UserLoseGame", true, true, this.nSit));
 			}
-			if (Global.getUserPosition(this.nSit) == 0) {
-				this.imgHead.source = Global.commURL + "head/iconHead" + Global.userHead + ".png";
 
-			} else {
-				this.imgHead.source = Global.commURL + "head/iconHead" + Global.getHeadByName(user.userName) + ".png";
+			this.imgHead.source = Global.commURL + "head/iconHead" + Global.getHeadByName(user.userName) + ".png";
 
-				console.log(user.userName);
-			}
+			// if (Global.getUserPosition(this.nSit) == 0) {
+			// 	this.imgHead.source = Global.commURL + "head/iconHead" + Global.userHead + ".png";
+
+			// } else {
+			
+			// 	console.log(user.userName);
+			// }
 			if (Global.getUserPosition(this.nSit) == 2) {
 				this.imgHead.scaleX = -1;
 			} else {

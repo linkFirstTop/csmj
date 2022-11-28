@@ -29,11 +29,13 @@ module game {
 			}
 			if (p == 1) {
 				this.imgCard.source = "cardValueR" + strIndex;
-				//this.imgCard.verticalCenter = -12;
+				//this.imgCard.verticalCenter = 22;
 				if(value == -1){
 					this.imgCard.source = "cardGangR";//背面
 			
 				}
+			// this.imgCard.skewY = 5;
+			// 	this.imgCard.verticalCenter = -12;
 			}
 			
 			if (p == 2) {

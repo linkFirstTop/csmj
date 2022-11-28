@@ -85,8 +85,6 @@ module game {
 			this.lchiGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTapLeftChi, this);
 			this.RchiGroup.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onTapRightChi, this);
 
-
-
 			// this.addChild(this.gameHSZ);
 			// this.gameHSZ.addEventListener("OnSendHSZCards",this.onSendHSZCards,this);
 			// this.gameHSZ.addEventListener("OnHSZAnimComplete",this.onHSZAnimComplete,this);
@@ -107,16 +105,18 @@ module game {
 			this.initGame();
 			this.initBtns();
 
+
 			// 测试用按钮
 			this.btnTest.visible = false;
 			this.btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
-
+				ViewManager.ins.gameView.gameMatch.stopAnim();
+				this.initPosition();
 				// this.onShowOpt([true,true,true,true,true]);
 				// return
 				//const card =  new game.CardInfo()
 				// GameParmes.gameStage = GameStageType.PLAYING
 
-				const nSit = 2
+				const nSit = 1
 			
 				//  let card: CardInfo = { CardID:1, Sit: 3 };
 				// const body = {
@@ -144,14 +144,37 @@ module game {
 				// this.gameHand.createCPGCard(nSit);
 				//  this.changeUserRight(nSit);
 
-				//  let card1: CardInfo = { CardID:1, Sit: 4 };
-				//  this.userSendCard( card1,false);
-				//  let card2: CardInfo = { CardID:11, Sit: 4 };
-				//  this.userSendCard( card2,false);
-				//  let card3: CardInfo = { CardID:18, Sit: 4 };
-				//  this.userSendCard( card3,false);
-				//  let card4: CardInfo = { CardID:18, Sit: 4 };
-				//  this.userSendCard( card4,false);
+				 let card1: CardInfo = { CardID:1, Sit: 4 };
+				 this.userSendCard( card1,false);
+				 let card2: CardInfo = { CardID:11, Sit: 4 };
+				 this.userSendCard( card2,false);
+				 let card3: CardInfo = { CardID:18, Sit: 4 };
+				 this.userSendCard( card3,false);
+				 let card4: CardInfo = { CardID:18, Sit: 4 };
+				 this.userSendCard( card4,false);
+
+
+		
+
+
+				 let card10: CardInfo = { CardID:1, Sit: 2 };
+				 this.userSendCard( card10,false);
+				 let card20: CardInfo = { CardID:11, Sit: 2 };
+				 this.userSendCard( card20,false);
+				 let card30: CardInfo = { CardID:18, Sit: 2 };
+				 this.userSendCard( card30,false);
+				 let card40: CardInfo = { CardID:18, Sit: 2 };
+				 this.userSendCard( card40,false);
+
+
+				 let card11: CardInfo = { CardID:1, Sit: 1 };
+				 this.userSendCard( card11,false);
+				 let card21: CardInfo = { CardID:11, Sit: 1 };
+				 this.userSendCard( card21,false);
+				 let card31: CardInfo = { CardID:18, Sit: 1 };
+				 this.userSendCard( card31,false);
+				 let card41: CardInfo = { CardID:18, Sit: 1 };
+				 this.userSendCard( card41,false);
 
 			//    const gameopt = game.GamePlayData.MockGameOption();
 			// 	ViewManager.ins.gameView.ACK_GAME_OPERATION( <any>{data:gameopt} );
@@ -162,8 +185,10 @@ module game {
 				//    const gameopt = game.GamePlayData.MockSyncGameNtc();
 				//    game.GamePlayData.ContinueGame(gameopt);
 
-				   const gameopt = game.GamePlayData.MockResultNtc();
-				   ViewManager.ins.gameView.ACK_ALL_GAMERESULT( <any>{data:gameopt} );
+				//    const gameopt = game.GamePlayData.MockResultNtc();
+				//    ViewManager.ins.gameView.ACK_ALL_GAMERESULT( <any>{data:gameopt} );
+
+				//this.gamePosition.setPositionItem(0);
 				
 			}, this);
 		
@@ -287,7 +312,8 @@ module game {
 			this.lbInfo.text = Global.dic["局号"] +": "+ Global.strGameGUID + " " + this.findRoomName();
 		}
 		public initPosition(): void {
-			console.log("initPosition",game.GameParmes.firstSit);
+			// console.log("initPosition",game.GameParmes.firstSit);
+			//game.GameParmes.firstSit = 1;
 			let p: number = Global.getUserPosition(game.GameParmes.firstSit);
 			this.gamePosition.setPosition(p);
 		}

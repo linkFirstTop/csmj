@@ -58,10 +58,9 @@ module game {
 		 * 确定当前的圈，局
 		 */
 		public setCurrentRing(): void {
-			for (let i: number = 1; i < 5; i++) {
+			for (let i: number = 0; i < 4; i++) {
 				const p: number = Global.getUserPosition(i);
 				(this["item" + p] as GamePositionScoreItem).setData(Global.getCurrentPositionName(i), p);
-				Global.log("itemp=" + p);
 			}
 		}
 

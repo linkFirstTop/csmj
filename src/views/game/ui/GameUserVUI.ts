@@ -76,7 +76,9 @@ module game {
 			if (Global.getUserPosition(this.nSit) == 0) {
 				this.imgHead.source = Global.commURL + "head/iconHead" + Global.userHead + ".png";
 			} else {
+				console.log("====sss====")
 				this.imgHead.source = Global.commURL + "head/iconHead" + Global.getHeadByName(user.userName) + ".png";
+				console.log("====sss====")
 			}
 
 			if (Global.getUserPosition(this.nSit) == 2) {

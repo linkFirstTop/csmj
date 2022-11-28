@@ -307,8 +307,7 @@ module room {
 			console.log('游戏开始消息', body);
 			Global.strGameGUID = body.roundGuid;
 
-			game.GamePlayData.initData();
-			game.GameParmes.initData();
+		
 
 			body.userInfos.forEach( user=>{
 				if(user.role == 0){
@@ -316,6 +315,8 @@ module room {
 					game.GameParmes.firstSit = user.userPos.seatID;
 				}
 			})
+			game.GamePlayData.initData();
+			game.GameParmes.initData();
 
 			// Global.myPos.tableGuid = body.roundGuid;
 
