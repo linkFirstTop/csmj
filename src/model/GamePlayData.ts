@@ -554,7 +554,7 @@ module game {
 			// game.GameParmes.initData();
 			ViewManager.ins.switchToGame();
 
-			Global.userSit = 3;
+			Global.userSit = 1;
 			const users:any = GamePlayData.MockUsers();
 			game.GameUserList.saveUserListInfo(users);
 
@@ -665,7 +665,7 @@ module game {
 				],
 				remainCount: 54,
 				result: 0,
-				seatid: 2,
+				seatid: 1,
 				userInfo:{},
 			}
 
@@ -677,10 +677,10 @@ module game {
 					{
 						ObtainSeat: 1,
 						ObtainTile: 3,
-						Tiles: [3,2],
+						Tiles: [3,3,3],
 						fans: [],
 						operationID: 0,
-						operationType: CardsGroupType.MJ_OperationType.MJ_OT_TING,
+						operationType: CardsGroupType.MJ_OperationType.MJ_OT_PONG,
 						tingTileInfo: [],		
 					},
 					// {
@@ -700,7 +700,6 @@ module game {
 					fan: [],
 					feeCoin: 0,
 					gameCoin: 10488,
-					
 					isManaged: 0,
 					resultCoin: 0,
 					role: 1,

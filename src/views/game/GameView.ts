@@ -93,10 +93,12 @@ module game {
 
       	this.gameUI.initHandCard();
       	egret.setTimeout(function () {
-          	 this.gameUI.initPosition();
+          	// this.gameUI.initPosition();
           	this.gameUI.initQshHandCard();
-        	},this, 1000
+        	},this, 2200
       	);
+
+		//
     }
 
     /**
@@ -488,7 +490,7 @@ module game {
 
         	//听
         	if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_TING) {
-          		egret.log("=====收到了 停的  操作请求 ==");
+          		//egret.log("=====收到了 停的  操作请求 ==");
           		optArr[4] = true;
           		//game.GamePlayData.SaveChiPengGangHu(body);
           		GameParmes.gameTurn = GameTurnType.OTHERTURN;
@@ -951,7 +953,7 @@ module game {
       	GDGame.Msg.ins.off(GameMessage.VGID_USER_MANAGED, this.ACK_USER_PLAYERTRUST, this);
 
       	//开始发牌
-      	GDGame.Msg.ins.off(game.GameMessage.VGID_GAME_GAMESTART,this.ACK_GAME_DICEANDCARDS, this);
+      	//GDGame.Msg.ins.off(game.GameMessage.VGID_GAME_GAMESTART,this.ACK_GAME_DICEANDCARDS, this);
 
       	//行牌单播消息
       	GDGame.Msg.ins.off(GameMessage.VGID_GAME_OPERATION, this.ACK_GAME_OPERATION, this);
@@ -1002,7 +1004,7 @@ module game {
       // 开局动画状态
       if (status == game.RoomStatus["开始"]) {
         comm.DragonAnim.ins.playAnimByName("ksyx", -1);
-        //SoundModel.playEffect(SoundModel.StartMatch)
+       // SoundModel.playEffect(SoundModel.StartMatch)
       }
       ////发牌状态
       if (status == game.RoomStatus["发牌"]) {

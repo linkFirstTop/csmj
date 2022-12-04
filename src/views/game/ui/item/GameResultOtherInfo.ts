@@ -90,7 +90,7 @@ module game {
 			
 				let cardValue: number = arr[i]
 				let card: BaseHandCardUI = new BaseHandCardUI();
-				card.setCard(0,  cardValue, 0, false);
+				card.setCard(0, i, cardValue, 0 );
 		
 				card.x = i * 126;
 				this.CandsGroup.scaleX = this.CandsGroup.scaleY = 0.5;

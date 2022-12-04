@@ -109,78 +109,49 @@ module game {
 			// 测试用按钮
 			this.btnTest.visible = false;
 			this.btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
-				ViewManager.ins.gameView.gameMatch.stopAnim();
-				this.initPosition();
+				// ViewManager.ins.gameView.gameMatch.stopAnim();
+				// this.initPosition();
 				// this.onShowOpt([true,true,true,true,true]);
 				// return
 				//const card =  new game.CardInfo()
 				// GameParmes.gameStage = GameStageType.PLAYING
 
-				const nSit = 1
+				const nSit = 1;
 			
-				//  let card: CardInfo = { CardID:1, Sit: 3 };
-				// const body = {
-				// 	ObtainCard: card,
-				// 	Type: CardsGroupType.PENG,
-				// 	ObtainCardSit: 1,
-				// 	sit: nSit,
-				// 	Cards: [
-				// 		{ CardID:27, Sit: nSit },
-				// 		{ CardID: 27, Sit: nSit },
-				// 		{ CardID: 27, Sit: nSit },
-				// 		//{ CardID: 27, Sit: nSit },
-				// 	],
-				// }
-				// game.GamePlayData.SaveCurrentCard(0, -1);
-			
-				//  game.GamePlayData.AddChiPengGangCards(body, nSit);
-			
-
-				// this.playAnim("chi", nSit);
-				//this.gameUI.playAnim("hdly",nSit);
-				// this.updataUserCPG(nSit, card);
-				// //game.GamePlayData.AddHandCards(nSit, card);
-				//this.getOneCard(card);
-				// this.gameHand.createCPGCard(nSit);
-				//  this.changeUserRight(nSit);
-
-				 let card1: CardInfo = { CardID:1, Sit: 4 };
-				 this.userSendCard( card1,false);
-				 let card2: CardInfo = { CardID:11, Sit: 4 };
-				 this.userSendCard( card2,false);
-				 let card3: CardInfo = { CardID:18, Sit: 4 };
-				 this.userSendCard( card3,false);
-				 let card4: CardInfo = { CardID:18, Sit: 4 };
-				 this.userSendCard( card4,false);
+				// let card1: CardInfo = { CardID:2, Sit: 4 };
+				// this.userSendCard(card1, false);
+				//  let card2: CardInfo = { CardID:11, Sit: 4 };
+				//  this.userSendCard( card2,false);
+				//  let card3: CardInfo = { CardID:18, Sit: 4 };
+				//  this.userSendCard( card3,false);
+				//  let card4: CardInfo = { CardID:18, Sit: 4 };
+				//  this.userSendCard( card4,false);
 
 
-		
+				//  let card10: CardInfo = { CardID:1, Sit: 2 };
+				//  this.userSendCard( card10,false);
+				//  let card20: CardInfo = { CardID:11, Sit: 2 };
+				//  this.userSendCard( card20,false);
+				//  let card30: CardInfo = { CardID:18, Sit: 2 };
+				//  this.userSendCard( card30,false);
+				//  let card40: CardInfo = { CardID:18, Sit: 2 };
+				//  this.userSendCard( card40,false);
 
 
-				 let card10: CardInfo = { CardID:1, Sit: 2 };
-				 this.userSendCard( card10,false);
-				 let card20: CardInfo = { CardID:11, Sit: 2 };
-				 this.userSendCard( card20,false);
-				 let card30: CardInfo = { CardID:18, Sit: 2 };
-				 this.userSendCard( card30,false);
-				 let card40: CardInfo = { CardID:18, Sit: 2 };
-				 this.userSendCard( card40,false);
+				//  let card11: CardInfo = { CardID:1, Sit: 1 };
+				//  this.userSendCard( card11,false);
+				//  let card21: CardInfo = { CardID:11, Sit: 1 };
+				//  this.userSendCard( card21,false);
+				//  let card31: CardInfo = { CardID:18, Sit: 1 };
+				//  this.userSendCard( card31,false);
+				//  let card41: CardInfo = { CardID:18, Sit: 1 };
+				//  this.userSendCard( card41,false);
 
-
-				 let card11: CardInfo = { CardID:1, Sit: 1 };
-				 this.userSendCard( card11,false);
-				 let card21: CardInfo = { CardID:11, Sit: 1 };
-				 this.userSendCard( card21,false);
-				 let card31: CardInfo = { CardID:18, Sit: 1 };
-				 this.userSendCard( card31,false);
-				 let card41: CardInfo = { CardID:18, Sit: 1 };
-				 this.userSendCard( card41,false);
-
-			//    const gameopt = game.GamePlayData.MockGameOption();
+			//   const gameopt = game.GamePlayData.MockGameOption();
 			// 	ViewManager.ins.gameView.ACK_GAME_OPERATION( <any>{data:gameopt} );
 
-				// const Useropt = game.GamePlayData.MockUserOption();
-				// ViewManager.ins.gameView.ACK_USER_OPERATION(<any>{data:Useropt} );
+				const Useropt = game.GamePlayData.MockUserOption();
+				ViewManager.ins.gameView.ACK_USER_OPERATION(<any>{data:Useropt} );
 
 				//    const gameopt = game.GamePlayData.MockSyncGameNtc();
 				//    game.GamePlayData.ContinueGame(gameopt);
@@ -324,7 +295,36 @@ module game {
 		// 初始化起手牌牌型
 		public initQshHandCard(): void {
 			for (let i: number = 0; i < 4; i++) {
-				this["zniao" + i].visible = false;
+				const startFun = this["gameUser" + i].startFan
+				if(startFun){
+					let str = ''
+					startFun.forEach(e=>{
+						if( e == 0){
+							str  += "x "; // 小四喜
+						}
+						if(  e == 1){
+							str  += "b ";  // 缺一色
+						}
+						
+						if(  e == 2){
+							str  += "l "; // 六六顺
+						}
+						
+						if(  e == 3){
+							str  += "q "; // 六六顺
+							
+						}
+						
+
+					})
+					
+					this["qsh" + i].visible = false;
+					this["qsh" + i].text = str; 
+			
+				}else{
+					this["qsh" + i].visible = false;
+				}
+				
 			}
 		}
 		public showWallCount(num): void {
@@ -375,7 +375,7 @@ module game {
 			if (game.GamePlayData.tingData[Global.userSit] == true) {
 				return;
 			}
-			this.gameHand.closeTingFlag();
+			// this.gameHand.closeTingFlag();
 		}
 		//显示听牌并锁定牌
 		private onShowTingFlag(): void {
@@ -395,12 +395,12 @@ module game {
 
 		/*显示托管界面*/
 		public showTrust(b: boolean): void {
-			console.log("==showTrust===",b)
+		
 			this.gameTrust.visible = b;
 		}
 		/*取消托管*/
 		private onCancelTrust(): void {
-			console.log("====calTrust")
+	
 			room.RoomWebSocket.instance().roomSender.ReqGamePlayerReleveTrustFun()
 		}
 		/**
@@ -597,9 +597,16 @@ module game {
 		}
 
 
-		public hideZhaBird(body:room.VGGameResultNtc){
+
+		public hideZhaBird(){
 			this.zniaoGroup.visible = false;
 			this.birdsGroup.removeChildren();
+
+			for( let i = 0; i< 4;i++ ){
+				this["qsh" + i].visible = false;
+				this[`zniao${i}`].visible = false;
+			}
+
 		}
 
 		public showZhaBird(body:room.VGGameResultNtc){
@@ -641,6 +648,7 @@ module game {
 			this.addChild(this.btnContinue);
 		}
 		private onBtnContinue(): void {
+			this.hideZhaBird();
 			this.btnContinue.visible = false;
 			GameController.onRequeseNextGame();
 		}
@@ -718,7 +726,7 @@ module game {
 			this.gameOpt.HasTwoChi = false;
 			this.gameOpt.initBtns();
 			this.twoChi.visible = false;
-			console.log("=onTapRightChi==")
+			
 			this.lchiGroup.removeChildren();
 			this.RchiGroup.removeChildren();
 
@@ -750,9 +758,6 @@ module game {
 			//opt.operationID = Global.userSit + 1 //操作id
 
 			room.RoomWebSocket.instance().roomSender.REQ_USEROPERATIONREQ(opt)
-
-
-
 		}
 
 		private onTapLeftChi(){

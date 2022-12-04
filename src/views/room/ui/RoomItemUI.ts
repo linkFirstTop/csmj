@@ -37,16 +37,15 @@ module room {
 		private touchCancel(event: egret.TouchEvent): void {
 			this.gContent.scaleX = 1;
 			this.gContent.scaleY = 1;
-
-
 		}
+		
 		private onItemTap(): void {
 			/*if(Global.gameCoin < this.info.entry_min){
 				TipsUtils.showTipsFromCenter("您的金币不足,请进入其他场馆");
 				return ;
 			}*/
 			//console.log("==ssss")
-		    //game.GamePlayData.MockStart();
+		 //game.GamePlayData.MockStart();
 			this.dispatchEvent(new egret.Event("OnItemClick", true, true, this.info));
 		}
 		private itemWenZiArr: Array<string> = ["rmg", "cjg", "zjg", "gjg", "djg", "zzg"];

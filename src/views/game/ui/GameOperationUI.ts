@@ -90,7 +90,7 @@ module game {
 			this.btnChi.visible = false;
 		}
 		public showOpt(data: Array<any>): void {
-			console.log("====data",data)
+			
 			//0 吃 1碰 2杠 3胡 4听
 			this.initBtns();
 			this.thisData = data;

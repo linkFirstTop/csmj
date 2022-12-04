@@ -27,6 +27,7 @@ module game {
 		 * **/
 		public CardID: number = -1;//万条并 012
 
+		public startFan : any = null;//万条并 012
 		public origin: room.IVGUserInfo;
 
 		public userPos: room.IVGUserPos;

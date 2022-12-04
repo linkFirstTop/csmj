@@ -20,6 +20,7 @@ module game {
 					game.GameUserList.arrUserList.push(user);
 
 				}
+				user.startFan = info.startFan;
 				user.userName = info.userName;
 				user.userShowName = info.showName;
 				user.userSit = info.userPos.seatID;
