@@ -91,6 +91,8 @@ module game {
 			this.addChild(this.gOtherCardR);
 			this.addChild(this.gOtherCardD);
 
+      this.gOtherCardR.x = 100;
+
       this.gHandCardL.x = -100;
       this.gHandCardL.y = -200;
 
@@ -243,6 +245,7 @@ module game {
 
     public getOneCard(info: game.CardInfo): void {
       let p: number = Global.getUserPosition(info.Sit);
+      console.log("==ppp==",p)
 
       let ghand: eui.Group = this.findHandGroup(p);
       let card: BaseHandCardUI = new BaseHandCardUI();
@@ -274,36 +277,38 @@ module game {
       }
       card.setCard(p, 0,cardValue, 0);
       if (p == 0) {
-        ghand.addChild(card);
-        card.cardInfo = info;
+      	ghand.addChild(card);
+				card.cardInfo = info;
+				card.x = (ghand.numChildren - 1) * 90;
+				card.x += 10;
         card.y = -50;
-        card.x = (ghand.numChildren - 1) * (126 - 5) + 15;
 
         egret.Tween.get(card).to({ y: 0, touchEnabled: true }, 200);
  
       }
       if (p == 1) {
         ghand.addChildAt(card, 0);
-     
-        card.x = 0;
-        card.y = -50;
-        egret.Tween.get(card).to({ y: -10, touchEnabled: true }, 200);
+				card.setCard(p, 13, 1, 0);
+				card.x = this.arrRHP[0].x- 20;
+				card.y = this.arrRHP[0].y - 100;
+        egret.Tween.get(card).to({ y: this.arrRHP[0].y - 50, touchEnabled: true }, 200);
       }
       if (p == 2) {
         ghand.addChildAt(card, 0);
         card.setCard(p, 0,16,  0);
         // card.x = this.arrRHP[0].x;
         // card.y = this.arrRHP[0].y;
-         card.y = -50;
+         card.y = -20;
         card.x = -100;
        
         egret.Tween.get(card).to({ y: 0, touchEnabled: true }, 200);
       }
       if (p == 3) {
-        card.x = 40;
-        card.y = 692 - 50;
-        egret.Tween.get(card).to({ y: 692, touchEnabled: true }, 200);
-        ghand.addChild(card);
+        card.x = this.arrLHP[0].x -25;
+				card.y = this.arrLHP[0].y + 20;
+
+        egret.Tween.get(card).to({ y: this.arrLHP[0].y + 70, touchEnabled: true }, 200);
+				ghand.addChild(card);
       }
     }
     /*停止自动出牌*/
@@ -389,7 +394,7 @@ module game {
 						card.y = this.arrRHP[i + index].y;
           }
           ghand.addChild(card);
-          console.log("===" ,card.x,card.y)
+   
         }
         if (p == 2) {
          
@@ -505,15 +510,19 @@ module game {
 				gItem.addChild(item);
         if (p == 3) {//右
           if (isAnGang) {
-						if (i == 3) {
-							item.setCard(p, (index * 4 + i), cardValue, isAnGang);
-              item.x = this.arrLCP[index][1].x;
-              item.y = this.arrLCP[index][1].y ;
-						} else {
-							item.setCard(p, (index * 4 + i), -1, isAnGang);
+            if (isAnGang) {
+              if (i == 3) {
+                item.setCard(p, (index * 4 + i), cardValue, isAnGang);
+              } else {
+                item.setCard(p, (index * 4 + i), -1, isAnGang);
+              }
+              item.x = this.arrLAP[index][i].x;
+              item.y = this.arrLAP[index][i].y;
+            } else {
+              item.setCard(p, index * 4 + i, cardValue, isAnGang);
               item.x = this.arrLCP[index][i].x;
               item.y = this.arrLCP[index][i].y;
-						}
+            }
 					
 					} else {
             if (i == 3) {

@@ -76,10 +76,10 @@ module game {
 		/*显示详细信息*/
 		public showDetailInfo(arr: Array<any>): void {
 			var collection = new eui.ArrayCollection();
-			for (let i: number = 0; i < arr.length; i++) {
-				collection.addItem({ "label": "" + Global.getTypeName(arr[i].fanxing) + " " + arr[i].taishu + Global.dic["台"] });
-			}
-			this.gInfo.dataProvider = collection;
+			// for (let i: number = 0; i < arr.length; i++) {
+			// 	collection.addItem({ "label": "" + Global.getTypeName(arr[i].fanxing) + " " + arr[i].taishu + Global.dic["台"] });
+			// }
+			// this.gInfo.dataProvider = collection;
 		}
 
 		/*显示剩余手牌*/

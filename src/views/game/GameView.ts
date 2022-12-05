@@ -550,7 +550,7 @@ module game {
       	}
 
       	if (nSit == Global.userSit) {
-        	console.log(`>>行牌应答 这是玩家操作的结果`, body);
+        //console.log(`>>行牌应答 这是玩家操作的结果`, body);
 
         	const tiles = body.userInfo.tileSets[0].Tiles;
 

@@ -677,10 +677,10 @@ module game {
 					{
 						ObtainSeat: 1,
 						ObtainTile: 3,
-						Tiles: [3,3,3],
+						Tiles: [3],
 						fans: [],
 						operationID: 0,
-						operationType: CardsGroupType.MJ_OperationType.MJ_OT_PONG,
+						operationType: CardsGroupType.MJ_OperationType.摸牌,
 						tingTileInfo: [],		
 					},
 					// {
