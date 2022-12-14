@@ -509,7 +509,7 @@ module game {
 				item.cardInfo = info.cards[i];
 				gItem.addChild(item);
         if (p == 3) {//右
-          if (isAnGang) {
+
             if (isAnGang) {
               if (i == 3) {
                 item.setCard(p, (index * 4 + i), cardValue, isAnGang);
@@ -519,25 +519,17 @@ module game {
               item.x = this.arrLAP[index][i].x;
               item.y = this.arrLAP[index][i].y;
             } else {
-              item.setCard(p, index * 4 + i, cardValue, isAnGang);
+              if (i == 3) {
+                item.setCard(p, (index * 4 + i), cardValue, isAnGang);
+              } else {
+                item.setCard(p, (index * 4 + i), cardValue, isAnGang);
+              }
               item.x = this.arrLCP[index][i].x;
               item.y = this.arrLCP[index][i].y;
             }
+            item.y -= 260;
 					
-					} else {
-            if (i == 3) {
-	
-              item.setCard(p, index * 4 + i, cardValue, isAnGang);
-              item.x = this.arrLCP[index][1].x;
-              item.y = this.arrLCP[index][1].y;
-						} else {
-							item.setCard(p, (index * 4 + i), cardValue, isAnGang);
-       
-              item.x = this.arrLCP[index][i].x;
-              item.y = this.arrLCP[index][i].y;
-						}
-					
-					}
+
 				}
 				if (p == 2) {//UP
           if (isAnGang) {

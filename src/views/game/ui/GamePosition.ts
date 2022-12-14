@@ -37,18 +37,18 @@ module game {
 		}
 
 
-
 		//-----------------------------------东西南北方位-----------------------------------
 		public setPositionItem(n: number) {
 			for (var i: number = 0; i < 4; i++) {
-				this["item" + i].setChoose(false);
-				if (i == n) {
+				//this["item" + i].setChoose(false);
+				// if (i == n) {
 					(this["item" + i] as GamePositionScoreItem).setChoose(true);
-				}
+				// }
 			}
 		}
 
 		public setPosition(n: number): void {
+		
 			this.visible = true;
 			this.setCurrentRing();
 			this.setPositionItem(n);
@@ -60,6 +60,7 @@ module game {
 		public setCurrentRing(): void {
 			for (let i: number = 0; i < 4; i++) {
 				const p: number = Global.getUserPosition(i);
+	
 				(this["item" + p] as GamePositionScoreItem).setData(Global.getCurrentPositionName(i), p);
 			}
 		}

@@ -470,6 +470,9 @@ class Global {
 	 * 当前出牌玩家的方位永远是东   0-东，1-西，2-南，3-北
 	 */
 	public static getCurrentPositionName(n: number): string {
+		console.log("====********")
+		console.log("====********firstSit", game.GameParmes.firstSit)
+		console.log("====********")
 		var str: string = "";
 		if (n == game.GameParmes.firstSit) {
 			str = "east";

@@ -38,11 +38,11 @@ module game {
 
 			
 			}
-			Global.log("当前位置=" + p + "sit=" + Global.userSit);// 0-左边，1-上边，2-右边，3下边    玩家座位号(0-东，1-西，2-南，3-北)
+		//	console.log("当前位置=" + p + "sit=" + Global.userSit);// 0-左边，1-上边，2-右边，3下边    玩家座位号(0-东，1-西，2-南，3-北)
+		
 			if (str == "east") {
-
-				this.fangXiang = Global.language + "dong_" + this.fangXiang;
-				this.item.source = RES.getRes(this.fangXiang + "_1" + "_png");
+				this.fangXiang = Global.language + "dong_" + this.fangXiang;				
+				this.item.source = RES.getRes(this.fangXiang + "_2" + "_png");
 			} else if (str == "west") {
 
 				this.fangXiang = Global.language + "xi_" + this.fangXiang;

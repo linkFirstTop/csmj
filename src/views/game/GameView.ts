@@ -21,7 +21,7 @@ module game {
       	this.gameMatch = new game.GameMatchUserUI();
       	this.addChild(this.gameMatch);
 
-      // this.gameMatch.startAnim();
+        this.gameMatch.startAnim();
 
       	if (!Global.isContinue) {
        		this.gameMatch.x = (GameConfig.curWidth() - this.gameMatch.width) / 2;
@@ -89,7 +89,7 @@ module game {
 	*骰子、手牌消息
 	*/
     private ACK_GAME_DICEANDCARDS(): void {
-      	console.log("ACK_GAME_DICEANDCARDS");
+      	// console.log("ACK_GAME_DICEANDCARDS");
 
       	this.gameUI.initHandCard();
       	egret.setTimeout(function () {
@@ -178,13 +178,11 @@ module game {
      */
     public ACK_ALL_GAMERESULT(evt: egret.Event): void {
       	let body: room.VGGameResultNtc = evt.data;
-
-		  let isAnim: boolean = false;
-		  if( body.birdTiles.length > 0){
+		let isAnim: boolean = false;
+		if( body.birdTiles.length > 0){
 			this.gameUI.showZhaBird(body);
-		  }
+		}
       	
-
       	// sound.SoundManager.getInstance().stopBg();
       	let nTime: number = 1200;
 
@@ -193,7 +191,6 @@ module game {
       	//this.gameUI.playAnim("djjs", -1);
       	this.gameUI.stopAllUserAnim();
 
-     
       	GameParmes.gameTurn = GameTurnType.OTHERTURN;
 
  
@@ -924,8 +921,6 @@ module game {
      */
     private ACK_USER_PLAYERTRUST(evt: egret.Event): void {
       	const body: any = evt.data;
-
-      	console.log("===body===", body);
       	if (body.result == 0 ) {
         	this.gameUI.showTrust(body.isManaged);
       	}

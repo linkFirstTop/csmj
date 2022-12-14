@@ -677,10 +677,10 @@ module game {
 					{
 						ObtainSeat: 1,
 						ObtainTile: 3,
-						Tiles: [3],
+						Tiles: [3,3,3,3],
 						fans: [],
 						operationID: 0,
-						operationType: CardsGroupType.MJ_OperationType.摸牌,
+						operationType: CardsGroupType.MJ_OperationType.MJ_OT_E_KONG,
 						tingTileInfo: [],		
 					},
 					// {
@@ -694,7 +694,7 @@ module game {
 					// }
 				
 				roundGuid: "611668085300221",
-				seatID: 1,
+				seatID: 4,
 				second: 20,
 				userInfo:{
 					fan: [],

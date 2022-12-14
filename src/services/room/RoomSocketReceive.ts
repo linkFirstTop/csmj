@@ -179,6 +179,12 @@ module room {
 		// 同步游戏
 		private VGID_ACK_GAME_SYNCGAMEDATA(byte: egret.ByteArray): void {
 			var body: room.VGSyncGameDataNtc = room.VGSyncGameDataNtc.decode(byte.bytes);
+			body.userInfos.forEach( user=>{
+				if(user.role == 0){
+					console.log("game.GameParmes.firstSit", user.userPos.seatID)
+					game.GameParmes.firstSit = user.userPos.seatID;
+				}
+			})
 			game.GameUserList.saveUserListInfo(body.userInfos)
 			GDGame.Msg.ins.dispatchEventWith(room.RoomMessage.ACK_GAMEPLAYERLIST, false, body);
 
@@ -307,8 +313,6 @@ module room {
 			console.log('游戏开始消息', body);
 			Global.strGameGUID = body.roundGuid;
 
-		
-
 			body.userInfos.forEach( user=>{
 				if(user.role == 0){
 					console.log("game.GameParmes.firstSit", user.userPos.seatID)
@@ -325,8 +329,6 @@ module room {
 
 			GDGame.Msg.ins.dispatchEvent(new egret.Event(game.GameMessage.VGID_GAME_GAMESTART, true, true, body));
 
-
-			//断线重联
 		}
 
 		//聊天消息

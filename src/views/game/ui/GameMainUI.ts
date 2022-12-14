@@ -116,7 +116,7 @@ module game {
 				//const card =  new game.CardInfo()
 				// GameParmes.gameStage = GameStageType.PLAYING
 
-				const nSit = 1;
+				//const nSit = 1;
 			
 				// let card1: CardInfo = { CardID:2, Sit: 4 };
 				// this.userSendCard(card1, false);
@@ -159,7 +159,8 @@ module game {
 				//    const gameopt = game.GamePlayData.MockResultNtc();
 				//    ViewManager.ins.gameView.ACK_ALL_GAMERESULT( <any>{data:gameopt} );
 
-				//this.gamePosition.setPositionItem(0);
+				// this.gamePosition.setPositionItem(0);
+				// ViewManager.ins.gameView.gameMatch.stopAnim();
 				
 			}, this);
 		
@@ -277,6 +278,8 @@ module game {
 				Global.isContinue = false;
 			}
 			this.showGameInfo();
+			
+			this.gamePosition.setPosition(game.GameParmes.firstSit)
 		}
 		private showGameInfo(): void {
 			this.gGameInfo.visible = true;
