@@ -16127,13 +16127,14 @@ $root.room = (function() {
          * @property {number|Long|null} [gameCoin] VGUserInfo gameCoin
          * @property {number|null} [isManaged] VGUserInfo isManaged
          * @property {room.MJ_PLAYERROLE|null} [role] VGUserInfo role
-         * @property {number|null} [dapiao] VGUserInfo dapiao
+         * @property {room.IMJ_FanInfo|null} [startFan] VGUserInfo startFan
          * @property {Array.<room.IMJ_TileSet>|null} [tileSets] VGUserInfo tileSets
          * @property {number|null} [isTing] VGUserInfo isTing
          * @property {Array.<room.IMJ_TingTileInfo>|null} [tingTileInfo] VGUserInfo tingTileInfo
          * @property {Array.<room.IMJ_FanInfo>|null} [fan] VGUserInfo fan
          * @property {number|Long|null} [resultCoin] VGUserInfo resultCoin
          * @property {number|null} [feeCoin] VGUserInfo feeCoin
+         * @property {number|null} [niaoMulti] VGUserInfo niaoMulti
          */
 
         /**
@@ -16211,12 +16212,12 @@ $root.room = (function() {
         VGUserInfo.prototype.role = 0;
 
         /**
-         * VGUserInfo dapiao.
-         * @member {number} dapiao
+         * VGUserInfo startFan.
+         * @member {room.IMJ_FanInfo|null|undefined} startFan
          * @memberof room.VGUserInfo
          * @instance
          */
-        VGUserInfo.prototype.dapiao = 0;
+        VGUserInfo.prototype.startFan = null;
 
         /**
          * VGUserInfo tileSets.
@@ -16267,6 +16268,14 @@ $root.room = (function() {
         VGUserInfo.prototype.feeCoin = 0;
 
         /**
+         * VGUserInfo niaoMulti.
+         * @member {number} niaoMulti
+         * @memberof room.VGUserInfo
+         * @instance
+         */
+        VGUserInfo.prototype.niaoMulti = 0;
+
+        /**
          * Creates a new VGUserInfo instance using the specified properties.
          * @function create
          * @memberof room.VGUserInfo
@@ -16304,8 +16313,8 @@ $root.room = (function() {
                 writer.uint32(/* id 6, wireType 0 =*/48).int32(message.isManaged);
             if (message.role != null && Object.hasOwnProperty.call(message, "role"))
                 writer.uint32(/* id 7, wireType 0 =*/56).int32(message.role);
-            if (message.dapiao != null && Object.hasOwnProperty.call(message, "dapiao"))
-                writer.uint32(/* id 8, wireType 0 =*/64).int32(message.dapiao);
+            if (message.startFan != null && Object.hasOwnProperty.call(message, "startFan"))
+                $root.room.MJ_FanInfo.encode(message.startFan, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
             if (message.tileSets != null && message.tileSets.length)
                 for (var i = 0; i < message.tileSets.length; ++i)
                     $root.room.MJ_TileSet.encode(message.tileSets[i], writer.uint32(/* id 9, wireType 2 =*/74).fork()).ldelim();
@@ -16321,6 +16330,8 @@ $root.room = (function() {
                 writer.uint32(/* id 13, wireType 0 =*/104).int64(message.resultCoin);
             if (message.feeCoin != null && Object.hasOwnProperty.call(message, "feeCoin"))
                 writer.uint32(/* id 14, wireType 0 =*/112).int32(message.feeCoin);
+            if (message.niaoMulti != null && Object.hasOwnProperty.call(message, "niaoMulti"))
+                writer.uint32(/* id 15, wireType 0 =*/120).int32(message.niaoMulti);
             return writer;
         };
 
@@ -16377,7 +16388,7 @@ $root.room = (function() {
                     message.role = reader.int32();
                     break;
                 case 8:
-                    message.dapiao = reader.int32();
+                    message.startFan = $root.room.MJ_FanInfo.decode(reader, reader.uint32());
                     break;
                 case 9:
                     if (!(message.tileSets && message.tileSets.length))
@@ -16402,6 +16413,9 @@ $root.room = (function() {
                     break;
                 case 14:
                     message.feeCoin = reader.int32();
+                    break;
+                case 15:
+                    message.niaoMulti = reader.int32();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -16473,9 +16487,11 @@ $root.room = (function() {
                 case 1:
                     break;
                 }
-            if (message.dapiao != null && message.hasOwnProperty("dapiao"))
-                if (!$util.isInteger(message.dapiao))
-                    return "dapiao: integer expected";
+            if (message.startFan != null && message.hasOwnProperty("startFan")) {
+                var error = $root.room.MJ_FanInfo.verify(message.startFan);
+                if (error)
+                    return "startFan." + error;
+            }
             if (message.tileSets != null && message.hasOwnProperty("tileSets")) {
                 if (!Array.isArray(message.tileSets))
                     return "tileSets: array expected";
@@ -16512,6 +16528,9 @@ $root.room = (function() {
             if (message.feeCoin != null && message.hasOwnProperty("feeCoin"))
                 if (!$util.isInteger(message.feeCoin))
                     return "feeCoin: integer expected";
+            if (message.niaoMulti != null && message.hasOwnProperty("niaoMulti"))
+                if (!$util.isInteger(message.niaoMulti))
+                    return "niaoMulti: integer expected";
             return null;
         };
 
@@ -17769,6 +17788,7 @@ $root.room = (function() {
          * @property {string|null} [roundGuid] VGGameResultNtc roundGuid
          * @property {Array.<room.IVGUserInfo>|null} [userInfos] VGGameResultNtc userInfos
          * @property {Array.<room.IMJ_SettlementInfo>|null} [settlementInfos] VGGameResultNtc settlementInfos
+         * @property {Array.<number>|null} [birdTiles] VGGameResultNtc birdTiles
          */
 
         /**
@@ -17782,6 +17802,7 @@ $root.room = (function() {
         function VGGameResultNtc(properties) {
             this.userInfos = [];
             this.settlementInfos = [];
+            this.birdTiles = [];
             if (properties)
                 for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -17829,6 +17850,14 @@ $root.room = (function() {
         VGGameResultNtc.prototype.settlementInfos = $util.emptyArray;
 
         /**
+         * VGGameResultNtc birdTiles.
+         * @member {Array.<number>} birdTiles
+         * @memberof room.VGGameResultNtc
+         * @instance
+         */
+        VGGameResultNtc.prototype.birdTiles = $util.emptyArray;
+
+        /**
          * Creates a new VGGameResultNtc instance using the specified properties.
          * @function create
          * @memberof room.VGGameResultNtc
@@ -17864,6 +17893,9 @@ $root.room = (function() {
             if (message.settlementInfos != null && message.settlementInfos.length)
                 for (var i = 0; i < message.settlementInfos.length; ++i)
                     $root.room.MJ_SettlementInfo.encode(message.settlementInfos[i], writer.uint32(/* id 5, wireType 2 =*/42).fork()).ldelim();
+            if (message.birdTiles != null && message.birdTiles.length)
+                for (var i = 0; i < message.birdTiles.length; ++i)
+                    writer.uint32(/* id 6, wireType 0 =*/48).int32(message.birdTiles[i]);
             return writer;
         };
 
@@ -17916,6 +17948,16 @@ $root.room = (function() {
                     if (!(message.settlementInfos && message.settlementInfos.length))
                         message.settlementInfos = [];
                     message.settlementInfos.push($root.room.MJ_SettlementInfo.decode(reader, reader.uint32()));
+                    break;
+                case 6:
+                    if (!(message.birdTiles && message.birdTiles.length))
+                        message.birdTiles = [];
+                    if ((tag & 7) === 2) {
+                        var end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2)
+                            message.birdTiles.push(reader.int32());
+                    } else
+                        message.birdTiles.push(reader.int32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -17979,307 +18021,17 @@ $root.room = (function() {
                         return "settlementInfos." + error;
                 }
             }
+            if (message.birdTiles != null && message.hasOwnProperty("birdTiles")) {
+                if (!Array.isArray(message.birdTiles))
+                    return "birdTiles: array expected";
+                for (var i = 0; i < message.birdTiles.length; ++i)
+                    if (!$util.isInteger(message.birdTiles[i]))
+                        return "birdTiles: integer[] expected";
+            }
             return null;
         };
 
         return VGGameResultNtc;
-    })();
-
-    room.VGUserDapiaoReq = (function() {
-
-        /**
-         * Properties of a VGUserDapiaoReq.
-         * @memberof room
-         * @interface IVGUserDapiaoReq
-         * @property {number|null} [dapiao] VGUserDapiaoReq dapiao
-         */
-
-        /**
-         * Constructs a new VGUserDapiaoReq.
-         * @memberof room
-         * @classdesc Represents a VGUserDapiaoReq.
-         * @implements IVGUserDapiaoReq
-         * @constructor
-         * @param {room.IVGUserDapiaoReq=} [properties] Properties to set
-         */
-        function VGUserDapiaoReq(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * VGUserDapiaoReq dapiao.
-         * @member {number} dapiao
-         * @memberof room.VGUserDapiaoReq
-         * @instance
-         */
-        VGUserDapiaoReq.prototype.dapiao = 0;
-
-        /**
-         * Creates a new VGUserDapiaoReq instance using the specified properties.
-         * @function create
-         * @memberof room.VGUserDapiaoReq
-         * @static
-         * @param {room.IVGUserDapiaoReq=} [properties] Properties to set
-         * @returns {room.VGUserDapiaoReq} VGUserDapiaoReq instance
-         */
-        VGUserDapiaoReq.create = function create(properties) {
-            return new VGUserDapiaoReq(properties);
-        };
-
-        /**
-         * Encodes the specified VGUserDapiaoReq message. Does not implicitly {@link room.VGUserDapiaoReq.verify|verify} messages.
-         * @function encode
-         * @memberof room.VGUserDapiaoReq
-         * @static
-         * @param {room.IVGUserDapiaoReq} message VGUserDapiaoReq message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        VGUserDapiaoReq.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.dapiao != null && Object.hasOwnProperty.call(message, "dapiao"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.dapiao);
-            return writer;
-        };
-
-        /**
-         * Encodes the specified VGUserDapiaoReq message, length delimited. Does not implicitly {@link room.VGUserDapiaoReq.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof room.VGUserDapiaoReq
-         * @static
-         * @param {room.IVGUserDapiaoReq} message VGUserDapiaoReq message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        VGUserDapiaoReq.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a VGUserDapiaoReq message from the specified reader or buffer.
-         * @function decode
-         * @memberof room.VGUserDapiaoReq
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {room.VGUserDapiaoReq} VGUserDapiaoReq
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        VGUserDapiaoReq.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.room.VGUserDapiaoReq();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1:
-                    message.dapiao = reader.int32();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a VGUserDapiaoReq message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof room.VGUserDapiaoReq
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {room.VGUserDapiaoReq} VGUserDapiaoReq
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        VGUserDapiaoReq.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a VGUserDapiaoReq message.
-         * @function verify
-         * @memberof room.VGUserDapiaoReq
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        VGUserDapiaoReq.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.dapiao != null && message.hasOwnProperty("dapiao"))
-                if (!$util.isInteger(message.dapiao))
-                    return "dapiao: integer expected";
-            return null;
-        };
-
-        return VGUserDapiaoReq;
-    })();
-
-    room.VGUserDapiaoAck = (function() {
-
-        /**
-         * Properties of a VGUserDapiaoAck.
-         * @memberof room
-         * @interface IVGUserDapiaoAck
-         * @property {number|null} [result] VGUserDapiaoAck result
-         * @property {room.IVGUserInfo|null} [userInfo] VGUserDapiaoAck userInfo
-         */
-
-        /**
-         * Constructs a new VGUserDapiaoAck.
-         * @memberof room
-         * @classdesc Represents a VGUserDapiaoAck.
-         * @implements IVGUserDapiaoAck
-         * @constructor
-         * @param {room.IVGUserDapiaoAck=} [properties] Properties to set
-         */
-        function VGUserDapiaoAck(properties) {
-            if (properties)
-                for (var keys = Object.keys(properties), i = 0; i < keys.length; ++i)
-                    if (properties[keys[i]] != null)
-                        this[keys[i]] = properties[keys[i]];
-        }
-
-        /**
-         * VGUserDapiaoAck result.
-         * @member {number} result
-         * @memberof room.VGUserDapiaoAck
-         * @instance
-         */
-        VGUserDapiaoAck.prototype.result = 0;
-
-        /**
-         * VGUserDapiaoAck userInfo.
-         * @member {room.IVGUserInfo|null|undefined} userInfo
-         * @memberof room.VGUserDapiaoAck
-         * @instance
-         */
-        VGUserDapiaoAck.prototype.userInfo = null;
-
-        /**
-         * Creates a new VGUserDapiaoAck instance using the specified properties.
-         * @function create
-         * @memberof room.VGUserDapiaoAck
-         * @static
-         * @param {room.IVGUserDapiaoAck=} [properties] Properties to set
-         * @returns {room.VGUserDapiaoAck} VGUserDapiaoAck instance
-         */
-        VGUserDapiaoAck.create = function create(properties) {
-            return new VGUserDapiaoAck(properties);
-        };
-
-        /**
-         * Encodes the specified VGUserDapiaoAck message. Does not implicitly {@link room.VGUserDapiaoAck.verify|verify} messages.
-         * @function encode
-         * @memberof room.VGUserDapiaoAck
-         * @static
-         * @param {room.IVGUserDapiaoAck} message VGUserDapiaoAck message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        VGUserDapiaoAck.encode = function encode(message, writer) {
-            if (!writer)
-                writer = $Writer.create();
-            if (message.result != null && Object.hasOwnProperty.call(message, "result"))
-                writer.uint32(/* id 1, wireType 0 =*/8).int32(message.result);
-            if (message.userInfo != null && Object.hasOwnProperty.call(message, "userInfo"))
-                $root.room.VGUserInfo.encode(message.userInfo, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
-            return writer;
-        };
-
-        /**
-         * Encodes the specified VGUserDapiaoAck message, length delimited. Does not implicitly {@link room.VGUserDapiaoAck.verify|verify} messages.
-         * @function encodeDelimited
-         * @memberof room.VGUserDapiaoAck
-         * @static
-         * @param {room.IVGUserDapiaoAck} message VGUserDapiaoAck message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
-         */
-        VGUserDapiaoAck.encodeDelimited = function encodeDelimited(message, writer) {
-            return this.encode(message, writer).ldelim();
-        };
-
-        /**
-         * Decodes a VGUserDapiaoAck message from the specified reader or buffer.
-         * @function decode
-         * @memberof room.VGUserDapiaoAck
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {room.VGUserDapiaoAck} VGUserDapiaoAck
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        VGUserDapiaoAck.decode = function decode(reader, length) {
-            if (!(reader instanceof $Reader))
-                reader = $Reader.create(reader);
-            var end = length === undefined ? reader.len : reader.pos + length, message = new $root.room.VGUserDapiaoAck();
-            while (reader.pos < end) {
-                var tag = reader.uint32();
-                switch (tag >>> 3) {
-                case 1:
-                    message.result = reader.int32();
-                    break;
-                case 2:
-                    message.userInfo = $root.room.VGUserInfo.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-                }
-            }
-            return message;
-        };
-
-        /**
-         * Decodes a VGUserDapiaoAck message from the specified reader or buffer, length delimited.
-         * @function decodeDelimited
-         * @memberof room.VGUserDapiaoAck
-         * @static
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {room.VGUserDapiaoAck} VGUserDapiaoAck
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {$protobuf.util.ProtocolError} If required fields are missing
-         */
-        VGUserDapiaoAck.decodeDelimited = function decodeDelimited(reader) {
-            if (!(reader instanceof $Reader))
-                reader = new $Reader(reader);
-            return this.decode(reader, reader.uint32());
-        };
-
-        /**
-         * Verifies a VGUserDapiaoAck message.
-         * @function verify
-         * @memberof room.VGUserDapiaoAck
-         * @static
-         * @param {Object.<string,*>} message Plain object to verify
-         * @returns {string|null} `null` if valid, otherwise the reason why it is not
-         */
-        VGUserDapiaoAck.verify = function verify(message) {
-            if (typeof message !== "object" || message === null)
-                return "object expected";
-            if (message.result != null && message.hasOwnProperty("result"))
-                if (!$util.isInteger(message.result))
-                    return "result: integer expected";
-            if (message.userInfo != null && message.hasOwnProperty("userInfo")) {
-                var error = $root.room.VGUserInfo.verify(message.userInfo);
-                if (error)
-                    return "userInfo." + error;
-            }
-            return null;
-        };
-
-        return VGUserDapiaoAck;
     })();
 
     room.VGUserOperationReq = (function() {

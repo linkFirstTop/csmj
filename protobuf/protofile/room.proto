@@ -225,6 +225,15 @@ message AckResetUserState
 //	MJ_OT_PASS = 12,	//过
 //};
 
+//1    小四喜    手牌有4张完全一样的牌。起手胡时展示所有符合小四喜的牌（至少一组）
+ //   FAN_XIAO4XI = 0,
+    //1    板板胡    手牌没有点数为258的牌。起手胡时展示所有手牌
+//    FAN_BANBANHU = 1,
+    //1    六六顺    手牌中至少有两个暗刻。起手胡时展示所有符合要求的暗刻（至少两组）
+//   FAN_66SHUN = 2,
+    //1    缺一色    手牌条筒万缺少任意一门；
+ //   FAN_QUE1SE = 3,
+
 message MJ_TingTileInfo
 {
 	optional	int32		callTile		= 1;	//听哪张牌
@@ -329,7 +338,7 @@ optional	int32			isManaged		= 6;	//是否托管
 	//游戏开始信息
 optional	MJ_PLAYERROLE	role			= 7;	//庄闲信息
 	//游戏打漂信息
-optional	int32			dapiao			= 8;	//打漂信息
+optional	MJ_FanInfo	    startFan	    = 8;	//起手胡
 	//行牌阶段信息
 repeated	MJ_TileSet		tileSets		= 9;	//牌组信息
 optional	int32			isTing			= 10;	//是否听牌
@@ -338,6 +347,9 @@ repeated	MJ_TingTileInfo	tingTileInfo	= 11;	//听牌信息
 repeated	MJ_FanInfo		fan				= 12;	//番型信息
 optional	int64			resultCoin		= 13;	//输赢金币有正负之分
 optional	int32			feeCoin			= 14;	//服务费
+optional	int32			niaoMulti		= 15;	//扎鸟倍数
+
+
 }
 
 //用户的位置信息
@@ -412,21 +424,9 @@ optional	string					tableID			= 2;	//桌子ID
 optional	string					roundGuid		= 3;	//局号
 repeated	VGUserInfo				userInfos		= 4;	//玩家信息(包含结算结果)
 repeated	MJ_SettlementInfo		settlementInfos	= 5;	//结算信息
+repeated	int32					birdTiles		= 6;	//扎鸟牌
 }
 
-//玩家打漂消息
-//#define VGID_USER_DAPIAO			VGID_CLIENT + 0x00C1
-//打漂请求
-message VGUserDapiaoReq
-{
-	optional	int32	dapiao	= 1;	//玩家选择的操作
-}
-//打漂应答
-message VGUserDapiaoAck
-{
-	optional	int32			result			= 1;	//操作结果
-	optional	VGUserInfo		userInfo		= 2;	//玩家信息(包含打漂结果)
-}
 
 //玩家行牌消息
 //#define VGID_USER_OPERATION			VGID_CLIENT + 0x00C0
@@ -442,7 +442,7 @@ message VGUserOperationAck
 	optional	int32			seatID			= 2;	//座位号
 	optional	MJ_Operation	operation		= 3;	//玩家选择的操作
 	optional	int32			remainCount		= 4;	//剩余牌张数
-	 optional  VGUserInfo    userInfo    = 5;  //自己的个人信息
+	optional  VGUserInfo    userInfo    = 5;  //自己的个人信息
 }
 
 //玩家托管消息

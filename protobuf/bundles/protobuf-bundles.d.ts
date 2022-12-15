@@ -7114,8 +7114,8 @@ declare namespace room {
         /** VGUserInfo role */
         role?: (room.MJ_PLAYERROLE|null);
 
-        /** VGUserInfo dapiao */
-        dapiao?: (number|null);
+        /** VGUserInfo startFan */
+        startFan?: (room.IMJ_FanInfo|null);
 
         /** VGUserInfo tileSets */
         tileSets?: (room.IMJ_TileSet[]|null);
@@ -7134,6 +7134,9 @@ declare namespace room {
 
         /** VGUserInfo feeCoin */
         feeCoin?: (number|null);
+
+        /** VGUserInfo niaoMulti */
+        niaoMulti?: (number|null);
     }
 
     /** Represents a VGUserInfo. */
@@ -7166,8 +7169,8 @@ declare namespace room {
         /** VGUserInfo role. */
         public role: room.MJ_PLAYERROLE;
 
-        /** VGUserInfo dapiao. */
-        public dapiao: number;
+        /** VGUserInfo startFan. */
+        public startFan?: (room.IMJ_FanInfo|null);
 
         /** VGUserInfo tileSets. */
         public tileSets: room.IMJ_TileSet[];
@@ -7186,6 +7189,9 @@ declare namespace room {
 
         /** VGUserInfo feeCoin. */
         public feeCoin: number;
+
+        /** VGUserInfo niaoMulti. */
+        public niaoMulti: number;
 
         /**
          * Creates a new VGUserInfo instance using the specified properties.
@@ -7782,6 +7788,9 @@ declare namespace room {
 
         /** VGGameResultNtc settlementInfos */
         settlementInfos?: (room.IMJ_SettlementInfo[]|null);
+
+        /** VGGameResultNtc birdTiles */
+        birdTiles?: (number[]|null);
     }
 
     /** Represents a VGGameResultNtc. */
@@ -7807,6 +7816,9 @@ declare namespace room {
 
         /** VGGameResultNtc settlementInfos. */
         public settlementInfos: room.IMJ_SettlementInfo[];
+
+        /** VGGameResultNtc birdTiles. */
+        public birdTiles: number[];
 
         /**
          * Creates a new VGGameResultNtc instance using the specified properties.
@@ -7852,150 +7864,6 @@ declare namespace room {
 
         /**
          * Verifies a VGGameResultNtc message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a VGUserDapiaoReq. */
-    interface IVGUserDapiaoReq {
-
-        /** VGUserDapiaoReq dapiao */
-        dapiao?: (number|null);
-    }
-
-    /** Represents a VGUserDapiaoReq. */
-    class VGUserDapiaoReq implements IVGUserDapiaoReq {
-
-        /**
-         * Constructs a new VGUserDapiaoReq.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: room.IVGUserDapiaoReq);
-
-        /** VGUserDapiaoReq dapiao. */
-        public dapiao: number;
-
-        /**
-         * Creates a new VGUserDapiaoReq instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns VGUserDapiaoReq instance
-         */
-        public static create(properties?: room.IVGUserDapiaoReq): room.VGUserDapiaoReq;
-
-        /**
-         * Encodes the specified VGUserDapiaoReq message. Does not implicitly {@link room.VGUserDapiaoReq.verify|verify} messages.
-         * @param message VGUserDapiaoReq message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: room.IVGUserDapiaoReq, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified VGUserDapiaoReq message, length delimited. Does not implicitly {@link room.VGUserDapiaoReq.verify|verify} messages.
-         * @param message VGUserDapiaoReq message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: room.IVGUserDapiaoReq, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a VGUserDapiaoReq message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns VGUserDapiaoReq
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGUserDapiaoReq;
-
-        /**
-         * Decodes a VGUserDapiaoReq message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns VGUserDapiaoReq
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGUserDapiaoReq;
-
-        /**
-         * Verifies a VGUserDapiaoReq message.
-         * @param message Plain object to verify
-         * @returns `null` if valid, otherwise the reason why it is not
-         */
-        public static verify(message: { [k: string]: any }): (string|null);
-    }
-
-    /** Properties of a VGUserDapiaoAck. */
-    interface IVGUserDapiaoAck {
-
-        /** VGUserDapiaoAck result */
-        result?: (number|null);
-
-        /** VGUserDapiaoAck userInfo */
-        userInfo?: (room.IVGUserInfo|null);
-    }
-
-    /** Represents a VGUserDapiaoAck. */
-    class VGUserDapiaoAck implements IVGUserDapiaoAck {
-
-        /**
-         * Constructs a new VGUserDapiaoAck.
-         * @param [properties] Properties to set
-         */
-        constructor(properties?: room.IVGUserDapiaoAck);
-
-        /** VGUserDapiaoAck result. */
-        public result: number;
-
-        /** VGUserDapiaoAck userInfo. */
-        public userInfo?: (room.IVGUserInfo|null);
-
-        /**
-         * Creates a new VGUserDapiaoAck instance using the specified properties.
-         * @param [properties] Properties to set
-         * @returns VGUserDapiaoAck instance
-         */
-        public static create(properties?: room.IVGUserDapiaoAck): room.VGUserDapiaoAck;
-
-        /**
-         * Encodes the specified VGUserDapiaoAck message. Does not implicitly {@link room.VGUserDapiaoAck.verify|verify} messages.
-         * @param message VGUserDapiaoAck message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encode(message: room.IVGUserDapiaoAck, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Encodes the specified VGUserDapiaoAck message, length delimited. Does not implicitly {@link room.VGUserDapiaoAck.verify|verify} messages.
-         * @param message VGUserDapiaoAck message or plain object to encode
-         * @param [writer] Writer to encode to
-         * @returns Writer
-         */
-        public static encodeDelimited(message: room.IVGUserDapiaoAck, writer?: protobuf.Writer): protobuf.Writer;
-
-        /**
-         * Decodes a VGUserDapiaoAck message from the specified reader or buffer.
-         * @param reader Reader or buffer to decode from
-         * @param [length] Message length if known beforehand
-         * @returns VGUserDapiaoAck
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decode(reader: (protobuf.Reader|Uint8Array), length?: number): room.VGUserDapiaoAck;
-
-        /**
-         * Decodes a VGUserDapiaoAck message from the specified reader or buffer, length delimited.
-         * @param reader Reader or buffer to decode from
-         * @returns VGUserDapiaoAck
-         * @throws {Error} If the payload is not a reader or valid buffer
-         * @throws {protobuf.util.ProtocolError} If required fields are missing
-         */
-        public static decodeDelimited(reader: (protobuf.Reader|Uint8Array)): room.VGUserDapiaoAck;
-
-        /**
-         * Verifies a VGUserDapiaoAck message.
          * @param message Plain object to verify
          * @returns `null` if valid, otherwise the reason why it is not
          */
