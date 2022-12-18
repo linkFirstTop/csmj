@@ -11,11 +11,7 @@ module room {
 		// private lbTai: eui.BitmapLabel;
 		private lbEnter: eui.BitmapLabel;
 
-		private lbBaseT: eui.BitmapLabel;
-		// private lbTaiT: eui.BitmapLabel;
-		private lbEnterT: eui.BitmapLabel;
 
-	
 		private info: any;
 		private gContent: eui.Group;
 		protected childrenCreated(): void {

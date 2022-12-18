@@ -63,7 +63,7 @@ module room {
 		//返回进入游戏服务结果
 		private ON_VGID_ROOM_LOGIN(byte: egret.ByteArray): void {
 			var body: room.VGLoginAck = room.VGLoginAck.decode(byte.bytes);
-			console.log("===Login ok",body)
+			//console.log("===Login ok",body)
 			//Global.log("收到登陆返回:" + body.userInfo);
 			if (body.result == 0) {
 				room.RoomWebSocket.instance().roomSender.REQ_ROOMLIST();

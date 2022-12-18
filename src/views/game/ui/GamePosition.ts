@@ -40,14 +40,14 @@ module game {
 		//-----------------------------------东西南北方位-----------------------------------
 		public setPositionItem(n: number) {
 			for (var i: number = 0; i < 4; i++) {
-				//this["item" + i].setChoose(false);
-				// if (i == n) {
+				this["item" + i].setChoose(false);
+				if (i == n) {
 					(this["item" + i] as GamePositionScoreItem).setChoose(true);
-				// }
+				}
 			}
 		}
 
-		public setPosition(n: number): void {
+		public setDirectionsPosition(n: number): void {
 		
 			this.visible = true;
 			this.setCurrentRing();

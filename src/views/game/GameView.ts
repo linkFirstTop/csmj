@@ -47,7 +47,7 @@ module game {
       	GDGame.Msg.ins.on(GameMessage.VGID_USER_MANAGED, this.ACK_USER_PLAYERTRUST, this);
 
       	//开始发牌
-      	GDGame.Msg.ins.on(game.GameMessage.VGID_GAME_GAMESTART,this.ACK_GAME_DICEANDCARDS, this);
+      	GDGame.Msg.ins.on(game.GameMessage.VGID_GAME_SENDCARD,this.ACK_GAME_DICEANDCARDS, this);
 
       	//行牌单播消息
       	GDGame.Msg.ins.on(GameMessage.VGID_GAME_OPERATION, this.ACK_GAME_OPERATION, this);
@@ -608,6 +608,7 @@ module game {
      	 }
       	//左吃，吃的牌是最小点, 例如45吃3
       	if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_L_CHOW) {
+			
         	let card: game.CardInfo = new game.CardInfo();
         	card.CardID = opt.ObtainTile[0];
         	card.Sit = opt.ObtainSeat;
@@ -870,8 +871,7 @@ module game {
 
       	this.gameUI.playAnim("peng", nSit);
       	this.gameUI.updataUserCPG(nSit, card);
-      	// let p: number = Global.getUserPosition(nSit);
-      	//const sex = this.gameUI["gameUser" + p].sex;
+		SoundModel.playEffect(SoundModel.PENG);
     }
 
     private ON_USER_ANGANGPAI(card, seat: number): void {
@@ -1003,8 +1003,8 @@ module game {
       }
       ////发牌状态
       if (status == game.RoomStatus["发牌"]) {
-        // this.gameUI.initPosition();
-        this.ACK_GAME_DICEANDCARDS();
+		this.gameUI.initPosition();
+       // this.ACK_GAME_DICEANDCARDS();
       }
       //行牌状态
       if (status == game.RoomStatus["行牌"]) {

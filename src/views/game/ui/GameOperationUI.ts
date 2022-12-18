@@ -48,6 +48,7 @@ module game {
 			//this.gBtns.addChild(this.btnGangyaoAo);
 			this.btnGangyaoAo.visible=false;
 			// this.btnGangyao.visible = false;
+			this.HasTwoChi = false;
 			this.GangYaoGroup.visible = false;
 			this.btnPeng.source = "gameButton_peng_" + Global.language + "_png";
 			this.btnChi.source = "gameButton_chi_" + Global.language + "_png";
@@ -88,6 +89,7 @@ module game {
 			this.gPGCards.visible = false;
 			this.gTingCards.visible = false;
 			this.btnChi.visible = false;
+			this.HasTwoChi = false;
 		}
 		public showOpt(data: Array<any>): void {
 			
@@ -290,8 +292,9 @@ module game {
 		private onChi(): void {
 			if(this.HasTwoChi){
 				return;
-
 			}  
+			
+			ViewManager.ins.gameView.gameUI.clearTwoChi();
 			this.initBtns();
 			const mj_opts = game.GamePlayData.GetMJ_Operation();
 			let mj_opt: room.MJ_Operation
@@ -314,8 +317,6 @@ module game {
 			opt.maxFan = 3 //最大番数 
 			//opt.fans = 3 // MJ_FanInfo 被吃碰杠胡的那个人的座位号 
 			//opt.operationID = Global.userSit + 1 //操作id
-
-
 			room.RoomWebSocket.instance().roomSender.REQ_USEROPERATIONREQ(opt)
 
 		}
@@ -360,7 +361,8 @@ module game {
 			//room.RoomWebSocket.instance().roomSender.ReqSendCardQiShou(GamePlayData.QiShouHu_Groups[0]);
 		}
 		private onGuo(): void {
-			console.log("-==GameParmes.isCurTing:", GameParmes.isCurTing)
+			this.HasTwoChi = false;
+			ViewManager.ins.gameView.gameUI.clearTwoChi();
 			if (this.btnTing.visible == true && GameParmes.isCurTing) {
 				this.initBtns();
 				//this.sendGameNoOperation();
@@ -378,13 +380,26 @@ module game {
 			this.initBtns();
 			this.sendGameNoOperation();
 			ViewManager.ins.gameView.gameUI.gameHand.showTingFlag(false, "ting");
-		
+			ViewManager.ins.gameView.gameUI.twoChi.visible = false;
+	
 		}
 		private sendGameNoOperation(): void {
-			var cardsGroup: CardsGroupInfo = new CardsGroupInfo();
-			cardsGroup.cardsit = Global.userSit;
-			cardsGroup.CardsGroupType = CardsGroupType.NO_OPERATION;
-			//room.RoomWebSocket.instance().roomSender.ReqSendCard(cardsGroup);
+			const opt: room.MJ_Operation = new room.MJ_Operation()
+			opt.operationType = CardsGroupType.MJ_OperationType.MJ_OT_PASS;//操作类型
+			opt.Tiles = [] //牌组  如果是出牌则数组中只有一张牌
+			//如果是吃、碰、杠、胡则以下值需要读取或者写入
+			opt.ObtainTile = 3 //需要吃碰杠胡的那一张牌 
+			opt.ObtainSeat = 3 //被吃碰杠胡的那个人的座位号 
+
+			//如果是听，则以下值需要读取或写入
+			opt.tingTileInfo = [] //MJ_TingTileInfo /和牌信息
+
+			//如果是胡，则以下值需要读取或写入
+			opt.maxFan = 3 //最大番数 
+			//opt.fans = 3 // MJ_FanInfo 被吃碰杠胡的那个人的座位号 
+			//opt.operationID = 3 //操作id
+
+			room.RoomWebSocket.instance().roomSender.REQ_USEROPERATIONREQ(opt)
 		}
 		/** 
 		 * @param arrGroup

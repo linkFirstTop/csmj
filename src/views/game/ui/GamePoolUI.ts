@@ -47,7 +47,7 @@ module game {
       // 右边玩家牌池坐标
       // this.gRightPool.width = 19.09;
       // this.gRightPool.height = 570;
-      this.gRightPool.x = 80;
+      this.gRightPool.x = 50;
       this.gRightPool.y = -120;
       this.gRightPool.anchorOffsetX = 0;
       this.gRightPool.anchorOffsetY = 0;

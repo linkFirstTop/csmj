@@ -245,7 +245,7 @@ module game {
 
     public getOneCard(info: game.CardInfo): void {
       let p: number = Global.getUserPosition(info.Sit);
-      console.log("==ppp==",p)
+    
 
       let ghand: eui.Group = this.findHandGroup(p);
       let card: BaseHandCardUI = new BaseHandCardUI();
@@ -527,7 +527,8 @@ module game {
               item.x = this.arrLCP[index][i].x;
               item.y = this.arrLCP[index][i].y;
             }
-            item.y -= 260;
+            item.y -= 280;
+            item.x += 20;
 					
 
 				}
@@ -603,12 +604,9 @@ module game {
 							item.x = 300 + index * 260 + i * 70;
 							item.y = GameConfig.curHeight() - 120;
 						}
-
-
 					}
 				}
 			}
-
 		}
 		/*点击了手牌*/
 		private onClickHandCard(evt: egret.Event): void {
@@ -616,9 +614,7 @@ module game {
      // console.log("===item",item.cardInfo.CardID)
 
 			if (GameParmes.gameTurn == GameTurnType.SELFTURN) {//出牌阶段
-
 				if (this.currentCard == item) {
-
 					if (game.GamePlayData.playingSeat == Global.userSit) {
 						//判断是欧所有的牌都是 炮
 						let isAllPao = true;

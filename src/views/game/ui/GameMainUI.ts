@@ -43,7 +43,7 @@ module game {
 
 		private btnTest: eui.Image;
 
-		private twoChi:eui.Group;
+		public twoChi:eui.Group;
 		private lchiGroup:eui.Group;
 		private RchiGroup:eui.Group;
 
@@ -118,11 +118,11 @@ module game {
 
 				//const nSit = 1;
 			
-				// let card1: CardInfo = { CardID:2, Sit: 4 };
+				// let card1: CardInfo = { CardID:2, Sit: 1 };
 				// this.userSendCard(card1, false);
-				//  let card2: CardInfo = { CardID:11, Sit: 4 };
+				//  let card2: CardInfo = { CardID:11, Sit: 2};
 				//  this.userSendCard( card2,false);
-				//  let card3: CardInfo = { CardID:18, Sit: 4 };
+				//  let card3: CardInfo = { CardID:18, Sit: 3 };
 				//  this.userSendCard( card3,false);
 				//  let card4: CardInfo = { CardID:18, Sit: 4 };
 				//  this.userSendCard( card4,false);
@@ -160,7 +160,7 @@ module game {
 				//    ViewManager.ins.gameView.ACK_ALL_GAMERESULT( <any>{data:gameopt} );
 
 				// this.gamePosition.setPositionItem(0);
-				// ViewManager.ins.gameView.gameMatch.stopAnim();
+				ViewManager.ins.gameView.gameMatch.stopAnim();
 				
 			}, this);
 		
@@ -279,17 +279,14 @@ module game {
 			}
 			this.showGameInfo();
 			
-			this.gamePosition.setPosition(game.GameParmes.firstSit)
+			//this.gamePosition.setDirectionsPosition(game.GameParmes.firstSit)
 		}
 		private showGameInfo(): void {
 			this.gGameInfo.visible = true;
 			this.lbInfo.text = Global.dic["局号"] +": "+ Global.strGameGUID + " " + this.findRoomName();
 		}
 		public initPosition(): void {
-			// console.log("initPosition",game.GameParmes.firstSit);
-			//game.GameParmes.firstSit = 1;
-			let p: number = Global.getUserPosition(game.GameParmes.firstSit);
-			this.gamePosition.setPosition(p);
+			this.gamePosition.setDirectionsPosition(game.GameParmes.firstSit);
 		}
 		/*初始化玩家手牌*/
 		public initHandCard(): void {
@@ -453,7 +450,7 @@ module game {
 			this.gameHand.createHandCard(true, 0);//还原手牌
 			this.gameHand.createAllCPG(true);//还原吃碰杠牌
 			this.gamePool.reductionCardsPool();//还原牌池
-			this.gamePosition.setPosition(game.GamePlayData.playingSeat);//还原方位
+			this.gamePosition.setDirectionsPosition(game.GamePlayData.playingSeat);//还原方位
 			this.showGameInfo();
 
 			room.RoomWebSocket.instance().roomSender.ReqGamePlayerReleveTrustFun()
@@ -687,7 +684,7 @@ module game {
 		public showTwochi( leftArr:number[], rightArr:number[] ){
 			this.gameOpt.HasTwoChi = true;
 			this.twoChi.visible = true;
-			console.log("= this.lchiGroup==s", leftArr,rightArr)
+			// console.log("= this.lchiGroup==s", leftArr,rightArr)
 
 			leftArr.forEach( e=>{
 				let strIndex = `cardValue00${e +1}` ;
@@ -725,13 +722,18 @@ module game {
 			})
 		}
 
-		private onTapRightChi(){
+		public clearTwoChi(){
 			this.gameOpt.HasTwoChi = false;
-			this.gameOpt.initBtns();
 			this.twoChi.visible = false;
 			
 			this.lchiGroup.removeChildren();
 			this.RchiGroup.removeChildren();
+		}
+
+		private onTapRightChi(){
+		
+			this.gameOpt.initBtns();
+			this.clearTwoChi();
 
 			const mj_opts = game.GamePlayData.GetMJ_Operation();
 			let mj_opt: room.MJ_Operation

@@ -680,7 +680,7 @@ module game {
 						Tiles: [3,3,3,3],
 						fans: [],
 						operationID: 0,
-						operationType: CardsGroupType.MJ_OperationType.MJ_OT_E_KONG,
+						operationType: CardsGroupType.MJ_OperationType.MJ_OT_P_KONG,
 						tingTileInfo: [],		
 					},
 					// {
@@ -694,7 +694,7 @@ module game {
 					// }
 				
 				roundGuid: "611668085300221",
-				seatID: 4,
+				seatID: 1,
 				second: 20,
 				userInfo:{
 					fan: [],

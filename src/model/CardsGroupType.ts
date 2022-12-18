@@ -92,6 +92,7 @@ module game {
 			MJ_OT_TING : 10,	//听
 			MJ_OT_WIN : 11,	//和
 			MJ_OT_PASS : 12,	//过
+			
 	}
 
 	}
