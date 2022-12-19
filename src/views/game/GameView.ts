@@ -434,7 +434,7 @@ module game {
           		GameParmes.gameTurn = GameTurnType.SELFTURN;
         	}
         	//摸切，打出的是刚摸到的牌s
-        	if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_D_DISCARD) {
+        	if (opt.operationType == CardsGroupType.MJ_OperationType.模切) {
           		GameParmes.gameStage = GameStageType.PLAYING;
           		GameParmes.gameTurn = GameTurnType.SELFTURN;
         	}
@@ -583,7 +583,7 @@ module game {
 
       	//摸切，打出的是刚摸到的牌s
       	if (
-        	opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_D_DISCARD
+        	opt.operationType == CardsGroupType.MJ_OperationType.模切
       	) {
         	//console.log("=====摸切==")
         	const card: CardInfo = new CardInfo();

@@ -181,7 +181,7 @@ module room {
 			var body: room.VGSyncGameDataNtc = room.VGSyncGameDataNtc.decode(byte.bytes);
 			body.userInfos.forEach( user=>{
 				if(user.role == 0){
-					console.log("game.GameParmes.firstSit", user.userPos.seatID)
+					
 					game.GameParmes.firstSit = user.userPos.seatID;
 				}
 			})
@@ -315,7 +315,7 @@ module room {
 
 			body.userInfos.forEach( user=>{
 				if(user.role == 0){
-					console.log("game.GameParmes.firstSit", user.userPos.seatID)
+				
 					game.GameParmes.firstSit = user.userPos.seatID;
 				}
 			})

@@ -107,7 +107,7 @@ module game {
 
 
 			// 测试用按钮
-			this.btnTest.visible = false;
+			this.btnTest.visible = true;
 			this.btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
 				// ViewManager.ins.gameView.gameMatch.stopAnim();
 				// this.initPosition();

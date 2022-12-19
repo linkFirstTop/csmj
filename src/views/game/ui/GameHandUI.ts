@@ -611,7 +611,7 @@ module game {
 		/*点击了手牌*/
 		private onClickHandCard(evt: egret.Event): void {
 			let item: BaseHandCardUI = evt.data;
-     // console.log("===item",item.cardInfo.CardID)
+      console.log("===item.isMoCard",item.isMoCard)
 
 			if (GameParmes.gameTurn == GameTurnType.SELFTURN) {//出牌阶段
 				if (this.currentCard == item) {
@@ -666,7 +666,7 @@ module game {
 						const opt: room.MJ_Operation = new room.MJ_Operation()
 
 						if (item.isMoCard) {
-						 	opt.operationType = CardsGroupType.MJ_OperationType.摸牌;//摸切
+						 	opt.operationType = CardsGroupType.MJ_OperationType.模切;//摸切
 						} else {
 						 	opt.operationType = CardsGroupType.MJ_OperationType.手切;//操作类型
 						}

@@ -81,7 +81,7 @@ module game {
 		public static MJ_OperationType = {
 			摸牌 : 0,	//摸牌
 			手切 : 1,	//手切，打出的是手中的牌，吃碰之后都是手切
-			MJ_OT_D_DISCARD : 2,	//摸切，打出的是刚摸到的牌
+			模切 : 2,	//摸切，打出的是刚摸到的牌
 			MJ_OT_L_CHOW : 3,	//左吃，吃的牌是最小点, 例如45吃3
 			MJ_OT_M_CHOW : 4,	//中吃，吃的牌是中间点，例如24吃3
 			MJ_OT_R_CHOW : 5,	//右吃，吃的牌是最大点，例如12吃3

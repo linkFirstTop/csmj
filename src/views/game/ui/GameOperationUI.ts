@@ -384,6 +384,7 @@ module game {
 	
 		}
 		private sendGameNoOperation(): void {
+			
 			const opt: room.MJ_Operation = new room.MJ_Operation()
 			opt.operationType = CardsGroupType.MJ_OperationType.MJ_OT_PASS;//操作类型
 			opt.Tiles = [] //牌组  如果是出牌则数组中只有一张牌

@@ -470,19 +470,18 @@ class Global {
 	 * 当前出牌玩家的方位永远是东   0-东，1-西，2-南，3-北
 	 */
 	public static getCurrentPositionName(n: number): string {
-		console.log("====********")
-		console.log("====********firstSit", game.GameParmes.firstSit)
-		console.log("====********")
-		var str: string = "";
-		if (n == game.GameParmes.firstSit) {
+		const p = Global.getUserPosition(n)
+		let str: string = "";
+		if (p == 0) {
 			str = "east";
-		} else if ((game.GameParmes.firstSit + 1) % 4 == n) {
+		} else if (1 == p) {
 			str = "south";
-		} else if ((game.GameParmes.firstSit + 2) % 4 == n) {
+		} else if (2 == p) {
 			str = "west";
-		} else if ((game.GameParmes.firstSit + 3) % 4 == n) {
+		} else if (3 == p) {
 			str = "north";
 		}
+		console.log("=str=",str)
 		return str;
 	}
 	public static getCardName(index: number): string {
