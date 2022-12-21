@@ -34,7 +34,8 @@ module game {
 		private onResultTap(evt: egret.TouchEvent): void {
 			if (evt.target.name == "btnContinue") {
 				this.visible = false;
-				this.dispatchEvent(new egret.Event("OnGameContinue", true, true));
+				ViewManager.ins.gameView.gameUI.onBtnContinue()
+				//this.dispatchEvent(new egret.Event("OnGameContinue", true, true));
 				return;
 			}
 			if (evt.target.name == "btnClose") {

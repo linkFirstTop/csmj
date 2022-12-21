@@ -107,7 +107,7 @@ module game {
 
 
 			// 测试用按钮
-			this.btnTest.visible = true;
+			this.btnTest.visible = false;
 			this.btnTest.addEventListener(egret.TouchEvent.TOUCH_TAP, ()=>{
 				// ViewManager.ins.gameView.gameMatch.stopAnim();
 				// this.initPosition();
@@ -150,14 +150,14 @@ module game {
 			//   const gameopt = game.GamePlayData.MockGameOption();
 			// 	ViewManager.ins.gameView.ACK_GAME_OPERATION( <any>{data:gameopt} );
 
-				const Useropt = game.GamePlayData.MockUserOption();
-				ViewManager.ins.gameView.ACK_USER_OPERATION(<any>{data:Useropt} );
+				// const Useropt = game.GamePlayData.MockUserOption();
+				// ViewManager.ins.gameView.ACK_USER_OPERATION(<any>{data:Useropt} );
 
 				//    const gameopt = game.GamePlayData.MockSyncGameNtc();
 				//    game.GamePlayData.ContinueGame(gameopt);
 
-				//    const gameopt = game.GamePlayData.MockResultNtc();
-				//    ViewManager.ins.gameView.ACK_ALL_GAMERESULT( <any>{data:gameopt} );
+				   const gameopt = game.GamePlayData.MockResultNtc();
+				   ViewManager.ins.gameView.ACK_ALL_GAMERESULT( <any>{data:gameopt} );
 
 				// this.gamePosition.setPositionItem(0);
 				ViewManager.ins.gameView.gameMatch.stopAnim();
@@ -647,7 +647,8 @@ module game {
 			this.btnContinue.visible = true;
 			this.addChild(this.btnContinue);
 		}
-		private onBtnContinue(): void {
+		public onBtnContinue(): void {
+			
 			this.hideZhaBird();
 			this.btnContinue.visible = false;
 			GameController.onRequeseNextGame();
