@@ -426,15 +426,15 @@ module game {
       	//玩家自己操作
       	body.operation.forEach((opt: room.MJ_Operation) => {
         	//摸牌s
-        	// if (opt.operationType == CardsGroupType.MJ_OperationType.摸牌) { }
+        	// if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_DRAW) { }
 
         	//手切，打出的是手中的牌，吃碰之后都是手切
-        	if (opt.operationType == CardsGroupType.MJ_OperationType.手切) {
+        	if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_H_DISCARD) {
           		GameParmes.gameStage = GameStageType.PLAYING;
           		GameParmes.gameTurn = GameTurnType.SELFTURN;
         	}
         	//摸切，打出的是刚摸到的牌s
-        	if (opt.operationType == CardsGroupType.MJ_OperationType.模切) {
+        	if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_D_DISCARD) {
           		GameParmes.gameStage = GameStageType.PLAYING;
           		GameParmes.gameTurn = GameTurnType.SELFTURN;
         	}
@@ -536,7 +536,7 @@ module game {
       	}
 
       	//摸牌s
-      	if (opt.operationType == CardsGroupType.MJ_OperationType.摸牌) {
+      	if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_DRAW) {
         	const card: CardInfo = new CardInfo();
         	card.CardID = opt.Tiles[0];
         	card.Sit = nSit;
@@ -563,7 +563,7 @@ module game {
       	}
 
       	//手切，打出的是手中的牌，吃碰之后都是手切
-      	if (opt.operationType == CardsGroupType.MJ_OperationType.手切) {
+      	if (opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_H_DISCARD) {
         	//	console.log("=====打出的是手中的牌，吃碰之后都是手切==")
         	const card: CardInfo = new CardInfo();
         	card.CardID = opt.Tiles[0];
@@ -583,7 +583,7 @@ module game {
 
       	//摸切，打出的是刚摸到的牌s
       	if (
-        	opt.operationType == CardsGroupType.MJ_OperationType.模切
+        	opt.operationType == CardsGroupType.MJ_OperationType.MJ_OT_D_DISCARD
       	) {
         	//console.log("=====摸切==")
         	const card: CardInfo = new CardInfo();

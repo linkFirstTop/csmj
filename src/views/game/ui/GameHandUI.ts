@@ -666,9 +666,9 @@ module game {
 						const opt: room.MJ_Operation = new room.MJ_Operation()
 
 						if (item.isMoCard) {
-						 	opt.operationType = CardsGroupType.MJ_OperationType.模切;//摸切
+						 	opt.operationType = CardsGroupType.MJ_OperationType.MJ_OT_D_DISCARD;//摸切
 						} else {
-						 	opt.operationType = CardsGroupType.MJ_OperationType.手切;//操作类型
+						 	opt.operationType = CardsGroupType.MJ_OperationType.MJ_OT_H_DISCARD;//操作类型
 						}
 
 						opt.Tiles = [item.cardInfo.CardID] //牌组  如果是出牌则数组中只有一张牌
